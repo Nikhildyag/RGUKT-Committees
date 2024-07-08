@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import './App.css'
 import Homepage from './components/Home'
-import Commity1 from './components/Commity1'
+import Acadamic from './components/Acadamic'
 // import DesktopCommities from './components/DesktopCommities'
 
 const App = () => (
@@ -10,7 +10,7 @@ const App = () => (
     <Header />
     <Routes>
       <Route exact path="/" Component={Homepage} />
-      <Route exact path="/commtiy1" Component={Commity1} />
+      <Route exact path="/academic" Component={Acadamic} />
     </Routes>
   </BrowserRouter>
 )
