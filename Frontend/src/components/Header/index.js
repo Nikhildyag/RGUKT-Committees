@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const menuRef = useRef(null)
+  const dropdownRef = useRef(null)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -14,8 +16,27 @@ const Header = () => {
     setIsDropdownOpen(!isDropdownOpen)
   }
 
+  const handleClickOutside = (event) => {
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(event.target) &&
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setIsOpen(false)
+      setIsDropdownOpen(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   return (
-    <nav className="bg-[#426CAD] p-4 md:hidden">
+    <nav className="bg-[#426CAD] p-4" ref={menuRef}>
       <div className="flex justify-between items-center">
         <div className="text-white text-lg font-bold">
           <img
@@ -42,7 +63,7 @@ const Header = () => {
               Home
             </Link>
           </li>
-          <li className="text-white relative">
+          <li className="text-white relative" ref={dropdownRef}>
             <button
               onClick={toggleDropdown}
               className="flex items-center justify-between w-full text-left px-2 py-1 focus:outline-none"
