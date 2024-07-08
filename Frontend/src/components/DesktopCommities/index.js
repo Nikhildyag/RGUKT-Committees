@@ -22,7 +22,7 @@ const DesktopCommities = () => {
             Academic Committee
             </li>
           </Link>
-          <Link to="/campus">
+          <Link to="/campusamenties">
             <li className="m-2 list-none hover:bg-blue-200 truncate hover:text-black text-gray-100 cursor-pointer rounded-md">
             Campus Amenities Committee
             </li>
