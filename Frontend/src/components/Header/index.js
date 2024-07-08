@@ -36,7 +36,7 @@ const Header = () => {
   }, [])
 
   return (
-    <nav className="bg-[#426CAD] p-4" ref={menuRef}>
+    <nav className="bg-[#426CAD] p-4 relative">
       <div className="flex justify-between items-center">
         <div className="text-white text-lg font-bold">
           <img
@@ -53,7 +53,12 @@ const Header = () => {
         </button>
       </div>
 
-      <div className={`${isOpen ? 'block' : 'hidden'} w-full mt-4`}>
+      <div
+        className={`fixed top-0 left-0 h-full bg-[#426CAD] transition-transform transform ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        } w-64 p-4`}
+        ref={menuRef}
+      >
         <ul className="flex flex-col">
           <li className="text-white">
             <Link
@@ -63,37 +68,22 @@ const Header = () => {
               Home
             </Link>
           </li>
-          <li className="text-white relative" ref={dropdownRef}>
+          <li className="py-1 text-white relative" ref={dropdownRef}>
             <button
               onClick={toggleDropdown}
               className="flex items-center justify-between w-full text-left px-2 py-1 focus:outline-none"
             >
-              <span className="mr-2 ">Committees</span>
+              <span className="mr-2">Committees</span>
               {isDropdownOpen ? <FaAngleDown /> : <FaAngleRight />}
             </button>
             <ul
               className={`${
                 isDropdownOpen ? 'block' : 'hidden'
-              }  ml-2 bg-[#426CAD] rounded`}
+              } ml-2 bg-[#426CAD] rounded`}
             >
               <li className="text-white">
-                <Link to="/committees/academics" className="block ">
+                <Link to="/committees/academics" className="block">
                   Academics
-                </Link>
-              </li>
-              <li className="text-white">
-                <Link to="/committees/sports" className="block py-1">
-                  Sports
-                </Link>
-              </li>
-              <li className="text-white">
-                <Link to="/committees/sports" className="block py-1">
-                  Sports
-                </Link>
-              </li>
-              <li className="text-white">
-                <Link to="/committees/sports" className="block py-1">
-                  Sports
                 </Link>
               </li>
               <li className="text-white">
