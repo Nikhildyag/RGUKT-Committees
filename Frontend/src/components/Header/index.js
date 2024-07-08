@@ -1,20 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars, FaAngleDown, FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const menuRef = useRef(null)
-  const dropdownRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const menuRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen)
-  }
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   const handleClickOutside = (event) => {
     if (
@@ -23,17 +23,17 @@ const Header = () => {
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target)
     ) {
-      setIsOpen(false)
-      setIsDropdownOpen(false)
+      setIsOpen(false);
+      setIsDropdownOpen(false);
     }
-  }
+  };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-[#426CAD] p-4" ref={menuRef}>
@@ -53,7 +53,7 @@ const Header = () => {
         </button>
       </div>
 
-      <div className={`${isOpen ? 'block' : 'hidden'} w-full mt-4`}>
+      <div className={`${isOpen ? "block" : "hidden"} w-full mt-4`}>
         <ul className="flex flex-col">
           <li className="text-white">
             <Link
@@ -73,7 +73,7 @@ const Header = () => {
             </button>
             <ul
               className={`${
-                isDropdownOpen ? 'block' : 'hidden'
+                isDropdownOpen ? "block" : "hidden"
               }  ml-2 bg-[#426CAD] rounded`}
             >
               <li className="text-white">
@@ -111,7 +111,7 @@ const Header = () => {
         </ul>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

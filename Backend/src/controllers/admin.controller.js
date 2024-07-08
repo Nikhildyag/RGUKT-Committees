@@ -60,4 +60,5 @@ const loginAdmin = async (req, res) => {
     return res.status(400).json({ message: "your password is not valid" });
   return res.status(200).json({ user: admin });
 };
+
 export { createAdmin, loginAdmin };
