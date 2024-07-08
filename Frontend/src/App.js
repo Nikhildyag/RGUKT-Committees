@@ -5,8 +5,8 @@ import Homepage from './components/Home'
 
 const App = () => (
   <BrowserRouter>
+    <Header />
     <Routes>
-      <Header />
       <Route exact path="/" Component={Homepage} />
     </Routes>
   </BrowserRouter>
