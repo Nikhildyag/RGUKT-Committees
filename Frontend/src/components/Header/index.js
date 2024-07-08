@@ -59,46 +59,48 @@ const Header = () => {
         } w-64 p-4`}
         ref={menuRef}
       >
-        <ul className="flex flex-col">
-          <li className="text-white">
-            <Link
-              to="/home"
-              className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
-            >
-              Home
-            </Link>
-          </li>
-          <li className="py-1 text-white relative" ref={dropdownRef}>
-            <button
-              onClick={toggleDropdown}
-              className="flex items-center justify-between w-full text-left px-2 py-1 focus:outline-none"
-            >
-              <span className="mr-2">Committees</span>
-              {isDropdownOpen ? <FaAngleDown /> : <FaAngleRight />}
-            </button>
-            <ul
-              className={`${
-                isDropdownOpen ? 'block' : 'hidden'
-              } ml-2 bg-[#426CAD] rounded`}
-            >
-              <li className="text-white">
-                <Link to="/committees/academics" className="block">
-                  Academics
-                </Link>
-              </li>
-              <li className="text-white">
-                <Link to="/committees/sports" className="block py-1">
-                  Sports
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li className="text-white">
-            <Link to="/login" className="block px-2 py-1">
-              Login
-            </Link>
-          </li>
-        </ul>
+        <div className={`${isOpen ? 'block' : 'hidden'} w-full mt-4`}>
+          <ul className="flex flex-col">
+            <li className="text-white">
+              <Link
+                to="/home"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Home
+              </Link>
+            </li>
+            <li className="py-1 text-white relative" ref={dropdownRef}>
+              <button
+                onClick={toggleDropdown}
+                className="flex items-center justify-between  w-full text-left px-2 py-1 focus:outline-none"
+              >
+                <span className="mr-2">Committees</span>
+                {isDropdownOpen ? <FaAngleDown /> : <FaAngleRight />}
+              </button>
+              <ul
+                className={`${
+                  isDropdownOpen ? 'block' : 'hidden'
+                } ml-2 bg-[#426CAD] rounded`}
+              >
+                <li className="text-white">
+                  <Link to="/committees/academics" className="block">
+                    Academics
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/committees/sports" className="block py-1">
+                    Sports
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li className="text-white">
+              <Link to="/login" className="block px-2 py-1">
+                Login
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   )

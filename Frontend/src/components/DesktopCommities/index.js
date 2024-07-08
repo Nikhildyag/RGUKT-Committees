@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const DesktopCommities = () => {
   return (
-    <div className="min-h-screen h-full sm:block w-52 bg-gray-800">
+    <div className="min-h-screen h-full sm:hidden fixed top-0 md:block lg:block xl:block w-52 bg-gray-800">
       <h1 className="text-white text-[22px] pl-2 pt-2 font-serif font-bold">
         Commities
       </h1>
