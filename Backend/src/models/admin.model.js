@@ -1,4 +1,5 @@
 import mongoose, { mongo, Schema } from "mongoose";
+import bcrypt from "bcrypt";
 const adminSchema = new Schema(
   {
     email: {
@@ -11,7 +12,7 @@ const adminSchema = new Schema(
       type: String,
       required: true,
     },
-    fullname: {
+    fullName: {
       type: String,
       required: true,
       lowercase: true,
@@ -29,5 +30,16 @@ const adminSchema = new Schema(
   },
   { timestamps: true }
 );
+
+adminSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
+  next();
+});
+
+adminSchema.methods.isPasswordCorrect = async function (password) {
+  return await bcrypt.compare(password, this.password);
+};
 
 export const Admin = mongoose.model("Admin", adminSchema);
