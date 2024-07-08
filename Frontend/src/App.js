@@ -5,7 +5,7 @@ import HomePage from './components/Home'
 const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route exact path="/" element={<HomePage />} />
+      <Route exact path="/" element={<HomePage/>} />
     </Routes>
   </BrowserRouter>
 )
