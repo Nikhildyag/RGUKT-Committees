@@ -47,19 +47,19 @@ const Header = () => {
         </div>
         <button
           onClick={toggleMenu}
-          className="text-white text-2xl focus:outline-none"
+          className="text-white text-2xl  sm:block md:hidden focus:outline-none"
         >
           <FaBars />
         </button>
       </div>
 
       <div
-        className={`fixed top-0 left-0 h-full bg-[#426CAD] transition-transform transform ${
+        className={`fixed top-0 left-0 h-full bg-[#426CAD]  sm:block md:hidden transition-transform transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } w-64 p-4`}
         ref={menuRef}
       >
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full mt-4`}>
+        <div className={`${isOpen ? 'block' : 'hidden'} w-full  mt-4`}>
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
