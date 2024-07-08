@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const  DesktopCommities= () => {
   return (
-    <div className='min-h-screen h-full sm:hidden md:block lg:block xl:block w-52 bg-gray-800'>
+    <div className='min-h-screen h-full sm:hidden fixed top-0 md:block lg:block xl:block w-52 bg-gray-800'>
       <div className="flex flex-row gap-2">
             <img
               src="https://hub.rgukt.ac.in/hub/static/images/logo.png"

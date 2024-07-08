@@ -38,21 +38,24 @@ const Header = () => {
   return (
     <nav className="bg-[#426CAD] p-4" ref={menuRef}>
       <div className="flex justify-between items-center">
-        <div className="text-white text-lg font-bold">
-          <img
-            src="https://hub.rgukt.ac.in/hub/static/images/logo.png"
-            className="h-8 rounded-[50%] "
-            alt="RGUKT LOGO"
-          />
-        </div>
+       
         <button
           onClick={toggleMenu}
-          className="text-white text-2xl focus:outline-none"
+          className="text-white text-2xl focus:outline-none sm:block md:hidden  lg:hidden"
         >
           <FaBars />
         </button>
+        <div className='sm:block md:hidden'>
+        <ul className='list-none text-white flex gap-4'>
+            <li >Login</li>
+        </ul> 
+        </div>
+        <div className='sm:hidden md:block'>
+        <ul className='list-none text-white flex gap-4'>
+            <li >Login</li>
+        </ul> 
+        </div>
       </div>
-
       <div className={`${isOpen ? 'block' : 'hidden'} w-full mt-4`}>
         <ul className="flex flex-col">
           <li className="text-white">
@@ -66,7 +69,7 @@ const Header = () => {
           <li className="text-white relative" ref={dropdownRef}>
             <button
               onClick={toggleDropdown}
-              className="flex items-center justify-between w-full text-left px-2 py-1 focus:outline-none"
+              className="flex items-center justify-between  w-full text-left px-2 py-1 focus:outline-none"
             >
               <span className="mr-2 ">Committees</span>
               {isDropdownOpen ? <FaAngleDown /> : <FaAngleRight />}
@@ -102,11 +105,6 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-          </li>
-          <li className="text-white">
-            <Link to="/login" className="block px-2 py-1">
-              Login
-            </Link>
           </li>
         </ul>
       </div>
