@@ -1,11 +1,12 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import HomePage from "./components/Home";
 
 const App = () => (
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={Home} />
-    </Switch>
+    <Routes>
+      <Route exact path="/" element={<HomePage />} />
+    </Routes>
   </BrowserRouter>
 );
 
