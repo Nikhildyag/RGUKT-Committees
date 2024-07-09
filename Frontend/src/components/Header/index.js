@@ -20,8 +20,7 @@ const Header = () => {
     if (
       menuRef.current &&
       !menuRef.current.contains(event.target) &&
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target)
+      (!dropdownRef.current || !dropdownRef.current.contains(event.target))
     ) {
       setIsOpen(false)
       setIsDropdownOpen(false)
@@ -41,7 +40,7 @@ const Header = () => {
         <div className="text-white text-lg font-bold">
         <button
           onClick={toggleMenu}
-          className="text-white text-2xl  sm:block md:hidden focus:outline-none"
+          className="text-white text-2xl sm:block md:hidden focus:outline-none"
         >
           <FaBars />
         </button>
@@ -54,12 +53,12 @@ const Header = () => {
       </div>
 
       <div
-        className={`fixed top-0 left-0 h-full bg-[#426CAD]  sm:block md:hidden transition-transform transform ${
+        className={`fixed top-0 left-0 h-full bg-[#426CAD] transition-transform transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } w-64 p-4`}
         ref={menuRef}
       >
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full  mt-4`}>
+        <div className="w-full mt-4">
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
@@ -72,7 +71,7 @@ const Header = () => {
             <li className="py-1 text-white relative" ref={dropdownRef}>
               <button
                 onClick={toggleDropdown}
-                className="flex items-center justify-between  w-full text-left px-2 py-1 focus:outline-none"
+                className="flex items-center justify-between w-full text-left px-2 py-1 focus:outline-none"
               >
                 <span className="mr-2">Committees</span>
                 {isDropdownOpen ? <FaAngleDown /> : <FaAngleRight />}
