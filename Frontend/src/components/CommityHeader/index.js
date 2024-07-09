@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
+import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const CommityHeader = () => {
@@ -36,17 +36,20 @@ const CommityHeader = () => {
   }, [])
 
   return (
-    <nav className="bg-[#426CAD] p-4 relative">
+    <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
-        <div className="text-white text-lg font-bold">
-        <button
-          onClick={toggleMenu}
-          className="text-white text-2xl  sm:block md:hidden focus:outline-none"
-        >
-          <FaBars />
-        </button>
+        <div className="text-white lg:block md:block sm:hidden">
+          Academic Committee
         </div>
-        <p className='text-white'>Login</p>
+        <div className="text-white text-lg font-bold">
+          <button
+            onClick={toggleMenu}
+            className="text-white text-2xl  sm:block md:hidden focus:outline-none"
+          >
+            <FaBars />
+          </button>
+        </div>
+        <p className="text-white">Login</p>
       </div>
 
       <div
@@ -65,34 +68,26 @@ const CommityHeader = () => {
                 Home
               </Link>
             </li>
-            <li className="py-1 text-white relative" ref={dropdownRef}>
-              <button
-                onClick={toggleDropdown}
-                className="flex items-center justify-between  w-full text-left px-2 py-1 focus:outline-none"
+            <li className="text-white">
+              <Link
+                to="/home"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                <span className="mr-2">Committees</span>
-                {isDropdownOpen ? <FaAngleDown /> : <FaAngleRight />}
-              </button>
-              <ul
-                className={`${
-                  isDropdownOpen ? 'block' : 'hidden'
-                } ml-2 bg-[#426CAD] rounded`}
-              >
-                <li className="text-white">
-                  <Link to="/committees/academics" className="block">
-                    Academics
-                  </Link>
-                </li>
-                <li className="text-white">
-                  <Link to="/committees/sports" className="block py-1">
-                    Sports
-                  </Link>
-                </li>
-              </ul>
+                Central Authority
+              </Link>
             </li>
             <li className="text-white">
+              <Link
+                to="/home"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Faculty Incharge
+              </Link>
+            </li>
+
+            <li className="text-white">
               <Link to="/login" className="block px-2 py-1">
-                Login
+                Students Commity
               </Link>
             </li>
           </ul>
