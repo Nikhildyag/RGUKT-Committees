@@ -3,12 +3,20 @@
 @tailwind utilities;
 
 @keyframes marquee {
-    0% { transform: translateX(75%); }
-    100% { transform: translateX(-75%); }
+  0% {
+    transform: translateX(75%);
   }
-  
-  .marquee {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 10s linear infinite;
+  100% {
+    transform: translateX(-75%);
   }
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+.html,
+body {
+  font-family: sans-serif;
+}
