@@ -1,7 +1,7 @@
 import React from 'react'
-import AcademicHeader from '../AcademicHeader'
-import AcademicSidebar from '../AcademicSidebar'
-import ProfileCard from '../../../ProfileCard'
+import AcademicHeader from './AcademicHeader'
+import AcademicSidebar from './AcademicSidebar'
+import ProfileCard from '../../ProfileCard'
 
 const StudentCommittee = () => {
         const Data={name:'Nikhil',ImageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s',Designation:'Student Incharge',Qualification:'CHEM',Branch:'CSE'}
