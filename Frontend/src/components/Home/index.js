@@ -8,7 +8,7 @@ const Homepage = () => {
       <Header />
       <div className="flex flex-1 overflow-auto ">
         <DesktopCommities className="w-1/4 min-h-full overflow-auto" />
-        <div className="flex-1 p-6 relative left-60 z-[-1] ">
+        <div className="flex-1 p-6 sm:relative md:left-60 sm:left-0 z-[-1] ">
           <div className="mb-8 ">
             <h1 className="marquee text-3xl font-bold mb-4">
               Welcome to RGUKT Basar's Central Committee Communication Portal
