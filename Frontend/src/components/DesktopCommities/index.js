@@ -14,9 +14,8 @@ const DesktopCommities = () => {
           Committees
         </span>
       </div>
-
-      <div className="overflow-y-auto h-full bg-[#f0f0f0] mt-[7.2%]">
-        <ul className="list-none px-4 py-5">
+      <div className="overflow-y-auto h-full">
+        <ul className="list-none px-2 py-5">
           <Link to="/academic">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:rounded-md text-black truncate  hover:px-2 cursor-pointer rounded-sm py-2">
               Academic Committee

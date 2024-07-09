@@ -1,1 +1,1 @@
-# TSAS
+# RGUKT-committees
