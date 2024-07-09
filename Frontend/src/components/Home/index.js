@@ -6,9 +6,9 @@ const Homepage = () => {
   return (
     <div className="flex flex-col h-screen overflow-x-hidden overflow-y-auto">
       <Header />
-      <div className="flex flex-1 overflow-auto max-w-3/4 overflow-x-hidden">
-        <DesktopCommities className="w-1/4 min-h-full overflow-auto" />
-        <div className="flex-1 p-6 relative left-60 z-[-1]">
+      <div className="flex flex-1 overflow-auto sm:max-w-full md:max-w-3/4 overflow-x-hidden">
+        <DesktopCommities className="md:w-1/4 min-h-full overflow-auto sm:max-w-0 w-full inset-0" />
+        <div className="flex-1 md:p-5 relative sm:left-0 md:left-60 z-[-1]">
           <div className="mb-8 w-3/4 break-words px-3">
             <h1 className="marquee text-3xl font-bold mb-4 break-words text-rose-900">
               Welcome to RGUKT Basar's Central Committee Communication Portal
