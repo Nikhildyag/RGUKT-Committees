@@ -1,11 +1,11 @@
-import React from 'react'
-import CommityHeader from '../../CommityHeader'
-import { Link } from 'react-router-dom'
+import React from "react";
+import CommityHeader from "../../CommityHeader";
+import { Link } from "react-router-dom";
 
 const Acadamic = () => {
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <CommityHeader />
+      <CommityHeader name={"Academic Committee"} />
       <div className="flex w-full">
         <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:block xl:block w-2/12 bg-[#ece8e8] shadow-lg mt-14">
           <div className="overflow-y-auto h-full">
@@ -30,8 +30,8 @@ const Acadamic = () => {
         </div>
 
         <div className="flex-1 p-6 sm:relative md:left-60 sm:left-0 z-[-1] ml-2">
-          <div className="mb-8 w-10/12 break-words">
-            <h1 className="marquee text-3xl font-bold mb-4 mt-14 text-red-800">
+          <div className="mb-8 w-full md:w-3/4 break-words px-3">
+            <h1 className="text-3xl font-bold mb-4 mt-14 text-red-800">
               Welcome to RGUKT Basar's Academic Commity
             </h1>
             <section id="purpose">
@@ -73,13 +73,13 @@ const Acadamic = () => {
             id="centralauthority"
             className="flex flex-col w-[80%] items-center my-5 hover:bg-slate-300 hover:border-green-900"
           >
-            <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
+            <div className=" sm:m-1 md:m-0 flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row cursor-pointer">
               <img
                 className="object-cover w-36 rounded-t-lg h-36 md:h-36 md:w-36 md:rounded-none md:rounded-s-lg px-2"
                 src="https://www.rgukt.ac.in/assets/images/staff/srujana.jpg"
                 alt="Faculty Img"
               />
-              <div className="flex flex-col justify-between px-4 py-2 leading-normal w-[18em]">
+              <div className="flex flex-col justify-between items-center px-4 py-2 leading-normal w-[18em]">
                 <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   Mrs.Srujana
                 </h1>
@@ -99,13 +99,13 @@ const Acadamic = () => {
             id="centralauthority"
             className="flex flex-col w-[80%] items-center my-5"
           >
-            <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
+            <div className="flex sm:m-1 md:m-0 flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
               <img
                 className="object-cover w-36 rounded-t-lg h-36 md:h-36 md:w-36 md:rounded-none md:rounded-s-lg px-2"
                 src="https://www.rgukt.ac.in/assets/images/staff/Mahesh_me.jpg"
                 alt="Faculty Img"
               />
-              <div className="flex flex-col justify-between px-4 py-2 leading-normal w-[18em]">
+              <div className="flex flex-col justify-between items-center px-4 py-2 leading-normal w-[18em]">
                 <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   Mr.Mahesh
                 </h1>
@@ -121,15 +121,15 @@ const Acadamic = () => {
               </div>
             </div>
           </section>
-          <section className="flex sm:flex-col md:flex-row sm:items-center md:justify-between w-[80%] my-5 gap-2">
+          <section className="flex sm:flex-col lg:flex-row sm:items-center w-[80%] my-5 gap-2">
             <div>
-              <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
+              <div className="flex sm:m-2 md:m-0 flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
                 <img
                   className="object-cover w-36 rounded-t-lg h-36 md:h-36 md:w-36 md:rounded-none md:rounded-s-lg px-2"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s"
                   alt="Faculty Img"
                 />
-                <div className="flex flex-col justify-between px-4 py-2 leading-normal w-[18em]">
+                <div className="flex flex-col justify-between items-center px-4 py-2 leading-normal w-[18em]">
                   <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Nikhil
                   </h1>
@@ -146,13 +146,13 @@ const Acadamic = () => {
               </div>
             </div>
             <div>
-              <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
+              <div className="flex sm:m-2 md:m-0 flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
                 <img
                   className="object-cover w-36 rounded-t-lg h-36 md:h-36 md:w-36 md:rounded-none md:rounded-s-lg px-2"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s"
                   alt="Faculty Img"
                 />
-                <div className="flex flex-col justify-between px-4 py-2 leading-normal w-[18em]">
+                <div className="flex flex-col justify-between items-center px-4 py-2 leading-normal w-[18em]">
                   <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Sathwika
                   </h1>
@@ -169,13 +169,13 @@ const Acadamic = () => {
               </div>
             </div>
             <div>
-              <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
+              <div className="flex sm:m-2 md:m-0 flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
                 <img
                   className="object-cover w-36 rounded-t-lg h-36 md:h-36 md:w-36 md:rounded-none md:rounded-s-lg px-2"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s"
                   alt="Faculty Img"
                 />
-                <div className="flex flex-col justify-between px-4 py-2 leading-normal w-[18em]">
+                <div className="flex flex-col justify-between items-center px-4 py-2 leading-normal w-[18em]">
                   <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Ramesh
                   </h1>
@@ -192,13 +192,13 @@ const Acadamic = () => {
               </div>
             </div>
             <div>
-              <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
+              <div className="flex sm:m-2 md:0 flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl cursor-pointer">
                 <img
                   className="object-cover w-36 rounded-t-lg h-36 md:h-36 md:w-36 md:rounded-none md:rounded-s-lg px-2"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s"
                   alt="Faculty Img"
                 />
-                <div className="flex flex-col justify-between px-4 py-2 leading-normal w-[18em]">
+                <div className="flex flex-col justify-between items-center px-4 py-2 leading-normal w-[18em]">
                   <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Siddu
                   </h1>
@@ -218,7 +218,7 @@ const Acadamic = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Acadamic
+export default Acadamic;

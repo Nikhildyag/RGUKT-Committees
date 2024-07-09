@@ -1,6 +1,6 @@
-import React from 'react'
-import DesktopCommities from '../DesktopCommities'
-import Header from '../Header'
+import React from "react";
+import DesktopCommities from "../DesktopCommities";
+import Header from "../Header";
 
 const Homepage = () => {
   return (
@@ -8,9 +8,9 @@ const Homepage = () => {
       <Header />
       <div className="flex flex-1 overflow-auto sm:max-w-full md:max-w-3/4 overflow-x-hidden">
         <DesktopCommities className="md:w-1/4 min-h-full overflow-auto sm:max-w-0 w-full inset-0" />
-        <div className="flex-1 md:p-5 relative sm:left-0 md:left-60 z-[-1]">
-          <div className="mb-8 w-3/4 break-words px-3">
-            <h1 className="marquee text-3xl font-bold mb-4 break-words text-rose-900">
+        <div className="flex-1 p-5 relative sm:left-0 md:left-60">
+          <div className="mb-8 w-full md:w-3/4 break-words px-3">
+            <h1 className="text-3xl font-bold mb-4 break-words md:marquee text-rose-900">
               Welcome to RGUKT Basar's Central Committee Communication Portal
               Enhancing Connectivity and Collaboration
             </h1>
@@ -25,7 +25,7 @@ const Homepage = () => {
             </p>
           </div>
 
-          <section className="mb-8 w-3/4 break-words px-3">
+          <section className="mb-8 w-full md:w-3/4 break-words px-3">
             <h2 className="text-2xl font-bold mb-4 break-words bg-green-900 w-fit text-white px-1">
               Key Features of the Portal :
             </h2>
@@ -121,7 +121,7 @@ const Homepage = () => {
             </div>
           </section>
 
-          <section className="mb-8 w-3/4 break-words px-3">
+          <section className="mb-8 w-full md:w-3/4 break-words px-3">
             <h2 className="text-2xl font-bold mb-4 break-words bg-green-900 text-white px-1 w-fit">
               Purpose and Vision :
             </h2>
@@ -169,7 +169,7 @@ const Homepage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

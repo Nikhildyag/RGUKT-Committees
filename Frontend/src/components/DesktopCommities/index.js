@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const DesktopCommities = () => {
   return (
@@ -110,7 +110,7 @@ const DesktopCommities = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DesktopCommities
+export default DesktopCommities;
