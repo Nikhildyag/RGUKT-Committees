@@ -19,6 +19,9 @@ import Placement from './components/Commities/Placement'
 import Safety from './components/Commities/Safety'
 import Social from './components/Commities/Social'
 import Sports from './components/Commities/Sports'
+import CentralAuthority from './components/Commities/Acadamic/CentralAuthority'
+import FacultyIncarge from './components/Commities/Acadamic/FacultyIncarge'
+import StudentCommittee from './components/Commities/Acadamic/StudentCommittee'
 
 const App = () => (
   <BrowserRouter>
@@ -42,6 +45,9 @@ const App = () => (
       <Route exact path='/safety' Component={Safety}/> 
       <Route exact path='/social' Component={Social}/> 
       <Route exact path='/sports' Component={Sports}/>
+      <Route exact path='/academic/centralaurhority' Component={CentralAuthority}/>
+      <Route export path='/academic/facultyincarge' Component={FacultyIncarge}/>
+      <Route export path='/academic/studentcommitte' Component={StudentCommittee}/>
     </Routes>
   </BrowserRouter>
 )
