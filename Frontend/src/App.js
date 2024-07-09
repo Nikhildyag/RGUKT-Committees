@@ -26,7 +26,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Homepage from "./components/Home";
 import Acadamic from "./components/Commities/Acadamic";
-import CampusGreeting from "./components/Commities/Campusgreeting";
 import CampusAmenties from "./components/Commities/CampusAmenties";
 import Career from "./components/Commities/Career";
 import Cultural from "./components/Commities/Cultural";
