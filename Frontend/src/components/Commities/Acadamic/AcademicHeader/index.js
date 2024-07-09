@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const CommityHeader = ({ name }) => {
+const AcademicHeader = ({ name }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
@@ -95,4 +95,4 @@ const CommityHeader = ({ name }) => {
   );
 };
 
-export default CommityHeader;
+export default AcademicHeader;

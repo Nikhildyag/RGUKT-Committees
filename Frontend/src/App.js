@@ -19,6 +19,10 @@ import Placement from './components/Commities/Placement'
 import Safety from './components/Commities/Safety'
 import Social from './components/Commities/Social'
 import Sports from './components/Commities/Sports'
+import CentralAuthority from './components/Commities/Acadamic/CentralAuthority'
+import FacultyIncarge from './components/Commities/Acadamic/FacultyIncarge'
+import StudentCommittee from './components/Commities/Acadamic/StudentCommittee'
+
 import CampusAmenitiesForm from './components/forms/CampusAmenitiesForm'
 import MessAdvisoryForm from './components/forms/MessAdvisoryForm '
 import CareerGuidanceForm from './components/forms/CareerGuidanceForm'
@@ -43,6 +47,38 @@ const App = () => (
     <Routes>
       <Route exact path="/" Component={Homepage} />
       <Route exact path="/academic" Component={Acadamic} />
+      <Route exact path="/campusamenties" Component={CampusAmenties} />
+      <Route exact path="/campusgreeting" Component={CampusGreeting} />
+      <Route exact path="/career" Component={Career} />
+      <Route exact path="/cultural" Component={Cultural} />
+      <Route exact path="/educational" Component={Education} />
+      <Route exact path="/environment" Component={Environment} />
+      <Route exact path="/external" Component={External} />
+      <Route exact path="/grievance" Component={Grievance} />
+      <Route exact path="/health" Component={Health} />
+      <Route exact path="/hostel" Component={Hostel} />
+      <Route exact path="/innovation" Component={Innovation} />
+      <Route exact path="/mess" Component={Mess} />
+      <Route exact path="/photography" Component={Photography} />
+      <Route exact path="/placement" Component={Placement} />
+      <Route exact path="/safety" Component={Safety} />
+      <Route exact path="/social" Component={Social} />
+      <Route exact path="/sports" Component={Sports} />
+      <Route
+        exact
+        path="/academic/centralaurhority"
+        Component={CentralAuthority}
+      />
+      <Route
+        export
+        path="/academic/facultyincarge"
+        Component={FacultyIncarge}
+      />
+      <Route
+        export
+        path="/academic/studentcommitte"
+        Component={StudentCommittee}
+      />
       <Route exact path="/campusamenties" Component={CampusAmenties} />
       <Route exact path="/campusgreeting" Component={CampusGreeting} />
       <Route exact path="/career" Component={Career} />
