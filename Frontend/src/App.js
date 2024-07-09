@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Homepage from './components/Home'
 import Acadamic from './components/Commities/Acadamic'
-import CampusGreeting from './components/Commities/Campusgreeting'
+import CampusGreening from './components/Commities/CampusGreening'
 import CampusAmenties from './components/Commities/CampusAmenties'
 import Career from './components/Commities/Career'
 import Cultural from './components/Commities/Cultural'
@@ -48,7 +48,7 @@ const App = () => (
       <Route exact path="/" Component={Homepage} />
       <Route exact path="/academic" Component={Acadamic} />
       <Route exact path="/campusamenties" Component={CampusAmenties} />
-      <Route exact path="/campusgreeting" Component={CampusGreeting} />
+      <Route exact path="/campusgreeting" Component={CampusGreening} />
       <Route exact path="/career" Component={Career} />
       <Route exact path="/cultural" Component={Cultural} />
       <Route exact path="/educational" Component={Education} />
@@ -80,7 +80,7 @@ const App = () => (
         Component={StudentCommittee}
       />
       <Route exact path="/campusamenties" Component={CampusAmenties} />
-      <Route exact path="/campusgreeting" Component={CampusGreeting} />
+      <Route exact path="/campusgreeting" Component={CampusGreening} />
       <Route exact path="/career" Component={Career} />
       <Route exact path="/cultural" Component={Cultural} />
       <Route exact path="/educational" Component={Education} />

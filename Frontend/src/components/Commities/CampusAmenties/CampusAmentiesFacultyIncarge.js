@@ -1,19 +1,19 @@
 import React from 'react'
-import Header from './Header'
-import Sidebar from './Sidebar'
+import CampusAmentiesHeader from './CampusAmentiesHeader'
+import CampusAmentiesSidebar from './CampusAmentiesSidebar'
 import ProfileCard from '../../ProfileCard'
 
-const FacultyIncarge = () => {
+const CampusAmentiesFacultyIncarge = () => {
         const Data={name:'Nikhil',ImageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s',Designation:'Faculty Incarge',Qualification:'PHD',Branch:'CSE'}
         return (
             <div className="max-w-[100%] overflow-x-hidden text-wrap">
-                <Header name={"Academic Committee"} />
+                <CampusAmentiesHeader name={"Academic Committee"} />
                 <div className="flex w-full">
-                <Sidebar />
+                <CampusAmentiesSidebar />
                 <ProfileCard Data={Data}/>
                 </div>
             </div>
         )
 }
 
-export default FacultyIncarge
+export default CampusAmentiesFacultyIncarge

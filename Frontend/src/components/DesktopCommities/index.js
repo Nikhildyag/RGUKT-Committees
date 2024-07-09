@@ -72,7 +72,7 @@ const DesktopCommities = () => {
               Environment/Sustainability Committee
             </li>
           </Link>
-          <Link to="/campusgreeting">
+          <Link to="/campusgreening">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
               Campus Greening Committee
             </li>
