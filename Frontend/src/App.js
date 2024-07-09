@@ -19,7 +19,6 @@ import Placement from './components/Commities/Placement'
 import Safety from './components/Commities/Safety'
 import Social from './components/Commities/Social'
 import Sports from './components/Commities/Sports'
-
 import CampusAmenitiesForm from './components/forms/CampusAmenitiesForm'
 import MessAdvisoryForm from './components/forms/MessAdvisoryForm '
 import CareerGuidanceForm from './components/forms/CareerGuidanceForm'
