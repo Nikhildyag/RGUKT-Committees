@@ -4,17 +4,17 @@
 
 @keyframes marquee {
   0% {
-    transform: translateX(75%);
+    transform: translateX(70%);
   }
   100% {
-    transform: translateX(-75%);
+    transform: translateX(-70%);
   }
 }
 
 .marquee {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 10s linear infinite;
+  animation: marquee 20s linear infinite;
 }
 .html,
 body {
