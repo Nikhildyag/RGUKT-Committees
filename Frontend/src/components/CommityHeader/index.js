@@ -39,18 +39,14 @@ const CommityHeader = () => {
     <nav className="bg-[#426CAD] p-4 relative">
       <div className="flex justify-between items-center">
         <div className="text-white text-lg font-bold">
-          <img
-            src="https://hub.rgukt.ac.in/hub/static/images/logo.png"
-            className="h-8 rounded-[50%] "
-            alt="RGUKT LOGO"
-          />
-        </div>
         <button
           onClick={toggleMenu}
           className="text-white text-2xl  sm:block md:hidden focus:outline-none"
         >
           <FaBars />
         </button>
+        </div>
+        <p className='text-white'>Login</p>
       </div>
 
       <div
