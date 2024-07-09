@@ -10,7 +10,7 @@ const Homepage = () => {
         <DesktopCommities className="w-1/4 min-h-full overflow-auto" />
         <div className="flex-1 p-6 relative left-60 z-[-1]">
           <div className="mb-8 w-3/4 break-words px-3">
-            <h1 className="marquee text-3xl font-bold mb-4 break-words">
+            <h1 className="marquee text-3xl font-bold mb-4 break-words text-rose-900">
               Welcome to RGUKT Basar's Central Committee Communication Portal
               Enhancing Connectivity and Collaboration
             </h1>
@@ -26,12 +26,12 @@ const Homepage = () => {
           </div>
 
           <section className="mb-8 w-3/4 break-words px-3">
-            <h2 className="text-3xl font-bold mb-4 break-words">
-              Key Features of the Portal
+            <h2 className="text-2xl font-bold mb-4 break-words bg-green-900 w-fit text-white px-1">
+              Key Features of the Portal :
             </h2>
 
             <div className="mb-4 break-words">
-              <h3 className="text-2xl font-semibold mb-2 break-words">
+              <h3 className="text-xl font-semibold mb-2 break-words">
                 Centralized Communication Hub
               </h3>
               <ul className="list-disc list-inside break-words">
@@ -47,7 +47,7 @@ const Homepage = () => {
             </div>
 
             <div className="mb-4 break-words">
-              <h3 className="text-2xl font-semibold mb-2 break-words">
+              <h3 className="text-xl font-semibold mb-2 break-words">
                 Efficient Feedback System
               </h3>
               <ul className="list-disc list-inside break-words">
@@ -63,7 +63,7 @@ const Homepage = () => {
             </div>
 
             <div className="mb-4 break-words">
-              <h3 className="text-2xl font-semibold mb-2 break-words">
+              <h3 className="text-xl font-semibold mb-2 break-words">
                 Event Management and Participation
               </h3>
               <ul className="list-disc list-inside break-words">
@@ -76,7 +76,7 @@ const Homepage = () => {
             </div>
 
             <div className="mb-4 break-words">
-              <h3 className="text-2xl font-semibold mb-2 break-words">
+              <h3 className="text-xl font-semibold mb-2 break-words">
                 Resource Access and Support
               </h3>
               <ul className="list-disc list-inside break-words">
@@ -92,7 +92,7 @@ const Homepage = () => {
             </div>
 
             <div className="mb-4 break-words">
-              <h3 className="text-2xl font-semibold mb-2 break-words">
+              <h3 className="text-xl font-semibold mb-2 break-words">
                 Grievance Redressal
               </h3>
               <ul className="list-disc list-inside break-words">
@@ -105,7 +105,7 @@ const Homepage = () => {
             </div>
 
             <div className="mb-4 break-words">
-              <h3 className="text-2xl font-semibold mb-2 break-words">
+              <h3 className="text-xl font-semibold mb-2 break-words">
                 Innovation and Collaboration
               </h3>
               <ul className="list-disc list-inside break-words">
@@ -122,8 +122,8 @@ const Homepage = () => {
           </section>
 
           <section className="mb-8 w-3/4 break-words px-3">
-            <h2 className="text-3xl font-bold mb-4 break-words">
-              Purpose and Vision
+            <h2 className="text-2xl font-bold mb-4 break-words bg-green-900 text-white px-1 w-fit">
+              Purpose and Vision :
             </h2>
             <p className="mb-4 break-words">
               The RGUKT Basar Central Committee Communication Portal is

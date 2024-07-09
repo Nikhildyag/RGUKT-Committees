@@ -16,3 +16,7 @@
   white-space: nowrap;
   animation: marquee 10s linear infinite;
 }
+.html,
+body {
+  font-family: sans-serif;
+}
