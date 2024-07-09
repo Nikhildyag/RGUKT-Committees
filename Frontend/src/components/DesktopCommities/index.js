@@ -14,7 +14,6 @@ const DesktopCommities = () => {
         Commities
       </span>
       </div>
-     
       <div className="overflow-y-auto h-full">
         <ul className="list-none px-2 py-5">
           <Link to="/academic">
