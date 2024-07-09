@@ -3,13 +3,13 @@ import AcademicHeader from "./AcademicHeader";
 import AcademicSidebar from "./AcademicSidebar";
 import ProfileCard from "../../ProfileCard";
 
-const CentralAuthority = () => {
+const SportsStudentCommittee = () => {
   const Data = {
-    name: "Mahesh",
+    name: "Nikhil",
     ImageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s",
-    Designation: "CentralAuthority",
-    Qualification: "PHD",
+    Designation: "Student Incharge",
+    Qualification: "CHEM",
     Branch: "CSE",
   };
   return (
@@ -17,10 +17,19 @@ const CentralAuthority = () => {
       <AcademicHeader name={"Academic Committee"} />
       <div className="flex w-full">
         <AcademicSidebar />
-        <ProfileCard Data={Data} />
+        <div className="relative left-60">
+          <div className="flex">
+            <ProfileCard Data={Data} className="mr-5" />
+            <ProfileCard Data={Data} className="mr-5" />
+          </div>
+          <div className="flex">
+            <ProfileCard Data={Data} className="mr-5" />
+            <ProfileCard Data={Data} className="mr-5" />
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default CentralAuthority;
+export default SportsStudentCommittee;
