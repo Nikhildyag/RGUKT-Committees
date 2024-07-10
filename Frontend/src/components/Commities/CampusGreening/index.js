@@ -1,17 +1,17 @@
 import React from "react";
-import CampusAmentiesHeader from "./CampusAmentiesHeader";
-import CampusAmentiesSidebar from "./CampusAmentiesSidebar";
+import CampusGreeningHeader from "./CampusGreeningHeader";
+import CampusGreeningSidebar from "./CampusGreeningSidebar";
 
-const CampusAmenties = () => {
+const CampusGreening = () => {
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <CampusAmentiesHeader name={"Academic Committee"} />
+      <CampusGreeningHeader name={"Academic Committee"} />
       <div className="flex w-full">
-        <CampusAmentiesSidebar/>
+        <CampusGreeningSidebar/>
         <div className="flex-1 p-6 sm:relative md:left-60 sm:left-0 z-[-1] ml-2">
           <div className="mb-8 w-full md:w-3/4 break-words px-3">
             <h1 className="text-3xl font-bold mb-4 mt-14 text-red-800">
-              Welcome to RGUKT Basar's CampusAmenties Committee
+              Welcome to RGUKT Basar's CampusGreening Committee
             </h1>
             <section id="purpose">
               <h3 className="text-2xl font-semibold mb-2 break-words bg-green-900 w-fit text-white px-2">
@@ -54,6 +54,9 @@ const CampusAmenties = () => {
   );
 };
 
-export default CampusAmenties;
+export default CampusGreening;
+
+
+
 
 

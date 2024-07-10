@@ -1,18 +1,18 @@
 import React from 'react'
-import SafetyHeader from './SafetyHeader'
-import SafetySidebar from './SafetySidebar'
+import CampusGreeningHeader from './CampusGreeningHeader'
+import CampusGreeningSidebar from './CampusGreeningSidebar'
 import ProfileCard from '../../ProfileCard'
-const SafetyCentralAuthority = () => {
+const CampusGreeningCentralAuthority = () => {
         const Data={name:'Mahesh',ImageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s',Designation:'CentralAuthority',Qualification:'PHD',Branch:'CSE'}
         return (
             <div className="max-w-[100%] overflow-x-hidden text-wrap">
-                <SafetyHeader name={"Academic Committee"} />
+                <CampusGreeningHeader name={"Academic Committee"} />
                 <div className="flex w-full">
-                  <SafetySidebar />
-                  <ProfileCard Data={Data}/>
+                  <CampusGreeningSidebar />
+                <ProfileCard Data={Data}/>
                 </div>
             </div>
         )
 }
 
-export default SafetyCentralAuthority
+export default CampusGreeningCentralAuthority
