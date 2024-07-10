@@ -12,9 +12,9 @@ const PlacementHeader = ({ name }) => {
     setIsOpen(!isOpen);
   };
 
-//   const toggleDropdown = () => {
-//     setIsDropdownOpen(!isDropdownOpen);
-//   };
+  //   const toggleDropdown = () => {
+  //     setIsDropdownOpen(!isDropdownOpen);
+  //   };
 
   const handleClickOutside = (event) => {
     if (
@@ -38,7 +38,11 @@ const PlacementHeader = ({ name }) => {
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
-        <div className="text-white lg:block md:block sm:hidden">{name}</div>
+        <Link to="/placement">
+          <div className="text-white lg:block md:block sm:hidden">
+            Placement Committee
+          </div>
+        </Link>
         <div className="text-white text-lg font-bold">
           <button
             onClick={toggleMenu}
@@ -60,7 +64,15 @@ const PlacementHeader = ({ name }) => {
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
-                to="/home"
+                to="/placement"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Placement Committee
+              </Link>
+            </li>
+            <li className="text-white">
+              <Link
+                to="/"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
@@ -68,7 +80,7 @@ const PlacementHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/placement/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -76,7 +88,7 @@ const PlacementHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/placement/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -84,7 +96,10 @@ const PlacementHeader = ({ name }) => {
             </li>
 
             <li className="text-white">
-              <Link to="/login" className="block px-2 py-1">
+              <Link
+                to="/placement/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
                 Students Commity
               </Link>
             </li>

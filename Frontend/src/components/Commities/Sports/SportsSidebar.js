@@ -21,6 +21,11 @@ const SportsSidebar = () => {
               Student Committee
             </li>
           </Link>
+          {/* <Link to="/sports/studentcommitte">
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+              Student Committee
+            </li>
+          </Link> */}
         </ul>
       </div>
     </div>

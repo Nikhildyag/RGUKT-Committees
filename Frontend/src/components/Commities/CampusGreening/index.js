@@ -34,16 +34,14 @@ const CampusGreening = () => {
             <div className="mb-4">
               <ul className="list-disc list-inside">
                 <li>
-                  Monitor academic performance and provide support to struggling
-                  students.
+                Plan and implement initiatives to enhance green spaces on campus
                 </li>
                 <li>
-                  Organize academic workshops, seminars, and guest lectures
+                Maintain gardens, parks, and green areas within the campus.
                 </li>
-                <li>Collect feedback on courses and suggest improvements.</li>
+                <li>Educate students on the importance of environmental conservation.</li>
                 <li>
-                  Coordinate with faculty on academic policies and curriculum
-                  development.
+                Collaborate with the sustainability committee on related projects.
                 </li>
               </ul>
             </div>

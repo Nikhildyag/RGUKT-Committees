@@ -38,7 +38,9 @@ const EducationHeader = ({ name }) => {
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
-        <div className="text-white lg:block md:block sm:hidden">{name}</div>
+       <Link to="/educational">
+       <div className="text-white lg:block md:block sm:hidden">Educational Opportunities Committee</div>
+       </Link> 
         <div className="text-white text-lg font-bold">
           <button
             onClick={toggleMenu}
@@ -58,6 +60,12 @@ const EducationHeader = ({ name }) => {
       >
         <div className={`${isOpen ? "block" : "hidden"} w-full  mt-4`}>
           <ul className="flex flex-col">
+             <Link
+                to="/educational"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Educational Opportunities Committee
+              </Link>
             <li className="text-white">
               <Link
                 to="/home"
