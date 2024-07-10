@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const AcademicSidebar = () => {
   return (
@@ -24,7 +24,7 @@ const AcademicSidebar = () => {
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AcademicSidebar;
+export default AcademicSidebar

@@ -3,7 +3,7 @@ import AcademicHeader from './AcademicHeader'
 import AcademicSidebar from './AcademicSidebar'
 import ProfileCard from '../../ProfileCard'
 
-const SportsStudentCommittee = () => {
+const AcadamicStudentCommittee = () => {
   const Data = {
     name: 'Nikhil',
     ImageUrl:
@@ -36,4 +36,4 @@ const SportsStudentCommittee = () => {
   )
 }
 
-export default SportsStudentCommittee
+export default AcadamicStudentCommittee
