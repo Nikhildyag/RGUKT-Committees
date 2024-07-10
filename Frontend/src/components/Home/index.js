@@ -1,6 +1,6 @@
-import React from "react";
-import DesktopCommities from "../DesktopCommities";
-import Header from "../Header";
+import React from 'react'
+import DesktopCommities from '../DesktopCommities'
+import Header from '../Header'
 
 const Homepage = () => {
   return (
@@ -169,7 +169,7 @@ const Homepage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Homepage;
+export default Homepage
