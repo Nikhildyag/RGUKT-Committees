@@ -4,17 +4,12 @@ import { Link } from "react-router-dom";
 
 const PhotographyHeader = ({ name }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  //   const toggleDropdown = () => {
-  //     setIsDropdownOpen(!isDropdownOpen);
-  //   };
 
   const handleClickOutside = (event) => {
     if (
@@ -24,7 +19,6 @@ const PhotographyHeader = ({ name }) => {
       !dropdownRef.current.contains(event.target)
     ) {
       setIsOpen(false);
-      setIsDropdownOpen(false);
     }
   };
 

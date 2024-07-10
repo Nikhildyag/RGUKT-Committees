@@ -4,17 +4,12 @@ import { Link } from "react-router-dom";
 
 const CulturalHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-//   const toggleDropdown = () => {
-//     setIsDropdownOpen(!isDropdownOpen);
-//   };
 
   const handleClickOutside = (event) => {
     if (
@@ -24,7 +19,6 @@ const CulturalHeader = () => {
       !dropdownRef.current.contains(event.target)
     ) {
       setIsOpen(false);
-      setIsDropdownOpen(false);
     }
   };
 
@@ -39,7 +33,9 @@ const CulturalHeader = () => {
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
         <Link to="/cultural">
-        <div className="text-white lg:block md:block sm:hidden">Cultural Committee</div>
+          <div className="text-white lg:block md:block sm:hidden">
+            Cultural Committee
+          </div>
         </Link>
         <div className="text-white text-lg font-bold">
           <button

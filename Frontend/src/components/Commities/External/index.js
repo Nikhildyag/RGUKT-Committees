@@ -17,4 +17,4 @@ const External = () => {
   );
 };
 
-export default  External
+export default External;
