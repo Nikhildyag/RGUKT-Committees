@@ -4,17 +4,12 @@ import { Link } from "react-router-dom";
 
 const CareerHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-//   const toggleDropdown = () => {
-//     setIsDropdownOpen(!isDropdownOpen);
-//   };
 
   const handleClickOutside = (event) => {
     if (
@@ -24,7 +19,6 @@ const CareerHeader = () => {
       !dropdownRef.current.contains(event.target)
     ) {
       setIsOpen(false);
-      setIsDropdownOpen(false);
     }
   };
 
@@ -39,7 +33,9 @@ const CareerHeader = () => {
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
         <Link to="/career">
-          <div className="text-white lg:block md:block sm:hidden">Career Guidance Committee</div> 
+          <div className="text-white lg:block md:block sm:hidden">
+            Career Guidance Committee
+          </div>
         </Link>
         <div className="text-white text-lg font-bold">
           <button
@@ -62,7 +58,15 @@ const CareerHeader = () => {
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
-                to="/home"
+                to="/career"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Career Committee
+              </Link>
+            </li>
+            <li className="text-white">
+              <Link
+                to="/"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
@@ -70,7 +74,7 @@ const CareerHeader = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/career/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -78,7 +82,7 @@ const CareerHeader = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/career/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -86,7 +90,10 @@ const CareerHeader = () => {
             </li>
 
             <li className="text-white">
-              <Link to="/login" className="block px-2 py-1">
+              <Link
+                to="/career/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
                 Students Commity
               </Link>
             </li>

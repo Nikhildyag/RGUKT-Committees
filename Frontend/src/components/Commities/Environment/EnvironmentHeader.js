@@ -4,17 +4,12 @@ import { Link } from "react-router-dom";
 
 const EnvironmentHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-//   const toggleDropdown = () => {
-//     setIsDropdownOpen(!isDropdownOpen);
-//   };
 
   const handleClickOutside = (event) => {
     if (
@@ -24,7 +19,6 @@ const EnvironmentHeader = () => {
       !dropdownRef.current.contains(event.target)
     ) {
       setIsOpen(false);
-      setIsDropdownOpen(false);
     }
   };
 
@@ -39,8 +33,10 @@ const EnvironmentHeader = () => {
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
         <Link to="/environment">
-          <div className="text-white lg:block md:block sm:hidden">Environment/Sustainability Committee</div>
-         </Link>
+          <div className="text-white lg:block md:block sm:hidden">
+            Environment/Sustainability Committee
+          </div>
+        </Link>
         <div className="text-white text-lg font-bold">
           <button
             onClick={toggleMenu}
@@ -60,7 +56,7 @@ const EnvironmentHeader = () => {
       >
         <div className={`${isOpen ? "block" : "hidden"} w-full  mt-4`}>
           <ul className="flex flex-col">
-          <li className="text-white">
+            <li className="text-white">
               <Link
                 to="/environment"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
@@ -78,7 +74,7 @@ const EnvironmentHeader = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/environment/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -86,7 +82,7 @@ const EnvironmentHeader = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/environment/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -94,7 +90,10 @@ const EnvironmentHeader = () => {
             </li>
 
             <li className="text-white">
-              <Link to="/login" className="block px-2 py-1">
+              <Link
+                to="/environment/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
                 Students Commity
               </Link>
             </li>

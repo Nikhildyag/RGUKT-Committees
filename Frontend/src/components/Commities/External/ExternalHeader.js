@@ -4,17 +4,12 @@ import { Link } from "react-router-dom";
 
 const ExternalHeader = ({ name }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-//   const toggleDropdown = () => {
-//     setIsDropdownOpen(!isDropdownOpen);
-//   };
 
   const handleClickOutside = (event) => {
     if (
@@ -24,7 +19,6 @@ const ExternalHeader = ({ name }) => {
       !dropdownRef.current.contains(event.target)
     ) {
       setIsOpen(false);
-      setIsDropdownOpen(false);
     }
   };
 
@@ -60,7 +54,15 @@ const ExternalHeader = ({ name }) => {
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
-                to="/home"
+                to="/extenal"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                External Committee
+              </Link>
+            </li>
+            <li className="text-white">
+              <Link
+                to="/"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
@@ -68,7 +70,7 @@ const ExternalHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/external/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -76,7 +78,7 @@ const ExternalHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/external/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -84,7 +86,10 @@ const ExternalHeader = ({ name }) => {
             </li>
 
             <li className="text-white">
-              <Link to="/login" className="block px-2 py-1">
+              <Link
+                to="/external/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
                 Students Commity
               </Link>
             </li>

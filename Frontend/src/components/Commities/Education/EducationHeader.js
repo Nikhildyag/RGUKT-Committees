@@ -4,17 +4,12 @@ import { Link } from "react-router-dom";
 
 const EducationHeader = ({ name }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-//   const toggleDropdown = () => {
-//     setIsDropdownOpen(!isDropdownOpen);
-//   };
 
   const handleClickOutside = (event) => {
     if (
@@ -24,7 +19,6 @@ const EducationHeader = ({ name }) => {
       !dropdownRef.current.contains(event.target)
     ) {
       setIsOpen(false);
-      setIsDropdownOpen(false);
     }
   };
 
@@ -38,9 +32,11 @@ const EducationHeader = ({ name }) => {
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
-       <Link to="/educational">
-       <div className="text-white lg:block md:block sm:hidden">Educational Opportunities Committee</div>
-       </Link> 
+        <Link to="/educational">
+          <div className="text-white lg:block md:block sm:hidden">
+            Educational Opportunities Committee
+          </div>
+        </Link>
         <div className="text-white text-lg font-bold">
           <button
             onClick={toggleMenu}
@@ -60,15 +56,15 @@ const EducationHeader = ({ name }) => {
       >
         <div className={`${isOpen ? "block" : "hidden"} w-full  mt-4`}>
           <ul className="flex flex-col">
-             <Link
-                to="/educational"
-                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
-              >
-                Educational Opportunities Committee
-              </Link>
+            <Link
+              to="/educational"
+              className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+            >
+              Educational Opportunities Committee
+            </Link>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
@@ -76,7 +72,7 @@ const EducationHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/educational/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -84,7 +80,7 @@ const EducationHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/educational/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -92,7 +88,10 @@ const EducationHeader = ({ name }) => {
             </li>
 
             <li className="text-white">
-              <Link to="/login" className="block px-2 py-1">
+              <Link
+                to="/educational/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
                 Students Commity
               </Link>
             </li>
