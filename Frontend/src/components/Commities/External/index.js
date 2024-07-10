@@ -7,7 +7,7 @@ const External = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <ExternalHeader name={"Academic Committee"} />
       <div className="flex w-full">
-        <ExternalSidebar/>
+        <ExternalSidebar />
         <div className="flex-1 p-6 sm:relative md:left-60 sm:left-0 z-[-1] ml-2">
           <div className="mb-8 w-full md:w-3/4 break-words px-3">
             <h1 className="text-3xl font-bold mb-4 mt-14 text-red-800">
@@ -18,7 +18,16 @@ const External = () => {
                 Purpose:
               </h3>
               <p className="break-words">
-              The External Activities Committee plays a pivotal role in enhancing the institution's external engagement by coordinating participation in competitions, conferences, and events outside the campus. Responsible for managing logistics and travel arrangements for off-campus events, the committee ensures seamless representation of the institution at external forums and competitions. By cultivating partnerships with external organizations, the committee fosters collaborative initiatives that enrich students' learning experiences and expand institutional outreach.
+                The External Activities Committee plays a pivotal role in
+                enhancing the institution's external engagement by coordinating
+                participation in competitions, conferences, and events outside
+                the campus. Responsible for managing logistics and travel
+                arrangements for off-campus events, the committee ensures
+                seamless representation of the institution at external forums
+                and competitions. By cultivating partnerships with external
+                organizations, the committee fosters collaborative initiatives
+                that enrich students' learning experiences and expand
+                institutional outreach.
               </p>
             </section>
           </div>
@@ -28,15 +37,19 @@ const External = () => {
             </h2>
             <div className="mb-4">
               <ul className="list-disc list-inside">
-              <li>
-              Coordinate participation in external competitions, conferences, and events.
+                <li>
+                  Coordinate participation in external competitions,
+                  conferences, and events.
                 </li>
                 <li>
-                Manage logistics for off-campus events and travel arrangements
+                  Manage logistics for off-campus events and travel arrangements
                 </li>
-                <li>Represent the institution at external forums and competitions.</li>
                 <li>
-                Cultivate partnerships with external organizations for collaborative initiatives.
+                  Represent the institution at external forums and competitions.
+                </li>
+                <li>
+                  Cultivate partnerships with external organizations for
+                  collaborative initiatives.
                 </li>
               </ul>
             </div>
@@ -47,4 +60,4 @@ const External = () => {
   );
 };
 
-export default  External
+export default External;
