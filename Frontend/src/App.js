@@ -19,9 +19,56 @@ import Placement from './components/Commities/Placement'
 import Safety from './components/Commities/Safety'
 import Social from './components/Commities/Social'
 import Sports from './components/Commities/Sports'
-import CentralAuthority from './components/Commities/Acadamic/CentralAuthority'
-import FacultyIncarge from './components/Commities/Acadamic/FacultyIncarge'
-import StudentCommittee from './components/Commities/Acadamic/StudentCommittee'
+//second level imports 
+import CampusAmentiesCentralAuthority from './components/Commities/CampusAmenties/CampusAmentiesCentralAuthority'
+import CampusAmentiesFacultyIncarge from './components/Commities/CampusAmenties/CampusAmentiesFacultyIncarge'
+import CampusAmentiesStudentCommittee from './components/Commities/CampusAmenties/CampusAmentiesStudentCommittee.js'
+import CampusGreeningFacultyIncarge from './components/Commities/CampusGreening/CampusGreeningFacultyIncharge.js'
+import CampusGreeningCentralAuthority from './components/Commities/CampusGreening/CampusGreeningCentralAuthority.js'
+import CampusGreeningStudentCommittee from './components/Commities/CampusGreening/CampusGreeningStudentCommittees.js'
+import CareerCentralAuthority from './components/Commities/Career/CareerCentralAuthority.js'
+import CareerFacultyIncarge from './components/Commities/Career/CareerFacultyIncharge.js'
+import CareerStudentCommittee from './components/Commities/Career/CareerStudentCommittees.js'
+import CulturalCentralAuthority from './components/Commities/Cultural/CulturalCentralAuthority.js' 
+import CulturalFacultyIncarge from './components/Commities/Cultural/CulturalFacultyIncharge.js' 
+import CulturalStudentCommittee from './components/Commities/Cultural/CulturalStudentCommittees.js'
+import EducationCentralAuthority from './components/Commities/Education/EducationCentralAuthority.js' 
+import EducationFacultyIncarge from './components/Commities/Education/EducationFacultyIncharge.js' 
+import EducationStudentCommittee from './components/Commities/Education/EducationStudentCommittees.js'
+import EnvironmentCentralAuthority from './components/Commities/Environment/EnvironmentCentralAuthority.js' 
+import EnvironmentFacultyIncarge from './components/Commities/Environment/EnvironmentFacultyIncharge.js' 
+import EnvironmentStudentCommittee from './components/Commities/Environment/EnvironmentStudentCommittees.js'
+import ExternalCentralAuthority from './components/Commities/External/ExternalCentralAuthority.js' 
+import ExternalFacultyIncarge from './components/Commities/External/ExternalFacultyIncharge.js' 
+import ExternalStudentCommittee from './components/Commities/External/ExternalStudentCommittees.js'
+import GrievanceCentralAuthority from './components/Commities/Grievance/GrievanceCentralAuthority.js' 
+import GrievanceFacultyIncarge from './components/Commities/Grievance/GrievanceFacultyIncharge.js' 
+import GrievanceStudentCommittee from './components/Commities/Grievance/GrievanceStudentCommittees.js'
+import HealthCentralAuthority from './components/Commities/Health/HealthCentralAuthority.js' 
+import HealthFacultyIncarge from './components/Commities/Health/HealthFacultyIncharge.js' 
+import HealthStudentCommittee from './components/Commities/Health/HealthStudentCommittees.js'
+import HostelCentralAuthority from './components/Commities/Hostel/HostelCentralAuthority.js' 
+import HostelFacultyIncarge from './components/Commities/Hostel/HostelFacultyIncharge.js'
+import HostelStudentCommittee from './components/Commities/Hostel/HostelStudentCommittees.js'
+import InnovationCentralAuthority from './components/Commities/Innovation/InnovationCentralAuthority.js' 
+import InnovationFacultyIncarge from './components/Commities/Innovation/InnovationFacultyIncharge.js' 
+import InnovationStudentCommittee from './components/Commities/Innovation/InnovationStudentCommittees.js'
+import MessCentralAuthority from './components/Commities/Mess/MessCentralAuthority.js' 
+import MessFacultyIncarge from './components/Commities/Mess/MessFacultyIncharge.js' 
+import MessStudentCommittee from './components/Commities/Mess/MessStudentCommittees.js'
+import PhotographyCentralAuthority from './components/Commities/Photography/PhotographyCentralAuthority.js' 
+import PhotographyFacultyIncarge from './components/Commities/Photography/PhotographyFacultyIncharge.js' 
+import PhotographyStudentCommittee from './components/Commities/Photography/PhotographyStudentCommittees.js'
+import PlacementCentralAuthority from './components/Commities/Placement/PlacementCentralAuthority.js' 
+import PlacementFacultyIncarge from './components/Commities/Placement/PlacementFacultyIncharge.js'
+import PlacementStudentCommittee from './components/Commities/Placement/PlacementStudentCommittees.js'
+import SafetyCentralAuthority from './components/Commities/Safety/SafetyCentralAuthority.js' 
+import SafetyFacultyIncarge from './components/Commities/Safety/SafetyCentralAuthority.js' 
+import SafetyStudentCommittee from './components/Commities/Safety/SafetyStudentCommittees.js'
+
+import AcadamicCentralAuthority from './components/Commities/Acadamic/AcademicCentralAuthority.js'
+import AcadamicFacultyIncarge from './components/Commities/Acadamic/AcademicFacultyIncarge.js'
+import AcadamicStudentCommittee from './components/Commities/Acadamic/StudentCommittee'
 import CampusAmenitiesForm from "./components/forms/CampusAmenitiesForm";
 import MessAdvisoryForm from "./components/forms/MessAdvisoryForm ";
 import CareerGuidanceForm from "./components/forms/CareerGuidanceForm";
@@ -50,10 +97,11 @@ import SocialStudentCommittee from "./components/Commities/Social/StudentCommitt
 const App = () => (
   <BrowserRouter>
     <Routes>
+      {/* first level routes */}
       <Route exact path="/" Component={Homepage} />
       <Route exact path="/academic" Component={Acadamic} />
       <Route exact path="/campusamenties" Component={CampusAmenties} />
-      <Route exact path="/campusgreeting" Component={CampusGreening} />
+      <Route exact path="/campusgreening" Component={CampusGreening} />
       <Route exact path="/career" Component={Career} />
       <Route exact path="/cultural" Component={Cultural} />
       <Route exact path="/educational" Component={Education} />
@@ -69,126 +117,96 @@ const App = () => (
       <Route exact path="/safety" Component={Safety} />
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
-      <Route
-        exact
-        path="/academic/centralaurhority"
-        Component={CentralAuthority}
-      />
-      <Route
-        export
-        path="/academic/facultyincarge"
-        Component={FacultyIncarge}
-      />
-      <Route
-        export
-        path="/academic/studentcommitte"
-        Component={StudentCommittee}
-      />
-      //sports
-      <Route
-        exact
-        path="/sports/centralaurhority"
-        Component={SportsCentralAuthority}
-      />
-      <Route
-        export
-        path="/sports/facultyincarge"
-        Component={SportsFacultyIncarge}
-      />
-      <Route
-        export
-        path="/sports/studentcommitte"
-        Component={SportsStudentCommittee}
-      />
-      //social
-      <Route
-        exact
-        path="/social/centralaurhority"
-        Component={SocialCentralAuthority}
-      />
-      <Route
-        export
-        path="/social/facultyincarge"
-        Component={SocialFacultyIncarge}
-      />
-      <Route
-        export
-        path="/social/studentcommitte"
-        Component={SocialStudentCommittee}
-      />
+      {/* //second level routes*/}
+      <Route exact path="/academic/centralaurhority" Component={AcadamicCentralAuthority}/>
+      <Route exact path="/academic/facultyincarge" Component={AcadamicFacultyIncarge}/>
+      <Route exact path="/academic/studentcommitte" Component={AcadamicStudentCommittee}/>
+
+      <Route exact path="/campusamenties/centralaurhority" Component={CampusAmentiesCentralAuthority}/>
+      <Route exact path="/campusamenties/facultyincarge" Component={CampusAmentiesFacultyIncarge}/>
+      <Route exact path="/campusamenties/studentcommitte" Component={CampusAmentiesStudentCommittee}/>
+
+      <Route exact path="/campusgreening/centralaurhority" Component={CampusGreeningCentralAuthority}/>
+      <Route exact path="/campusgreening/facultyincarge" Component={CampusGreeningFacultyIncarge}/>
+      <Route exact path="/campusgreening/studentcommitte" Component={CampusGreeningStudentCommittee}/>
+       
+      <Route exact path="/career/centralaurhority" Component={CareerCentralAuthority}/>
+      <Route exact path="/career/facultyincarge" Component={CareerFacultyIncarge}/>
+      <Route exact path="/career/studentcommitte" Component={CareerStudentCommittee}/>
+
+      <Route exact path="/cultural/centralaurhority" Component={CulturalCentralAuthority}/>
+      <Route exact path="/cultural/facultyincarge" Component={CulturalFacultyIncarge}/>
+      <Route exact path="/cultural/studentcommitte" Component={CulturalStudentCommittee}/>
+
+      <Route exact path="/educational/centralaurhority" Component={EducationCentralAuthority}/>
+      <Route exact path="/educational/facultyincarge" Component={EducationFacultyIncarge}/>
+      <Route exact path="/educational/studentcommitte" Component={EducationStudentCommittee}/>
+
+      <Route exact path="/environment/centralaurhority" Component={EnvironmentCentralAuthority}/>
+      <Route exact path="/environment/facultyincarge" Component={EnvironmentFacultyIncarge}/>
+      <Route exact path="/environment/studentcommitte" Component={EnvironmentStudentCommittee}/>
+
+      <Route exact path="/external/centralaurhority" Component={ExternalCentralAuthority}/>
+      <Route exact path="/external/facultyincarge" Component={ExternalFacultyIncarge}/>
+      <Route exact path="/external/studentcommitte" Component={ExternalStudentCommittee}/>
+
+      <Route exact path="/grievance/centralaurhority" Component={GrievanceCentralAuthority}/>
+      <Route exact path="/grievance/facultyincarge" Component={GrievanceFacultyIncarge}/>
+      <Route exact path="/grievance/studentcommitte" Component={GrievanceStudentCommittee}/>
+
+      <Route exact path="/health/centralaurhority" Component={HealthCentralAuthority}/>
+      <Route exact path="/health/facultyincarge" Component={HealthFacultyIncarge}/>
+      <Route exact path="/health/studentcommitte" Component={HealthStudentCommittee}/> 
+
+      <Route exact path="/hostel/centralaurhority" Component={HostelCentralAuthority}/>
+      <Route exact path="/hostel/facultyincarge" Component={HostelFacultyIncarge}/>
+      <Route exact path="/hostel/studentcommitte" Component={HostelStudentCommittee}/>
+
+      <Route exact path="/innovation/centralaurhority" Component={InnovationCentralAuthority}/>
+      <Route exact path="/innovation/facultyincarge" Component={InnovationFacultyIncarge}/>
+      <Route exact path="/innovation/studentcommitte" Component={InnovationStudentCommittee}/>
+
+      <Route exact path="/mess/centralaurhority" Component={MessCentralAuthority}/>
+      <Route exact path="/mess/facultyincarge" Component={MessFacultyIncarge}/>
+      <Route exact path="/mess/studentcommitte" Component={MessStudentCommittee}/>
+       
+      <Route exact path="/photography/centralaurhority" Component={PhotographyCentralAuthority}/>
+      <Route exact path="/photography/facultyincarge" Component={PhotographyFacultyIncarge}/>
+      <Route exact path="/photography/studentcommitte" Component={PhotographyStudentCommittee}/>
+
+      <Route exact path="/placement/centralaurhority" Component={PlacementCentralAuthority}/>
+      <Route exact path="/placement/facultyincarge" Component={PlacementFacultyIncarge}/>
+      <Route exact path="/placement/studentcommitte" Component={PlacementStudentCommittee}/>
+
+      <Route exact path="/safety/centralaurhority" Component={SafetyCentralAuthority}/>
+      <Route exact path="/safety/facultyincarge" Component={SafetyFacultyIncarge}/>
+      <Route exact path="/safety/studentcommitte" Component={SafetyStudentCommittee}/> 
+
+      <Route exact path="/social/centralaurhority" Component={SocialCentralAuthority}/>
+      <Route exact path="/social/facultyincarge" Component={SocialFacultyIncarge}/>
+      <Route exact path="/social/studentcommitte" Component={SocialStudentCommittee}/>
+
+      <Route exact path="/sports/centralaurhority" Component={SportsCentralAuthority}/>
+      <Route exact path="/sports/facultyincarge"   Component={SportsFacultyIncarge}/>
+      <Route exact path="/sports/studentcommitte"  Component={SportsStudentCommittee}/>
+      
       <Route exact path="/feedbackform" Component={Form} />
-      <Route
-        exact
-        path="/campusamenitiesform"
-        Component={CampusAmenitiesForm}
-      />
+      <Route exact path="/campusamenitiesform" Component={CampusAmenitiesForm}/>
       <Route exact path="/messadvisoryform" Component={MessAdvisoryForm} />
       <Route exact path="/careerguidanceform" Component={CareerGuidanceForm} />
-      <Route
-        exact
-        path="/sportscommitteeform"
-        Component={SportsCommitteeForm}
-      />
-      <Route
-        exact
-        path="/culturalcommitteeform"
-        Component={CulturalCommitteeForm}
-      />
-      <Route
-        exact
-        path="/educationalcommitteeform"
-        Component={EducationalOpportunitiesForm}
-      />
-      <Route
-        exact
-        path="/externalactvitiescommitteeform"
-        Component={ExternalActivitiesForm}
-      />
-      <Route
-        exact
-        path="/socialservicecommitteeform"
-        Component={SocialServiceForm}
-      />
-      <Route
-        exact
-        path="/photographycommitteeform"
-        Component={PhotographyForm}
-      />
-      <Route
-        exact
-        path="/sustainabilitycommitteeform"
-        Component={SustainabilityForm}
-      />
-      <Route
-        exact
-        path="/campusgreencommitteeform"
-        Component={CampusGreeningForm}
-      />
-      <Route
-        exact
-        path="/campussafetycommitteeform"
-        Component={CampusSafetyForm}
-      />
-      <Route
-        exact
-        path="/healthcommitteeform"
-        Component={HealthCommitteeForm}
-      />
-      <Route
-        exact
-        path="/placement-internshipcommitteeform"
-        Component={PlacementInternshipForm}
-      />
-      <Route
-        exact
-        path="/grivanceredressalcommitteeform"
-        Component={GrievanceRedressalForm}
-      />
-      <Route
-        exact
-        path="/hostelcommitteeform"
-        Component={HostelCommitteeForm}
-      />
+      <Route exact path="/sportscommitteeform" Component={SportsCommitteeForm}/>
+      <Route exact path="/culturalcommitteeform" Component={CulturalCommitteeForm}/>
+      <Route exact path="/educationalcommitteeform" Component={EducationalOpportunitiesForm}/>
+      <Route exact path="/externalactvitiescommitteeform" Component={ExternalActivitiesForm}/>
+      <Route exact path="/socialservicecommitteeform" Component={SocialServiceForm}/>
+      <Route exact path="/photographycommitteeform" Component={PhotographyForm}/>
+      <Route exact path="/sustainabilitycommitteeform" Component={SustainabilityForm}/>
+      <Route exact path="/campusgreencommitteeform" Component={CampusGreeningForm}/>
+      <Route exact path="/campussafetycommitteeform" Component={CampusSafetyForm}/>
+      <Route exact path="/healthcommitteeform" Component={HealthCommitteeForm}/>
+      <Route exact path="/placement-internshipcommitteeform"Component={PlacementInternshipForm}/>
+      <Route exact path="/grivanceredressalcommitteeform" Component={GrievanceRedressalForm}/>
+      <Route exact path="/hostelcommitteeform" Component={HostelCommitteeForm}/>
       <Route exact path="/innovationcommitteeform" Component={InnovationForm} />
     </Routes>
   </BrowserRouter>

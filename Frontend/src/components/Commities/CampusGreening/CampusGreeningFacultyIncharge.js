@@ -1,4 +1,6 @@
 import React from 'react'
+import CampusGreeningHeader from './CampusGreeningHeader'
+import CampusGreeningSidebar from './CampusGreeningSidebar'
 import ProfileCard from '../../ProfileCard'
 
 const CampusGreeningFacultyIncarge = () => {
