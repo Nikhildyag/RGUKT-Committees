@@ -1,9 +1,9 @@
 import React from "react";
 import ProfileCard from "../../ProfileCard";
-import SportsHeader from "../Sports/SportsHeader";
-import SportsSidebar from "../Sports/SportsSidebar";
+import AcademicHeader from "./AcademicHeader";
+import AcademicSidebar from "./AcademicSidebar";
 
-const SportsStudentCommittee = () => {
+const StudentCommittee = () => {
   const Data = {
     name: "Nikhil",
     ImageUrl:
@@ -14,9 +14,9 @@ const SportsStudentCommittee = () => {
   };
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <SportsHeader name={"Academic Committee"} />
+      <AcademicHeader name={"Academic Committee"} />
       <div className="flex w-full">
-        <SportsSidebar />
+        <AcademicSidebar />
         <div className="relative left-60">
           <div className="flex">
             <ProfileCard Data={Data} className="mr-5" />
@@ -32,4 +32,4 @@ const SportsStudentCommittee = () => {
   );
 };
 
-export default SportsStudentCommittee;
+export default StudentCommittee;
