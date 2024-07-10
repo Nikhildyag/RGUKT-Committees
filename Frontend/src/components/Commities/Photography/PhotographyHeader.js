@@ -12,9 +12,9 @@ const PhotographyHeader = ({ name }) => {
     setIsOpen(!isOpen);
   };
 
-//   const toggleDropdown = () => {
-//     setIsDropdownOpen(!isDropdownOpen);
-//   };
+  //   const toggleDropdown = () => {
+  //     setIsDropdownOpen(!isDropdownOpen);
+  //   };
 
   const handleClickOutside = (event) => {
     if (
@@ -38,7 +38,11 @@ const PhotographyHeader = ({ name }) => {
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
-        <div className="text-white lg:block md:block sm:hidden">{name}</div>
+        <Link to="/photography">
+          <div className="text-white lg:block md:block sm:hidden">
+            Photography Committee
+          </div>
+        </Link>
         <div className="text-white text-lg font-bold">
           <button
             onClick={toggleMenu}
@@ -60,7 +64,7 @@ const PhotographyHeader = ({ name }) => {
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
-                to="/home"
+                to="/photography"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
@@ -68,7 +72,15 @@ const PhotographyHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Home
+              </Link>
+            </li>
+            <li className="text-white">
+              <Link
+                to="/photography/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -76,7 +88,7 @@ const PhotographyHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/photography/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -84,7 +96,10 @@ const PhotographyHeader = ({ name }) => {
             </li>
 
             <li className="text-white">
-              <Link to="/login" className="block px-2 py-1">
+              <Link
+                to="/photography/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
                 Students Commity
               </Link>
             </li>
