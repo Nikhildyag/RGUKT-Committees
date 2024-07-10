@@ -14,7 +14,6 @@ const DesktopCommities = () => {
           Committees
         </span>
       </div>
-
       <div className="overflow-y-auto h-full bg-[#ece8e8] mt-[7.2%]">
         <ul className="list-none px-4 py-5">
           <Link to="/academic">

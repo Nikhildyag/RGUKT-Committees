@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const CulturalHeader = ({ name }) => {
+const CulturalHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
@@ -38,7 +38,9 @@ const CulturalHeader = ({ name }) => {
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
-        <div className="text-white lg:block md:block sm:hidden">{name}</div>
+        <Link to="/cultural">
+        <div className="text-white lg:block md:block sm:hidden">Cultural Committee</div>
+        </Link>
         <div className="text-white text-lg font-bold">
           <button
             onClick={toggleMenu}

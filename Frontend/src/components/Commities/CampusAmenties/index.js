@@ -18,12 +18,7 @@ const CampusAmenties = () => {
                 Purpose:
               </h3>
               <p className="break-words">
-                The Academic Committee at RGUKT Basar is dedicated to ensuring
-                academic excellence and fostering an environment that promotes
-                intellectual growth and development among students. The
-                committee is committed to continuously improving the academic
-                framework, supporting students in their educational journey, and
-                maintaining high standards of teaching and learning.
+              The Campus Amenities Committee ensures the ongoing maintenance, upkeep, and enhancement of campus facilities. Dedicated to addressing issues related to infrastructure, classrooms, and common areas, the committee plans and oversees beautification projects while maintaining close collaboration with maintenance staff and administration for timely repairs and improvements.
               </p>
             </section>
           </div>
@@ -34,16 +29,14 @@ const CampusAmenties = () => {
             <div className="mb-4">
               <ul className="list-disc list-inside">
                 <li>
-                  Monitor academic performance and provide support to struggling
-                  students.
+                Ensure maintenance and upkeep of campus facilities.
                 </li>
                 <li>
-                  Organize academic workshops, seminars, and guest lectures
+                Address issues related to infrastructure, classrooms, and common areas.
                 </li>
-                <li>Collect feedback on courses and suggest improvements.</li>
+                <li>Address issues related to infrastructure, classrooms, and common areas.</li>
                 <li>
-                  Coordinate with faculty on academic policies and curriculum
-                  development.
+                Liaise with maintenance staff and administration for timely repairs.
                 </li>
               </ul>
             </div>
