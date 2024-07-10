@@ -1,26 +1,28 @@
-import React from "react";
-import AcademicHeader from "./AcademicHeader";
-import AcademicSidebar from "./AcademicSidebar";
-import ProfileCard from "../../ProfileCard";
+import React from 'react'
+import AcademicHeader from './AcademicHeader'
+import AcademicSidebar from './AcademicSidebar'
+import ProfileCard from '../../ProfileCard'
 
 const FacultyIncarge = () => {
   const Data = {
-    name: "Nikhil",
+    name: 'Nikhil',
     ImageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s",
-    Designation: "Faculty Incarge",
-    Qualification: "PHD",
-    Branch: "CSE",
-  };
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s',
+    Designation: 'Faculty Incarge',
+    Qualification: 'PHD',
+    Branch: 'CSE',
+  }
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <AcademicHeader name={"Academic Committee"} />
+      <AcademicHeader name={'Academic Committee'} />
       <div className="flex w-full">
         <AcademicSidebar />
-        <ProfileCard Data={Data} />
+        <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%] ">
+          <ProfileCard Data={Data} />
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FacultyIncarge;
+export default FacultyIncarge
