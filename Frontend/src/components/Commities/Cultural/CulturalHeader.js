@@ -58,7 +58,15 @@ const CulturalHeader = () => {
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
-                to="/home"
+                to="/cultural"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Cultural Committee
+              </Link>
+            </li>
+            <li className="text-white">
+              <Link
+                to="/"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
@@ -66,7 +74,7 @@ const CulturalHeader = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/cultural/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -74,7 +82,7 @@ const CulturalHeader = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/cultural/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -82,7 +90,10 @@ const CulturalHeader = () => {
             </li>
 
             <li className="text-white">
-              <Link to="/login" className="block px-2 py-1">
+              <Link
+                to="/cultural/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
                 Students Commity
               </Link>
             </li>

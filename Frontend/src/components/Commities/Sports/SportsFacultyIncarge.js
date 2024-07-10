@@ -17,7 +17,9 @@ const SportsFacultyIncarge = () => {
       <SportsHeader name={"Academic Committee"} />
       <div className="flex w-full">
         <SportsSidebar />
-        <ProfileCard Data={Data} />
+        <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%] ">
+          <ProfileCard Data={Data} />
+        </div>
       </div>
     </div>
   );

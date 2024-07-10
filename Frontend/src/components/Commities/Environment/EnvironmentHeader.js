@@ -74,7 +74,7 @@ const EnvironmentHeader = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/environment/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -82,7 +82,7 @@ const EnvironmentHeader = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/environment/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -90,7 +90,10 @@ const EnvironmentHeader = () => {
             </li>
 
             <li className="text-white">
-              <Link to="/login" className="block px-2 py-1">
+              <Link
+                to="/environment/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
                 Students Commity
               </Link>
             </li>
