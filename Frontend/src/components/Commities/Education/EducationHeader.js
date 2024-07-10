@@ -32,19 +32,17 @@ const EducationHeader = ({ name }) => {
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
       <div className="flex justify-between items-center">
-        <Link to="/educational">
-          <div className="text-white lg:block md:block sm:hidden">
-            Educational Opportunities Committee
-          </div>
-        </Link>
-        <div className="text-white text-lg font-bold">
+        <div className="text-white text-lg font-bold lg:hidden sm:block">
           <button
             onClick={toggleMenu}
-            className="text-white text-2xl  sm:block md:hidden focus:outline-none"
+            className="text-white text-2xl sm:block md:hidden focus:outline-none"
           >
             <FaBars />
           </button>
         </div>
+        <Link to="/education" className="hidden md:block text-white">
+          Eduation Committee
+        </Link>
         <p className="text-white">Login</p>
       </div>
 
