@@ -36,8 +36,4 @@ const AcadamicStudentCommittee = () => {
   )
 }
 
-<<<<<<< HEAD
-export default StudentCommittee;
-=======
 export default AcadamicStudentCommittee
->>>>>>> 12ca13ceed56668487281736ca423671a788cd3b
