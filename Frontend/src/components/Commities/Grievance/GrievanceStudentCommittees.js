@@ -1,15 +1,15 @@
 import React from 'react'
-import SafetyHeader from './SafetyHeader'
-import SafetySidebar from './SafetySidebar'
+import GrievanceHeader from './GrievanceHeader'
+import GrievanceSidebar from './GrievanceSidebar'
 import ProfileCard from '../../ProfileCard'
 
-const SafetyStudentCommittee = () => {
+const GrievanceStudentCommittee = () => {
         const Data={name:'Nikhil',ImageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s',Designation:'Student Incharge',Qualification:'CHEM',Branch:'CSE'}
         return (
             <div className="max-w-[100%] overflow-x-hidden text-wrap">
-                <SafetyHeader name={"Academic Committee"} />
+                <GrievanceHeader name={"Academic Committee"} />
                 <div className="flex w-full">
-                <SafetySidebar />
+                <GrievanceSidebar />
                <div className='relative left-60'>
                  <div className='flex'>
                     <ProfileCard Data={Data} className="mr-5"/>
@@ -25,4 +25,4 @@ const SafetyStudentCommittee = () => {
         )
 }
 
-export default SafetyStudentCommittee
+export default GrievanceStudentCommittee
