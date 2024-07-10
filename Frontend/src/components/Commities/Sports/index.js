@@ -18,12 +18,15 @@ const Acadamic = () => {
                 Purpose:
               </h3>
               <p className="break-words">
-                The Academic Committee at RGUKT Basar is dedicated to ensuring
-                academic excellence and fostering an environment that promotes
-                intellectual growth and development among students. The
-                committee is committed to continuously improving the academic
-                framework, supporting students in their educational journey, and
-                maintaining high standards of teaching and learning.
+                "The Sports Committee is committed to promoting a culture of
+                physical fitness and sportsmanship among students. Through
+                organizing inter-house and inter-college sports events, managing
+                sports facilities and equipment, and identifying talent across
+                various sports, the committee aims to foster a competitive yet
+                supportive environment. By nurturing talent and encouraging
+                participation, the committee plays a pivotal role in enhancing
+                the overall well-being and sporting achievements of
+                the student body."
               </p>
             </section>
           </div>
@@ -34,16 +37,13 @@ const Acadamic = () => {
             <div className="mb-4">
               <ul className="list-disc list-inside">
                 <li>
-                  Monitor academic performance and provide support to struggling
-                  students.
+                  Organize inter-house or inter-college sports events and
+                  tournaments.
                 </li>
+                <li>Manage sports facilities and equipment.</li>
+                <li>Identify and nurture talent in various sports.</li>
                 <li>
-                  Organize academic workshops, seminars, and guest lectures
-                </li>
-                <li>Collect feedback on courses and suggest improvements.</li>
-                <li>
-                  Coordinate with faculty on academic policies and curriculum
-                  development.
+                  Promote physical fitness and sportsmanship among students.
                 </li>
               </ul>
             </div>

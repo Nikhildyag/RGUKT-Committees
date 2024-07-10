@@ -1,7 +1,7 @@
 import React from "react";
-import AcademicHeader from "./AcademicHeader";
-import AcademicSidebar from "./AcademicSidebar";
 import ProfileCard from "../../ProfileCard";
+import SportsHeader from "../Sports/SportsHeader";
+import SportsSidebar from "../Sports/SportsSidebar";
 
 const SportsStudentCommittee = () => {
   const Data = {
@@ -14,9 +14,9 @@ const SportsStudentCommittee = () => {
   };
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <AcademicHeader name={"Academic Committee"} />
+      <SportsHeader name={"Academic Committee"} />
       <div className="flex w-full">
-        <AcademicSidebar />
+        <SportsSidebar />
         <div className="relative left-60">
           <div className="flex">
             <ProfileCard Data={Data} className="mr-5" />

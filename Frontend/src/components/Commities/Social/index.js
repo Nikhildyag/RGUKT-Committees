@@ -18,12 +18,15 @@ const Acadamic = () => {
                 Purpose:
               </h3>
               <p className="break-words">
-                The Academic Committee at RGUKT Basar is dedicated to ensuring
-                academic excellence and fostering an environment that promotes
-                intellectual growth and development among students. The
-                committee is committed to continuously improving the academic
-                framework, supporting students in their educational journey, and
-                maintaining high standards of teaching and learning.
+                "The Social Service Committee is dedicated to fostering a spirit
+                of social responsibility among students through organizing
+                community service projects, volunteer activities, and outreach
+                programs. By raising awareness about social issues and
+                partnering with NGOs and local communities, the committee
+                promotes active student engagement in humanitarian efforts.
+                Through its initiatives, the committee aims to cultivate
+                empathy, leadership, and a commitment to making a positive
+                impact on society."
               </p>
             </section>
           </div>
@@ -34,17 +37,16 @@ const Acadamic = () => {
             <div className="mb-4">
               <ul className="list-disc list-inside">
                 <li>
-                  Monitor academic performance and provide support to struggling
-                  students.
+                  Organize community service projects and volunteer activities.
                 </li>
                 <li>
-                  Organize academic workshops, seminars, and guest lectures
+                  Raise awareness about social issues and promote social
+                  responsibility.
                 </li>
-                <li>Collect feedback on courses and suggest improvements.</li>
                 <li>
-                  Coordinate with faculty on academic policies and curriculum
-                  development.
+                  Partner with NGOs and local communities for outreach programs.{" "}
                 </li>
+                <li>Encourage student engagement in humanitarian efforts.</li>
               </ul>
             </div>
           </section>
