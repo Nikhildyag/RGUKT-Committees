@@ -14,7 +14,7 @@ const CentralAuthority = () => {
   }
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <AcademicHeader name={'Academic Committee'} />
+      <AcademicHeader/>
       <div className="flex w-full">
         <AcademicSidebar />
         <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%] ">
