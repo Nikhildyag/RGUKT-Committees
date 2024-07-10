@@ -1,35 +1,43 @@
-import React from "react";
-import ProfileCard from "../../ProfileCard";
-import AcademicHeader from "./AcademicHeader";
-import AcademicSidebar from "./AcademicSidebar";
+import React from 'react'
+import AcademicHeader from './AcademicHeader'
+import AcademicSidebar from './AcademicSidebar'
+import ProfileCard from '../../ProfileCard'
 
-const StudentCommittee = () => {
+const AcadamicStudentCommittee = () => {
   const Data = {
-    name: "Nikhil",
+    name: 'Nikhil',
     ImageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s",
-    Designation: "Student Incharge",
-    Qualification: "CHEM",
-    Branch: "CSE",
-  };
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s',
+    Designation: 'Student Incharge',
+    Qualification: 'CHEM',
+    Branch: 'CSE',
+  }
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <AcademicHeader name={"Academic Committee"} />
+      <AcademicHeader name={'Academic Committee'} />
       <div className="flex w-full">
         <AcademicSidebar />
-        <div className="relative left-60">
-          <div className="flex">
-            <ProfileCard Data={Data} className="mr-5" />
-            <ProfileCard Data={Data} className="mr-5" />
+        <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%]">
+          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
+            <ProfileCard Data={Data} />
           </div>
-          <div className="flex">
-            <ProfileCard Data={Data} className="mr-5" />
-            <ProfileCard Data={Data} className="mr-5" />
+          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
+            <ProfileCard Data={Data} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
+            <ProfileCard Data={Data} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
+            <ProfileCard Data={Data} />
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
+<<<<<<< HEAD
 export default StudentCommittee;
+=======
+export default AcadamicStudentCommittee
+>>>>>>> 12ca13ceed56668487281736ca423671a788cd3b
