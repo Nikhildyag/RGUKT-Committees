@@ -64,7 +64,7 @@ const EducationHeader = ({ name }) => {
             </Link>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
@@ -72,7 +72,7 @@ const EducationHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/educational/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -80,7 +80,7 @@ const EducationHeader = ({ name }) => {
             </li>
             <li className="text-white">
               <Link
-                to="/home"
+                to="/educational/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -88,7 +88,10 @@ const EducationHeader = ({ name }) => {
             </li>
 
             <li className="text-white">
-              <Link to="/login" className="block px-2 py-1">
+              <Link
+                to="/educational/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
                 Students Commity
               </Link>
             </li>
