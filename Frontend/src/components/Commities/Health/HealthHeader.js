@@ -43,7 +43,12 @@ const HealthHeader = ({ name }) => {
         <Link to="/health" className="hidden md:block text-white">
           Health Committee
         </Link>
-        <p className="text-white">Login</p>
+        <div className="flex gap-5">
+          <Link to="/">
+            <button className="text-white sm:hidden md:block">Home</button>
+          </Link>
+          <button className="text-white">Login</button>
+        </div>
       </div>
 
       <div
