@@ -90,94 +90,94 @@ const Header = () => {
               <ul
                 className={`${
                   isDropdownOpen ? 'block' : 'hidden'
-                } ml-2 bg-white rounded`}
+                } ml-2 bg-white rounded text-black`}
               >
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/academic" className="block  text-black ">
                     Academics
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/sports" className="block py-1">
                     Sports Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/campusamenties" className="block">
                     Campus Amenities Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/mess" className="block py-1">
                     Mess Advisory Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/hostel" className="block">
                     Hostel Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/career" className="block py-1">
                     Career Guidance Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/innovation" className="block">
                     Innovation and Incubation Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/cultural" className="block py-1">
                     Cultural Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/educational" className="block">
                     Educational Opportunities Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/external" className="block py-1">
                     External Activities Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/grievance" className="block">
                     Grievance and Redressal Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/social" className="block py-1">
                     Social Service Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/photography" className="block">
                     Photography Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/environment" className="block py-1">
                     Environment/Sustainability Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/campusgreeting" className="block">
                     Campus Greening Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/safety" className="block py-1">
                     Safety and Security Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/health" className="block">
                     Health Committee
                   </Link>
                 </li>
-                <li className="text-white">
+                <li className=" text-black">
                   <Link to="/placement" className="block py-1">
                     Placement and Internship Committee
                   </Link>
