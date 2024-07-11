@@ -61,18 +61,18 @@ const AcademicHeader = () => {
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
-                to="/academic"
-                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
-              >
-                Academic Committee
-              </Link>
-            </li>
-            <li className="text-white">
-              <Link
                 to="/"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
+              </Link>
+            </li>
+            <li className="text-white">
+              <Link
+                to="/academic"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Academic Committee
               </Link>
             </li>
             <li className="text-white">
