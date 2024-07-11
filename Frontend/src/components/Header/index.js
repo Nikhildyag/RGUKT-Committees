@@ -88,74 +88,90 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="text-white">
-                  <Link to="/committees/sports" className="block py-1">
-                    Sports
+                  <Link to="/sports" className="block py-1">
+                    Sports Committee
                   </Link>
                 </li>
-                <Link to="/academic">
-                  <li className="text-white">Academic Committee</li>
-                </Link>
-                <Link to="/campusamenties">
-                  <li className="text-white">Campus Amenities Committee</li>
-                </Link>
-                <Link to="/mess">
-                  <li className="text-white">Mess Advisory Committee</li>
-                </Link>
-                <Link to="/career">
-                  <li className="text-white">Career Guidance Committee</li>
-                </Link>
-                <Link to="/sports">
-                  <li className="text-white">Sports Committee</li>
-                </Link>
-                <Link to="/cultural">
-                  <li className="text-white">Cultural Committee</li>
-                </Link>
-                <Link to="/educational">
-                  <li className="text-white">
-                    Educational Opportunities Committee
-                  </li>
-                </Link>
-                <Link to="/external">
-                  <li className="text-white">External Activities Committee</li>
-                </Link>
-                <Link to="/social">
-                  <li className="text-white">Social Service Committee</li>
-                </Link>
-                <Link to="/photography">
-                  <li className="text-white">Photography Committee</li>
-                </Link>
-                <Link to="/environment">
-                  <li className="text-white">
-                    Environment/Sustainability Committee
-                  </li>
-                </Link>
-                <Link to="/campusgreeting">
-                  <li className="text-white">Campus Greening Committee</li>
-                </Link>
-                <Link to="/safety">
-                  <li className="text-white">Safety and Security Committee</li>
-                </Link>
-                <Link to="/health">
-                  <li className="text-white">Health Committee</li>
-                </Link>
-                <Link to="/placement">
-                  <li className="text-white">
-                    Placement and Internship Committee
-                  </li>
-                </Link>
-                <Link to="/grievance">
-                  <li className="text-white">
-                    Grievance and Redressal Committee
-                  </li>
-                </Link>
-                <Link to="/hostel">
-                  <li className="text-white">Hostel Committee</li>
-                </Link>
-                <Link to="/innovation">
-                  <li className="text-white">
+                <li className="text-white">
+                  <Link to="/campusamenties" className="block">
+                    Campus Amenities Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/mess" className="block py-1">
+                    Mess Advisory Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/hostel" className="block">
+                    Hostel Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/career" className="block py-1">
+                    Career Guidance Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/innovation" className="block">
                     Innovation and Incubation Committee
-                  </li>
-                </Link>
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/cultural" className="block py-1">
+                    Cultural Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/educational" className="block">
+                    Educational Opportunities Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/external" className="block py-1">
+                    External Activities Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/grievance" className="block">
+                    Grievance and Redressal Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/social" className="block py-1">
+                    Social Service Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/photography" className="block">
+                    Photography Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/environment" className="block py-1">
+                    Environment/Sustainability Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/campusgreeting" className="block">
+                    Campus Greening Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/safety" className="block py-1">
+                    Safety and Security Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/health" className="block">
+                    Health Committee
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link to="/placement" className="block py-1">
+                    Placement and Internship Committee
+                  </Link>
+                </li>
               </ul>
             </li>
             <li className="text-white">
