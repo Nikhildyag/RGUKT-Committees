@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const DesktopCommities = () => {
   return (
-    <div className="min-h-screen h-full sm:hidden md:block fixed top-0 w-64 bg-[#426CAD] shadow-lg">
-      <div className="flex flex-row gap-2 bg-[#426CAD] ">
+    <div className="min-h-screen h-full sm:hidden md:block fixed top-0 w-64  shadow-lg">
+      <div className="flex flex-row gap-2 bg-[#426CAD] h-[2.3em]">
         <img
           src="https://hub.rgukt.ac.in/hub/static/images/logo.png"
           className="h-9 mt-2 ml-3 rounded-[50%]"
@@ -14,10 +14,10 @@ const DesktopCommities = () => {
           Committees
         </span>
       </div>
-      <div className="overflow-y-auto h-full bg-[#ece8e8] mt-[7.2%]">
-        <ul className="list-none px-4 py-5">
+      <div className="overflow-y-auto h-[calc(100%-54px)] bg-[#ece8e8] mt-[7.2%]">
+        <ul className="list-none px-4 py-4">
           <Link to="/academic">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+            <li className="mx-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
               Academic Committee
             </li>
           </Link>
@@ -109,7 +109,7 @@ const DesktopCommities = () => {
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DesktopCommities;
+export default DesktopCommities
