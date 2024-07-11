@@ -29,7 +29,7 @@ const CommitteeCard = ({ data }) => {
             ))}
           </ul>
         </div>
-        <div className="flex  flex-row justify-center w-[80%] md:mt-[5%] gap-3 sm:flex-col sm:mt-[14%] md:flex-row">
+        <div className=" font-serif flex  flex-row justify-center text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg  w-[80%] md:mt-[5%] gap-3 sm:flex-col sm:mt-[14%] md:flex-row">
           <button className="w-[12em] h-[3em] bg-blue-500 text-white rounded-md">
             Submit Feedback
           </button>
