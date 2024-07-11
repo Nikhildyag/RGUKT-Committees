@@ -45,7 +45,12 @@ const Header = () => {
             <FaBars />
           </button>
         </div>
-        <button className="text-white">Login</button>
+        <div className="flex gap-5">
+          <Link to="/">
+            <button className="text-white sm:hidden md:block">Home</button>
+          </Link>
+          <button className="text-white">Login</button>
+        </div>
       </div>
 
       <div
