@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "react-router-dom": "^5.1.0"
-  },
-  "scripts": {
-    "clean": "rm -rf node_modules"
-  }
-}
