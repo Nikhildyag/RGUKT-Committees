@@ -1,41 +1,54 @@
-import React from 'react'
-import AcademicHeader from './AcademicHeader'
-import AcademicSidebar from './AcademicSidebar'
-import ProfileCard from '../../ProfileCard'
+import React, { useEffect, useState } from "react";
+import AcademicHeader from "./AcademicHeader";
+import AcademicSidebar from "./AcademicSidebar";
+import ProfileCard from "../../ProfileCard";
 
 const AcadamicStudentCommittee = () => {
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    const fetchStudentCommittees = async () => {
+      const data = {
+        committee_name: "Academic",
+      };
+      const committee_details = JSON.stringify(data);
+      try {
+        const response = await fetch(
+          `http://localhost:1024/api/v1/department/get/committeemembers`,
+          {
+            method: "POST",
+            credentials: "include", // Include credentials (cookies)
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: committee_details,
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const json = await response.json();
+        console.log(json);
+        setStudents(json);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchStudentCommittees();
+  }, []);
+
   const Data = {
-    name: 'Nikhil',
+    name: "Nikhil",
     ImageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s',
-    Designation: 'Student Incharge',
-    Qualification: 'CHEM',
-    Branch: 'CSE',
-  }
-
-
-//   const MakeApiCall=async()=>{
-//     console.log("make the API call")
-//     const url=`http://localhost:1024/api/v1/department//get/committemembers`
-//     const object=JSON.stringify({committee_name:'Academic'});
-//     const response = await fetch(url, {
-//       method: "POST",
-//       credentials: "include",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body:object,
-//     }
-//   );
-//   console.log(response);
-//   }
-// useEffect(()=>{
-//   MakeApiCall();
-// },[])
-
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s",
+    Designation: "Student Incharge",
+    Qualification: "CHEM",
+    Branch: "CSE",
+  };
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <AcademicHeader name={'Academic Committee'} />
+      <AcademicHeader name={"Academic Committee"} />
       <div className="flex w-full">
         <AcademicSidebar />
         <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%]  ">
@@ -175,7 +188,7 @@ const AcadamicStudentCommittee = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AcadamicStudentCommittee
+export default AcadamicStudentCommittee;
