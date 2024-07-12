@@ -35,13 +35,12 @@ const AcademicHeader = () => {
   }, [])
 
   return (
-    <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
+    <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
       <div className="flex justify-between items-center">
         <div className="text-white text-lg font-bold lg:hidden sm:block">
           <button
             onClick={toggleMenu}
-            className="text-white text-2xl sm:block md:hidden focus:outline-none"
-          >
+            className="text-white text-2xl sm:block md:hidden focus:outline-none" >
             <FaBars />
           </button>
         </div>

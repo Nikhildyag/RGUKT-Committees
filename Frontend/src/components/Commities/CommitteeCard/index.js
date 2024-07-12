@@ -40,7 +40,7 @@ const CommitteeCard = ({ data }) => {
           <button className="w-[12em] h-[3em] bg-blue-500 text-white rounded-md">
             Submit Feedback
           </button>
-           <Link to='/academiccommittefeedbackform'>
+           <Link to={complaintForm}>
            <button onClick={clickButton} className="w-[12em] h-[3em] bg-orange-400 text-white rounded-md cursor-pointer">
               Submit Complaint
             </button>

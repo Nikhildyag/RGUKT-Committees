@@ -8,7 +8,7 @@ import Career from './components/Commities/Career'
 import Cultural from './components/Commities/Cultural'
 import Education from './components/Commities/Education'
 import Environment from './components/Commities/Environment'
-import External from './components/Commities/Environment'
+import External from './components/Commities/External'
 import Grievance from './components/Commities/Grievance'
 import Health from './components/Commities/Health'
 import Hostel from './components/Commities/Hostel'
@@ -189,7 +189,8 @@ const App = () => (
       <Route exact path="/sports/centralaurhority" Component={SportsCentralAuthority}/>
       <Route exact path="/sports/facultyincarge"   Component={SportsFacultyIncarge}/>
       <Route exact path="/sports/studentcommitte"  Component={SportsStudentCommittee}/>
-      
+
+      {/* Form Routes */}
       <Route exact path="/academiccommittefeedbackform" Component={AcademicCommitteForm} />
       <Route exact path="/campusamenitiesform" Component={CampusAmenitiesForm}/>
       <Route exact path="/messadvisoryform" Component={MessAdvisoryForm} />
