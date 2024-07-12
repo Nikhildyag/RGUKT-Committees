@@ -7,7 +7,6 @@ const cardData={name:'Academic Commity',complaintForm:'/academiccommittefeedback
             rolesAndResponsibilities:['Monitor academic performance and provide support to struggling students.','Organize academic workshops, seminars, and guest lectures','Collect feedback on courses and suggest improvements.','Coordinate with faculty on academic policies and curriculum development.']      
 }
 const Acadamic = () => {
-  // Access the path and url from match object
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <AcademicHeader name={"Academic Committee"} />
