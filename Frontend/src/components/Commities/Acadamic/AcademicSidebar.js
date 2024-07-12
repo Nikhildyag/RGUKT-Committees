@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { FaAngleDown, FaAngleRight } from 'react-icons/fa'
 const AcademicSidebar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
   const dropdownRef = useRef(null)
 
   const toggleDropdown = () => {

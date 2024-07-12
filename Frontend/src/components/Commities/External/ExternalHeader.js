@@ -1,15 +1,21 @@
-import React, { useState, useRef, useEffect } from "react";
-import { FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import React, { useState, useRef, useEffect } from 'react'
+import { FaBars } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { FaAngleDown, FaAngleRight } from 'react-icons/fa'
 
 const ExternalHeader = ({ name }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const menuRef = useRef(null)
+  const dropdownRef = useRef(null)
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen)
+  }
 
   const handleClickOutside = (event) => {
     if (
@@ -18,16 +24,16 @@ const ExternalHeader = ({ name }) => {
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target)
     ) {
-      setIsOpen(false);
+      setIsOpen(false)
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 right-0 w-full">
@@ -53,11 +59,11 @@ const ExternalHeader = ({ name }) => {
 
       <div
         className={`fixed top-0 left-0 h-full bg-[#426CAD]  sm:block md:hidden transition-transform transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? 'translate-x-0' : '-translate-x-full'
         } w-64 p-4`}
         ref={menuRef}
       >
-        <div className={`${isOpen ? "block" : "hidden"} w-full  mt-4`}>
+        <div className={`${isOpen ? 'block' : 'hidden'} w-full  mt-4`}>
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
@@ -92,19 +98,61 @@ const ExternalHeader = ({ name }) => {
               </Link>
             </li>
 
-            <li className="text-white">
-              <Link
-                to="/external/studentcommitte"
-                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+            <li className="py-1  text-black relative" ref={dropdownRef}>
+              <button
+                onClick={toggleDropdown}
+                className="flex items-center justify-between w-full text-left px-2 py-1 focus:outline-none"
               >
-                Students Commity
-              </Link>
+                <span className="mr-2   text-white ">Department Committee</span>
+                {isDropdownOpen ? <FaAngleDown /> : <FaAngleRight />}
+              </button>
+              <ul
+                className={`${
+                  isDropdownOpen ? 'block' : 'hidden'
+                } ml-2 bg-transparent rounded text-white`}
+              >
+                <li className=" text-black">
+                  <Link to="/academic" className="block  text-white ">
+                    CSE
+                  </Link>
+                </li>
+                <li className=" text-black">
+                  <Link to="/sports" className="block py-1  text-white">
+                    ECE
+                  </Link>
+                </li>
+                <li className=" text-black">
+                  <Link to="/campusamenties" className="block  text-white">
+                    EEE
+                  </Link>
+                </li>
+                <li className=" text-black">
+                  <Link to="/mess" className="block py-1  text-white">
+                    CE
+                  </Link>
+                </li>
+                <li className=" text-black">
+                  <Link to="/hostel" className="block  text-white">
+                    ME
+                  </Link>
+                </li>
+                <li className=" text-black">
+                  <Link to="/career" className="block py-1  text-white">
+                    CHE
+                  </Link>
+                </li>
+                <li className=" text-black">
+                  <Link to="/innovation" className="block  text-white">
+                    MME
+                  </Link>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default ExternalHeader;
+export default ExternalHeader

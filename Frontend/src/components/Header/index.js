@@ -160,7 +160,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className=" text-black">
-                  <Link to="/campusgreeting" className="block">
+                  <Link to="/campusgreening" className="block">
                     Campus Greening Committee
                   </Link>
                 </li>
