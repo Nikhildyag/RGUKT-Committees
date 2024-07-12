@@ -16,12 +16,10 @@ const adminSchema = new Schema(
       type: String,
       required: true,
       lowercase: true,
-      index: true,
     },
     department: {
       type: String,
       required: true,
-      unique: true,
     },
     iscentral: {
       type: Boolean,
