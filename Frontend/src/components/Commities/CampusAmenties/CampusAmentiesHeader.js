@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { FaAngleDown, FaAngleRight } from 'react-icons/fa'
-
 const CampusAmentiesHeader = () => {
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef(null)
@@ -11,10 +9,7 @@ const CampusAmentiesHeader = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen)
-  }
+ 
 
   const handleClickOutside = (event) => {
     if (
@@ -97,55 +92,13 @@ const CampusAmentiesHeader = () => {
                 Central Authority
               </Link>
             </li>
-            <li className="py-1  text-black relative" ref={dropdownRef}>
-              <button
-                onClick={toggleDropdown}
-                className="flex items-center justify-between w-full text-left px-2 py-1 focus:outline-none"
+            <li className="text-white">
+              <Link
+                to="/campusamenties/studentcommitte"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                <span className="mr-2   text-white ">Department Committee</span>
-                {isDropdownOpen ? <FaAngleDown /> : <FaAngleRight />}
-              </button>
-              <ul
-                className={`${
-                  isDropdownOpen ? 'block' : 'hidden'
-                } ml-2 bg-transparent rounded text-white`}
-              >
-                <li className=" text-black">
-                  <Link to="/academic" className="block  text-white ">
-                    CSE
-                  </Link>
-                </li>
-                <li className=" text-black">
-                  <Link to="/sports" className="block py-1  text-white">
-                    ECE
-                  </Link>
-                </li>
-                <li className=" text-black">
-                  <Link to="/campusamenties" className="block  text-white">
-                    EEE
-                  </Link>
-                </li>
-                <li className=" text-black">
-                  <Link to="/mess" className="block py-1  text-white">
-                    CE
-                  </Link>
-                </li>
-                <li className=" text-black">
-                  <Link to="/hostel" className="block  text-white">
-                    ME
-                  </Link>
-                </li>
-                <li className=" text-black">
-                  <Link to="/career" className="block py-1  text-white">
-                    CHE
-                  </Link>
-                </li>
-                <li className=" text-black">
-                  <Link to="/innovation" className="block  text-white">
-                    MME
-                  </Link>
-                </li>
-              </ul>
+                Department Commities
+              </Link>
             </li>
           </ul>
         </div>

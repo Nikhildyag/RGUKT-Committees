@@ -3,13 +3,6 @@ import { Link } from 'react-router-dom'
 
 const CommitteeCard = ({ data }) => {
   const { rolesAndResponsibilities, complaintForm } = data
-
-  const clickButton = () => {
-    console.log("submit complaint is clicked")
-  }
-
-  console.log(complaintForm)
-
   return (
     <div className=" p-6 sm:relative md:left-60 sm:left-0 z-0 ml-2 sm:mt-[2%]">
       <div className="mb-8 w-full md:w-3/4 break-words px-3">
@@ -41,7 +34,7 @@ const CommitteeCard = ({ data }) => {
             Submit Feedback
           </button>
            <Link to={complaintForm}>
-           <button onClick={clickButton} className="w-[12em] h-[3em] bg-orange-400 text-white rounded-md cursor-pointer">
+           <button className="w-[12em] h-[3em] bg-orange-400 text-white rounded-md cursor-pointer">
               Submit Complaint
             </button>
            </Link> 

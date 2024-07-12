@@ -8,7 +8,7 @@ const cardData={name:'External Activities Committee',complaintForm:'/externalact
 const External = () => {
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <ExternalHeader name={"Academic Committee"} />
+      <ExternalHeader />
       <div className="flex w-full">
         <ExternalSidebar/>
         <CommitteeCard data={cardData}/>

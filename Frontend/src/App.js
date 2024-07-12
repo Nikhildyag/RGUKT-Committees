@@ -189,6 +189,9 @@ const App = () => (
       <Route exact path="/sports/centralaurhority" Component={SportsCentralAuthority}/>
       <Route exact path="/sports/facultyincarge"   Component={SportsFacultyIncarge}/>
       <Route exact path="/sports/studentcommitte"  Component={SportsStudentCommittee}/>
+    
+      {/* committee members routes */}
+
 
       {/* Form Routes */}
       <Route exact path="/academiccommittefeedbackform" Component={AcademicCommitteForm} />
