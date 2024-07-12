@@ -17,7 +17,7 @@ const AcadamicStudentCommittee = () => {
       <AcademicHeader name={'Academic Committee'} />
       <div className="flex w-full">
         <AcademicSidebar />
-        <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%]  ">
+        <div className="relative md:left-40 lg:left-56 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%]  ">
           <div className="mt-8 border border-[#c85cdb] rounded-md pb-4 lg:w-[80%] sm:w-[100%] sm:mx-8 lg:mx-0">
             <h1 className=" bg-[#c85cdb]  text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl  text-center py-2">
               Computer Science and Engineering
