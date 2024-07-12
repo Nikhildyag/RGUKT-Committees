@@ -9,5 +9,5 @@ const router = Router();
 router.route("/signup").post(createDepartmentMember);
 router.route("/login").post(loginDepartmentMember);
 router.route("/update/:memberId").post(updateDepartmentMember);
-router.route('/get/committemembers').post(getCommitteMembers)
+router.route("/get/committeemembers").post(getCommitteMembers);
 export default router;

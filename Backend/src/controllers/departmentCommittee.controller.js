@@ -119,10 +119,10 @@ const updateDepartmentMember = async (req, res) => {
 const getCommitteMembers=async(req,res)=>{
   try {
     const {committee_name}=req.body;
+    console.log(committee_name);
     if(!committee_name) return res.status(400).json({message:"committee name is required"})
     const MembesArray=await Department.find({committee_name})
     if(!MembesArray) return res.status(400).json({message:"no records found"});
-    console.log(MembesArray);
     return res.status(200).json({MembesArray});
   } catch (error) {
     return res.status(400).json({message:error.message})
