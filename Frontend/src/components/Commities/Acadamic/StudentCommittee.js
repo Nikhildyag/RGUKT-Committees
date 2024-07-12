@@ -12,6 +12,27 @@ const AcadamicStudentCommittee = () => {
     Qualification: 'CHEM',
     Branch: 'CSE',
   }
+
+
+//   const MakeApiCall=async()=>{
+//     console.log("make the API call")
+//     const url=`http://localhost:1024/api/v1/department//get/committemembers`
+//     const object=JSON.stringify({committee_name:'Academic'});
+//     const response = await fetch(url, {
+//       method: "POST",
+//       credentials: "include",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body:object,
+//     }
+//   );
+//   console.log(response);
+//   }
+// useEffect(()=>{
+//   MakeApiCall();
+// },[])
+
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <AcademicHeader name={'Academic Committee'} />
