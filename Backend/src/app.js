@@ -5,7 +5,11 @@ import DepartmentRouter from "./routes/departmentMember.routes.js";
 import centralRouter from "./routes/centralMember.routes.js";
 import cookieParser from "cookie-parser";
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: ["http://localhost:3000"], // Frontend domain
+  credentials: true, // Allow credentials (cookies) to be sent
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/v1/admins", adminRouter);
