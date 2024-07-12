@@ -1,7 +1,8 @@
 import React from 'react'
 
 const ProfileCard = ({ Data }) => {
-  const { name, ImageUrl, Designation, Qualification, Branch } = Data
+  const ImageUrl= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s"
+  console.log("profile card",Data)
   return (
     <div className="flex justify-center mt-8 md:mt-10">
       <div className="max-w-xs md:max-w-lg">
@@ -12,16 +13,19 @@ const ProfileCard = ({ Data }) => {
             alt="Profile"
           />
           <div className="flex flex-col justify-between p-4 leading-normal text-sm sm:text-base md:text-md lg:text-md xl:text-lg">
-            <h5 className="mb-2  font-bold tracking-tight text-gray-900 dark:text-white">
-              {name}
+            <h5 className="mb-2  font-bold tracking-tight text-gray-900 dark:text-gray-400">
+            {Data.fullName}
             </h5>
             <p className="mb-3  text-gray-700 dark:text-gray-400">
+              {Data.Id_number}
+            </p> 
+            {/* <p className="mb-3  text-gray-700 dark:text-gray-400">
               {Designation}
             </p>
             <p className="mb-3  text-gray-700 dark:text-gray-400">
               {Qualification}
-            </p>
-            <p className="mb-3 text-gray-700 dark:text-gray-400">{Branch}</p>
+            </p> */}
+            <p className="mb-3 text-gray-700 dark:text-gray-400">{Data.department}</p>
           </div>
         </div>
       </div>
