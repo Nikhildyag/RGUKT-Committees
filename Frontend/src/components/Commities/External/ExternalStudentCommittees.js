@@ -11,7 +11,7 @@ const ExternalStudentCommittee = () => {
   useEffect(() => {
     const fetchStudentCommittees = async () => {
       const data = {
-        committee_name: "Academic",
+        committee_name: "External Activities",
       };
       const committee_details = JSON.stringify(data);
       try {

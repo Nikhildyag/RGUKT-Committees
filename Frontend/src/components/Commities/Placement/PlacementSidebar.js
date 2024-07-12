@@ -16,7 +16,7 @@ const PlacementSidebar = () => {
               Central Authority
             </li>
           </Link>
-          <Link to="/placement/centralaurhority">
+          <Link to="/placement/studentcommitte">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
               Department Committee
             </li>

@@ -16,7 +16,7 @@ const PhotographySidebar = () => {
               Faculty Incharge
             </li>
           </Link>
-          <Link to="/placement/studentcommitte">
+          <Link to="/photography/studentcommitte">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
               Department Committee
             </li>
