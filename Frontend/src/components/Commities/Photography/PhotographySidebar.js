@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
+
 const PhotographySidebar = () => {
   return (
     <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:block xl:block w-2/12 bg-[#ece8e8] shadow-lg mt-14">
@@ -15,15 +16,15 @@ const PhotographySidebar = () => {
               Faculty Incharge
             </li>
           </Link>
-          <Link to="/photography/studentcommitte">
+          <Link to="/placement/studentcommitte">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Student Committee
+              Department Committee
             </li>
           </Link>
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PhotographySidebar;
+export default PhotographySidebar

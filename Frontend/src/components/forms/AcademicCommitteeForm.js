@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Form = () => {
+const AcademicCommitteForm = () => {
   const [category, setCategory] = useState('')
   const [otherCategory, setOtherCategory] = useState('')
   const [year, setYear] = useState('')
@@ -177,4 +177,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default AcademicCommitteForm

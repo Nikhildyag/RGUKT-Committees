@@ -45,7 +45,7 @@ const Header = () => {
             <FaBars />
           </button>
         </div>
-        <div className="flex gap-5">
+        <div className="flex gap-5 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
           <Link to="/">
             <button className="text-white sm:hidden md:block">Home</button>
           </Link>
@@ -67,19 +67,16 @@ const Header = () => {
           />
         </div>
         <div className="w-full mt-4">
-          <ul className="flex flex-col ">
+          <ul className="flex flex-col text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl ">
             <li className="text-white">
               <Link
                 to="/"
-                className=" text-black block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+                className=" text-black block px-2 py-2   hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
               </Link>
             </li>
-            <li
-              className="py-1  text-black  text-white relative"
-              ref={dropdownRef}
-            >
+            <li className="py-1  text-black relative" ref={dropdownRef}>
               <button
                 onClick={toggleDropdown}
                 className="flex items-center justify-between w-full text-left px-2 py-1 focus:outline-none"
@@ -163,7 +160,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className=" text-black">
-                  <Link to="/campusgreeting" className="block">
+                  <Link to="/campusgreening" className="block">
                     Campus Greening Committee
                   </Link>
                 </li>

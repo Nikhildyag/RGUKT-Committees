@@ -8,7 +8,7 @@ import Career from './components/Commities/Career'
 import Cultural from './components/Commities/Cultural'
 import Education from './components/Commities/Education'
 import Environment from './components/Commities/Environment'
-import External from './components/Commities/Environment'
+import External from './components/Commities/External'
 import Grievance from './components/Commities/Grievance'
 import Health from './components/Commities/Health'
 import Hostel from './components/Commities/Hostel'
@@ -86,7 +86,7 @@ import PlacementInternshipForm from "./components/forms/PlacementInternshipForm"
 import GrievanceRedressalForm from "./components/forms/GrievanceRedressalForm";
 import HostelCommitteeForm from "./components/forms/HostelForm";
 import InnovationForm from "./components/forms/InnovationForm";
-import Form from "./components/forms/AcademicCommitteeForm";
+import AcademicCommitteForm from "./components/forms/AcademicCommitteeForm";
 import SportsCentralAuthority from "./components/Commities/Sports/SportsCentralAuthority.js";
 import SportsStudentCommittee from "./components/Commities/Acadamic/StudentCommittee.js";
 import SportsFacultyIncarge from "./components/Commities/Sports/SportsFacultyIncarge.js";
@@ -189,8 +189,12 @@ const App = () => (
       <Route exact path="/sports/centralaurhority" Component={SportsCentralAuthority}/>
       <Route exact path="/sports/facultyincarge"   Component={SportsFacultyIncarge}/>
       <Route exact path="/sports/studentcommitte"  Component={SportsStudentCommittee}/>
-      
-      <Route exact path="/feedbackform" Component={Form} />
+    
+      {/* committee members routes */}
+
+
+      {/* Form Routes */}
+      <Route exact path="/academiccommittefeedbackform" Component={AcademicCommitteForm} />
       <Route exact path="/campusamenitiesform" Component={CampusAmenitiesForm}/>
       <Route exact path="/messadvisoryform" Component={MessAdvisoryForm} />
       <Route exact path="/careerguidanceform" Component={CareerGuidanceForm} />
