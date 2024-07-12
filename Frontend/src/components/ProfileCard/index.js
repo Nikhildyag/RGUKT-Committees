@@ -5,9 +5,9 @@ const ProfileCard = ({ Data }) => {
   return (
     <div className="flex justify-center mt-8 md:mt-10">
       <div className="max-w-xs md:max-w-lg">
-        <div className="flex flex-col md:flex-row items-center bg-white border border-gray-200 rounded-lg shadow-md">
+        <div className="flex flex-row items-center bg-white border border-gray-200 rounded-lg shadow-md">
           <img
-            className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+            className="object-cover  rounded-t-lg h-auto w-48 md:rounded-none md:rounded-l-lg"
             src={ImageUrl}
             alt="Profile"
           />
