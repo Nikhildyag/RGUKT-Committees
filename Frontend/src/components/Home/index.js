@@ -26,7 +26,7 @@ const Homepage = () => {
           </div>
 
           <section className="mb-8 w-full md:w-3/4 break-words px-3">
-            <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-4 break-words bg-green-900 w-fit text-white px-1">
+            <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-4 break-words bg-red-900 w-fit text-white px-1">
               Key Features of the Portal :
             </h2>
 

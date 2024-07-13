@@ -39,7 +39,7 @@ const FormCard = () => {
             <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white">
               Academic Committee Grievance Form
             </h1>
-            <form>
+            <form >
               <div className="mb-4">
                 <label
                   className="block text-white  font-bold mb-2"
