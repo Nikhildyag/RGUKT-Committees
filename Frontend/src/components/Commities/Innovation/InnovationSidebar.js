@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 const InnovationSidebar = () => {
   return (
     <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:block xl:block w-2/12 bg-[#ece8e8] shadow-lg mt-14">
@@ -23,7 +23,7 @@ const InnovationSidebar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default InnovationSidebar
+export default InnovationSidebar;

@@ -135,4 +135,24 @@ const updateCentralMember = async (req, res) => {
   }
 };
 
-export { createcentralMember, loginCentralMember, updateCentralMember };
+const getcentralCommitteMembers = async (req, res) => {
+  try {
+    const { committee_name } = req.body;
+    console.log(committee_name);
+    if (!committee_name)
+      return res.status(400).json({ message: "committee name is required" });
+    const MembersArray = await Central.find({ committee_name });
+    if (!MembersArray)
+      return res.status(400).json({ message: "no records found" });
+    return res.status(200).json({ MembersArray });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
+export {
+  createcentralMember,
+  loginCentralMember,
+  updateCentralMember,
+  getcentralCommitteMembers,
+};

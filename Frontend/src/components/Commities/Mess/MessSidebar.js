@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const MessSidebar = () => {
   return (
@@ -24,7 +24,7 @@ const MessSidebar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MessSidebar
+export default MessSidebar;

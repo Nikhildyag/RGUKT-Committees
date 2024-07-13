@@ -1,15 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { FaBars } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const HealthHeader = ({ name }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const menuRef = useRef(null)
-  const dropdownRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const handleClickOutside = (event) => {
     if (
@@ -18,16 +18,16 @@ const HealthHeader = ({ name }) => {
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target)
     ) {
-      setIsOpen(false)
+      setIsOpen(false);
     }
-  }
+  };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
@@ -53,11 +53,11 @@ const HealthHeader = ({ name }) => {
 
       <div
         className={`fixed top-0 left-0 h-full bg-[#426CAD]  sm:block md:hidden transition-transform transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         } w-64 p-4`}
         ref={menuRef}
       >
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full  mt-4`}>
+        <div className={`${isOpen ? "block" : "hidden"} w-full  mt-4`}>
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
@@ -104,7 +104,7 @@ const HealthHeader = ({ name }) => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default HealthHeader
+export default HealthHeader;
