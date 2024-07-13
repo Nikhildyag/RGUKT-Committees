@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const SportsSidebar = () => {
   return (
@@ -27,7 +27,7 @@ const SportsSidebar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SportsSidebar
+export default SportsSidebar;

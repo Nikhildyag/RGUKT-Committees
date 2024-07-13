@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const SafetySidebar = () => {
   return (
@@ -24,7 +24,7 @@ const SafetySidebar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SafetySidebar
+export default SafetySidebar;

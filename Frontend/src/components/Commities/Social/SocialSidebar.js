@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const SocialSidebar = () => {
   return (
@@ -24,7 +24,7 @@ const SocialSidebar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SocialSidebar
+export default SocialSidebar;

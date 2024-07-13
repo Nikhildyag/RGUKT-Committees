@@ -1,8 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const CulturalSidebar = () => {
- 
   return (
     <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:block xl:block w-2/12 bg-[#ece8e8] shadow-lg mt-14">
       <div className="overflow-y-auto h-full">
@@ -25,7 +24,7 @@ const CulturalSidebar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CulturalSidebar
+export default CulturalSidebar;

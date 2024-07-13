@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const HealthSidebar = () => {
   return (
@@ -24,7 +24,7 @@ const HealthSidebar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HealthSidebar
+export default HealthSidebar;
