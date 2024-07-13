@@ -26,23 +26,23 @@ const FormCard = () => {
       <div className="flex w-full">
         <AcademicSidebar />
       </div>
-      <div className="lg:mt-16 sm:w-[88%] sm:mx-5  sm:mt-24 sm:px-4 lg:w-[70vw] rounded-lg lg:ml-[23%]  md:w-[70vw] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-[#0d1d3b] pb-9">
+      <div className="lg:mt-24 sm:w-[90%] sm:ml-[5%]  sm:mt-24 sm:px-4 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-[#0d1d3b] pb-9">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="bg-transparent rounded-lg">
             <img
               src="https://cdni.iconscout.com/illustration/premium/thumb/complaint-resolution-specialist-handling-customer-complaints-and-working-to-resolve-them-8978982-7328703.png?f=webp"
               alt="Complaint"
-              className="md:w-[80em] md:h-[30em] sm:w-[60em] sm:h-[20em] "
+              className=" lg:w-[80em] lg:h-[30em] md:w-[70em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
             />
           </div>
-          <div className="max-w-lg mx-auto md:mt-10 sm:mt-2 px-5  bg-[#223b5d] rounded-lg shadow-md border border-black py-6">
-            <h1 className="text-2xl font-bold mb-6 text-center text-white">
-              Academic Committee Suggestion/Grievance Form
+          <div className="max-w-lg mx-auto sm:mx-4 md:mt-10 sm:mt-2 px-5  bg-[#223b5d] rounded-lg shadow-md  py-6">
+            <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white">
+              Academic Committee Grievance Form
             </h1>
             <form>
               <div className="mb-4">
                 <label
-                  className="block text-white text-sm font-bold mb-2"
+                  className="block text-white  font-bold mb-2"
                   htmlFor="name"
                 >
                   Name
@@ -57,7 +57,7 @@ const FormCard = () => {
               </div>
               <div className="mb-4">
                 <label
-                  className="block text-white text-sm font-bold mb-2"
+                  className="block text-white  font-bold mb-2"
                   htmlFor="studentId"
                 >
                   Student_Id
@@ -72,7 +72,7 @@ const FormCard = () => {
               </div>
               <div className="mb-4">
                 <label
-                  className="block text-white text-sm font-bold mb-2"
+                  className="block text-white font-bold mb-2"
                   htmlFor="studentId"
                 >
                   year
@@ -99,7 +99,7 @@ const FormCard = () => {
                 year === 'E4') && (
                 <div className="mb-4">
                   <label
-                    className="block text-white text-sm font-bold mb-2"
+                    className="block text-white  font-bold mb-2"
                     htmlFor="otherCategory"
                   >
                     Please specify
@@ -124,7 +124,7 @@ const FormCard = () => {
               )}
               <div className="mb-4">
                 <label
-                  className="block text-white text-sm font-bold mb-2"
+                  className="block text-white font-bold mb-2"
                   htmlFor="category"
                 >
                   Suggestion/Grievance Category
@@ -155,7 +155,7 @@ const FormCard = () => {
               {category === 'Other' && (
                 <div className="mb-4">
                   <label
-                    className="block text-white text-sm font-bold mb-2"
+                    className="block text-white  font-bold mb-2"
                     htmlFor="otherCategory"
                   >
                     Please specify
@@ -173,7 +173,7 @@ const FormCard = () => {
               )}
               <div className="mb-4">
                 <label
-                  className="block text-white text-sm font-bold mb-2"
+                  className="block text-white  font-bold mb-2"
                   htmlFor="message"
                 >
                   Message

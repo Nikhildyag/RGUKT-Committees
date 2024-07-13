@@ -1,5 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {
+  FaBook,
+  FaBuilding,
+  FaUtensils,
+  FaBriefcase,
+  FaFootballBall,
+  FaPalette,
+  FaGraduationCap,
+  FaExternalLinkAlt,
+  FaHandsHelping,
+  FaCamera,
+  FaLeaf,
+  FaTree,
+  FaShieldAlt,
+  FaHeartbeat,
+  FaClipboardList,
+  FaGavel,
+  FaHome,
+  FaLightbulb,
+} from 'react-icons/fa'
 
 const DesktopCommities = () => {
   return (
@@ -17,94 +37,148 @@ const DesktopCommities = () => {
       <div className="overflow-y-auto h-[calc(100%-54px)] bg-[#ece8e8] mt-[7.2%] ">
         <ul className="list-none px-4 py-4 text-sm sm:text-base md:text-md lg:text-md xl:text-lg">
           <Link to="/academic">
-            <li className="mx-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Academic Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaBook className="h-4 w-5 mt-1 text-blue-500 hover:animate-spin" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Academic Committee
+              </li>
+            </div>
           </Link>
           <Link to="/campusamenties">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Campus Amenities Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaBuilding className="h-4 w-5 mt-1 text-green-500 hover:animate-bounce" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Campus Amenities Committee
+              </li>
+            </div>
           </Link>
           <Link to="/mess">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Mess Advisory Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaUtensils className="h-4 w-5 mt-1 text-red-500 hover:animate-ping" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Mess Advisory Committee
+              </li>
+            </div>
           </Link>
           <Link to="/career">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Career Guidance Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaBriefcase className="h-4 w-5 mt-1 text-purple-500 hover:animate-pulse" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Career Guidance Committee
+              </li>
+            </div>
           </Link>
           <Link to="/sports">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Sports Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaFootballBall className="h-4 w-5 mt-1 text-yellow-500 hover:animate-spin" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Sports Committee
+              </li>
+            </div>
           </Link>
           <Link to="/cultural">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Cultural Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaPalette className="h-4 w-5 mt-1 text-pink-500 hover:animate-bounce" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Cultural Committee
+              </li>
+            </div>
           </Link>
           <Link to="/educational">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Educational Opportunities Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaGraduationCap className="h-4 w-5 mt-1 text-teal-500 hover:animate-ping" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Educational Opportunities Committee
+              </li>
+            </div>
           </Link>
           <Link to="/external">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              External Activities Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaExternalLinkAlt className="h-4 w-5 mt-1 text-orange-500 hover:animate-pulse" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                External Activities Committee
+              </li>
+            </div>
           </Link>
           <Link to="/social">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Social Service Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaHandsHelping className="h-4 w-5 mt-1 text-blue-500 hover:animate-spin" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Social Service Committee
+              </li>
+            </div>
           </Link>
           <Link to="/photography">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Photography Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaCamera className="h-4 w-5 mt-1 text-purple-500 hover:animate-bounce" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Photography Committee
+              </li>
+            </div>
           </Link>
           <Link to="/environment">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Environment/Sustainability Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaLeaf className="h-4 w-5 mt-1 text-green-500 hover:animate-ping" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Environment/Sustainability Committee
+              </li>
+            </div>
           </Link>
           <Link to="/campusgreening">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Campus Greening Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaTree className="h-4 w-5 mt-1 text-brown-500 hover:animate-pulse" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Campus Greening Committee
+              </li>
+            </div>
           </Link>
           <Link to="/safety">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Safety and Security Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaShieldAlt className="h-4 w-5 mt-1 text-red-500 hover:animate-spin" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Safety and Security Committee
+              </li>
+            </div>
           </Link>
           <Link to="/health">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Health Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaHeartbeat className="h-4 w-5 mt-1 text-pink-500 hover:animate-bounce" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Health Committee
+              </li>
+            </div>
           </Link>
           <Link to="/placement">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Placement and Internship Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaClipboardList className="h-4 w-5 mt-1 text-blue-500 hover:animate-ping" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Placement and Internship Committee
+              </li>
+            </div>
           </Link>
           <Link to="/grievance">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Grievance and Redressal Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaGavel className="h-4 w-5 mt-1 text-purple-500 hover:animate-pulse" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Grievance and Redressal Committee
+              </li>
+            </div>
           </Link>
           <Link to="/hostel">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Hostel Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaHome className="h-4 w-5 mt-1 text-teal-500 hover:animate-spin" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Hostel Committee
+              </li>
+            </div>
           </Link>
           <Link to="/innovation">
-            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Innovation and Incubation Committee
-            </li>
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaLightbulb className="h-4 w-5 mt-1 text-yellow-500 hover:animate-bounce" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Innovation and Incubation Committee
+              </li>
+            </div>
           </Link>
         </ul>
       </div>
