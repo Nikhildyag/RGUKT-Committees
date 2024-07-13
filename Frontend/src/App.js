@@ -98,6 +98,8 @@ import index from './components/central/Home/index.js'
 import CentralAuthority from './components/central/CentralAuthorityContents/CentralAuthority.js'
 import CentralAuthorityFIC from './components/central/CentralAuthorityContents/CentralAuthorityFIC.js'
 import CentralAuthorityStudentCommittee from './components/central/CentralAuthorityContents/CentralAuthorityStudentCommittee.js'
+import Discussion from './components/Chat.js'
+import Departments from './components/DepartmentLevel/index.js'
 
 const App = () => (
   <BrowserRouter>
@@ -123,6 +125,8 @@ const App = () => (
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
       {/* //second level routes*/}
+      <Route exact path="/discussions" Component={Discussion} />
+      <Route exact path="/departments" Component={Departments} />
       <Route
         exact
         path="/academic/centralaurhority"
