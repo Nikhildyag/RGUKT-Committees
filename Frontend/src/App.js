@@ -94,6 +94,10 @@ import SocialCentralAuthority from './components/Commities/Social/SocialCentralA
 import SocialFacultyIncarge from './components/Commities/Social/SocialFacultyIncharge.js'
 import SocialStudentCommittee from './components/Commities/Social/StudentCommittees.js'
 import FormCard from './components/forms/FormCard.js'
+import index from './components/central/Home/index.js'
+import CentralAuthority from './components/central/CentralAuthorityContents/CentralAuthority.js'
+import CentralAuthorityFIC from './components/central/CentralAuthorityContents/CentralAuthorityFIC.js'
+import CentralAuthorityStudentCommittee from './components/central/CentralAuthorityContents/CentralAuthorityStudentCommittee.js'
 
 const App = () => (
   <BrowserRouter>
@@ -485,6 +489,24 @@ const App = () => (
       />
       <Route exact path="/innovationcommitteeform" Component={InnovationForm} />
       <Route exact path="/formcard" Component={FormCard} />
+
+      {/* Third Level UI => For Central Authority */}
+      <Route exact path="/centralAuthorityHome" Component={index} />
+      <Route
+        exact
+        path="/central/centralauthority"
+        Component={CentralAuthority}
+      />
+      <Route
+        exact
+        path="/central/facultyIncharge"
+        Component={CentralAuthorityFIC}
+      />
+      <Route
+        exact
+        path="/central/studentcommittee"
+        Component={CentralAuthorityStudentCommittee}
+      />
     </Routes>
   </BrowserRouter>
 )
