@@ -101,7 +101,7 @@ const loginCentralMember = async (req, res) => {
   const isPasswordValid = await centralMember.isPasswordCorrect(password);
   if (!isPasswordValid)
     return res.status(400).json({ message: "your password is not valid" });
-  const accessToken = await centralMember.generateAccessToken();
+  const centralToken = await centralMember.generateAccessToken();
   const options = {
     httpOnly: true,
     secure: true, // Ensure this is true if using HTTPS
@@ -109,8 +109,8 @@ const loginCentralMember = async (req, res) => {
   };
   return res
     .status(200)
-    .cookie("accessToken", accessToken, options)
-    .json({ member: centralMember, accessToken });
+    .cookie("centralToken", centralToken, options)
+    .json({ member: centralMember, centralToken });
 };
 
 const updateCentralMember = async (req, res) => {
