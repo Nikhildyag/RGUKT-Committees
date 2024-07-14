@@ -106,12 +106,9 @@ import DepartmentCentralAuthority from './components/DepartmentLevel/DepartmentC
 import DepartmentLoginform from './components/LoginForms/DepartmentLoginform.js'
 
 import CompalintDetails from './components/DepartmentLevel/CompalintDetails.js'
-<<<<<<< HEAD
 import FacultyLoginForm from './components/LoginForms/FacultyLoginForm.js'
-=======
 import ComplaintDetails from './components/central/ComplaintDetails.js'
 import FeedbackForm from './components/forms/FeedbackForm.js'
->>>>>>> 8e2e7e2c7da126627478d95f1018d76b76cd105c
 
 const App = () => (
   <BrowserRouter>
@@ -137,14 +134,11 @@ const App = () => (
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
       {/* //second level routes*/}
-<<<<<<< HEAD
       <Route exact path='/departments' Component={Departments} />
       <Route exact path='/department/departmentmembers' Component={DepartmentMembers} />
       <Route exact path='/department/facultyincharge' Component={DepartmentFacultymember} />
       <Route exact path='/department/centralauthority' Component={DepartmentCentralAuthority}/>
       <Route exact path="/chatbox" Component={ChatBox} />
-=======
-      <Route exact path="/discussions" Component={Discussion} />
       <Route exact path="/departments" Component={Departments} />
       <Route
         exact
@@ -161,8 +155,6 @@ const App = () => (
         path="/department/centralauthority"
         Component={DepartmentCentralAuthority}
       />
-      <Route exact path="/discussions" Component={Discussion} />
->>>>>>> 8e2e7e2c7da126627478d95f1018d76b76cd105c
       <Route exact path="/departments" Component={Departments} />
       <Route
         exact
@@ -448,16 +440,12 @@ const App = () => (
         Component={SportsStudentCommittee}
       />
       {/* LoginFormRoutes */}
-<<<<<<< HEAD
-      <Route exact path='/departmentloginform' Component={DepartmentLoginform} />
       <Route exact path='facultyinchargeloginForm' Component={FacultyLoginForm}/>
-=======
       <Route
         exact
         path="/departmentloginform"
         Component={DepartmentLoginform}
       />
->>>>>>> 8e2e7e2c7da126627478d95f1018d76b76cd105c
 
       {/* committee members routes */}
 
