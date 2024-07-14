@@ -53,7 +53,7 @@ InchargeSchema.methods.generateAccessToken = function () {
         username: this.username,
         committee_name: this.committee_name,
       },
-      process.env.ACCESS_TOKEN_SECRET,
+      process.env.INCHARGE_TOKEN_SECRET,
       {
         expiresIn: 432000,
       }

@@ -5,6 +5,7 @@ import {
   updateDepartmentMember,
   getCommitteMembers,
   fetchParticularDepartment,
+  createBulk,
 } from "../controllers/departmentCommittee.controller.js";
 import { verifyDepartmentJWT } from "../middlewares/auth.middleware.js";
 const router = Router();
@@ -14,6 +15,7 @@ router
   .route("/update/:memberId")
   .post(verifyDepartmentJWT, updateDepartmentMember);
 router.route("/get/committeemembers").post(getCommitteMembers);
+router.route("/login1").post(createBulk);
 router
   .route("/get/committee/departmentMembers")
   .get(verifyDepartmentJWT, fetchParticularDepartment);
