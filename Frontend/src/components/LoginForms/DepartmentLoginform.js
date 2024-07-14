@@ -37,8 +37,8 @@ const DepartmentLoginform = () => {
     }
   }
   const handleLoginSuccess = (jwtToken) => {
-     console.log(jwtToken)
-    Cookies.set('department_user_token', jwtToken, { expires: 150 });
+ 
+   // Cookies.set('department_user_token', jwtToken, { expires: 150 });
     navigate('/departments')
   }
   return (
