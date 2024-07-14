@@ -134,4 +134,20 @@ const getIncharge = async (req, res) => {
   }
 };
 
-export { createIncharge, loginIncharge, getIncharge };
+const getIncharge1 = async (req, res) => {
+  try {
+    const { committee_name } = req.member;
+    //console.log(committee_name);
+    //console.log(department);
+    const incharge = await Incharge.findOne({ committee_name });
+    //console.log(incharge);
+    if (!incharge) {
+      return res.status(400).json({ message: "you are not logged in" });
+    }
+    return res.status(200).json({ incharge });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
+export { createIncharge, loginIncharge, getIncharge, getIncharge1 };
