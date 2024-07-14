@@ -59,7 +59,7 @@ departmentSchema.methods.generateAccessToken = function () {
       },
       process.env.ACCESS_TOKEN_SECRET,
       {
-        expiresIn: 10,
+        expiresIn: 45320,
       }
     );
     return token;
