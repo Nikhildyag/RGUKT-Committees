@@ -37,7 +37,7 @@ const DepartmentComplaints = () => {
   ]
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8 w-full mt-8">
+    <div className="px-4 sm:px-6 lg:px-8 py-8 w-full mt-20">
       <div className="shadow overflow-hidden rounded-lg border-b border-gray-200">
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white">

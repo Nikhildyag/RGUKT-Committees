@@ -53,19 +53,27 @@ const ViewComplaint = () => {
     fetchComplaint()
   }, [complaintId])
 
+  const handleStatusChange = (e) => {
+    const newStatus = e.target.value
+    setComplaint((prevComplaint) => ({
+      ...prevComplaint,
+      status: newStatus,
+    }))
+  }
+
   if (!complaint) {
     return <div className="text-center mt-4">Loading...</div>
   }
 
   return (
-    <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full max-w-screen">
       <h2 className="text-3xl font-bold mb-4 text-gray-800 text-center">
         Complaint Details
       </h2>
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden sm:rounded-lg border border-gray-200">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden sm:rounded-lg border border-gray-300 hover:border-blue-500 transition duration-300">
         <div className="p-4">
-          <div className="flex flex-col sm:flex-row  border-b border-gray-200">
-            <div className="sm:w-1/4 py-2 border-r border-gray-200">
+          <div className="flex flex-col border-b border-gray-300 hover:bg-gray-100">
+            <div className="py-2 border-b border-gray-300">
               <p className="text-sm text-gray-600 mb-2">
                 <span className="font-medium">ID:</span> {complaint.id}
               </p>
@@ -76,12 +84,23 @@ const ViewComplaint = () => {
               <p className="text-sm text-gray-600 mb-2">
                 <span className="font-medium">Date:</span> {complaint.date}
               </p>
-              <p className="text-sm text-gray-600 mb-2">
-                <span className="font-medium">Status:</span> {complaint.status}
-              </p>
+              <div className="text-sm text-gray-600 mb-2">
+                <span className="font-medium">Status:</span>{' '}
+                <select
+                  className="border border-gray-300 rounded px-2 py-1 mt-1"
+                  value={complaint.status}
+                  onChange={handleStatusChange}
+                >
+                  <option value="Pending">Pending</option>
+                  <option value="Resolved">Resolved</option>
+                  <option value="Raised to Central Authority">
+                    Raised to Central Authority
+                  </option>
+                </select>
+              </div>
             </div>
-            <div className="sm:w-3/4 py-2">
-              <p className="text-sm text-gray-700 px-[2%]">
+            <div className="py-2">
+              <p className="text-sm text-gray-700">
                 <span className="font-medium">Description:</span>{' '}
                 {complaint.description}
               </p>
