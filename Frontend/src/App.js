@@ -100,6 +100,10 @@ import CentralAuthorityFIC from './components/central/CentralAuthorityContents/C
 import CentralAuthorityStudentCommittee from './components/central/CentralAuthorityContents/CentralAuthorityStudentCommittee.js'
 import Discussion from './components/Chat.js'
 import Departments from './components/DepartmentLevel/index.js'
+import DepartmentMembers from './components/DepartmentLevel/DepartmentMembers.js'
+import DepartmentFacultymember from './components/DepartmentLevel/DepartmentFacultymember.js'
+import DepartmentCentralAuthority from './components/DepartmentLevel/DepartmentCentralAuthority.js'
+import DepartmentLoginform from './components/LoginForms/DepartmentLoginform.js'
 
 import CompalintDetails from './components/DepartmentLevel/CompalintDetails.js'
 
@@ -127,6 +131,11 @@ const App = () => (
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
       {/* //second level routes*/}
+      <Route exact path='/discussions' Component={Discussion} />
+      <Route exact path='/departments' Component={Departments} />
+      <Route exact path='/department/departmentmembers' Component={DepartmentMembers} />
+      <Route exact path='/department/facultyincharge' Component={DepartmentFacultymember} />
+      <Route exact path='/department/centralauthority' Component={DepartmentCentralAuthority}/>
       <Route exact path="/discussions" Component={Discussion} />
       <Route exact path="/departments" Component={Departments} />
       <Route
@@ -412,6 +421,8 @@ const App = () => (
         path="/sports/studentcommitte"
         Component={SportsStudentCommittee}
       />
+      {/* LoginFormRoutes */}
+      <Route exact path='/departmentloginform' Component={DepartmentLoginform}/>
 
       {/* committee members routes */}
 

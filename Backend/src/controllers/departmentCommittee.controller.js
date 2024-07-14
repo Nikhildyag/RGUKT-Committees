@@ -82,7 +82,7 @@ const loginDepartmentMember = async (req, res) => {
   const isPasswordValid = await departmentMember.isPasswordCorrect(password);
   if (!isPasswordValid)
     return res.status(400).json({ message: "your password is not valid" });
-  const accessToken = await departmentMember.generateAccessToken();
+  const departmentToken = await departmentMember.generateAccessToken();
   const options = {
     httpOnly: true,
     secure: true, // Ensure this is true if using HTTPS
@@ -90,8 +90,8 @@ const loginDepartmentMember = async (req, res) => {
   };
   return res
     .status(200)
-    .cookie("accessToken", accessToken, options)
-    .json({ member: departmentMember, accessToken });
+    .cookie("departmentToken", departmentToken, options)
+    .json({ member: departmentMember, departmentToken });
 };
 
 const updateDepartmentMember = async (req, res) => {

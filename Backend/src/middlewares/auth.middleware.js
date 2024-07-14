@@ -1,11 +1,14 @@
 import { Central } from "../models/centralMember.model.js";
 import { Department } from "../models/departmentCommittee.model.js";
 import jwt from "jsonwebtoken";
+import { Incharge } from "../models/incharge.model.js";
+import Cookies from "js-cookie";
 
-const verifyJWT = async (req, res, next) => {
+const verifyDepartmentJWT = async (req, res, next) => {
   try {
-    const token = req.cookies.accessToken;
-    //console.log("Token received:", token); // Log the token
+    const token = req.cookies.departmentToken;
+    // console.log("Token received:", token); // Log the token
+    // console.log(token);
 
     if (!token) {
       return res.status(401).json({ message: "Unauthorized request" });
@@ -15,17 +18,15 @@ const verifyJWT = async (req, res, next) => {
     const loggedInDepartmentUser = await Department.findById(
       decodedToken?._id
     ).select("-password");
-    const loggedInCentralUser = await Central.findById(
-      decodedToken?._id
-    ).select("-password");
     // console.log(loggedInDepartmentUser);
-    //console.log(loggedInCentralUser);
+    // console.log(loggedInCentralUser);
+    // console.log(loggedInInchargeUser);
 
-    if (!loggedInDepartmentUser && !loggedInCentralUser) {
+    if (!loggedInDepartmentUser) {
       return res.status(400).json({ message: "Invalid access token" });
     }
 
-    req.member = loggedInDepartmentUser || loggedInCentralUser;
+    req.member = loggedInDepartmentUser;
     next();
   } catch (error) {
     return res.status(400).json({ message: error.message });
@@ -82,4 +83,4 @@ const verifyJWT = async (req, res, next) => {
 //   }
 // };
 
-export { verifyJWT };
+export { verifyDepartmentJWT };

@@ -1,8 +1,7 @@
 import React from 'react'
 
 const ProfileCard = ({ Data }) => {
-  const ImageUrl =
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s'
+  const ImageUrl= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s"
   console.log('profile card', Data)
   return (
     <div className="flex justify-center mt-8 md:mt-10">
@@ -19,16 +18,8 @@ const ProfileCard = ({ Data }) => {
             </h5>
             <p className="mb-3  text-gray-700 dark:text-gray-400">
               {Data.Id_number}
-            </p>
-            {/* <p className="mb-3  text-gray-700 dark:text-gray-400">
-              {Designation}
-            </p>
-            <p className="mb-3  text-gray-700 dark:text-gray-400">
-              {Qualification}
-            </p> */}
-            <p className="mb-3 text-gray-700 dark:text-gray-400">
-              {Data.department}
-            </p>
+            </p> 
+            <p className="mb-3 text-gray-700 dark:text-gray-400">{Data.department}</p>
           </div>
         </div>
       </div>

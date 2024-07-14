@@ -6,11 +6,15 @@ import {
   getCommitteMembers,
   fetchParticularDepartment,
 } from "../controllers/departmentCommittee.controller.js";
-import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { verifyDepartmentJWT } from "../middlewares/auth.middleware.js";
 const router = Router();
 router.route("/signup").post(createDepartmentMember);
 router.route("/login").post(loginDepartmentMember);
-router.route("/update/:memberId").post(verifyJWT, updateDepartmentMember);
+router
+  .route("/update/:memberId")
+  .post(verifyDepartmentJWT, updateDepartmentMember);
 router.route("/get/committeemembers").post(getCommitteMembers);
-router.route("/get/committee/departmentMembers").get(verifyJWT,fetchParticularDepartment);
+router
+  .route("/get/committee/departmentMembers")
+  .get(verifyDepartmentJWT, fetchParticularDepartment);
 export default router;

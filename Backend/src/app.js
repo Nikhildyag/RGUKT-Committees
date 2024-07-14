@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
-import adminRouter from "./routes/admin.routes.js";
+import InchargeRouter from "./routes/incharge.routes.js";
 import DepartmentRouter from "./routes/departmentMember.routes.js";
 import centralRouter from "./routes/centralMember.routes.js";
- import messagesRouter from './routes/messages.routes.js'
+import messagesRouter from "./routes/messages.routes.js";
 import cookieParser from "cookie-parser";
 const app = express();
 const corsOptions = {
@@ -13,7 +13,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-app.use("/api/v1/admins", adminRouter);
+app.use("/api/v1/incharge", InchargeRouter);
 app.use("/api/v1/department", DepartmentRouter);
 app.use("/api/v1/central", centralRouter);
 app.use("/api/v1/messages", messagesRouter);
