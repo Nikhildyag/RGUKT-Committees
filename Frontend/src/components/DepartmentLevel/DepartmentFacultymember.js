@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import DepartmentHeader from './DepartmentHeader';
 import DepartmentSidebar from './DepartmentSidebar';
+import ProfileCard from '../ProfileCard';
 
 const DepartmentFacultymember = () => {
   const [facultyMember, setFacultyMember] = useState();
@@ -9,7 +10,7 @@ const DepartmentFacultymember = () => {
   const fetchFacultyMember = async () => {
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/incharge/get-incharge",
+          "http://localhost:1024/api/v1/incharge/get-incharge1",
           {
             method: "GET",
             credentials: "include", // Include credentials (cookies)
@@ -22,9 +23,8 @@ const DepartmentFacultymember = () => {
           throw new Error(response,"Network response was not ok");
         }
         const json = await response.json();
-        console.log(json)
-        // set(json.MembersArray);
-        console.log(json);
+        setFacultyMember(json.incharge)
+        console.log(json.incharge);
       } catch (error) {
         console.log(error);
       }
@@ -38,6 +38,11 @@ const DepartmentFacultymember = () => {
       <DepartmentHeader />
       <div className="flex w-full">
         <DepartmentSidebar />
+        <div className='relative h-screen left-72 top-20'>
+          {facultyMember && (
+          <ProfileCard Data={facultyMember}/>
+        )}
+        </div> 
        </div> 
     </div>
   );

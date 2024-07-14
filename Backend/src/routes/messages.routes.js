@@ -11,7 +11,7 @@ import {
 } from "../middlewares/auth.middleware.js";
 const router = Router();
 router.route("/recive/messages").get(getMessages);
-router.route("/send/message").post(createMessage);
+router.route("/send/message").post(verifyDepartmentJWT, createMessage);
 router
   .route("/get/departmentMessage")
   .get(verifyDepartmentJWT, getDepartmentMessages);

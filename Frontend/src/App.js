@@ -98,7 +98,7 @@ import index from './components/central/Home/index.js'
 import CentralAuthority from './components/central/CentralAuthorityContents/CentralAuthority.js'
 import CentralAuthorityFIC from './components/central/CentralAuthorityContents/CentralAuthorityFIC.js'
 import CentralAuthorityStudentCommittee from './components/central/CentralAuthorityContents/CentralAuthorityStudentCommittee.js'
-import Discussion from './components/Chat.js'
+import ChatBox from './components/Chat.js'
 import Departments from './components/DepartmentLevel/index.js'
 import DepartmentMembers from './components/DepartmentLevel/DepartmentMembers.js'
 import DepartmentFacultymember from './components/DepartmentLevel/DepartmentFacultymember.js'
@@ -106,6 +106,7 @@ import DepartmentCentralAuthority from './components/DepartmentLevel/DepartmentC
 import DepartmentLoginform from './components/LoginForms/DepartmentLoginform.js'
 
 import CompalintDetails from './components/DepartmentLevel/CompalintDetails.js'
+import FacultyLoginForm from './components/LoginForms/FacultyLoginForm.js'
 
 const App = () => (
   <BrowserRouter>
@@ -131,12 +132,11 @@ const App = () => (
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
       {/* //second level routes*/}
-      <Route exact path='/discussions' Component={Discussion} />
       <Route exact path='/departments' Component={Departments} />
       <Route exact path='/department/departmentmembers' Component={DepartmentMembers} />
       <Route exact path='/department/facultyincharge' Component={DepartmentFacultymember} />
       <Route exact path='/department/centralauthority' Component={DepartmentCentralAuthority}/>
-      <Route exact path="/discussions" Component={Discussion} />
+      <Route exact path="/chatbox" Component={ChatBox} />
       <Route exact path="/departments" Component={Departments} />
       <Route
         exact
@@ -422,7 +422,8 @@ const App = () => (
         Component={SportsStudentCommittee}
       />
       {/* LoginFormRoutes */}
-      <Route exact path='/departmentloginform' Component={DepartmentLoginform}/>
+      <Route exact path='/departmentloginform' Component={DepartmentLoginform} />
+      <Route exact path='facultyinchargeloginForm' Component={FacultyLoginForm}/>
 
       {/* committee members routes */}
 
