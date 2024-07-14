@@ -1,78 +1,188 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const CampusGreeningForm = () => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [category, setCategory] = useState('')
-  const [message, setMessage] = useState('')
+  const [isAnonymous, setIsAnonymous] = useState(false);
+  const [name, setName] = useState("");
+  const [studentId, setStudentId] = useState("");
+  const [year, setYear] = useState("");
+  const [branch, setBranch] = useState("");
+  const [category, setCategory] = useState("");
+  const [otherCategory, setOtherCategory] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleAnonymousChange = (e) => {
+    setIsAnonymous(e.target.value === "Anonymous");
+  };
+
+  const handleCategoryChange = (e) => {
+    const selectedCategory = e.target.value;
+    setCategory(selectedCategory);
+    // Reset otherCategory when selecting a different category
+    if (selectedCategory !== "other") {
+      setOtherCategory("");
+    }
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission logic here
-    console.log('Form submitted:', { name, email, category, message })
-    // Reset form fields after submission
-    setName('')
-    setEmail('')
-    setCategory('')
-    setMessage('')
-  }
+    console.log({
+      isAnonymous,
+      name,
+      studentId,
+      year,
+      branch,
+      category,
+      otherCategory,
+      message,
+    });
+    // Reset form fields if needed
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setIsAnonymous(false);
+    setName("");
+    setStudentId("");
+    setYear("");
+    setBranch("");
+    setCategory("");
+    setOtherCategory("");
+    setMessage("");
+  };
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
-        Campus Greening Committee Request Form
+        Cultural Committee Feedback Form
       </h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Submission Type
+          </label>
+          <div className="flex items-center mb-4">
+            <input
+              type="radio"
+              id="anonymous"
+              name="submissionType"
+              value="Anonymous"
+              onChange={handleAnonymousChange}
+              className="mr-2"
+            />
+            <label htmlFor="anonymous" className="text-gray-700 mr-4">
+              Anonymous
+            </label>
+            <input
+              type="radio"
+              id="notAnonymous"
+              name="submissionType"
+              value="NotAnonymous"
+              onChange={handleAnonymousChange}
+              className="mr-2"
+              defaultChecked
+            />
+            <label htmlFor="notAnonymous" className="text-gray-700">
+              Not Anonymous
+            </label>
+          </div>
+        </div>
+        {!isAnonymous && (
+          <>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="name"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Your Name"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="studentId"
+              >
+                Student ID
+              </label>
+              <input
+                type="text"
+                id="studentId"
+                name="studentId"
+                value={studentId}
+                onChange={(e) => setStudentId(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Your Student ID"
+              />
+            </div>
+          </>
+        )}
+        <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="name"
+            htmlFor="year"
           >
-            Your Name
+            Year
           </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+          <select
+            id="year"
+            name="year"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Your Name"
-            required
-          />
+          >
+            <option value="">Select Year</option>
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
+          </select>
         </div>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="email"
+            htmlFor="branch"
           >
-            Your Email
+            Branch
           </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+          <select
+            id="branch"
+            name="branch"
+            value={branch}
+            onChange={(e) => setBranch(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Your Email"
-            required
-          />
+          >
+            <option value="">Select Branch</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="ME">ME</option>
+            <option value="CE">CE</option>
+            <option value="MME">MME</option>
+            <option value="CHEM">CHEM</option>
+          </select>
         </div>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="category"
           >
-            Request Category
+            Feedback Category
           </label>
           <select
             id="category"
             name="category"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={handleCategoryChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
           >
             <option value="">Select Request Category</option>
             <option value="Green spaces enhancement">
@@ -90,7 +200,7 @@ const CampusGreeningForm = () => {
             <option value="Other">Other</option>
           </select>
         </div>
-        {category === 'Other' && (
+        {category === "other" && (
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -102,11 +212,10 @@ const CampusGreeningForm = () => {
               type="text"
               id="otherCategory"
               name="otherCategory"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              value={otherCategory}
+              onChange={(e) => setOtherCategory(e.target.value)}
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Specify your request category"
-              required
+              placeholder="Specify other category"
             />
           </div>
         )}
@@ -115,7 +224,7 @@ const CampusGreeningForm = () => {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="message"
           >
-            Additional Details
+            Message
           </label>
           <textarea
             id="message"
@@ -123,9 +232,8 @@ const CampusGreeningForm = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Provide more information about your request"
+            placeholder="Your feedback or suggestions"
             rows="5"
-            required
           ></textarea>
         </div>
         <div className="flex items-center justify-center">
@@ -138,7 +246,7 @@ const CampusGreeningForm = () => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default CampusGreeningForm
+export default CampusGreeningForm;

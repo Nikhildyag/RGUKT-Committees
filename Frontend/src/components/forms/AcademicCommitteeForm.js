@@ -1,70 +1,116 @@
-import React, { useState } from 'react'
-import AcademicHeader from '../Commities/Acadamic/AcademicHeader'
-import AcademicSidebar from '../Commities/Acadamic/AcademicSidebar'
+import React, { useState } from "react";
+import AcademicHeader from "../Commities/Acadamic/AcademicHeader";
+import AcademicSidebar from "../Commities/Acadamic/AcademicSidebar";
 
 const AcademicCommitteForm = () => {
-  const [category, setCategory] = useState('')
-  const [otherCategory, setOtherCategory] = useState('')
-  const [year, setYear] = useState('')
-  const [branch, setBranch] = useState('')
+  const [category, setCategory] = useState("");
+  const [otherCategory, setOtherCategory] = useState("");
+  const [year, setYear] = useState("");
+  const [branch, setBranch] = useState("");
+  const [isAnonymous, setIsAnonymous] = useState(false);
+  const [studentId, setStudentId] = useState("");
+
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value)
-  }
+    setCategory(e.target.value);
+  };
+
   const handleYear = (e) => {
-    setYear(e.target.value)
-  }
+    setYear(e.target.value);
+  };
+
   const handleBranch = (e) => {
-    setBranch(e.target.value)
-  }
+    setBranch(e.target.value);
+  };
+
+  const handleAnonymousChange = (e) => {
+    setIsAnonymous(e.target.value === "anonymous");
+  };
 
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <AcademicHeader name={'Academic Committee'} />
+      <AcademicHeader name={"Academic Committee"} />
       <div className="flex w-full">
         <AcademicSidebar />
       </div>
       <div className="mt-16 sm:w-[100%] sm:px-6 lg:w-[118%] md:w-[116%] md:mt-12 flex items-center mb-10">
         <div className="max-w-lg mx-auto mt-10 p-6 bg-[#03193d] rounded-lg shadow-md border border-black">
           <h1 className="text-2xl font-bold mb-6 text-center text-white">
-            Academic Committee Suggestion/Grievance Form
+            Academic Committee Grievance Form
           </h1>
           <form>
             <div className="mb-4">
-              <label
-                className="block text-white text-sm font-bold mb-2"
-                htmlFor="name"
-              >
-                Name
+              <label className="block text-white text-sm font-bold mb-2">
+                Identity
               </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your Name"
-              />
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="anonymous"
+                  name="identity"
+                  value="anonymous"
+                  checked={isAnonymous}
+                  onChange={handleAnonymousChange}
+                  className="mr-2"
+                />
+                <label htmlFor="anonymous" className="text-white mr-4">
+                  Anonymous
+                </label>
+                <input
+                  type="radio"
+                  id="notAnonymous"
+                  name="identity"
+                  value="notAnonymous"
+                  checked={!isAnonymous}
+                  onChange={handleAnonymousChange}
+                  className="mr-2"
+                />
+                <label htmlFor="notAnonymous" className="text-white">
+                  Specify
+                </label>
+              </div>
             </div>
+            {!isAnonymous && (
+              <div>
+                <div className="mb-4">
+                  <label
+                    className="block text-white text-sm font-bold mb-2"
+                    htmlFor="name"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    className="block text-white text-sm font-bold mb-2"
+                    htmlFor="studentId"
+                  >
+                    Student ID
+                  </label>
+                  <input
+                    type="text"
+                    id="studentId"
+                    name="studentId"
+                    value={studentId}
+                    onChange={(e) => setStudentId(e.target.value)}
+                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Your Student ID"
+                  />
+                </div>
+              </div>
+            )}
             <div className="mb-4">
               <label
                 className="block text-white text-sm font-bold mb-2"
-                htmlFor="studentId"
+                htmlFor="year"
               >
-                Student_Id
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your Id"
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-white text-sm font-bold mb-2"
-                htmlFor="studentId"
-              >
-                year
+                Year
               </label>
               <select
                 id="year"
@@ -73,44 +119,37 @@ const AcademicCommitteForm = () => {
                 onChange={handleYear}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value=""> Select year</option>
-                <option value="P1">P1</option>
-                <option value="P2">P2</option>
+                <option value="">Select year</option>
                 <option value="E1">E1</option>
                 <option value="E2">E2</option>
                 <option value="E3">E3</option>
                 <option value="E4">E4</option>
               </select>
             </div>
-            {(year === 'E1' ||
-              year === 'E2' ||
-              year === 'E3' ||
-              year === 'E4') && (
-              <div className="mb-4">
-                <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="otherCategory"
-                >
-                  Please specify
-                </label>
-                <select
-                  id="branch"
-                  name="branch"
-                  value={branch}
-                  onChange={handleBranch}
-                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value=""> Select branch</option>
-                  <option value="P1">CSE</option>
-                  <option value="P2">ECE</option>
-                  <option value="E1">EEE</option>
-                  <option value="E2">CE</option>
-                  <option value="E3">ME</option>
-                  <option value="E4">CHE</option>
-                  <option value="E4">MME</option>
-                </select>
-              </div>
-            )}
+            <div className="mb-4">
+              <label
+                className="block text-white text-sm font-bold mb-2"
+                htmlFor="branch"
+              >
+                Branch
+              </label>
+              <select
+                id="branch"
+                name="branch"
+                value={branch}
+                onChange={handleBranch}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Select branch</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="CE">CE</option>
+                <option value="ME">ME</option>
+                <option value="CHE">CHE</option>
+                <option value="MME">MME</option>
+              </select>
+            </div>
             <div className="mb-4">
               <label
                 className="block text-white text-sm font-bold mb-2"
@@ -141,7 +180,7 @@ const AcademicCommitteForm = () => {
                 <option value="Other">Other</option>
               </select>
             </div>
-            {category === 'Other' && (
+            {category === "Other" && (
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
@@ -187,7 +226,7 @@ const AcademicCommitteForm = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AcademicCommitteForm
+export default AcademicCommitteForm;
