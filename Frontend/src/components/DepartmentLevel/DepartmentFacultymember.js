@@ -2,20 +2,16 @@
 import React from 'react';
 import DepartmentHeader from './DepartmentHeader';
 import DepartmentSidebar from './DepartmentSidebar';
-import ProfileCard from '../ProfileCard'
 
-const cardData = { fullName: 'Academic Commity',department:'CSE' }
-const Departments = () => {
+const DepartmentFacultymember = () => {
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <DepartmentHeader />
       <div className="flex w-full">
-              <DepartmentSidebar />
-              <ProfileCard Data={cardData}/>
+        <DepartmentSidebar />
        </div> 
     </div>
   );
 };
 
-export default Departments;
-
+export default DepartmentFacultymember

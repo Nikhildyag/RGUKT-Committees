@@ -96,6 +96,9 @@ import SocialStudentCommittee from './components/Commities/Social/StudentCommitt
 import FormCard from './components/forms/FormCard.js'
 import Discussion from './components/Chat.js'
 import Departments from './components/DepartmentLevel/index.js'
+import DepartmentMembers from './components/DepartmentLevel/DepartmentMembers.js'
+import DepartmentFacultymember from './components/DepartmentLevel/DepartmentFacultymember.js'
+import DepartmentCentralAuthority from './components/DepartmentLevel/DepartmentCentralAuthority.js'
 
 const App = () => (
   <BrowserRouter>
@@ -122,7 +125,10 @@ const App = () => (
       <Route exact path="/sports" Component={Sports} />
       {/* //second level routes*/}
       <Route exact path='/discussions' Component={Discussion} />
-      <Route exact path='/departments' Component={Departments}/>
+      <Route exact path='/departments' Component={Departments} />
+      <Route exact path='/department/departmentmembers' Component={DepartmentMembers} />
+      <Route exact path='/department/facultyincharge' Component={DepartmentFacultymember} />
+      <Route exact path='/department/centralauthority' Component={DepartmentCentralAuthority}/>
       <Route 
         exact
         path="/academic/centralaurhority"
