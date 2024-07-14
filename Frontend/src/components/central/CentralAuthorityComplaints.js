@@ -1,38 +1,42 @@
 import React from 'react'
 import { IoEyeOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
-
-const DepartmentComplaints = () => {
+const CentralAuthorityComplaints = () => {
   const dummyData = [
+    { id: '001', category: 'Maintenance', date: '2024-07-14', status: 'Open' },
+    { id: '002', category: 'Security', date: '2024-07-13', status: 'Closed' },
+    { id: '003', category: 'Electricity', date: '2024-07-12', status: 'Open' },
     {
-      id: 'E001',
-      category: 'Maintenance',
-      date: '2024-07-10',
-      status: 'Resolved',
-    },
-    {
-      id: 'P002',
-      category: 'Repair',
+      id: '004',
+      category: 'Water Supply',
       date: '2024-07-11',
-      status: 'Pending',
-    },
-    {
-      id: 'C003',
-      category: 'Hygiene',
-      date: '2024-07-12',
       status: 'In Progress',
     },
+    { id: '005', category: 'Internet', date: '2024-07-10', status: 'Open' },
     {
-      id: 'H004',
-      category: 'Maintenance',
-      date: '2024-07-13',
-      status: 'Resolved',
+      id: '006',
+      category: 'Cleanliness',
+      date: '2024-07-09',
+      status: 'Closed',
     },
     {
-      id: 'I005',
-      category: 'Support',
-      date: '2024-07-14',
-      status: 'Pending',
+      id: '007',
+      category: 'Food Quality',
+      date: '2024-07-08',
+      status: 'In Progress',
+    },
+    { id: '008', category: 'Noise', date: '2024-07-07', status: 'Open' },
+    {
+      id: '009',
+      category: 'Infrastructure',
+      date: '2024-07-06',
+      status: 'Closed',
+    },
+    {
+      id: '010',
+      category: 'Transport',
+      date: '2024-07-05',
+      status: 'In Progress',
     },
   ]
 
@@ -61,7 +65,7 @@ const DepartmentComplaints = () => {
               <tr key={complaint.id} className="bg-gray-50 odd:bg-gray-100">
                 <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
                   <div className="flex items-center">
-                    <Link to={`/department/complaint/${complaint.id}`}>
+                    <Link to={`/central/complaint/${complaint.id}`}>
                       <IoEyeOutline className="text-blue-500 hover:text-blue-700 mt-1" />
                     </Link>
                     <span className="ml-2">{complaint.id}</span>
@@ -92,4 +96,4 @@ const DepartmentComplaints = () => {
   )
 }
 
-export default DepartmentComplaints
+export default CentralAuthorityComplaints
