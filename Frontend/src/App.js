@@ -106,6 +106,8 @@ import DepartmentCentralAuthority from './components/DepartmentLevel/DepartmentC
 import DepartmentLoginform from './components/LoginForms/DepartmentLoginform.js'
 
 import CompalintDetails from './components/DepartmentLevel/CompalintDetails.js'
+import ComplaintDetails from './components/central/ComplaintDetails.js'
+import FeedbackForm from './components/forms/FeedbackForm.js'
 
 const App = () => (
   <BrowserRouter>
@@ -131,11 +133,23 @@ const App = () => (
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
       {/* //second level routes*/}
-      <Route exact path='/discussions' Component={Discussion} />
-      <Route exact path='/departments' Component={Departments} />
-      <Route exact path='/department/departmentmembers' Component={DepartmentMembers} />
-      <Route exact path='/department/facultyincharge' Component={DepartmentFacultymember} />
-      <Route exact path='/department/centralauthority' Component={DepartmentCentralAuthority}/>
+      <Route exact path="/discussions" Component={Discussion} />
+      <Route exact path="/departments" Component={Departments} />
+      <Route
+        exact
+        path="/department/departmentmembers"
+        Component={DepartmentMembers}
+      />
+      <Route
+        exact
+        path="/department/facultyincharge"
+        Component={DepartmentFacultymember}
+      />
+      <Route
+        exact
+        path="/department/centralauthority"
+        Component={DepartmentCentralAuthority}
+      />
       <Route exact path="/discussions" Component={Discussion} />
       <Route exact path="/departments" Component={Departments} />
       <Route
@@ -422,7 +436,11 @@ const App = () => (
         Component={SportsStudentCommittee}
       />
       {/* LoginFormRoutes */}
-      <Route exact path='/departmentloginform' Component={DepartmentLoginform}/>
+      <Route
+        exact
+        path="/departmentloginform"
+        Component={DepartmentLoginform}
+      />
 
       {/* committee members routes */}
 
@@ -506,6 +524,7 @@ const App = () => (
       />
       <Route exact path="/innovationcommitteeform" Component={InnovationForm} />
       <Route exact path="/formcard" Component={FormCard} />
+      <Route exact path="/feedbackform" Component={FeedbackForm} />
 
       {/* Third Level UI => For Central Authority */}
       <Route exact path="/centralAuthorityHome" Component={index} />
@@ -524,6 +543,12 @@ const App = () => (
         path="/central/studentcommittee"
         Component={CentralAuthorityStudentCommittee}
       />
+      <Route
+        exact
+        path="/central/complaint/:complaintId"
+        Component={ComplaintDetails}
+      />
+
       <Route
         exact
         path="/department/complaint/:complaintId"
