@@ -49,10 +49,11 @@ const Header = () => {
           <Link to="/">
             <button className="text-white sm:hidden md:block">Home</button>
           </Link>
-          <button className="text-white">Login</button>
+          <Link to="/departmentloginform">
+            <button className="text-white">Login</button>
+          </Link>
         </div>
       </div>
-
       <div
         className={`fixed top-0 left-0 h-full bg-white transition-transform transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'

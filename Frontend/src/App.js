@@ -103,6 +103,7 @@ import Departments from './components/DepartmentLevel/index.js'
 import DepartmentMembers from './components/DepartmentLevel/DepartmentMembers.js'
 import DepartmentFacultymember from './components/DepartmentLevel/DepartmentFacultymember.js'
 import DepartmentCentralAuthority from './components/DepartmentLevel/DepartmentCentralAuthority.js'
+import DepartmentLoginform from './components/LoginForms/DepartmentLoginform.js'
 
 const App = () => (
   <BrowserRouter>
@@ -418,6 +419,8 @@ const App = () => (
         path="/sports/studentcommitte"
         Component={SportsStudentCommittee}
       />
+      {/* LoginFormRoutes */}
+      <Route exact path='/departmentloginform' Component={DepartmentLoginform}/>
 
       {/* committee members routes */}
 
