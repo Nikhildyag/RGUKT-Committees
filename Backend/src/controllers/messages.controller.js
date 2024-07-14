@@ -41,6 +41,7 @@ const createMessage = async (req, res) => {
 
 const getDepartmentMessages = async (req, res) => {
   try {
+    console.log(req);
     const { _id } = req.member;
     if (!_id) return res.status(400).json({ message: "you are not logged in" });
     const departmentMember = await Department.findById(_id);
