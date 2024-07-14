@@ -194,4 +194,3 @@ const DepartmentHeader = () => {
 }
 
 export default DepartmentHeader
-

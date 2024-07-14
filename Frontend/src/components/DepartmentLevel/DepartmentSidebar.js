@@ -18,26 +18,26 @@ const DepartmentSidebar = () => {
       </div>
       <div className="overflow-y-auto h-[calc(100%-54px)] bg-[#ece8e8] mt-[7.2%] ">
         <ul className="list-none px-4 py-4 text-sm sm:text-base md:text-md lg:text-md xl:text-lg">
-              <Link to="/department/facultyincharge">
-                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-                Faculty Incharge
-                </li>
-                  </Link>
-                <Link to="/chatbox">
-                    <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-                Chatbox
-                    </li>
-                </Link>
-                   <Link to="/department/centralauthority">
-                    <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-                    Central Authority
-                    </li>
-                </Link>
-                <Link to="/department/departmentmembers">
-                    <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-                       Department Commities
-                    </li>
-                </Link>
+          <Link to="/department/facultyincharge">
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+              Faculty Incharge
+            </li>
+          </Link>
+          <Link to="/chatbox">
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+              Chatbox
+            </li>
+          </Link>
+          <Link to="/department/centralauthority">
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+              Central Authority
+            </li>
+          </Link>
+          <Link to="/department/departmentmembers">
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+              Department Commities
+            </li>
+          </Link>
         </ul>
       </div>
     </div>
