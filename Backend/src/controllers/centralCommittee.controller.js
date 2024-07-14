@@ -152,6 +152,7 @@ const getcentralCommitteMembers = async (req, res) => {
 
 const getCentralMembersByLogin = async (req, res) => {
   try {
+    // console.log(req.member);
     const { committee_name } = req.member;
     //we will get the details of the department member from the token
     if (!committee_name)

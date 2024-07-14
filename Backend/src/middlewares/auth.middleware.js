@@ -22,6 +22,7 @@ const verifyDepartmentJWT = async (req, res, next) => {
     }
 
     req.member = loggedInDepartmentUser;
+    //console.log(req.member);
     next();
   } catch (error) {
     return res.status(400).json({ message: error.message });
