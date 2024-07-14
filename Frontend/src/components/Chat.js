@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
-import axios from 'axios';
+import DepartmentHeader from './DepartmentLevel/DepartmentHeader';
+import DepartmentSidebar from './DepartmentLevel/DepartmentSidebar';
 
-const socket = io('http://localhost:1024');
+const socket = io('http://localhost:1024', {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd"
+  }
+});
 
 const Discussion = ({ userId }) => {
   const [message, setMessage] = useState('');
@@ -10,8 +16,19 @@ const Discussion = ({ userId }) => {
 
   useEffect(() => {
     const fetchMessages = async () => {
-      const res = await axios.get('http://localhost:1024/api/v1/messages/recive/messages');
-      setMessages(res.data);
+      try {
+        const response = await fetch('http://localhost:1024/api/v1/messages/recive/messages', {
+          method: 'GET',
+          credentials: 'include',
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setMessages(data);
+      } catch (error) {
+        console.error('Error fetching messages:', error);
+      }
     };
 
     fetchMessages();
@@ -27,18 +44,29 @@ const Discussion = ({ userId }) => {
 
   const sendMessage = async () => {
     if (message.trim()) {
-      const newMessage = { sender_id: "1235", message };
+      const newMessage = { message };
 
       try {
         // Emit the message to the server via socket.io
-        setMessage('');
         socket.emit('sendMessage', newMessage);
 
         // Save the message to the backend
-        await axios.post('http://localhost:1024/api/v1/send/message', newMessage);
+        const response = await fetch('http://localhost:1024/api/v1/messages/send/message', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newMessage),
+          credentials: 'include',
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
 
         // Update the local state
-        setMessages((prevMessages) => [...prevMessages, newMessage]);
+       // setMessages((prevMessages) => [...prevMessages, newMessage]);
+        setMessage('');
       } catch (error) {
         console.error('Error sending message:', error);
       }
@@ -46,33 +74,41 @@ const Discussion = ({ userId }) => {
   };
 
   return (
-    <div className="flex flex-col p-5 mx-auto max-w-3xl">
-      <div className="flex flex-col h-96 overflow-y-scroll border border-gray-300 p-4 mb-4">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={`p-3 my-2 rounded-lg ${
-              msg.senderId === userId ? 'bg-green-200 self-end' : 'bg-white self-start border border-gray-200'
-            }`}
-          >
-            {msg.message}
+    <div className="max-w-[100%] overflow-x-hidden text-wrap">
+      <DepartmentHeader />
+      <div className="flex w-full">
+        <DepartmentSidebar />
+        <div className="w-[80%] ml-[18%] flex items-center">
+          <div className="flex flex-col p-5 mx-auto max-w-3xl">
+            <div className="flex flex-col h-96 overflow-y-scroll border border-gray-300 p-4 mb-4">
+              {messages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`p-3 my-2 rounded-lg ${
+                    msg.senderId === userId ? 'bg-green-200 self-end' : 'bg-white self-start border border-gray-200'
+                  }`}
+                >
+                  {msg.message}
+                </div>
+              ))}
+            </div>
+            <div className="flex">
+              <input
+                type="text"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Type a message"
+                className="flex-1 p-3 border border-gray-300 rounded-l-lg"
+              />
+              <button
+                onClick={sendMessage}
+                className="p-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600"
+              >
+                Send
+              </button>
+            </div>
           </div>
-        ))}
-      </div>
-      <div className="flex">
-        <input
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type a message"
-          className="flex-1 p-3 border border-gray-300 rounded-l-lg"
-        />
-        <button
-          onClick={sendMessage}
-          className="p-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600"
-        >
-          Send
-        </button>
+        </div>
       </div>
     </div>
   );

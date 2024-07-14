@@ -5,13 +5,13 @@ const DepartmentSidebar = () => {
   return (
     <div className="min-h-screen h-full sm:hidden md:block fixed top-0 w-64  shadow-lg">
       <div className="flex flex-row gap-2  bg-[#426CAD] h-[2.6em]">
-              <Link to="/departments">
-                   <img
-                    src="https://hub.rgukt.ac.in/hub/static/images/logo.png"
-                    className="h-9 mt-2 ml-3 rounded-[50%]"
-                      alt="RGUKT Logo"
-                  />
-              </Link>
+        <Link to="/departments">
+          <img
+            src="https://hub.rgukt.ac.in/hub/static/images/logo.png"
+            className="h-9 mt-2 ml-3 rounded-[50%]"
+            alt="RGUKT Logo"
+          />
+        </Link>
         <span className="text-white  pl-2 pt-3  font-serif font-bold text-sm sm:text-base md:text-lg lg:text-md xl:text-xl">
           Department
         </span>
@@ -23,7 +23,7 @@ const DepartmentSidebar = () => {
                 Faculty Incharge
                 </li>
                   </Link>
-                <Link to="/department/facultyincharge">
+                <Link to="/chatbox">
                     <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
                 Chatbox
                     </li>

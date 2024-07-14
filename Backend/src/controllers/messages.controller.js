@@ -17,9 +17,11 @@ const getMessages = async (req, res) => {
 const createMessage = async (req, res) => {
   try {
     const { message } = req.body;
+    //console.log(message)
     if (!message) {
       return res.status(400).json({ message: "All fields are required" });
     }
+    //console.log(req.member)
     const { _id, department, committee_name } = req.member;
     const newMessage = await Message.create({
       message,
@@ -27,6 +29,7 @@ const createMessage = async (req, res) => {
       department,
       committee_name,
     });
+    console.log(newMessage)
     if (!newMessage) {
       return res.status(500).json({ message: "unable to send message" });
     }

@@ -1,14 +1,14 @@
 import React from 'react'
-import DepartmentHeader from './DepartmentHeader'
-import DepartmentSidebar from './DepartmentSidebar'
+import Header from './Home/Header'
+import CentralAuthoritySidebar from './Home/CentralAuthoritySidebar'
 import ViewComplaint from './ViewComplaint'
 
-const CompalintDetails = () => {
+const ComplaintDetails = () => {
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <DepartmentHeader />
+      <Header />
       <div className="flex w-full">
-        <DepartmentSidebar />
+        <CentralAuthoritySidebar />
         <div className="lg:w-[100%] lg:ml-[16.5%] md:w-[100%] sm:ml-0 sm:mt-14 sm:w-full flex items-center">
           <ViewComplaint />
         </div>
@@ -17,4 +17,4 @@ const CompalintDetails = () => {
   )
 }
 
-export default CompalintDetails
+export default ComplaintDetails

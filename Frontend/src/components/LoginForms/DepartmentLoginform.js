@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import DesktopCommities from "../DesktopCommities";
 import Header from "../Header";
 

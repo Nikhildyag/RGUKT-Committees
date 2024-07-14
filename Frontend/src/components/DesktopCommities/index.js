@@ -24,7 +24,7 @@ import {
 const DesktopCommities = () => {
   return (
     <div className="min-h-screen h-full sm:hidden md:block fixed top-0 w-64  shadow-lg">
-      <div className="flex flex-row gap-2 bg-[#426CAD] h-[2.3em]">
+      <div className="flex flex-row gap-2 bg-[#426CAD] h-[2.6em]">
         <img
           src="https://hub.rgukt.ac.in/hub/static/images/logo.png"
           className="h-9 mt-2 ml-3 rounded-[50%]"

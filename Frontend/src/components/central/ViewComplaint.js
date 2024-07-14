@@ -1,45 +1,43 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 const dummyData = [
+  { id: '001', category: 'Maintenance', date: '2024-07-14', status: 'Open' },
+  { id: '002', category: 'Security', date: '2024-07-13', status: 'Closed' },
+  { id: '003', category: 'Electricity', date: '2024-07-12', status: 'Open' },
   {
-    id: 'E001',
-    category: 'Maintenance',
-    date: '2024-07-10',
-    status: 'Resolved',
-    description: 'This complaint is related to maintenance of facilities.',
-  },
-  {
-    id: 'P002',
-    category: 'Repair',
+    id: '004',
+    category: 'Water Supply',
     date: '2024-07-11',
-    status: 'Pending',
-    description: 'This complaint is regarding repairs needed for equipment.',
-  },
-  {
-    id: 'C003',
-    category: 'Hygiene',
-    date: '2024-07-12',
     status: 'In Progress',
-    description: 'This complaint is related to hygiene standards in the area.',
+  },
+  { id: '005', category: 'Internet', date: '2024-07-10', status: 'Open' },
+  {
+    id: '006',
+    category: 'Cleanliness',
+    date: '2024-07-09',
+    status: 'Closed',
   },
   {
-    id: 'H004',
-    category: 'Maintenance',
-    date: '2024-07-13',
-    status: 'Resolved',
-    description: 'This complaint is related to maintenance of infrastructure.',
+    id: '007',
+    category: 'Food Quality',
+    date: '2024-07-08',
+    status: 'In Progress',
+  },
+  { id: '008', category: 'Noise', date: '2024-07-07', status: 'Open' },
+  {
+    id: '009',
+    category: 'Infrastructure',
+    date: '2024-07-06',
+    status: 'Closed',
   },
   {
-    id: 'I005',
-    category: 'Support',
-    date: '2024-07-14',
-    status: 'Pending',
-    description:
-      'This complaint is regarding support needed for a specific issue.',
+    id: '010',
+    category: 'Transport',
+    date: '2024-07-05',
+    status: 'In Progress',
   },
 ]
-
 const ViewComplaint = () => {
   const { complaintId } = useParams()
   const [complaint, setComplaint] = useState(null)
@@ -64,7 +62,6 @@ const ViewComplaint = () => {
   if (!complaint) {
     return <div className="text-center mt-4">Loading...</div>
   }
-
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full max-w-screen">
       <h2 className="text-3xl font-bold mb-4 text-gray-800 text-center">

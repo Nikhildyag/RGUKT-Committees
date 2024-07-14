@@ -8,28 +8,23 @@ const DepartmentCentralAuthority = () => {
   const [isDataReady, setIsdataready] = useState(false);
   useEffect(() => {
     const fetchCentralCommittees = async () => {
-      const data = {
-        committee_name: "academic",
-      };
-      const committee_details = JSON.stringify(data);
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/central/get/centralcommitteemembers",
+          "http://localhost:1024/api/v1/central/get/centralmembersbylogin",
           {
             method: "GET",
             credentials: "include", // Include credentials (cookies)
             headers: {
               "Content-Type": "application/json",
             },
-            body: committee_details,
           }
         );
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error(response,"Network response was not ok");
         }
         const json = await response.json();
         setStudents(json.MembersArray);
-        //console.log(students);
+        console.log(json);
         setIsdataready(true);
       } catch (error) {
         console.log(error);
