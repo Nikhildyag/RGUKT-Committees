@@ -16,7 +16,7 @@ const DepartmentCentralAuthority = () => {
         const response = await fetch(
           "http://localhost:1024/api/v1/central/get/centralcommitteemembers",
           {
-            method: "POST",
+            method: "GET",
             credentials: "include", // Include credentials (cookies)
             headers: {
               "Content-Type": "application/json",

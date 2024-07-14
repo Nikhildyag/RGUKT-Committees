@@ -11,7 +11,7 @@ const CampusGreeningStudentCommittee = () => {
   useEffect(() => {
     const fetchStudentCommittees = async () => {
       const data = {
-        committee_name: "Campus Greening",
+        committee_name: "greening",
       };
       const committee_details = JSON.stringify(data);
       try {
