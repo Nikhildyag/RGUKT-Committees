@@ -29,12 +29,12 @@ const DepartmentLoginform = () => {
     });
     const data = await response.json();
     if (response.ok === true) {
-      document.cookie = `accessToken=${data.accessToken}; Secure; SameSite=None; Path=/`;
+      document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
       navigate("/departments");
     } else {
       console.log(errorMessage);
       setErrorMessage(true);
-      console.log(response.ok);
+      //console.log(response.ok);
     }
   };
   return (
