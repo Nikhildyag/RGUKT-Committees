@@ -11,7 +11,7 @@ const InnovationStudentCommittee = () => {
   useEffect(() => {
     const fetchStudentCommittees = async () => {
       const data = {
-        committee_name: "Innovation and Incubation",
+        committee_name: "innovation",
       };
       const committee_details = JSON.stringify(data);
       try {

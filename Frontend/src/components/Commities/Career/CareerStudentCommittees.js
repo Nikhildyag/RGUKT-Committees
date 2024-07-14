@@ -11,7 +11,7 @@ const CareerStudentCommittee = () => {
   useEffect(() => {
     const fetchStudentCommittees = async () => {
       const data = {
-        committee_name: "Career Guidance",
+        committee_name: "career",
       };
       const committee_details = JSON.stringify(data);
       try {
