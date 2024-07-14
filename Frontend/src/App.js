@@ -101,6 +101,8 @@ import CentralAuthorityStudentCommittee from './components/central/CentralAuthor
 import Discussion from './components/Chat.js'
 import Departments from './components/DepartmentLevel/index.js'
 
+import CompalintDetails from './components/DepartmentLevel/CompalintDetails.js'
+
 const App = () => (
   <BrowserRouter>
     <Routes>
@@ -510,6 +512,11 @@ const App = () => (
         exact
         path="/central/studentcommittee"
         Component={CentralAuthorityStudentCommittee}
+      />
+      <Route
+        exact
+        path="/department/complaint/:complaintId"
+        Component={CompalintDetails}
       />
     </Routes>
   </BrowserRouter>
