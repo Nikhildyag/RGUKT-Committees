@@ -47,30 +47,34 @@ const createDepartmentMember = async (req, res) => {
   }
 };
 
-// const departments = ["cse", "ece", "eee", "mech", "civil", "mme", "chem"]; // List of departments
+const departments = ["cse", "ece", "eee", "mech", "civil", "mme", "chem"]; // List of departments
 
-// const usersData = departments.flatMap((department) =>
-//   Array.from({ length: 4 }, (_, index) => ({
-//     username: `${department}academic${index + 1}`,
-//     password: "rgukt123",
-//     committee_name: "Academic",
-//     department: department,
-//   }))
-// );
+const usersData = departments.flatMap((department) =>
+  Array.from({ length: 4 }, (_, index) => ({
+    username: `${department}excellence${index + 1}`,
+    password: "rgukt123",
+    fullName: "Student Name",
+    committee_name: "excellence",
+    Id_number: "BXXXXXX",
+    department: department,
+    image_url:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s",
+  }))
+);
 
-// const createBulk = async (req, res) => {
-//   try {
-//     for (let userData of usersData) {
-//       // Assuming User.create() is a method to create users in your model
-//       await Department.create(userData);
-//       console.log(`Created user: ${userData.username}`);
-//     }
-//     console.log("Bulk user creation completed.");
-//     return res.status(200).json({ message: "completed" });
-//   } catch (error) {
-//     console.error("Error creating users:", error);
-//   }
-// };
+const createBulk = async (req, res) => {
+  try {
+    for (let userData of usersData) {
+      // Assuming User.create() is a method to create users in your model
+      await Department.create(userData);
+      console.log(`Created user: ${userData.username}`);
+    }
+    console.log("Bulk user creation completed.");
+    return res.status(200).json({ message: "completed" });
+  } catch (error) {
+    console.error("Error creating users:", error);
+  }
+};
 
 const loginDepartmentMember = async (req, res) => {
   const { username, password } = req.body;
@@ -148,4 +152,5 @@ export {
   updateDepartmentMember,
   getCommitteMembers,
   fetchParticularDepartment,
+  createBulk,
 };
