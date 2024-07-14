@@ -105,6 +105,8 @@ import DepartmentFacultymember from './components/DepartmentLevel/DepartmentFacu
 import DepartmentCentralAuthority from './components/DepartmentLevel/DepartmentCentralAuthority.js'
 import DepartmentLoginform from './components/LoginForms/DepartmentLoginform.js'
 
+import CompalintDetails from './components/DepartmentLevel/CompalintDetails.js'
+
 const App = () => (
   <BrowserRouter>
     <Routes>
@@ -521,6 +523,11 @@ const App = () => (
         exact
         path="/central/studentcommittee"
         Component={CentralAuthorityStudentCommittee}
+      />
+      <Route
+        exact
+        path="/department/complaint/:complaintId"
+        Component={CompalintDetails}
       />
     </Routes>
   </BrowserRouter>
