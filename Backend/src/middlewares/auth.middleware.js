@@ -2,18 +2,13 @@ import { Central } from "../models/centralMember.model.js";
 import { Department } from "../models/departmentCommittee.model.js";
 import jwt from "jsonwebtoken";
 import { Incharge } from "../models/incharge.model.js";
-import Cookies from "js-cookie";
 
 const verifyDepartmentJWT = async (req, res, next) => {
   try {
     const token = req.cookies.departmentToken;
-    // console.log("Token received:", token); // Log the token
-    // console.log(token);
-
     if (!token) {
       return res.status(401).json({ message: "Unauthorized request" });
     }
-
     const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     const loggedInDepartmentUser = await Department.findById(
       decodedToken?._id
