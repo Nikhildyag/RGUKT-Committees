@@ -150,9 +150,25 @@ const getcentralCommitteMembers = async (req, res) => {
   }
 };
 
+const getCentralMembersByLogin = async (req, res) => {
+  try {
+    const { committee_name } = req.member;
+    //we will get the details of the department member from the token
+    if (!committee_name)
+      return res.status(400).json({ message: "you are not login" });
+    const MembersArray = await Central.find({ committee_name });
+    if (!MembersArray)
+      return res.status(400).json({ message: "No members are found" });
+    return res.status(200).json({ MembersArray });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
 export {
   createcentralMember,
   loginCentralMember,
   updateCentralMember,
   getcentralCommitteMembers,
+  getCentralMembersByLogin,
 };
