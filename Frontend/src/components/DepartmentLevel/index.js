@@ -8,10 +8,10 @@ const Departments = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <DepartmentHeader />
       <div className="flex w-full">
-        <div className="md:w-[30%] lg:w-[20%] ">
+        <div>
           <DepartmentSidebar />
         </div>
-        <div className="lg:w-[80%] lg:ml-[-2%] sm:ml-0 sm:w-[100%] md:ml-[0%] md:w-[70%]">
+        <div>
           <DepartmentComplaints />
         </div>
       </div>
