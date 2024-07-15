@@ -36,7 +36,7 @@ router
   .route("/get/committee/departmentMembers")
   .get(verifyDepartmentJWT, fetchParticularDepartment);
 
-//for central members
+//for central members to fetch
 router
   .route("/get/committee/departmentMembers1")
   .get(verifyCentralJWT, fetchParticularDepartmentForCentral);

@@ -26,5 +26,10 @@ const ComplaintSchema = new Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    enum: ["pending", "forwarded", "resolved"],
+    default: "pending",
+  },
 });
 export const Complaint = mongoose.model("Complaint", ComplaintSchema);
