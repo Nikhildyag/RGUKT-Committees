@@ -29,8 +29,12 @@ const Career = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <CareerHeader name={'Academic Committee'} />
       <div className="flex w-full">
-        <CareerSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <CareerSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

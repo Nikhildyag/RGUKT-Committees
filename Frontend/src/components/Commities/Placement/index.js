@@ -28,8 +28,12 @@ const Placement = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <PlacementHeader name={'Academic Committee'} />
       <div className="flex w-full">
-        <PlacementSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <PlacementSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

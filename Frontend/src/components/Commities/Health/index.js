@@ -29,8 +29,12 @@ const Health = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <HealthHeader name={'Academic Committee'} />
       <div className="flex w-full">
-        <HealthSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <HealthSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

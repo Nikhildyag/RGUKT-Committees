@@ -28,8 +28,12 @@ const Mess = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <MessHeader name={'Academic Committee'} />
       <div className="flex w-full">
-        <MessSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <MessSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

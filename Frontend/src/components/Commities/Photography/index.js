@@ -29,8 +29,12 @@ const Photography = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <PhotographyHeader name={'Academic Committee'} />
       <div className="flex w-full">
-        <PhotographySidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <PhotographySidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

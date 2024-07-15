@@ -27,8 +27,12 @@ const Innovation = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <InnovationHeader name={'Academic Committee'} />
       <div className="flex w-full">
-        <InnovationSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <InnovationSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

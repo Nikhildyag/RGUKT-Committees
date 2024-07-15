@@ -32,8 +32,12 @@ const External = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <ExternalHeader />
       <div className="flex w-full">
-        <ExternalSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <ExternalSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

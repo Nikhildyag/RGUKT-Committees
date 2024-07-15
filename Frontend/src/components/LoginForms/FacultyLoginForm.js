@@ -1,41 +1,41 @@
-import React, { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import DesktopCommities from "../DesktopCommities";
-import Header from "../Header";
+import React, { useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import DesktopCommities from '../DesktopCommities'
+import Header from '../Header'
 
 const FacultyLoginForm = () => {
-  const username = useRef(null);
-  const password = useRef(null);
-  const navigate = useNavigate();
+  const username = useRef(null)
+  const password = useRef(null)
+  const navigate = useNavigate()
 
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false)
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const userdetails = {
       username: username.current.value,
       password: password.current.value,
-    };
-    const data1 = JSON.stringify(userdetails);
-    const url = "http://localhost:1024/api/v1/incharge/login";
+    }
+    const data1 = JSON.stringify(userdetails)
+    const url = 'http://localhost:1024/api/v1/incharge/login'
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      credentials: "include",
+      credentials: 'include',
       body: data1,
-    });
-    const data = await response.json();
+    })
+    const data = await response.json()
     if (response.ok === true) {
-      document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
-      navigate("/departments");
+      document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`
+      navigate('/departments')
     } else {
-      console.log(errorMessage);
-      setErrorMessage(true);
+      console.log(errorMessage)
+      setErrorMessage(true)
       //console.log(response.ok);
     }
-  };
+  }
   return (
     <>
       <div className="flex flex-col h-screen overflow-x-hidden overflow-y-auto">
@@ -91,15 +91,6 @@ const FacultyLoginForm = () => {
                   <p className="text-left">
                     Are you ?
                     <Link
-                      to="/facultyinchargeloginForm"
-                      className="text-teal-500 hover:underline"
-                    >
-                      facultyincarge
-                    </Link>
-                  </p>
-                  <p className="text-left">
-                    Are you ?
-                    <Link
                       to="/departmentloginform"
                       className="text-teal-500 hover:underline"
                     >
@@ -113,7 +104,7 @@ const FacultyLoginForm = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default FacultyLoginForm;
+export default FacultyLoginForm

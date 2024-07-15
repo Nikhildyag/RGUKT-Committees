@@ -28,8 +28,12 @@ const Hostel = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <HostelHeader />
       <div className="flex w-full">
-        <HostelSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <HostelSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

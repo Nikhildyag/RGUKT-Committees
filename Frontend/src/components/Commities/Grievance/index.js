@@ -28,8 +28,12 @@ const Grievance = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <GrievanceHeader name={'Academic Committee'} />
       <div className="flex w-full">
-        <GrievanceSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <GrievanceSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

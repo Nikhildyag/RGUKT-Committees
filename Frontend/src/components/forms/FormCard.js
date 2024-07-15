@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 const FormCard = ({ Data }) => {
-  const { committeee_name, categories } = Data
+  const { committee_name, categories } = Data
+
   const [category, setCategory] = useState('')
   const [otherCategory, setOtherCategory] = useState('')
   const [year, setYear] = useState('')
@@ -18,11 +19,15 @@ const FormCard = ({ Data }) => {
   const handleBranch = (e) => {
     setBranch(e.target.value)
   }
+  const handlesubmit = (e) => {
+    e.preventDefault()
+  }
 
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <div className="lg:mt-24 sm:w-full  sm:mt-20 sm:px-1 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-[#0d1d3b] pb-9">
+      <div className="lg:mt-1 sm:w-[100%]  sm:mt-20 sm:px-1 lg:w-[80%] rounded-lg lg:ml-[0%]  md:w-[70%] md:ml-[0%] md:mt-20  flex items-center mb-10  bg-[#0d1d3b] pb-9">
         <div className="flex flex-col lg:flex-row items-center ">
+          {/* <button >back</button> */}
           <div className="bg-transparent rounded-lg">
             <img
               src="https://cdni.iconscout.com/illustration/premium/thumb/complaint-resolution-specialist-handling-customer-complaints-and-working-to-resolve-them-8978982-7328703.png?f=webp"
@@ -32,9 +37,9 @@ const FormCard = ({ Data }) => {
           </div>
           <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-3 md:mt-0  lg:mt-10 sm:mt-2 px-4  bg-[#223b5d] rounded-lg shadow-md  py-6 ">
             <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white">
-              {committeee_name} Grievance Form
+              {committee_name} Grievance Form
             </h1>
-            <form>
+            <form onSubmit={handlesubmit}>
               <div className="mb-4">
                 <label
                   className="block text-white  font-bold mb-2"

@@ -34,8 +34,12 @@ const Environment = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <EnvironmentHeader name={'Academic Committee'} />
       <div className="flex w-full">
-        <EnvironmentSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <EnvironmentSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )

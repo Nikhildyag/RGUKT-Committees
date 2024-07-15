@@ -29,8 +29,12 @@ const Social = () => {
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <SocialHeader name={'Academic Committee'} />
       <div className="flex w-full">
-        <SocialSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <SocialSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   )
