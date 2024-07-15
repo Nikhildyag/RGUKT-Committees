@@ -23,4 +23,7 @@ router
 router
   .route("/get/particularComplaint/:complaintId")
   .get(verifyDepartmentJWT, getparticularComplaint);
+router
+  .route("/get/particularComplaintForCentral/:complaintId")
+  .get(verifyCentralJWT, getparticularComplaint);
 export default router;
