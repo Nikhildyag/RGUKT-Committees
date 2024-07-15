@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../Home/Header'
-import CentralAuthoritySidebar from '../Home/CentralAuthoritySidebar'
-import CentralAuthorityProfileCard from '../ProfileCard/CentralAuthorityProfileCard'
+import React, { useEffect, useState } from "react";
+import Header from "../Home/Header";
+import CentralAuthoritySidebar from "../Home/CentralAuthoritySidebar";
+import CentralAuthorityProfileCard from "../ProfileCard/CentralAuthorityProfileCard";
 
 const CentralAuthority = () => {
   const [students, setStudents] = useState([]);
