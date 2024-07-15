@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
-import DepartmentHeader from './DepartmentLevel/DepartmentHeader';
-import DepartmentSidebar from './DepartmentLevel/DepartmentSidebar';
+import DepartmentHeader from './DepartmentHeader.js';
+import DepartmentSidebar from './DepartmentSidebar.js';
 
 const socket = io('http://localhost:1024', {
   withCredentials: true,
@@ -10,14 +10,14 @@ const socket = io('http://localhost:1024', {
   }
 });
 
-const Discussion = ({ userId }) => {
+const DepartmentChatbox = ({ userId }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch('http://localhost:1024/api/v1/messages/recive/messages', {
+        const response = await fetch('http://localhost:1024/api/v1/messages/get/departmentMessage', {
           method: 'GET',
           credentials: 'include',
         });
@@ -25,7 +25,7 @@ const Discussion = ({ userId }) => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setMessages(data);
+        setMessages(data.messages);
       } catch (error) {
         console.error('Error fetching messages:', error);
       }
@@ -84,8 +84,7 @@ const Discussion = ({ userId }) => {
                   key={index}
                   className={`p-3 my-2 rounded-lg ${
                     msg.senderId === userId ? 'bg-green-200 self-end' : 'bg-white self-start border border-gray-200'
-                  }`}
-                >
+                  }`}>
                   {msg.message}
                 </div>
               ))}
@@ -112,4 +111,5 @@ const Discussion = ({ userId }) => {
   );
 };
 
-export default Discussion;
+export default DepartmentChatbox;
+;

@@ -30,7 +30,6 @@ const CentralAuthority = () => {
         console.log(error);
       }
     };
-
     fetchStudentCommittees();
   }, []);
   return (
