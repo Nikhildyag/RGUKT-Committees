@@ -102,6 +102,13 @@ const ViewComplaint = () => {
                 {complaint.description}
               </p>
             </div>
+            <div className="text-sm flex flex-col mb-4">
+              <label>Remarks:</label>
+              <textarea
+                className="w-auto px-2 py-2 my-2 border border-blue-500"
+                placeholder="Remarks to be raised to central authority"
+              ></textarea>
+            </div>
           </div>
         </div>
       </div>

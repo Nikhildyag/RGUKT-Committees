@@ -104,6 +104,7 @@ const HostelCommitteeForm = () => {
             <option value="accommodation">Accommodation Issues</option>
             <option value="maintenance">Maintenance Requests</option>
             <option value="security">Security Concerns</option>
+            <option value="Dogs">Dogs</option>
             <option value="activities">Recreational Activities</option>
             <option value="other">Other</option>
           </select>

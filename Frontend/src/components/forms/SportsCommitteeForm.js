@@ -1,28 +1,28 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 const SportsCommitteeForm = () => {
-  const [isAnonymous, setIsAnonymous] = useState(false);
-  const [name, setName] = useState("");
-  const [studentId, setStudentId] = useState("");
-  const [year, setYear] = useState("");
-  const [branch, setBranch] = useState("");
-  const [ground, setGround] = useState("");
-  const [category, setCategory] = useState("");
-  const [otherCategory, setOtherCategory] = useState("");
-  const [message, setMessage] = useState("");
+  const [isAnonymous, setIsAnonymous] = useState(false)
+  const [name, setName] = useState('')
+  const [studentId, setStudentId] = useState('')
+  const [year, setYear] = useState('')
+  const [branch, setBranch] = useState('')
+  const [ground, setGround] = useState('')
+  const [category, setCategory] = useState('')
+  const [otherCategory, setOtherCategory] = useState('')
+  const [message, setMessage] = useState('')
 
   const handleAnonymousChange = (e) => {
-    setIsAnonymous(e.target.value === "Anonymous");
-  };
+    setIsAnonymous(e.target.value === 'Anonymous')
+  }
 
   const handleCategoryChange = (e) => {
-    const selectedCategory = e.target.value;
-    setCategory(selectedCategory);
+    const selectedCategory = e.target.value
+    setCategory(selectedCategory)
     // Reset otherCategory when selecting a different category
-    if (selectedCategory !== "Other") {
-      setOtherCategory("");
+    if (selectedCategory !== 'Other') {
+      setOtherCategory('')
     }
-  };
+  }
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
@@ -159,7 +159,7 @@ const SportsCommitteeForm = () => {
           >
             <option value="">Select Ground</option>
             <option value="shatavahana">Shatavahana Ground</option>
-            <option value="football">Football Ground</option>
+            <option value="football">Kakatiya Ground</option>
           </select>
         </div>
         <div className="mb-4">
@@ -188,7 +188,7 @@ const SportsCommitteeForm = () => {
             <option value="Other">Other</option>
           </select>
         </div>
-        {category === "Other" && (
+        {category === 'Other' && (
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -234,7 +234,7 @@ const SportsCommitteeForm = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default SportsCommitteeForm;
+export default SportsCommitteeForm
