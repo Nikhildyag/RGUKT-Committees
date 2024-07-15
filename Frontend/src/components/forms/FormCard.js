@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import AcademicHeader from '../Commities/Acadamic/AcademicHeader'
-import AcademicSidebar from '../Commities/Acadamic/AcademicSidebar'
 
-const FormCard = () => {
+const FormCard = ({ Data }) => {
+  const { committeee_name, categories } = Data
   const [category, setCategory] = useState('')
   const [otherCategory, setOtherCategory] = useState('')
   const [year, setYear] = useState('')
@@ -22,11 +21,7 @@ const FormCard = () => {
 
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <AcademicHeader name={'Academic Committee'} />
-      <div className="flex w-full">
-        <AcademicSidebar />
-      </div>
-      <div className="lg:mt-24 sm:w-[90%] sm:ml-[5%]  sm:mt-24 sm:px-4 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-[#0d1d3b] pb-9">
+      <div className="lg:mt-24 sm:w-full  sm:mt-20 sm:px-1 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-[#0d1d3b] pb-9">
         <div className="flex flex-col lg:flex-row items-center ">
           <div className="bg-transparent rounded-lg">
             <img
@@ -35,9 +30,9 @@ const FormCard = () => {
               className=" lg:w-[80em] lg:h-[30em] md:w-[80em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
             />
           </div>
-          <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-4 md:mt-0  lg:mt-10 sm:mt-2 px-5  bg-[#223b5d] rounded-lg shadow-md  py-6 ">
+          <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-3 md:mt-0  lg:mt-10 sm:mt-2 px-4  bg-[#223b5d] rounded-lg shadow-md  py-6 ">
             <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white">
-              Academic Committee Grievance Form
+              {committeee_name} Grievance Form
             </h1>
             <form>
               <div className="mb-4">
@@ -134,22 +129,12 @@ const FormCard = () => {
                   name="category"
                   value={category}
                   onChange={handleCategoryChange}
-                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
                 >
                   <option value="">Select a category</option>
-                  <option value="Monitor academic performance">
-                    Monitor academic performance
-                  </option>
-                  <option value="Academic workshops, seminars, and guest lectures">
-                    Academic workshops, seminars, and guest lectures
-                  </option>
-                  <option value="Course feedback and improvements">
-                    Course feedback and improvements
-                  </option>
-                  <option value="Academic policies and curriculum development">
-                    Academic policies and curriculum development
-                  </option>
-                  <option value="Other">Other</option>
+                  {categories.map((category) => (
+                    <option value={category}>{category}</option>
+                  ))}
                 </select>
               </div>
               {category === 'Other' && (
