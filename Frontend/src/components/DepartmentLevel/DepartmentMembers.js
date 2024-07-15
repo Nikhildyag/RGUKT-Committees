@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import DepartmentHeader from './DepartmentHeader';
 import DepartmentSidebar from './DepartmentSidebar';

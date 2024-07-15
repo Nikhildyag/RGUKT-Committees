@@ -24,7 +24,7 @@ connectDB()
     })
 
     io.on('connection', (socket) => {
-      console.log('a user connected')
+      console.log('a user connected message ');
 
       socket.on('sendMessage', async (data) => {
         const newMessage = new Message(data)

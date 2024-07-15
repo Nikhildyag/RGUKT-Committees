@@ -64,6 +64,14 @@ const DepartmentSidebar = () => {
               Faculty Incharge
             </li>
           </Link>
+<<<<<<< HEAD
+=======
+          <Link to="/chatbox">
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+              Chatbox
+            </li>
+          </Link>
+>>>>>>> d657242cc8398cc73f7823ee6ced06d5ce9ddb61
           <Link to="/department/centralauthority">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
               Central Authority

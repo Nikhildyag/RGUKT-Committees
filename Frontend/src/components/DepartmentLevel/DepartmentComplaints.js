@@ -1,6 +1,6 @@
-import React from 'react'
-import { IoEyeOutline } from 'react-icons/io5'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { IoEyeOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const DepartmentComplaints = () => {
   const dummyData = [
@@ -34,7 +34,7 @@ const DepartmentComplaints = () => {
       date: '2024-07-14',
       status: 'Pending',
     },
-  ]
+  ];
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full mt-16">
@@ -61,7 +61,7 @@ const DepartmentComplaints = () => {
               <tr key={complaint.id} className="bg-gray-50 odd:bg-gray-100">
                 <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
                   <div className="flex items-center">
-                    <Link to={`/department/complaint/${complaint.id}`}>
+                    <Link to={`/central/complaint/${complaint.id}`}>
                       <IoEyeOutline className="text-blue-500 hover:text-blue-700 mt-1" />
                     </Link>
                     <span className="ml-2">{complaint.id}</span>
@@ -89,7 +89,7 @@ const DepartmentComplaints = () => {
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DepartmentComplaints
+export default DepartmentComplaints;

@@ -4,7 +4,6 @@ const messageSchema = new Schema(
   {
     sender_id: {
       type: String,
-      required: true,
     },
     message: {
       type: String,
@@ -12,11 +11,9 @@ const messageSchema = new Schema(
     },
     department: {
       type: String,
-      required: true,
     },
     committee_name: {
       type: String,
-      required: true,
     },
   },
   { timestamps: true }

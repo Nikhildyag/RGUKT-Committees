@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <nav className="bg-[#426CAD] p-4 relative">
       <div className="flex justify-between items-center">
-        <div className="text-white text-lg font-bold">
+        <div className="text-white text-lg  font-bold">
           <button
             onClick={toggleMenu}
             className="text-white text-2xl sm:block md:hidden focus:outline-none"

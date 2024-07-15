@@ -6,6 +6,7 @@ import { Incharge } from "../models/incharge.model.js";
 const verifyDepartmentJWT = async (req, res, next) => {
   try {
     const token = req.cookies.departmentToken;
+    //console.log(token)
     if (!token) {
       return res.status(401).json({ message: "Unauthorized request" });
     }
