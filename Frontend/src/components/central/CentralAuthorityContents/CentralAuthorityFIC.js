@@ -16,9 +16,9 @@ const CentralAuthorityFIC = () => {
       credentials: "include",
     });
     const data = await response.json();
-    console.log(data);
     if (response.ok === true) {
-      setficdetails(data.members);
+      console.log(data)
+      setficdetails(data.incharge);
       console.log("your Data is",data)
     } else {
       console.log(response.errorMessage);

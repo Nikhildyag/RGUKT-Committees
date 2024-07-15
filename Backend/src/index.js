@@ -17,7 +17,7 @@ connectDB()
     // Attach Socket.IO to the HTTP server
     const io = new Server(server, {
       cors: {
-        origin: ['http://localhost:3000'], // Change this to your frontend URL in production
+        origin: 'http://localhost:3000', // Change this to your frontend URL in production
         methods: ['GET', 'POST'],
         credentials: true,
       },
