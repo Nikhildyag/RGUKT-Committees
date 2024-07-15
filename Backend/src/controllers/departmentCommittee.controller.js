@@ -136,8 +136,21 @@ const getCommitteMembers = async (req, res) => {
 const fetchParticularDepartment = async (req, res) => {
   try {
     const { department, committee_name } = req.member;
-     console.log("your committe name is ",committee_name);
+    console.log("your committe name is ", committee_name);
     const MembersArray = await Department.find({ department, committee_name });
+    if (!MembersArray)
+      return res.status(400).json({ message: "No committee members found" });
+    return res.status(200).json({ members: MembersArray });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
+const fetchParticularDepartmentForCentral = async (req, res) => {
+  try {
+    const { committee_name } = req.member;
+    console.log("your committe name is ", committee_name);
+    const MembersArray = await Department.find({ committee_name });
     if (!MembersArray)
       return res.status(400).json({ message: "No committee members found" });
     return res.status(200).json({ members: MembersArray });
@@ -152,5 +165,6 @@ export {
   updateDepartmentMember,
   getCommitteMembers,
   fetchParticularDepartment,
+  fetchParticularDepartmentForCentral,
   createBulk,
 };

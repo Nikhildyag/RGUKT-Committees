@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose, { Schema } from "mongoose";
 const ComplaintSchema = new Schema({
   committee_name: {
     type: String,
@@ -26,5 +26,5 @@ const ComplaintSchema = new Schema({
     type: String,
     required: true,
   },
-})
-export const Complaint = mongoose.model('Complaint', ComplaintSchema)
+});
+export const Complaint = mongoose.model("Complaint", ComplaintSchema);
