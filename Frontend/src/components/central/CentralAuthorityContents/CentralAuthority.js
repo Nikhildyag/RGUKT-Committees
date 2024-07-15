@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import React from "react";
-import Header from "../Home/Header";
-import CentralAuthoritySidebar from "../Home/CentralAuthoritySidebar";
-import CentralAuthorityProfileCard from "../ProfileCard/CentralAuthorityProfileCard";
-=======
 import React, { useEffect, useState } from 'react'
 import Header from '../Home/Header'
 import CentralAuthoritySidebar from '../Home/CentralAuthoritySidebar'
 import CentralAuthorityProfileCard from '../ProfileCard/CentralAuthorityProfileCard'
->>>>>>> ba84cc37356875bb2653cea1cac8162f87c89075
 
 const CentralAuthority = () => {
     const [students, setStudents] = useState([]);
@@ -48,27 +41,6 @@ const CentralAuthority = () => {
         {isDataReady && (
           <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%]">
           <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
-<<<<<<< HEAD
-            <CentralAuthorityProfileCard Data={[]} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
-            <CentralAuthorityProfileCard Data={[]} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
-            <CentralAuthorityProfileCard Data={[]} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
-            <CentralAuthorityProfileCard Data={[]} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
-            <CentralAuthorityProfileCard Data={[]} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
-            <CentralAuthorityProfileCard Data={[]} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
-            <CentralAuthorityProfileCard Data={[]} />
-=======
             <CentralAuthorityProfileCard Data={students[0]}/>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
@@ -88,7 +60,6 @@ const CentralAuthority = () => {
           </div>
           <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
             <CentralAuthorityProfileCard Data={students[6]}/>
->>>>>>> ba84cc37356875bb2653cea1cac8162f87c89075
           </div>
         </div>
       )}  
