@@ -1,41 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoEyeOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 
 const DepartmentComplaints = () => {
-  const dummyData = [
-    {
-      id: 'E001',
-      category: 'Maintenance',
-      date: '2024-07-10',
-      status: 'Resolved',
-    },
-    {
-      id: 'P002',
-      category: 'Repair',
-      date: '2024-07-11',
-      status: 'Pending',
-    },
-    {
-      id: 'C003',
-      category: 'Hygiene',
-      date: '2024-07-12',
-      status: 'In Progress',
-    },
-    {
-      id: 'H004',
-      category: 'Maintenance',
-      date: '2024-07-13',
-      status: 'Resolved',
-    },
-    {
-      id: 'I005',
-      category: 'Support',
-      date: '2024-07-14',
-      status: 'Pending',
-    },
-  ]
+  const [complaints, setcomplainte] = useState();
+  const [complatsReady, setcomplantsReady] = useState();
 
+  const fetchComplaints = async () => {
+    const url = "http://localhost:1024/api/v1/complaints/get/ComplaintsForDepartment";
+      try {
+        const response = await fetch(url,
+          {
+            method: 'GET',
+            credentials: 'include', // Include credentials (cookies)
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const json = await response.json()
+        setcomplainte(json.complaints)
+        setcomplantsReady(true);
+      } catch (error) {
+        console.log(error)
+      }
+  }
+  const formatDate = (dateString) => {
+    console.log(dateString)
+    const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    console.log(day, month, year);
+
+  return `${day}/${month}/${year}`;
+};
+
+
+  useEffect(() => {
+    fetchComplaints();
+  },[])
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full mt-16">
       <div className="overflow-x-auto">
@@ -57,11 +64,11 @@ const DepartmentComplaints = () => {
             </tr>
           </thead>
           <tbody className="text-gray-700">
-            {dummyData.map((complaint) => (
+            {complatsReady &&  complaints.map((complaint) => (
               <tr key={complaint.id} className="bg-gray-50 odd:bg-gray-100">
                 <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
                   <div className="flex items-center">
-                    <Link to={`/department/complaint/${complaint.id}`}>
+                    <Link to={`/department/complaint/${complaint._id}`}>
                       <IoEyeOutline className="text-blue-500 hover:text-blue-700 mt-1" />
                     </Link>
                     <span className="ml-2">{complaint.id}</span>
@@ -71,14 +78,14 @@ const DepartmentComplaints = () => {
                   {complaint.category}
                 </td>
                 <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
-                  {complaint.date}
+                 {formatDate(complaint.createdAt)}
                 </td>
                 <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
                   {complaint.status}
                 </td>
               </tr>
             ))}
-            {dummyData.length === 0 && (
+            {complatsReady && complaints.length === 0 && (
               <tr>
                 <td colSpan="4" className="text-center py-4">
                   No complaints found

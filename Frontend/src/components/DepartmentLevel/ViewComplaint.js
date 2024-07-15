@@ -1,55 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-const dummyData = [
-  {
-    id: 'E001',
-    category: 'Maintenance',
-    date: '2024-07-10',
-    status: 'Resolved',
-    description: 'This complaint is related to maintenance of facilities.',
-  },
-  {
-    id: 'P002',
-    category: 'Repair',
-    date: '2024-07-11',
-    status: 'Pending',
-    description: 'This complaint is regarding repairs needed for equipment.',
-  },
-  {
-    id: 'C003',
-    category: 'Hygiene',
-    date: '2024-07-12',
-    status: 'In Progress',
-    description: 'This complaint is related to hygiene standards in the area.',
-  },
-  {
-    id: 'H004',
-    category: 'Maintenance',
-    date: '2024-07-13',
-    status: 'Resolved',
-    description: 'This complaint is related to maintenance of infrastructure.',
-  },
-  {
-    id: 'I005',
-    category: 'Support',
-    date: '2024-07-14',
-    status: 'Pending',
-    description:
-      'This complaint is regarding support needed for a specific issue.',
-  },
-]
-
 const ViewComplaint = () => {
   const { complaintId } = useParams()
   const [complaint, setComplaint] = useState(null)
-
   useEffect(() => {
-    const fetchComplaint = () => {
-      const foundComplaint = dummyData.find((c) => c.id === complaintId)
-      setComplaint(foundComplaint)
+    const fetchComplaint =async() => {
+      
+      try {
+        const response = await fetch(
+          `http://localhost:1024/api/v1/complaints/get/particularComplaint/${complaintId}`,
+          {
+            method: 'GET',
+            credentials: 'include', // Include credentials (cookies)
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const json = await response.json()
+        console.log(json)
+        setComplaint(json)
+      } catch (error) {
+        console.log(error)
+      }
     }
-
     fetchComplaint()
   }, [complaintId])
 
