@@ -38,6 +38,6 @@ router
 
 //for central members
 router
-  .route("/get/committee/departmentMembers")
+  .route("/get/committee/departmentMembers1")
   .get(verifyCentralJWT, fetchParticularDepartmentForCentral);
 export default router;

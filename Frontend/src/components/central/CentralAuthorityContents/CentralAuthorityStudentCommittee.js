@@ -1,39 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../Home/Header'
-import CentralAuthoritySidebar from '../Home/CentralAuthoritySidebar'
-import CentralAuthorityProfileCard from '../ProfileCard/CentralAuthorityProfileCard'
-
-
+import React, { useEffect, useState } from "react";
+import Header from "../Home/Header";
+import CentralAuthoritySidebar from "../Home/CentralAuthoritySidebar";
+import CentralAuthorityProfileCard from "../ProfileCard/CentralAuthorityProfileCard";
 
 const CentralAuthorityStudentCommittee = () => {
-   const [students, setStudents] = useState([])
+  const [students, setStudents] = useState([]);
 
   useEffect(() => {
     const fetchStudentCommittees = async () => {
       try {
         const response = await fetch(
-          'http://localhost:1024/api/v1/central/get/centralcommitteemembers',
+          "http://localhost:1024/api/v1/department/get/committee/departmentMembers1",
           {
-            method: 'POST',
-            credentials: 'include', // Include credentials (cookies)
+            method: "GET",
+            credentials: "include", // Include credentials (cookies)
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
           }
-        )
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok')
+          throw new Error("Network response was not ok");
         }
-        const json = await response.json()
-        setStudents(json.MembesArray)
+        const json = await response.json();
+        console.log(json.members);
+        setStudents(json.members);
+        console.log(students);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
 
-    fetchStudentCommittees()
-  }, [])
-  console.log(students)
+    fetchStudentCommittees();
+  }, []);
+
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <Header />
@@ -176,7 +176,7 @@ const CentralAuthorityStudentCommittee = () => {
         </div> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CentralAuthorityStudentCommittee
+export default CentralAuthorityStudentCommittee;
