@@ -1,14 +1,8 @@
 import mongoose, { Schema } from 'mongoose'
-const ComplaintSchema = new Schema({
+const FeedbackSchema = new Schema({
   committee_name: {
     type: String,
     required: true,
-  },
-  fullName: {
-    type: String,
-  },
-  studentId: {
-    type: String,
   },
   year: {
     type: String,
@@ -18,13 +12,10 @@ const ComplaintSchema = new Schema({
     type: String,
     required: true,
   },
-  category: {
-    type: String,
-    required: true,
-  },
   description: {
     type: String,
     required: true,
   },
 })
-export const Complaint = mongoose.model('Complaint', ComplaintSchema)
+
+export const Feedback = mongoose.model('Feedback', FeedbackSchema)
