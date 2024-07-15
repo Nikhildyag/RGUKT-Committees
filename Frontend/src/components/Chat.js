@@ -49,7 +49,7 @@ const Discussion = ({ userId }) => {
       try {
         // Emit the message to the server via socket.io
         socket.emit('sendMessage', newMessage);
-
+         setMessage('');
         // Save the message to the backend
         const response = await fetch('http://localhost:1024/api/v1/messages/send/message', {
           method: 'POST',
@@ -65,8 +65,7 @@ const Discussion = ({ userId }) => {
         }
 
         // Update the local state
-       // setMessages((prevMessages) => [...prevMessages, newMessage]);
-        setMessage('');
+      //  setMessages((prevMessages) => [...prevMessages, newMessage]);
       } catch (error) {
         console.error('Error sending message:', error);
       }
@@ -78,9 +77,9 @@ const Discussion = ({ userId }) => {
       <DepartmentHeader />
       <div className="flex w-full">
         <DepartmentSidebar />
-        <div className="w-[80%] ml-[18%] flex items-center">
+        <div className=" w-full ml-[18%] relative top-20 h-screen flex items-center">
           <div className="flex flex-col p-5 mx-auto max-w-3xl">
-            <div className="flex flex-col h-96 overflow-y-scroll border border-gray-300 p-4 mb-4">
+            <div className="flex flex-col w-[50vw] h-96 overflow-y-scroll border border-gray-300 p-4 mb-4">
               {messages.map((msg, index) => (
                 <div
                   key={index}
