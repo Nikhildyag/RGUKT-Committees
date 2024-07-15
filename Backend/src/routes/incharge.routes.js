@@ -4,6 +4,7 @@ import {
   createIncharge,
   getIncharge,
   getIncharge1,
+  getInchargeForUser,
   loginIncharge,
 } from "../controllers/incharge.controller.js";
 import {
@@ -24,6 +25,9 @@ router.route("/get-incharge").get(verifyInchargeJWT, getIncharge);
 
 //for department level
 router.route("/get-incharge1").get(verifyDepartmentJWT, getIncharge1);
+
+//for user level
+router.route("/get-inchargeforuser").post( getInchargeForUser);
 
 // for central level
 router.route("/get-incharge2").get(verifyCentralJWT, getIncharge1);

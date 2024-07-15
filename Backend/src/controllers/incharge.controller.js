@@ -134,6 +134,21 @@ const getIncharge = async (req, res) => {
   }
 };
 
+const getInchargeForUser = async (req, res) => {
+  try {
+    const { committee_name } = req.body;
+    console.log(committee_name);
+    const incharge = await Incharge.findOne({committee_name});
+    if (!incharge) {
+      return res.status(400).json({ message: "you are not logged in" });
+    }
+    console.log(incharge)
+    return res.status(200).json({ incharge });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
 const getIncharge1 = async (req, res) => {
   try {
     const { committee_name } = req.member;
@@ -150,4 +165,4 @@ const getIncharge1 = async (req, res) => {
   }
 };
 
-export { createIncharge, loginIncharge, getIncharge, getIncharge1 };
+export { createIncharge, loginIncharge, getIncharge, getIncharge1,getInchargeForUser };
