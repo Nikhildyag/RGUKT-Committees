@@ -12,9 +12,9 @@ const CentralAuthorityStudentCommittee = () => {
     const fetchStudentCommittees = async () => {
       try {
         const response = await fetch(
-          'http://localhost:1024/api/v1/central/get/centralcommitteemembers',
+          'http://localhost:1024/api/v1/department/get/committee/departmentMembers1',
           {
-            method: 'POST',
+            method: 'GET',
             credentials: 'include', // Include credentials (cookies)
             headers: {
               'Content-Type': 'application/json',
@@ -25,12 +25,12 @@ const CentralAuthorityStudentCommittee = () => {
           throw new Error('Network response was not ok')
         }
         const json = await response.json()
-        setStudents(json.MembesArray)
+        console.log(json)
+        setStudents(json.members)
       } catch (error) {
         console.log(error)
       }
     }
-
     fetchStudentCommittees()
   }, [])
   console.log(students)
