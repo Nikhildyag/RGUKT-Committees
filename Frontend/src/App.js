@@ -110,6 +110,7 @@ import FacultyLoginForm from './components/LoginForms/FacultyLoginForm.js'
 import ComplaintDetails from './components/central/ComplaintDetails.js'
 import FeedbackForm from './components/forms/FeedbackForm.js'
 import DepartmentCentralAuthorityLoginform from './components/LoginForms/CentralLoginForm.js'
+import DepartmentChatbox from './components/DepartmentLevel/DepartmentChatbox.js'
 
 const App = () => (
   <BrowserRouter>
@@ -540,6 +541,7 @@ const App = () => (
         path="/central/centralauthority"
         Component={CentralAuthority}
       />
+      <Route exact path='/departmentmembersChatbox' Component={DepartmentChatbox}/>
       <Route
         exact
         path="/central/facultyIncharge"
