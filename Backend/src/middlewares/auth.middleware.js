@@ -30,7 +30,7 @@ const verifyDepartmentJWT = async (req, res, next) => {
   }
 };
 
-const verifyCentralJWT = async (req, res) => {
+const verifyCentralJWT = async (req, res, next) => {
   try {
     const token = req.cookies.centralToken;
     //console.log("Token received:", token); // Log the token
@@ -55,7 +55,7 @@ const verifyCentralJWT = async (req, res) => {
   }
 };
 
-const verifyInchargeJWT = async (req, res) => {
+const verifyInchargeJWT = async (req, res, next) => {
   try {
     const token = req.cookies.centralToken;
     //console.log("Token received:", token); // Log the token
