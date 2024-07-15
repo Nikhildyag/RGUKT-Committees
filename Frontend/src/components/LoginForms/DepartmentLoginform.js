@@ -82,7 +82,7 @@ const DepartmentLoginform = () => {
                   <p className="text-left">
                     are you
                     <Link
-                      to="/centralauthorityloginForm"
+                      to="/department/centralauthorityloginForm"
                       className="text-teal-500 hover:underline"
                     >
                       CentralAuthority

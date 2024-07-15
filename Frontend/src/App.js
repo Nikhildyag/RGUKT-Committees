@@ -109,6 +109,7 @@ import CompalintDetails from './components/DepartmentLevel/CompalintDetails.js'
 import FacultyLoginForm from './components/LoginForms/FacultyLoginForm.js'
 import ComplaintDetails from './components/central/ComplaintDetails.js'
 import FeedbackForm from './components/forms/FeedbackForm.js'
+import DepartmentCentralAuthorityLoginform from './components/LoginForms/CentralLoginForm.js'
 
 const App = () => (
   <BrowserRouter>
@@ -440,12 +441,13 @@ const App = () => (
         Component={SportsStudentCommittee}
       />
       {/* LoginFormRoutes */}
-      <Route exact path='facultyinchargeloginForm' Component={FacultyLoginForm}/>
+      <Route exact path='/facultyinchargeloginForm' Component={FacultyLoginForm}/>
       <Route
         exact
         path="/departmentloginform"
         Component={DepartmentLoginform}
       />
+      <Route exact path="/department/centralauthorityloginForm" Component={DepartmentCentralAuthorityLoginform}/>
 
       {/* committee members routes */}
 

@@ -10,7 +10,7 @@ const ComplaintDetails = () => {
       <div className="flex w-full">
         <CentralAuthoritySidebar />
         <div className="lg:w-[100%] lg:ml-[16.5%] md:w-[100%] sm:ml-0 sm:mt-14 sm:w-full flex items-center">
-          <ViewComplaint />
+          <ViewComplaint  />
         </div>
       </div>
     </div>

@@ -18,9 +18,6 @@ const DepartmentSidebar = () => {
       </div>
       <div className="overflow-y-auto h-full">
         <ul className="list-none px-4 py-5 text-sm sm:text-base md:text-md lg:text-md xl:text-md">
-          <li className="mx-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-            Discussion Forum
-          </li>
           <Link to="/department/facultyincharge">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
               Faculty Incharge
