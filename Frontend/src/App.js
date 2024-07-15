@@ -111,6 +111,14 @@ import ComplaintDetails from './components/central/ComplaintDetails.js'
 import FeedbackForm from './components/forms/FeedbackForm.js'
 import DepartmentCentralAuthorityLoginform from './components/LoginForms/CentralLoginForm.js'
 import DepartmentChatbox from './components/DepartmentLevel/DepartmentChatbox.js'
+import CentralChatBoxSection from './components/central/CentralChatBoxSection/index.js'
+import CentralCseChatBoxSection from './components/central/CentralChatBoxSection/CentralCseChatbox.js'
+import CentralEceChatBoxSection from './components/central/CentralChatBoxSection/CentralEceChatBoxSection.js'
+import CentralEeeChatBoxSection from './components/central/CentralChatBoxSection/CentralEeeChatBoxSection.js'
+import CentralCivilChatBoxSection from './components/central/CentralChatBoxSection/CentralCivilChatBoxSection.js'
+import CentralMechChatBoxSection from './components/central/CentralChatBoxSection/CentralMechChatBoxSection.js'
+import CentralChemChatBoxSection from './components/central/CentralChatBoxSection/CentralChemChatBoxSection.js'
+import CentralMmeChatBoxSection from './components/central/CentralChatBoxSection/CentralMmeChatBoxSection.js'
 
 const App = () => (
   <BrowserRouter>
@@ -541,7 +549,15 @@ const App = () => (
         path="/central/centralauthority"
         Component={CentralAuthority}
       />
-      <Route exact path='/departmentmembersChatbox' Component={DepartmentChatbox}/>
+      <Route exact path='/departmentmembersChatbox' Component={DepartmentChatbox} />
+       <Route exact path='/centralchatboxsection' Component={CentralChatBoxSection} />
+      <Route exact path='/central/csechatbox' Component={CentralCseChatBoxSection} />
+      <Route exact path='/central/ecechatbox' Component={CentralEceChatBoxSection} />
+      <Route exact path='/central/eeechatbox' Component={CentralEeeChatBoxSection}/>
+      <Route exact path='/central/civilchatbox' Component={CentralCivilChatBoxSection} />
+      <Route exact path='/central/mechchatbox' Component={CentralMechChatBoxSection} />
+      <Route exact path='/central/chemchatbox' Component={CentralChemChatBoxSection} />
+      <Route exact path='central/mmechatbox' Component={CentralMmeChatBoxSection}/>
       <Route
         exact
         path="/central/facultyIncharge"
