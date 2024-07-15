@@ -58,6 +58,22 @@ const getComplaintsforDepartment = async (req, res) => {
   }
 };
 
+const getparticularComplaint = async (req, res) => {
+  try {
+    const { complaintId } = req.params;
+    if (!complaintId) {
+      return res.status(400).json({ message: "id is required" });
+    }
+    const complaint = await Complaint.findById(complaintId);
+    if (!complaint) {
+      return res.status(400).json({ message: "No complaint found" });
+    }
+    return res.status(200).json({ complaint });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
 //fetch the complaints for central
 const getComplaintsForCentral = async (req, res) => {
   try {
@@ -103,4 +119,5 @@ export {
   getComplaintsforDepartment,
   getComplaintsForCentral,
   updateComplaint,
+  getparticularComplaint,
 };

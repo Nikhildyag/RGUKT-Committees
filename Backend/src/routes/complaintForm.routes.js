@@ -3,9 +3,13 @@ import {
   createComplaint,
   getComplaintsForCentral,
   getComplaintsforDepartment,
+  getparticularComplaint,
   updateComplaint,
 } from "../controllers/ComplaintForm.controller.js";
-import { verifyDepartmentJWT } from "../middlewares/auth.middleware.js";
+import {
+  verifyCentralJWT,
+  verifyDepartmentJWT,
+} from "../middlewares/auth.middleware.js";
 
 const router = Router();
 router.route("/create-complaint").post(createComplaint);
@@ -15,5 +19,8 @@ router
   .get(verifyDepartmentJWT, getComplaintsforDepartment);
 router
   .route("/get/ComplaintsForCentral")
-  .get(verifyDepartmentJWT, getComplaintsForCentral);
+  .get(verifyCentralJWT, getComplaintsForCentral);
+router
+  .route("/get/particularComplaint/:complaintId")
+  .get(verifyDepartmentJWT, getparticularComplaint);
 export default router;
