@@ -153,6 +153,7 @@ const fetchParticularDepartmentForCentral = async (req, res) => {
     const MembersArray = await Department.find({ committee_name });
     if (!MembersArray)
       return res.status(400).json({ message: "No committee members found" });
+    console.log(MembersArray);
     return res.status(200).json({ members: MembersArray });
   } catch (error) {
     return res.status(400).json({ message: error.message });
