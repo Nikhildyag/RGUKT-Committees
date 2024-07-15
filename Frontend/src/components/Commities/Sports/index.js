@@ -13,15 +13,26 @@ const cardData = {
     "Identify and nurture talent in various sports.",
     "Promote physical fitness and sportsmanship among students.",
   ],
-  categories: [],
+  categories: [
+    "Inter-house/Inter-college Sports Events",
+    "Sports Facilities and Equipment",
+    "Talent Identification",
+    "Promotion of Physical Fitness",
+    "other",
+  ],
+  committee_name: "sports",
 };
 const Sports = () => {
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <SportsHeader name={"Academic Committee"} />
       <div className="flex w-full">
-        <SportsSidebar />
-        <CommitteeCard data={cardData} />
+        <div className="w-2/12">
+          <SportsSidebar />
+        </div>
+        <div className="10/12">
+          <CommitteeCard data={cardData} />
+        </div>
       </div>
     </div>
   );

@@ -29,7 +29,6 @@ const createMessage = async (req, res) => {
       department,
       committee_name,
     });
-    console.log(newMessage);
     if (!newMessage) {
       return res.status(500).json({ message: "unable to send message" });
     }
@@ -56,17 +55,22 @@ const getDepartmentMessages = async (req, res) => {
 };
 
 const getCentralMessages = async (req, res) => {
+  console.log("central message requestd");
   try {
     const { committee_name } = req.member;
+    console.log(req.body);
     const { department } = req.body;
+    console.log(department)
     if (!department) {
       return res.status(400).json({ message: "department is required" });
     }
     const messages = await Message.find({ committee_name, department });
     if (!messages)
       return res.status(400).json({ message: "Messages are not found" });
+    console.log(messages)
     return res.status(200).json({ messages });
   } catch (error) {
+    console.log(error)
     return res.status(400).json({ message: error.message });
   }
 };
