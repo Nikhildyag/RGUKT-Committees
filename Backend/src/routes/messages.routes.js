@@ -23,5 +23,5 @@ router
   .get(verifyDepartmentJWT, getDepartmentMessages);
 
 //for central use
-router.route("/get/centralMessage").get(verifyCentralJWT, getCentralMessages);
+router.route("/get/centralMessage").post(verifyCentralJWT, getCentralMessages);
 export default router;

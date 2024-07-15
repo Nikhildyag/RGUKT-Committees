@@ -39,8 +39,10 @@ const createComplaint = async (req, res) => {
 
 //fetch the complaints for department
 const getComplaintsforDepartment = async (req, res) => {
+  //console.log(req.member);
   try {
     const { department, committee_name } = req.member;
+
     if (!department || !committee_name) {
       return res.status(400).json({ message: "you are not logged in" });
     }
@@ -48,12 +50,15 @@ const getComplaintsforDepartment = async (req, res) => {
     if (!complaints) {
       return res.status(400).json({ message: "No complaints found" });
     }
+    complaints.reverse();
     return res.status(200).json({ complaints });
   } catch (error) {
+    // console.log(error);
     return res.status(400).json({ message: error.message });
   }
 };
 
+//fetch the complaints for central
 const getComplaintsForCentral = async (req, res) => {
   try {
     const { committee_name } = req.member;
@@ -64,10 +69,38 @@ const getComplaintsForCentral = async (req, res) => {
     if (!complaints) {
       return res.status(400).json({ message: "No complaints found" });
     }
+    complaints.reverse();
     return res.status(200).json({ complaints });
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
 };
 
-export { createComplaint, getComplaintsforDepartment, getComplaintsForCentral };
+//update the complaint
+const updateComplaint = async (req, res) => {
+  try {
+    const { status, complaint_id, departmentRemarks, centralRemarks } =
+      req.body;
+    if (!complaint_id) {
+      return res.status(400).json({ message: "fields are required" });
+    }
+    const complaint = await Complaint.findById(complaint_id);
+    if (!complaint) {
+      return res.status(400).json({ message: "complaint not found" });
+    }
+    if (departmentRemarks) complaint.departmentRemarks = departmentRemarks;
+    if (centralRemarks) complaint.centralRemarks = centralRemarks;
+    if (status) complaint.status = status;
+    complaint.save();
+    return res.status(200).json({ message: "udpated successfully" });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
+export {
+  createComplaint,
+  getComplaintsforDepartment,
+  getComplaintsForCentral,
+  updateComplaint,
+};
