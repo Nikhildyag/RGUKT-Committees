@@ -1,7 +1,7 @@
-import React from 'react'
-import DesktopCommities from '../DesktopCommities'
-import Header from '../Header'
-import Footer from '../footer/Footer'
+import React from "react";
+import DesktopCommities from "../DesktopCommities";
+import Header from "../Header";
+import Footer from "../footer/Footer";
 
 const Homepage = () => {
   return (
@@ -10,7 +10,7 @@ const Homepage = () => {
       <div className="flex flex-1 overflow-auto sm:max-w-full md:max-w-3/4 overflow-x-hidden">
         <DesktopCommities className="md:w-1/4 min-h-full overflow-auto sm:max-w-0 w-full inset-0" />
         <div className="flex-1 p-5 relative sm:left-0 md:left-60 z-[-1]">
-          <div className="mb-8 w-full md:w-3/4 break-words px-3">
+          <div className="mb-8 w-full md:w-[82%] break-words px-3">
             <h1 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-4 break-words md:marquee text-rose-900">
               Welcome to RGUKT Basar's Central Committee Communication Portal
               Enhancing Connectivity and Collaboration
@@ -167,10 +167,11 @@ const Homepage = () => {
               Central Committee Communication Portal.
             </p>
           </section>
+          <Footer />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

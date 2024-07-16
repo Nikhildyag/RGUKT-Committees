@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import DesktopCommities from '../DesktopCommities'
-import Header from '../Header'
+import Homepage from '../Home'
 
-const DepartmentCentralAuthorityLoginform = () => {
+const DepartmentLoginform = () => {
   const username = useRef(null)
   const password = useRef(null)
   const navigate = useNavigate()
@@ -18,93 +17,131 @@ const DepartmentCentralAuthorityLoginform = () => {
     }
     const data1 = JSON.stringify(userdetails)
     const url = 'http://localhost:1024/api/v1/central/login'
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: data1,
-    })
-    const data = await response.json()
-    if (response.ok === true) {
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: data1,
+      })
+
+      if (!response.ok) {
+        throw new Error('Login failed')
+      }
+
+      const data = await response.json()
       document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`
-      navigate('/centralAuthorityHome')
-    } else {
-      console.log(errorMessage)
+      navigate('/departments')
+    } catch (error) {
+      console.error('Login error:', error)
       setErrorMessage(true)
-      //console.log(response.ok);
     }
   }
+
   return (
-    <>
-      <div className="flex flex-col h-screen overflow-x-hidden overflow-y-auto">
-        <Header />
-        <div className="flex flex-1 overflow-auto sm:max-w-full md:max-w-3/4 overflow-x-hidden">
-          <DesktopCommities className="md:w-1/4 min-h-full overflow-auto sm:max-w-0 w-full inset-0" />
-          <div className="h-screen flex justify-center relative w-[80%] left-64 items-center  bg-teal-500">
-            <div className="w-full md:w-[800px] flex flex-row bg-white shadow-2xl border-2 border-black-400 p-6 rounded-lg">
-              <div className="ml-5">
-                <img
-                  src="https://thumbs.dreamstime.com/b/online-registration-illustration-design-concept-websites-landing-pages-mobile-applications-posters-banners-241322799.jpg"
-                  alt="this is login page logo"
-                  className="w-[120%] h-[100%]"
+    <div className="relative">
+      <div className="opacity-25">
+        <Homepage />
+      </div>
+
+      <div className="absolute top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center bg-gray-950 bg-opacity-75 h-screen">
+        <div className="relative w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[6%]">
+          {/* Close Button */}
+          <button
+            onClick={() => navigate('/')}
+            className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center bg-white text-black rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-colors"
+          >
+            ✖
+          </button>
+
+          {/* Logo */}
+          <div className="flex justify-center mb-4 md:mb-0 md:mr-4">
+            <div className="h-fit w-full flex items-center justify-center">
+              <img
+                src="https://thumbs.dreamstime.com/b/online-registration-illustration-design-concept-websites-landing-pages-mobile-applications-posters-banners-241322799.jpg"
+                alt="this is login page logo"
+                className="w-[120%] h-[100%] "
+              />
+            </div>
+          </div>
+
+          {/* Form */}
+          <div className="flex flex-col items-center w-full">
+            <h2 className="text-center text-2xl font-semibold text-gray-700 mb-1">
+              Central Login
+            </h2>
+            <form onSubmit={handleSubmit} className="w-full px-6 pt-1 pb-2">
+              <div className="mb-3 w-full">
+                <label
+                  htmlFor="username"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Username
+                </label>
+                <input
+                  ref={username}
+                  type="text"
+                  id="username"
+                  placeholder="Enter username"
+                  className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                 />
               </div>
-              <form onSubmit={handleSubmit} className="w-full">
-                <div className="my-5 ml-3">
-                  <div className="flex flex-col mt-3">
-                    <label className="mb-3 font-normal ml-1">Username</label>
-                    <input
-                      ref={username}
-                      type="input"
-                      placeholder="Enter username"
-                      className="w-[80%] h-10 border-2 border-gray-300 pl-3 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                    />
-                  </div>
-                  <div className="flex flex-col mt-3">
-                    <label className="mb-3 font-normal ml-1">Password</label>
-                    <input
-                      ref={password}
-                      type="password"
-                      placeholder="Enter password"
-                      className="w-[80%] h-10 border-2 border-gray-300 pl-3 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                    />
-                  </div>
-                  {errorMessage && (
-                    <h3 className="text-red-500 pt-2">
-                      username and password did'nt match
-                    </h3>
-                  )}
-                  <button className="bg-teal-500 hover:bg-teal-700 w-[80%] text-center rounded-md my-4 h-10 text-white text-lg">
-                    Login
-                  </button>
-                  <p className="text-left">
-                    Are you ?
-                    <Link
-                      to="/facultyinchargeloginForm"
-                      className="text-teal-500 hover:underline"
-                    >
-                      facultyincarge
-                    </Link>
-                  </p>
-                  <p className="text-left">
-                    Are you ?
-                    <Link
-                      to="/departmentloginform"
-                      className="text-teal-500 hover:underline"
-                    >
-                      Departmentmember
-                    </Link>
-                  </p>
-                </div>
-              </form>
+              <div className="mb-6 w-full">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Password
+                </label>
+                <input
+                  ref={password}
+                  type="password"
+                  id="password"
+                  placeholder="Enter password"
+                  className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+                />
+              </div>
+              {errorMessage && (
+                <p className="text-sm text-red-500 mb-2">
+                  Username and password didn't match.
+                </p>
+              )}
+              <button
+                type="submit"
+                className="w-full px-4 py-2 text-white bg-blue-500 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Login
+              </button>
+            </form>
+            {/* Additional Login Options */}
+            <div className="flex justify-between w-full mt-4">
+              <p className="text-sm">
+                Login as{' '}
+                <Link
+                  to="/departmentloginform"
+                  className="text-blue-500 hover:underline"
+                >
+                  Department Member
+                </Link>
+              </p>
+              <p className="text-sm">
+                Login as{' '}
+                <Link
+                  to="/facultyinchargeloginForm"
+                  className="text-blue-500 hover:underline"
+                >
+                  Faculty Incharge
+                </Link>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
-export default DepartmentCentralAuthorityLoginform
+export default DepartmentLoginform
