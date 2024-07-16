@@ -62,12 +62,21 @@ const Header = () => {
         <Link to="/academic" className="hidden md:block text-white">
           Academic Committee
         </Link>
-        <button
-          onClick={Logout}
-          className="relative text-white underline-transition transition duration-300 ease-in-out"
-        >
-          Logout
-        </button>
+         <div className="flex gap-5 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
+          <Link to="/centralAuthorityHome">
+            <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
+              Home
+            </button>
+          </Link>
+           <Link to="/centraleditprofile">
+            <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
+              Edit Profile
+            </button>
+          </Link>
+          <button onClick={Logout} className="relative text-white underline-transition transition duration-300 ease-in-out">
+            Logout
+          </button>
+        </div>
       </div>
 
       <div

@@ -71,7 +71,7 @@ const DepartmentHeader = () => {
               Home
             </button>
           </Link>
-           <Link to="/editProfile">
+           <Link to="/departmenteditProfile">
             <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
               Edit Profile
             </button>
