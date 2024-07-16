@@ -1,13 +1,45 @@
 import React, { useState } from 'react'
 import Departments from './index'
-import { useNavigate } from 'react-router-dom'
+import { json, useNavigate } from 'react-router-dom'
 
 const DepartmentEditProfile = () => {
     const navigate = useNavigate();
-    const [username, setUsername] = useState();
-    const [userId, setuserId] = useState();
+    const [username, setUsername] = useState('');
+    const [userId, setuserId] = useState('');
+    const [password, setPassword] = useState('');
     const handleEdit = async (e) => {
         e.preventDefault();
+         console.log("submit")
+        if (!username || !password || !userId) {
+            alert("fill all the details")
+            return;
+        }
+         console.log("submit")
+        const data = {
+            fullName: username,
+            Id_number: userId,
+            password,
+        }
+        const userDetails = JSON.stringify(data);
+        const url = "http://localhost:1024/api/v1/department/update";
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {'Content-Type': 'application/json',},
+                credentials: 'include',
+               body:userDetails,
+            })
+            if (!response.ok) {
+                throw new Error(response,"Network response was not ok");
+            }
+            const json = await response.json();
+            alert("successfully updated your profile")
+            navigate('/departments')
+        }
+        catch (error) {
+            alert(error)
+            console.log(error)
+        }
     }
   return (
      <div className="relative">
@@ -68,25 +100,27 @@ const DepartmentEditProfile = () => {
                 <input
                   type="text"
                   id="Id"
-                  onClick={(e)=>setuserId(e.target.value)}       
+                  onChange={(e) => setuserId(e.target.value)}
+                  value={userId}                
                   placeholder="Enter userId"
                   className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                 />
                 </div>
                 <div className="mb-6 w-full">
                 <label
-                  htmlFor="Id"
+                  htmlFor="new password"
                   className="block text-sm font-medium text-gray-700"
                 >
-                 New password(please remember it carefully you will not have forgot password optoin);
+                 New password
                 </label>
                 <input
-                  type="text"
-                  id="Id"
-                  onClick={(e)=>setuserId(e.target.value)}       
-                  placeholder="Enter userId"
-                  className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                />
+                  type="password"
+                  id="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}                
+                  placeholder="Enter New Password"
+                  className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"/>
+                <span className='text-red-500 text-[10px]'>*please remember it carefully you will not have forgot password option</span>
               </div>
               {/* {errorMessage && (
                 <p className="text-sm text-red-500 mb-2">
