@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { FaBars, } from 'react-icons/fa'
+import { FaBars } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 
 const DepartmentHeader = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isDropdownOpen,setIsDropdownOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const menuRef = useRef(null)
   const dropdownRef = useRef(null)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -32,27 +32,25 @@ const DepartmentHeader = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  },[])
-  const Logout = async() => {
+  }, [])
+  const Logout = async () => {
     const url = 'http://localhost:1024/api/v1/department/logout'
-     try {
-        const response = await fetch(url,
-          {
-            method: 'GET',
-            credentials: 'include', // Include credentials (cookies)
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
-        if (!response.ok) {
-          throw new Error('Network response was not ok')
-        }
-       alert("logged out");
-       navigate('/');
-      } catch (error) {
-        console.log(error)
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        credentials: 'include', // Include credentials (cookies)
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
       }
+      alert('logged out')
+      navigate('/')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -61,7 +59,8 @@ const DepartmentHeader = () => {
         <div className="text-white text-lg font-bold">
           <button
             onClick={toggleMenu}
-            className="text-white text-2xl sm:block md:hidden focus:outline-none" >
+            className="text-white text-2xl sm:block md:hidden focus:outline-none"
+          >
             <FaBars />
           </button>
         </div>
@@ -71,12 +70,15 @@ const DepartmentHeader = () => {
               Home
             </button>
           </Link>
-           <Link to="/departmenteditProfile">
+          <Link to="/departmenteditProfile">
             <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
               Edit Profile
             </button>
           </Link>
-          <button onClick={Logout} className="relative text-white underline-transition transition duration-300 ease-in-out">
+          <button
+            onClick={Logout}
+            className="relative text-white underline-transition transition duration-300 ease-in-out"
+          >
             Logout
           </button>
         </div>
@@ -98,41 +100,48 @@ const DepartmentHeader = () => {
         <div className="w-full mt-4">
           <ul className="flex flex-col text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl ">
             <li className="text-white">
-               <Link to="/departments"
+              <Link
+                to="/departments"
                 className=" text-black block px-2 py-2 ml-2   hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
               </Link>
             </li>
-              <li className="text-white">
-            <Link to="/department/facultyincharge"
-                className=" text-black block px-2 py-2  ml-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg" >
-               Faculty Incharge
-              </Link>
-            </li>
-             <li className="text-white">
-             <Link to="/chatbox"
-                className=" text-black block px-2 py-2  ml-2  hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
-              >
-               Chatbox
-              </Link>
-            </li>
-             <li className="text-white">
-              <Link to="/department/centralauthority"
+            <li className="text-white">
+              <Link
+                to="/department/facultyincharge"
                 className=" text-black block px-2 py-2  ml-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-               CentralAuthority
+                Faculty Incharge
               </Link>
             </li>
-             <li className="text-white">
-              <Link to="/department/departmentmembers"
+            <li className="text-white">
+              <Link
+                to="/chatbox"
+                className=" text-black block px-2 py-2  ml-2  hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Chatbox
+              </Link>
+            </li>
+            <li className="text-white">
+              <Link
+                to="/department/centralauthority"
+                className=" text-black block px-2 py-2  ml-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                CentralAuthority
+              </Link>
+            </li>
+            <li className="text-white">
+              <Link
+                to="/department/departmentmembers"
                 className=" text-black block px-2 py-2 ml-2  hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Department Committtes
               </Link>
             </li>
-             <li className="text-white">
-              <Link to='/departmentfeedbacks'
+            <li className="text-white">
+              <Link
+                to="/departmentfeedbacks"
                 className=" text-black block px-2 py-2 ml-2  hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 feebacks
