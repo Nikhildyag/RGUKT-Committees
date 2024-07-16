@@ -1,38 +1,37 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
 const CommitteeCard = ({ data }) => {
-  const { rolesAndResponsibilities } = data
-  const committee_name = data.name
-  const categories = data.categories
-  const [showForm, setShowForm] = useState(false)
-  const [category, setCategory] = useState('')
-  const [otherCategory, setOtherCategory] = useState('')
-  const [year, setYear] = useState('')
-  const [branch, setBranch] = useState('')
-  const [isAnonymous, setIsAnonymous] = useState(false)
-  const [studentId, setStudentId] = useState('')
+  const { rolesAndResponsibilities } = data;
+  const committee_name = data.name;
+  const categories = data.categories;
+  const [showForm, setShowForm] = useState(false);
+  const [category, setCategory] = useState("");
+  const [otherCategory, setOtherCategory] = useState("");
+  const [year, setYear] = useState("");
+  const [branch, setBranch] = useState("");
+  const [isAnonymous, setIsAnonymous] = useState(false);
+  const [studentId, setStudentId] = useState("");
 
   const handleAnonymousChange = (e) => {
-    setIsAnonymous(e.target.value === 'anonymous')
-  }
+    setIsAnonymous(e.target.value === "anonymous");
+  };
 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value)
-  }
+    setCategory(e.target.value);
+  };
 
   const handleYear = (e) => {
-    setYear(e.target.value)
-  }
+    setYear(e.target.value);
+  };
   const handleBranch = (e) => {
-    setBranch(e.target.value)
-  }
+    setBranch(e.target.value);
+  };
   const handlesubmit = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
 
   const DisplayForm = () => {
-    setShowForm(!showForm)
-  }
+    setShowForm(!showForm);
+  };
 
   return (
     <div>
@@ -235,7 +234,7 @@ const CommitteeCard = ({ data }) => {
                         ))}
                       </select>
                     </div>
-                    {(category === 'Other' || category === 'other') && (
+                    {(category === "Other" || category === "other") && (
                       <div className="mb-4">
                         <label
                           className="block text-white  font-bold mb-2"
@@ -285,7 +284,7 @@ const CommitteeCard = ({ data }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CommitteeCard
+export default CommitteeCard;

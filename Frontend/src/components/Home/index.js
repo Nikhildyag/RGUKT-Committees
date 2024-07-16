@@ -1,7 +1,7 @@
-import React from 'react'
-import DesktopCommities from '../DesktopCommities'
-import Header from '../Header'
-import Footer from '../footer/Footer'
+import React from "react";
+import DesktopCommities from "../DesktopCommities";
+import Header from "../Header";
+import Footer from "../footer/Footer";
 
 const Homepage = () => {
   return (
@@ -167,10 +167,11 @@ const Homepage = () => {
               Central Committee Communication Portal.
             </p>
           </section>
+          <Footer />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

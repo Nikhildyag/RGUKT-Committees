@@ -4,6 +4,7 @@ import {
   getcentralCommitteMembers,
   getCentralMembersByLogin,
   loginCentralMember,
+  logoutCentral,
   updateCentralMember,
 } from "../controllers/centralCommittee.controller.js";
 import {
@@ -33,4 +34,6 @@ router
 router
   .route("/get/centralMembersByLogin1")
   .get(verifyCentralJWT, getCentralMembersByLogin);
+
+router.route("/logout").get(verifyCentralJWT, logoutCentral);
 export default router;
