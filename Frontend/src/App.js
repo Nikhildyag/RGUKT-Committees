@@ -128,6 +128,7 @@ import DepartmentEditProfile from './components/DepartmentLevel/DepartmentEditPr
 import CentralEditprofile from './components/central/CentralEditprofile.js'
 import CentralHomesection from './components/central/Home/index.js'
 import index from './components/FacultyInchargeLevel/index.js'
+import CentralMembersChatBox from './components/central/CentralMembersChatBox.js'
 
 const App = () => (
   <BrowserRouter>
@@ -158,6 +159,7 @@ const App = () => (
         path="/departmenteditProfile"
         Component={DepartmentEditProfile}
       />
+      <Route exact path='/centralmemberschatbox' Component={CentralMembersChatBox}/>
       <Route exact path="/centraleditprofile" Component={CentralEditprofile} />
       {/* //second level routes*/}
       <Route exact path="/departments" Component={Departments} />

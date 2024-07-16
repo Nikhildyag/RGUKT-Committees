@@ -28,11 +28,16 @@ const CentralAuthoritySidebar = () => {
               Department Committees
             </li>
           </Link>
+           <Link to="/centralmemberschatbox">
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+              Chat with central members
+            </li>
+          </Link>
           <li 
             className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2 flex items-center"
             onClick={toggleChatboxMenu}
           >
-            <span>ChatBox</span>{isChatboxOpen ? <FaAngleDown className='ml-2' /> : <FaAngleRight className='ml-2'/>}
+            <span>View ChatBoxes</span>{isChatboxOpen ? <FaAngleDown className='ml-2' /> : <FaAngleRight className='ml-2'/>}
           </li>
           {isChatboxOpen && (
             <ul className="ml-4">

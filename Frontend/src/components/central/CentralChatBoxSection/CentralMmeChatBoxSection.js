@@ -54,7 +54,7 @@ const CentralMmeChatBoxSection = ({ userId }) => {
         <CentralAuthoritySidebar />
         <div className=" w-full ml-[18%] relative top-20 h-screen flex items-center">
           <div className="flex flex-col p-5 mx-auto max-w-3xl">
-            <h1 className='text-[25px] font-semibold font-serif text-blue-400'>Welcomt to MME chat box</h1>
+            <h1 className='text-[25px] font-semibold font-serif text-blue-400'>Welcome to MME chat box</h1>
             <div className="flex flex-col w-[50vw] h-96 overflow-y-scroll border border-gray-300 p-4 mb-4">
               {messages.map((msg, index) => (
                 <div
