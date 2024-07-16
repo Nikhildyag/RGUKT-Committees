@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 const CommitteeCard = ({ data }) => {
   const { rolesAndResponsibilities } = data;
   const [name, setName] = useState("");

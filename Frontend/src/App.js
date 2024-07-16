@@ -124,6 +124,7 @@ import ExcellenceStudentCommittees from './components/Commities/Excellence/Excel
 import ExcellenceCentralAuthority from './components/Commities/Excellence/ExcellenceCentralAuthority.js'
 import ExcellenceFacultyIncarge from './components/Commities/Excellence/ExcellenceFacultyIncharge.js'
 import Footer from './components/footer/Footer.js'
+import Departmentfeedbacks from './components/DepartmentLevel/Departmentfeedbacks.js'
 
 const App = () => (
   <BrowserRouter>
@@ -377,7 +378,8 @@ const App = () => (
         path="/innovation/studentcommitte"
         Component={InnovationStudentCommittee}
       />
-
+      {/* feedbackRoutes */}
+      <Route exact path='/departmentfeedbacks' Component={Departmentfeedbacks}/>
       <Route
         exact
         path="/mess/centralaurhority"
