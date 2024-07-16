@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-
+import '../../index.css'
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -47,15 +47,19 @@ const Header = () => {
         </div>
         <div className="flex gap-5 sm:gap-3 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
           <Link to="/feedbackform">
-            <button className=" text-white  hover:text-blue-500 rounded-md ">
+            <button className="   rounded-md relative text-white underline-transition transition duration-300 ease-in-out ">
               Feedback
             </button>
           </Link>
           <Link to="/">
-            <button className="text-white sm:hidden md:block">Home</button>
+            <button className=" sm:hidden md:block relative text-white underline-transition transition duration-300 ease-in-out">
+              Home
+            </button>
           </Link>
           <Link to="/departmentloginform">
-            <button className="text-white">Login</button>
+            <button className="relative text-white underline-transition transition duration-300 ease-in-out">
+              Login
+            </button>
           </Link>
         </div>
       </div>

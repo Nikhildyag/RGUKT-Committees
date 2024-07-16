@@ -33,13 +33,13 @@ const AcademicCommiteeForm = () => {
           <div className="flex flex-col lg:flex-row items-center ">
             <div className="bg-transparent rounded-lg]">
               <img
-                src="https://cdni.iconscout.com/illustration/premium/thumb/complaint-resolution-specialist-handling-customer-complaints-and-working-to-resolve-them-8978982-7328703.png?f=webp"
-                alt="Complaint"
+                src="https://png.pngtree.com/png-vector/20230808/ourmid/pngtree-suggestion-box-vector-png-image_6882474.png"
+                alt="suggestion"
                 className=" lg:w-[80em] lg:h-[30em] md:w-[80em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
               />
             </div>
             <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-4 md:mt-0 sm:mt-2 px-5  bg-[#223b5d] rounded-lg shadow-md  py-6 ">
-              <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white">
+              <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white ">
                 Feedback Form
               </h1>
               <form>

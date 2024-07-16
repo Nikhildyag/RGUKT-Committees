@@ -1,15 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
-import { FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import React, { useState, useRef, useEffect } from 'react'
+import { FaBars } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const PlacementHeader = ({ name }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const menuRef = useRef(null)
+  const dropdownRef = useRef(null)
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   const handleClickOutside = (event) => {
     if (
@@ -18,16 +18,16 @@ const PlacementHeader = ({ name }) => {
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target)
     ) {
-      setIsOpen(false);
+      setIsOpen(false)
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
@@ -45,21 +45,25 @@ const PlacementHeader = ({ name }) => {
         </Link>
         <div className="flex gap-5">
           <Link to="/">
-            <button className="text-white sm:hidden md:block">Home</button>
+            <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
+              Home
+            </button>
           </Link>
           <Link to="/departmentloginform">
-            <button className="text-white">Login</button>
+            <button className="relative text-white underline-transition transition duration-300 ease-in-out">
+              Login
+            </button>
           </Link>
         </div>
       </div>
 
       <div
         className={`fixed top-0 left-0 h-full bg-[#426CAD]  sm:block md:hidden transition-transform transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? 'translate-x-0' : '-translate-x-full'
         } w-64 p-4`}
         ref={menuRef}
       >
-        <div className={`${isOpen ? "block" : "hidden"} w-full  mt-4`}>
+        <div className={`${isOpen ? 'block' : 'hidden'} w-full  mt-4`}>
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
@@ -106,7 +110,7 @@ const PlacementHeader = ({ name }) => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default PlacementHeader;
+export default PlacementHeader

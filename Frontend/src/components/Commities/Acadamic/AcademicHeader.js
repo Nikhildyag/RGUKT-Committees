@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import '../../../index.css'
 const AcademicHeader = () => {
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef(null)
@@ -43,10 +44,14 @@ const AcademicHeader = () => {
         </Link>
         <div className="flex gap-5">
           <Link to="/">
-            <button className="text-white sm:hidden md:block">Home</button>
+            <button className="relative text-white sm:hidden md:block underline-transition transition duration-300 ease-in-out">
+              Home
+            </button>
           </Link>
           <Link to="/departmentloginform">
-            <button className="text-white">Login</button>
+            <button className="relative text-white underline-transition transition duration-300 ease-in-out">
+              Login
+            </button>
           </Link>
         </div>
       </div>
@@ -62,7 +67,7 @@ const AcademicHeader = () => {
             <li className="text-white">
               <Link
                 to="/"
-                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg "
               >
                 Home
               </Link>
