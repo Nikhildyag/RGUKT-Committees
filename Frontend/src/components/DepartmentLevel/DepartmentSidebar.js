@@ -38,9 +38,11 @@ const DepartmentSidebar = () => {
               Department Committees
             </li>
           </Link>
-          <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+          <Link to='/departmentfeedbacks'>
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
             Feedback
           </li>
+          </Link>
         </ul>
       </div>
     </div>

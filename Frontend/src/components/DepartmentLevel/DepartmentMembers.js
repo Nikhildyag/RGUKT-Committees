@@ -52,8 +52,7 @@ const DepartmentMembers = () => {
                 </div>
               </div>
           </div>
-        )
-          
+        )    
         }
        </div> 
     </div>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 const CommitteeCard = ({ data }) => {
   const { rolesAndResponsibilities } = data
   const [name, setName] = useState('');
