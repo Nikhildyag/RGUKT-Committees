@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -6,6 +7,17 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
+=======
+import React, { useState, useRef, useEffect } from 'react'
+import { FaBars } from 'react-icons/fa'
+import { Link, useNavigate } from 'react-router-dom'
+
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const menuRef = useRef(null)
+  const dropdownRef = useRef(null)
+  const navigate = useNavigate();
+>>>>>>> f046688615b0422f48d589a4936f0f17554d0596
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -24,9 +36,37 @@ const Header = () => {
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
+<<<<<<< HEAD
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+=======
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+  const Logout = async() => {
+    const url = 'http://localhost:1024/api/v1/central/logout'
+     try {
+        const response = await fetch(url,
+          {
+            method: 'GET',
+            credentials: 'include', // Include credentials (cookies)
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+       alert("logged out");
+       navigate('/');
+      } catch (error) {
+        console.log(error)
+      }
+  }
+
+>>>>>>> f046688615b0422f48d589a4936f0f17554d0596
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
@@ -39,8 +79,15 @@ const Header = () => {
             <FaBars />
           </button>
         </div>
+<<<<<<< HEAD
         <div className="hidden md:block text-white">Central Committee</div>
         <button className="relative text-white underline-transition transition duration-300 ease-in-out">
+=======
+        <Link to="/academic" className="hidden md:block text-white">
+          Academic Committee
+        </Link>
+        <button onClick={Logout} className="relative text-white underline-transition transition duration-300 ease-in-out">
+>>>>>>> f046688615b0422f48d589a4936f0f17554d0596
           Logout
         </button>
       </div>
