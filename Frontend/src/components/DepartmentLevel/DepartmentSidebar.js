@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const DepartmentSidebar = () => {
   return (
-    <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:block xl:block w-2/12 bg-[#ede6e5] shadow-lg">
+    <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:block xl:block w-2/12 bg-[#ede6e5] shadow-lg z-20">
       <div className="flex flex-row gap-2  bg-[#426CAD] h-[3.7em]">
         <Link to="/departments">
           <img
@@ -38,10 +38,10 @@ const DepartmentSidebar = () => {
               Department Committees
             </li>
           </Link>
-          <Link to='/departmentfeedbacks'>
+          <Link to="/departmentfeedbacks">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-            Feedback
-          </li>
+              Feedback
+            </li>
           </Link>
         </ul>
       </div>
