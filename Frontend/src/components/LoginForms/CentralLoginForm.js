@@ -33,7 +33,7 @@ const DepartmentLoginform = () => {
       }
 
       const data = await response.json();
-      document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
+      document.cookie = `centralToken=${data.centralToken}; Secure; SameSite=None; Path=/`;
       navigate("/centralAuthorityHome");
     } catch (error) {
       console.error("Login error:", error);
