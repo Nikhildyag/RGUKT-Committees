@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ProfileCard from "../../ProfileCard";
-import EnvironmentHeader from "./EnvironmentHeader";
-import EnvironmentSidebar from "./EnvironmentSidebar";
-
-const CentralAuthority = () => {
+import ExcellenceHeader from "./ExcellenceHeader";
+import ExcellenceSidebar from "./ExcellenceSidebar";
+const ExcellenceCentralAuthority = () => {
   const [students, setStudents] = useState([]);
   const [isDataReady, setIsdataready] = useState(false);
   useEffect(() => {
     const fetchCentralCommittees = async () => {
       const data = {
-        committee_name: "environment",
+        committee_name: "excellence",
       };
       const committee_details = JSON.stringify(data);
       try {
@@ -40,9 +39,9 @@ const CentralAuthority = () => {
   }, []);
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <EnvironmentHeader />
+      <ExcellenceHeader />
       <div className="flex w-full">
-        <EnvironmentSidebar />
+        <ExcellenceSidebar />
         {isDataReady && (
           <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%]">
             <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
@@ -73,4 +72,4 @@ const CentralAuthority = () => {
   );
 };
 
-export default CentralAuthority;
+export default ExcellenceCentralAuthority;

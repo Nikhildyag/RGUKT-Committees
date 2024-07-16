@@ -119,6 +119,10 @@ import CentralCivilChatBoxSection from './components/central/CentralChatBoxSecti
 import CentralMechChatBoxSection from './components/central/CentralChatBoxSection/CentralMechChatBoxSection.js'
 import CentralChemChatBoxSection from './components/central/CentralChatBoxSection/CentralChemChatBoxSection.js'
 import CentralMmeChatBoxSection from './components/central/CentralChatBoxSection/CentralMmeChatBoxSection.js'
+import Excellence from './components/Commities/Excellence/index.js'
+import ExcellenceStudentCommittees from './components/Commities/Excellence/ExcellenceStudentCommittees.js'
+import ExcellenceCentralAuthority from './components/Commities/Excellence/ExcellenceCentralAuthority.js'
+import ExcellenceFacultyIncarge from './components/Commities/Excellence/ExcellenceFacultyIncharge.js'
 
 const App = () => (
   <BrowserRouter>
@@ -143,6 +147,7 @@ const App = () => (
       <Route exact path="/safety" Component={Safety} />
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
+      <Route exact path="/excellence" Component={Excellence}/>
       {/* //second level routes*/}
       <Route exact path='/departments' Component={Departments} />
       <Route exact path='/department/departmentmembers' Component={DepartmentMembers} />
@@ -181,7 +186,9 @@ const App = () => (
         path="/academic/studentcommitte"
         Component={AcadamicStudentCommittee}
       />
-
+      <Route exact path='/excellence/studentcommitte' Component={ExcellenceStudentCommittees} />
+      <Route exact path='/excellence/centralaurhority' Component={ExcellenceCentralAuthority} />
+      <Route exact path='/excellence/facultyincarge'  Component={ExcellenceFacultyIncarge}/>
       <Route
         exact
         path="/campusamenties/centralaurhority"
