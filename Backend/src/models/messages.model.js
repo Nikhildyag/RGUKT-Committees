@@ -15,6 +15,11 @@ const messageSchema = new Schema(
     committee_name: {
       type: String,
     },
+    role: {
+      type: String,
+      enum: ["central", "department"],
+      default: "department",
+    },
   },
   { timestamps: true }
 );

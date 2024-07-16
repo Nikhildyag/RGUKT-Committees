@@ -4,7 +4,7 @@ import CentralAuthoritySidebar from './CentralAuthoritySidebar'
 import Header from './Header'
 import CentralAuthorityComplaints from '../CentralAuthorityComplaints'
 
-const index = () => {
+const CentralHomesection = () => {
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <Header />
@@ -18,4 +18,4 @@ const index = () => {
   )
 }
 
-export default index
+export default CentralHomesection

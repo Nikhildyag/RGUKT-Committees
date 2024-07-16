@@ -94,7 +94,6 @@ import SocialCentralAuthority from './components/Commities/Social/SocialCentralA
 import SocialFacultyIncarge from './components/Commities/Social/SocialFacultyIncharge.js'
 import SocialStudentCommittee from './components/Commities/Social/StudentCommittees.js'
 import FormCard from './components/forms/FormCard.js'
-import index from './components/central/Home/index.js'
 import CentralAuthority from './components/central/CentralAuthorityContents/CentralAuthority.js'
 import CentralAuthorityFIC from './components/central/CentralAuthorityContents/CentralAuthorityFIC.js'
 import CentralAuthorityStudentCommittee from './components/central/CentralAuthorityContents/CentralAuthorityStudentCommittee.js'
@@ -126,6 +125,8 @@ import ExcellenceFacultyIncarge from './components/Commities/Excellence/Excellen
 import Footer from './components/footer/Footer.js'
 import Departmentfeedbacks from './components/DepartmentLevel/Departmentfeedbacks.js'
 import DepartmentEditProfile from './components/DepartmentLevel/DepartmentEditProfile.js'
+import CentralEditprofile from './components/central/CentralEditprofile.js'
+import CentralHomesection from './components/central/Home/index.js'
 
 const App = () => (
   <BrowserRouter>
@@ -151,7 +152,8 @@ const App = () => (
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
       <Route exact path="/excellence" Component={Excellence} />
-      <Route exact path="/editProfile" Component={DepartmentEditProfile}/>
+      <Route exact path="/departmenteditProfile" Component={DepartmentEditProfile} />
+      <Route exact path='/centraleditprofile' Component={CentralEditprofile}/>
       {/* //second level routes*/}
       <Route exact path="/departments" Component={Departments} />
       <Route
@@ -575,7 +577,7 @@ const App = () => (
       <Route exact path="/feedbackform" Component={FeedbackForm} />
 
       {/* Third Level UI => For Central Authority */}
-      <Route exact path="/centralAuthorityHome" Component={index} />
+      <Route exact path="/centralAuthorityHome" Component={CentralHomesection} />
       <Route
         exact
         path="/central/centralauthority"

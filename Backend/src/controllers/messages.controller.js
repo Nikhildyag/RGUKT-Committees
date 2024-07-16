@@ -45,7 +45,11 @@ const getDepartmentMessages = async (req, res) => {
     if (!department) {
       return res.status(400).json({ message: "you are not logged in" });
     }
-    const messages = await Message.find({ department, committee_name });
+    const messages = await Message.find({
+      department,
+      committee_name,
+      role: "department",
+    });
     if (!messages)
       return res.status(400).json({ message: "Messages are not found" });
     return res.status(200).json({ messages });
@@ -60,17 +64,21 @@ const getCentralMessages = async (req, res) => {
     const { committee_name } = req.member;
     console.log(req.body);
     const { department } = req.body;
-    console.log(department)
+    console.log(department);
     if (!department) {
       return res.status(400).json({ message: "department is required" });
     }
-    const messages = await Message.find({ committee_name, department });
+    const messages = await Message.find({
+      committee_name,
+      department,
+      role: "department",
+    });
     if (!messages)
       return res.status(400).json({ message: "Messages are not found" });
-    console.log(messages)
+    console.log(messages);
     return res.status(200).json({ messages });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(400).json({ message: error.message });
   }
 };
