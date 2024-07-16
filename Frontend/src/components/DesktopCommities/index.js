@@ -18,13 +18,13 @@ import {
   FaClipboardList,
   FaGavel,
   FaHome,
-  FaMedal ,
+  FaMedal,
   FaLightbulb,
 } from 'react-icons/fa'
 
 const DesktopCommities = () => {
   return (
-    <div className="min-h-screen h-full sm:hidden md:block fixed top-0 w-64  shadow-lg">
+    <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:w-64 md:w-52   shadow-lg">
       <div className="flex flex-row gap-2 bg-[#426CAD] h-[2.6em]">
         <img
           src="https://hub.rgukt.ac.in/hub/static/images/logo.png"
@@ -47,7 +47,7 @@ const DesktopCommities = () => {
           </Link>
           <Link to="/excellence">
             <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
-              <FaMedal  className="h-4 w-5 mt-1 text-pink-500 hover:animate-spin" />
+              <FaMedal className="h-4 w-5 mt-1 text-pink-500 hover:animate-spin" />
               <li className="list-none hover:text-white truncate text-black ml-2">
                 Excellence Committee
               </li>
