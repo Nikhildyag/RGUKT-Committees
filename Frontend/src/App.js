@@ -125,6 +125,7 @@ import ExcellenceCentralAuthority from './components/Commities/Excellence/Excell
 import ExcellenceFacultyIncarge from './components/Commities/Excellence/ExcellenceFacultyIncharge.js'
 import Footer from './components/footer/Footer.js'
 import Departmentfeedbacks from './components/DepartmentLevel/Departmentfeedbacks.js'
+import DepartmentEditProfile from './components/DepartmentLevel/DepartmentEditProfile.js'
 
 const App = () => (
   <BrowserRouter>
@@ -149,7 +150,8 @@ const App = () => (
       <Route exact path="/safety" Component={Safety} />
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
-      <Route exact path="/excellence" Component={Excellence}/>
+      <Route exact path="/excellence" Component={Excellence} />
+      <Route exact path="/editProfile" Component={DepartmentEditProfile}/>
       {/* //second level routes*/}
       <Route exact path="/departments" Component={Departments} />
       <Route

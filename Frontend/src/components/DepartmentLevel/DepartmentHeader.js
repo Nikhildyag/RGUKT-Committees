@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const DepartmentHeader = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isDropdownOpen,setIsDropdownOpen] = useState(false)
   const menuRef = useRef(null)
   const dropdownRef = useRef(null)
   const navigate = useNavigate();
@@ -27,13 +27,12 @@ const DepartmentHeader = () => {
       setIsDropdownOpen(false)
     }
   }
-
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside)
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [])
+  },[])
   const Logout = async() => {
     const url = 'http://localhost:1024/api/v1/department/logout'
      try {
@@ -72,6 +71,11 @@ const DepartmentHeader = () => {
               Home
             </button>
           </Link>
+           <Link to="/editProfile">
+            <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
+              Edit Profile
+            </button>
+          </Link>
           <button onClick={Logout} className="relative text-white underline-transition transition duration-300 ease-in-out">
             Logout
           </button>
@@ -94,8 +98,7 @@ const DepartmentHeader = () => {
         <div className="w-full mt-4">
           <ul className="flex flex-col text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl ">
             <li className="text-white">
-              <Link
-                to="/"
+               <Link to="/departments"
                 className=" text-black block px-2 py-2 ml-2   hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
