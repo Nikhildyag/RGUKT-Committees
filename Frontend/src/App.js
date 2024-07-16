@@ -123,6 +123,7 @@ import Excellence from './components/Commities/Excellence/index.js'
 import ExcellenceStudentCommittees from './components/Commities/Excellence/ExcellenceStudentCommittees.js'
 import ExcellenceCentralAuthority from './components/Commities/Excellence/ExcellenceCentralAuthority.js'
 import ExcellenceFacultyIncarge from './components/Commities/Excellence/ExcellenceFacultyIncharge.js'
+import Footer from './components/footer/Footer.js'
 
 const App = () => (
   <BrowserRouter>
@@ -149,10 +150,22 @@ const App = () => (
       <Route exact path="/sports" Component={Sports} />
       <Route exact path="/excellence" Component={Excellence}/>
       {/* //second level routes*/}
-      <Route exact path='/departments' Component={Departments} />
-      <Route exact path='/department/departmentmembers' Component={DepartmentMembers} />
-      <Route exact path='/department/facultyincharge' Component={DepartmentFacultymember} />
-      <Route exact path='/department/centralauthority' Component={DepartmentCentralAuthority}/>
+      <Route exact path="/departments" Component={Departments} />
+      <Route
+        exact
+        path="/department/departmentmembers"
+        Component={DepartmentMembers}
+      />
+      <Route
+        exact
+        path="/department/facultyincharge"
+        Component={DepartmentFacultymember}
+      />
+      <Route
+        exact
+        path="/department/centralauthority"
+        Component={DepartmentCentralAuthority}
+      />
       <Route exact path="/chatbox" Component={ChatBox} />
       <Route exact path="/departments" Component={Departments} />
       <Route
@@ -457,13 +470,21 @@ const App = () => (
         Component={SportsStudentCommittee}
       />
       {/* LoginFormRoutes */}
-      <Route exact path='/facultyinchargeloginForm' Component={FacultyLoginForm}/>
+      <Route
+        exact
+        path="/facultyinchargeloginForm"
+        Component={FacultyLoginForm}
+      />
       <Route
         exact
         path="/departmentloginform"
         Component={DepartmentLoginform}
       />
-      <Route exact path="/department/centralauthorityloginForm" Component={DepartmentCentralAuthorityLoginform}/>
+      <Route
+        exact
+        path="/department/centralauthorityloginForm"
+        Component={DepartmentCentralAuthorityLoginform}
+      />
 
       {/* committee members routes */}
 
@@ -556,15 +577,51 @@ const App = () => (
         path="/central/centralauthority"
         Component={CentralAuthority}
       />
-      <Route exact path='/departmentmembersChatbox' Component={DepartmentChatbox} />
-       <Route exact path='/centralchatboxsection' Component={CentralChatBoxSection} />
-      <Route exact path='/central/csechatbox' Component={CentralCseChatBoxSection} />
-      <Route exact path='/central/ecechatbox' Component={CentralEceChatBoxSection} />
-      <Route exact path='/central/eeechatbox' Component={CentralEeeChatBoxSection}/>
-      <Route exact path='/central/civilchatbox' Component={CentralCivilChatBoxSection} />
-      <Route exact path='/central/mechchatbox' Component={CentralMechChatBoxSection} />
-      <Route exact path='/central/chemchatbox' Component={CentralChemChatBoxSection} />
-      <Route exact path='central/mmechatbox' Component={CentralMmeChatBoxSection}/>
+      <Route
+        exact
+        path="/departmentmembersChatbox"
+        Component={DepartmentChatbox}
+      />
+      <Route
+        exact
+        path="/centralchatboxsection"
+        Component={CentralChatBoxSection}
+      />
+      <Route
+        exact
+        path="/central/csechatbox"
+        Component={CentralCseChatBoxSection}
+      />
+      <Route
+        exact
+        path="/central/ecechatbox"
+        Component={CentralEceChatBoxSection}
+      />
+      <Route
+        exact
+        path="/central/eeechatbox"
+        Component={CentralEeeChatBoxSection}
+      />
+      <Route
+        exact
+        path="/central/civilchatbox"
+        Component={CentralCivilChatBoxSection}
+      />
+      <Route
+        exact
+        path="/central/mechchatbox"
+        Component={CentralMechChatBoxSection}
+      />
+      <Route
+        exact
+        path="/central/chemchatbox"
+        Component={CentralChemChatBoxSection}
+      />
+      <Route
+        exact
+        path="central/mmechatbox"
+        Component={CentralMmeChatBoxSection}
+      />
       <Route
         exact
         path="/central/facultyIncharge"
@@ -586,6 +643,9 @@ const App = () => (
         path="/department/complaint/:complaintId"
         Component={CompalintDetails}
       />
+
+      {/*Footer */}
+      <Route exact path="/footer" Component={Footer} />
     </Routes>
   </BrowserRouter>
 )

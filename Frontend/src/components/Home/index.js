@@ -1,6 +1,7 @@
 import React from 'react'
 import DesktopCommities from '../DesktopCommities'
 import Header from '../Header'
+import Footer from '../footer/Footer'
 
 const Homepage = () => {
   return (
@@ -26,7 +27,7 @@ const Homepage = () => {
           </div>
 
           <section className="mb-8 w-full md:w-3/4 break-words px-3">
-            <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-4 break-words bg-red-900 w-fit text-white px-1">
+            <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-4 break-words bg-green-900 w-fit text-white px-1">
               Key Features of the Portal :
             </h2>
 
@@ -161,7 +162,7 @@ const Homepage = () => {
               achieve this goal. Together, let's build a campus community that
               thrives on communication, innovation, and mutual support.
             </p>
-            <p className="mb-4 break-words">
+            <p className="break-words pb-16">
               Welcome aboard! Explore, engage, and excel with RGUKT Basar's
               Central Committee Communication Portal.
             </p>
