@@ -4,6 +4,7 @@ import {
   createMessage,
   getDepartmentMessages,
   getCentralMessages,
+  getCentralMembersChat,
 } from "../controllers/messages.controller.js";
 import {
   verifyCentralJWT,
@@ -17,6 +18,9 @@ router.route("/recive/messages").get(getMessages);
 //to send message
 router.route("/send/message").post(verifyDepartmentJWT, createMessage);
 
+//to send message for central members
+router.route("/send/messageForCentral").post(verifyCentralJWT, createMessage);
+
 //for department use
 router
   .route("/get/departmentMessage")
@@ -24,4 +28,9 @@ router
 
 //for central use
 router.route("/get/centralMessage").post(verifyCentralJWT, getCentralMessages);
+
+//get central members chat
+router
+  .route("/get/centralMembersChat")
+  .get(verifyCentralJWT, getCentralMembersChat);
 export default router;

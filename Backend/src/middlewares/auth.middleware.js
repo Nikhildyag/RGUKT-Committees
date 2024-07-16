@@ -57,7 +57,7 @@ const verifyCentralJWT = async (req, res, next) => {
 
 const verifyInchargeJWT = async (req, res, next) => {
   try {
-    const token = req.cookies.centralToken;
+    const token = req.cookies.inchargeToken;
     //console.log("Token received:", token); // Log the token
 
     if (!token) {
