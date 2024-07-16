@@ -84,7 +84,7 @@ const DepartmentChatbox = ({ userId }) => {
         <DepartmentSidebar />
         <div className=" w-full md:ml-[18%] sm:ml-[0%] relative top-20 flex items-center">
           <div className="flex flex-col p-5 mx-auto max-w-3xl">
-            <div className="flex flex-col md:w-[50vw] sm:w-[80vw] h-96 overflow-y-scroll border border-gray-300 p-4 mb-4">
+            <div className="flex flex-col md:w-[50vw] sm:w-[80vw] md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 p-4 mb-4">
               {messages.map((msg, index) => (
                 <div
                   key={index}
@@ -98,7 +98,7 @@ const DepartmentChatbox = ({ userId }) => {
                 </div>
               ))}
             </div>
-            <div className="flex w-[50vw]">
+            <div className="flex w-[50vw] ">
               <input
                 type="text"
                 value={message}
