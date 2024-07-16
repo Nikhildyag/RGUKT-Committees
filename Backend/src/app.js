@@ -20,5 +20,5 @@ app.use("/api/v1/department", DepartmentRouter);
 app.use("/api/v1/central", centralRouter);
 app.use("/api/v1/messages", messagesRouter);
 app.use("/api/v1/complaints", complaintRouter);
-app.use("/api/v1/feebacks", feedbackRouter);
+app.use("/api/v1/feedbacks", feedbackRouter);
 export default app;
