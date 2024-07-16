@@ -102,14 +102,17 @@ const loginDepartmentMember = async (req, res) => {
 
 const updateDepartmentMember = async (req, res) => {
   try {
-    const { memberId } = req.params
-    const { fullName, Id_number } = req.body
-    if (!fullName && !Id_number) {
+    const { _id } = req.member
+    console.log(_id)
+    const { fullName, Id_number, password } = req.body
+    console.log("data from the request",fullName,Id_number,password)
+    if (!fullName && !Id_number && !password) {
       return res.status(400).json({ message: 'atleast one change is required' })
     }
-    let departmentMember = await Department.findById(memberId)
+    let departmentMember = await Department.findById(_id)
     if (fullName) departmentMember.fullName = fullName
     if (Id_number) departmentMember.Id_number = Id_number
+    if (password) departmentMember.password = password
     await departmentMember.save()
     return res
       .status(200)
