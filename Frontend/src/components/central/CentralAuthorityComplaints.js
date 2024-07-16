@@ -1,44 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoEyeOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 const CentralAuthorityComplaints = () => {
-  const dummyData = [
-    { id: '001', category: 'Maintenance', date: '2024-07-14', status: 'Open' },
-    { id: '002', category: 'Security', date: '2024-07-13', status: 'Closed' },
-    { id: '003', category: 'Electricity', date: '2024-07-12', status: 'Open' },
-    {
-      id: '004',
-      category: 'Water Supply',
-      date: '2024-07-11',
-      status: 'In Progress',
-    },
-    { id: '005', category: 'Internet', date: '2024-07-10', status: 'Open' },
-    {
-      id: '006',
-      category: 'Cleanliness',
-      date: '2024-07-09',
-      status: 'Closed',
-    },
-    {
-      id: '007',
-      category: 'Food Quality',
-      date: '2024-07-08',
-      status: 'In Progress',
-    },
-    { id: '008', category: 'Noise', date: '2024-07-07', status: 'Open' },
-    {
-      id: '009',
-      category: 'Infrastructure',
-      date: '2024-07-06',
-      status: 'Closed',
-    },
-    {
-      id: '010',
-      category: 'Transport',
-      date: '2024-07-05',
-      status: 'In Progress',
-    },
-  ]
+  const [complaints, setcomplainte] = useState();
+  const [complatsReady, setcomplantsReady] = useState();
+
+  const fetchComplaints = async () => {
+    const url = "http://localhost:1024/api/v1/complaints/get/ComplaintsForCentral";
+      try {
+        const response = await fetch(url,
+          {
+            method: 'GET',
+            credentials: 'include', // Include credentials (cookies)
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const json = await response.json()
+        setcomplainte(json.complaints)
+        setcomplantsReady(true);
+      } catch (error) {
+        console.log(error)
+      }
+  }
+  const formatDate = (dateString) => {
+    console.log(dateString)
+    const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    console.log(day, month, year);
+
+  return `${day}/${month}/${year}`;
+};
+
+
+  useEffect(() => {
+    fetchComplaints();
+  },[])
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full mt-16">
@@ -61,28 +64,28 @@ const CentralAuthorityComplaints = () => {
             </tr>
           </thead>
           <tbody className="text-gray-700">
-            {dummyData.map((complaint) => (
+            {complatsReady && complaints.map((complaint) => (
               <tr key={complaint.id} className="bg-gray-50 odd:bg-gray-100">
                 <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
                   <div className="flex items-center">
-                    <Link to={`/central/complaint/${complaint.id}`}>
+                    <Link to={`/central/complaint/${complaint._id}`}>
                       <IoEyeOutline className="text-blue-500 hover:text-blue-700 mt-1" />
                     </Link>
-                    <span className="ml-2">{complaint.id}</span>
+                    <span className="ml-2">{complaint._id}</span>
                   </div>
                 </td>
                 <td className="w-3/6 sm:w-3/6 md:w-3/6 lg:w-3/6 xl:w-3/6 text-left py-3 px-4">
                   {complaint.category}
                 </td>
                 <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
-                  {complaint.date}
+                  {formatDate(complaint.createdAt)}
                 </td>
                 <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
                   {complaint.status}
                 </td>
               </tr>
             ))}
-            {dummyData.length === 0 && (
+            {complatsReady && complaints.length === 0 && (
               <tr>
                 <td colSpan="4" className="text-center py-4">
                   No complaints found

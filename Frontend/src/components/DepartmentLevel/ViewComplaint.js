@@ -22,14 +22,26 @@ const ViewComplaint = () => {
           throw new Error('Network response was not ok')
         }
         const json = await response.json()
-        console.log(json)
-        setComplaint(json)
+        console.log(json.complaint)
+        setComplaint(json.complaint)
       } catch (error) {
         console.log(error)
       }
     }
     fetchComplaint()
   }, [complaintId])
+
+  const formatDate = (dateString) => {
+    console.log(dateString)
+    const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    console.log(day, month, year);
+
+  return `${day}/${month}/${year}`;
+};
+
 
   const handleStatusChange = (e) => {
     const newStatus = e.target.value
@@ -42,7 +54,6 @@ const ViewComplaint = () => {
   if (!complaint) {
     return <div className="text-center mt-4">Loading...</div>
   }
-
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full max-w-screen">
       <h2 className="text-3xl font-bold mb-4 text-gray-800 text-center">
@@ -53,14 +64,14 @@ const ViewComplaint = () => {
           <div className="flex flex-col border-b border-gray-300 hover:bg-gray-100">
             <div className="py-2 border-b border-gray-300">
               <p className="text-sm text-gray-600 mb-2">
-                <span className="font-medium">ID:</span> {complaint.id}
+                <span className="font-medium">ID:</span> {complaint._id}
               </p>
               <p className="text-sm text-gray-600 mb-2">
                 <span className="font-medium">Category:</span>{' '}
                 {complaint.category}
               </p>
               <p className="text-sm text-gray-600 mb-2">
-                <span className="font-medium">Date:</span> {complaint.date}
+                <span className="font-medium">Date:</span> {formatDate(complaint.createdAt)}
               </p>
               <div className="text-sm text-gray-600 mb-2">
                 <span className="font-medium">Status:</span>{' '}
