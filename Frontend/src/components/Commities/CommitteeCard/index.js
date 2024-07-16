@@ -5,7 +5,6 @@ const CommitteeCard = ({ data }) => {
   const committee_name = data.name
   const categories = data.categories
   const [showForm, setShowForm] = useState(false)
-
   const [category, setCategory] = useState('')
   const [otherCategory, setOtherCategory] = useState('')
   const [year, setYear] = useState('')
@@ -24,12 +23,12 @@ const CommitteeCard = ({ data }) => {
   const handleYear = (e) => {
     setYear(e.target.value)
   }
-
   const handleBranch = (e) => {
     setBranch(e.target.value)
   }
   const handlesubmit = (e) => {
     e.preventDefault()
+   
   }
 
   const DisplayForm = () => {

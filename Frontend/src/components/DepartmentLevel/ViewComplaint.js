@@ -3,10 +3,11 @@ import { useParams } from 'react-router-dom'
 
 const ViewComplaint = () => {
   const { complaintId } = useParams()
+  const [remarks, setRemarks] = useState();
   const [complaint, setComplaint] = useState(null)
+  const [status, setStatus] = useState('pending');
   useEffect(() => {
-    const fetchComplaint =async() => {
-      
+    const fetchComplaint =async() => {  
       try {
         const response = await fetch(
           `http://localhost:1024/api/v1/complaints/get/particularComplaint/${complaintId}`,
@@ -22,8 +23,8 @@ const ViewComplaint = () => {
           throw new Error('Network response was not ok')
         }
         const json = await response.json()
-        console.log(json.complaint)
         setComplaint(json.complaint)
+        setStatus(json.complaint.status);
       } catch (error) {
         console.log(error)
       }
@@ -32,23 +33,53 @@ const ViewComplaint = () => {
   }, [complaintId])
 
   const formatDate = (dateString) => {
-    console.log(dateString)
     const date = new Date(dateString);
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
-    console.log(day, month, year);
-
   return `${day}/${month}/${year}`;
 };
 
 
   const handleStatusChange = (e) => {
     const newStatus = e.target.value
-    setComplaint((prevComplaint) => ({
-      ...prevComplaint,
-      status: newStatus,
-    }))
+    setStatus(newStatus);
+  }
+  const submitComplaint = async (e) => {
+     e.preventDefault();
+    if (!status || !remarks) {
+      alert("all feilds required");
+      return;
+    } 
+    const data = {
+      status,
+      centralRemarks:remarks,
+      complaint_id:complaintId
+    }
+    setRemarks('');
+    const complaintDetails = JSON.stringify(data);
+    try {
+      const response = await fetch(
+        `http://localhost:1024/api/v1/complaints/update-complaint`,
+        {
+          method: 'POST',
+          credentials: 'include', // Include credentials (cookies)
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body:complaintDetails
+        }
+      )
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+        }
+      const json = await response.json();
+      alert("status ubdated");
+      console.log(json)
+    } catch (error) {
+      alert("Error in ubdating the status")
+        console.log(error)
+      }
   }
 
   if (!complaint) {
@@ -77,12 +108,12 @@ const ViewComplaint = () => {
                 <span className="font-medium">Status:</span>{' '}
                 <select
                   className="border border-gray-300 rounded px-2 py-1 mt-1"
-                  value={complaint.status}
+                  value={status}
                   onChange={handleStatusChange}
                 >
-                  <option value="Pending">Pending</option>
-                  <option value="Resolved">Resolved</option>
-                  <option value="Raised to Central Authority">
+                  <option value="pending">Pending</option>
+                  <option value="resolved">Resolved</option>
+                  <option value="forwarded">
                     Raised to Central Authority
                   </option>
                 </select>
@@ -98,11 +129,14 @@ const ViewComplaint = () => {
               <label>Remarks:</label>
               <textarea
                 className="w-auto px-2 py-2 my-2 border border-blue-500"
+                onChange={(e)=>setRemarks(e.target.value)}
                 placeholder="Remarks to be raised to central authority"
+                value={remarks}
               ></textarea>
             </div>
           </div>
         </div>
+        <button type='submit' onClick={submitComplaint} className='bg-gray-200'>submit complaint</button>
       </div>
     </div>
   )
