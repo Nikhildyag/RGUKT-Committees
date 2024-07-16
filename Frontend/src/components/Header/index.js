@@ -104,6 +104,11 @@ const Header = () => {
                     Academics
                   </Link>
                 </li>
+                 <li className=" text-black">
+                  <Link to="/excellence" className="block  text-black ">
+                    Excellence
+                  </Link>
+                </li>
                 <li className=" text-black">
                   <Link to="/sports" className="block py-1">
                     Sports Committee
