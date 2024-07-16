@@ -22,9 +22,7 @@ router.route("/signup").post(createDepartmentMember);
 router.route("/login").post(loginDepartmentMember);
 
 //updating the details of department
-router
-  .route("/update/:memberId")
-  .post(verifyDepartmentJWT, updateDepartmentMember);
+router.route("/update").post(verifyDepartmentJWT, updateDepartmentMember);
 
 //for user level
 router.route("/get/committeemembers").post(getCommitteMembers);
