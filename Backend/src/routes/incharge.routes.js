@@ -18,7 +18,7 @@ const router = Router();
 router.route("/create-incharge").post(createIncharge);
 
 //login incharge
-router.route("/login-incharge").post(loginIncharge);
+router.route("/login").post(loginIncharge);
 
 //for incharge level
 router.route("/get-incharge").get(verifyInchargeJWT, getIncharge);
@@ -27,7 +27,7 @@ router.route("/get-incharge").get(verifyInchargeJWT, getIncharge);
 router.route("/get-incharge1").get(verifyDepartmentJWT, getIncharge1);
 
 //for user level
-router.route("/get-inchargeforuser").post( getInchargeForUser);
+router.route("/get-inchargeforuser").post(getInchargeForUser);
 
 // for central level
 router.route("/get-incharge2").get(verifyCentralJWT, getIncharge1);
