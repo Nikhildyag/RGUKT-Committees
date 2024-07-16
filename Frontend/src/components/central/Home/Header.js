@@ -42,7 +42,9 @@ const Header = () => {
         <Link to="/academic" className="hidden md:block text-white">
           Academic Committee
         </Link>
-        <button className="text-white">Logout</button>
+        <button className="relative text-white underline-transition transition duration-300 ease-in-out">
+          Logout
+        </button>
       </div>
 
       <div

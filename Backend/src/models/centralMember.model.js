@@ -1,6 +1,6 @@
-import mongoose, { Schema } from "mongoose";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import mongoose, { Schema } from 'mongoose'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 const centralSchema = new Schema(
   {
     username: {
@@ -15,11 +15,11 @@ const centralSchema = new Schema(
     },
     fullName: {
       type: String,
-      default: "studen tName",
+      default: 'studen tName',
     },
     department: {
       type: String,
-      default: "department",
+      default: 'department',
     },
     committee_name: {
       type: String,
@@ -27,27 +27,27 @@ const centralSchema = new Schema(
     },
     Id_number: {
       type: String,
-      default: "B1XXXXX",
+      default: 'B1XXXXX',
     },
     role: {
       type: String,
-      enum: ["central", "department"],
-      default: "central",
+      enum: ['central', 'department'],
+      default: 'central',
     },
   },
   { timestamps: true }
-);
+)
 
-centralSchema.pre("save", async function (next) {
-  if (this.isModified("password")) {
-    this.password = await bcrypt.hash(this.password, 10);
+centralSchema.pre('save', async function (next) {
+  if (this.isModified('password')) {
+    this.password = await bcrypt.hash(this.password, 10)
   }
-  next();
-});
+  next()
+})
 
 centralSchema.methods.isPasswordCorrect = async function (password) {
-  return await bcrypt.compare(password, this.password);
-};
+  return await bcrypt.compare(password, this.password)
+}
 
 centralSchema.methods.generateAccessToken = function () {
   try {
@@ -61,11 +61,11 @@ centralSchema.methods.generateAccessToken = function () {
       {
         expiresIn: 432000,
       }
-    );
-    return token;
+    )
+    return token
   } catch (error) {
-    console.log("Error generating access token:", error);
+    console.log('Error generating central token:', error)
   }
-};
+}
 
-export const Central = mongoose.model("CentralMember", centralSchema);
+export const Central = mongoose.model('CentralMember', centralSchema)
