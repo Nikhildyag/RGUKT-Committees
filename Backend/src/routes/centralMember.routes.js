@@ -20,7 +20,7 @@ router.route("/signup").post(createcentralMember);
 router.route("/login").post(loginCentralMember);
 
 //update the central level data
-router.route("/update/:memberId").post(verifyCentralJWT, updateCentralMember);
+router.route("/update").post(verifyCentralJWT, updateCentralMember);
 
 //for the user level
 router.route("/get/centralcommitteemembers").post(getcentralCommitteMembers);
