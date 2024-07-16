@@ -35,7 +35,7 @@ const CentralEditprofile = () => {
             const json = await response.json();
             console.log(json)
             alert("successfully updated your profile")
-            navigate('/departments')
+            navigate('/centralAuthorityHome')
         }
         catch (error) {
             alert(error)
