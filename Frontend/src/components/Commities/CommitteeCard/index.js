@@ -10,6 +10,12 @@ const CommitteeCard = ({ data }) => {
   const [otherCategory, setOtherCategory] = useState('')
   const [year, setYear] = useState('')
   const [branch, setBranch] = useState('')
+  const [isAnonymous, setIsAnonymous] = useState(false)
+  const [studentId, setStudentId] = useState('')
+
+  const handleAnonymousChange = (e) => {
+    setIsAnonymous(e.target.value === 'anonymous')
+  }
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value)
@@ -27,7 +33,7 @@ const CommitteeCard = ({ data }) => {
   }
 
   const DisplayForm = () => {
-    setShowForm(true)
+    setShowForm(!showForm)
   }
 
   return (
@@ -75,12 +81,22 @@ const CommitteeCard = ({ data }) => {
           </div>
         </>
       ) : (
-        <div className="p-6 sm:relative md:left-[22%] lg:left-[18%] sm:ml-[-9%] sm:mx-[-2%] z-0 md:mt-5 lg:mt-16">
+        <div className="p-6 sm:relative md:left-[22%] lg:left-[18%] sm:ml-[-9%] sm:mx-[-2%] z-0 md:mt-[-5%] lg:mt-[-10%]">
           <div className="max-w-[100%] overflow-x-hidden text-wrap">
-            <div className="lg:mt-1 sm:w-[100%]  sm:mt-20 sm:px-1 lg:w-[80%] rounded-lg lg:ml-[0%]  md:w-[70%] md:ml-[0%] md:mt-20  flex items-center mb-10  bg-[#0d1d3b] pb-9">
+            <div>
+              <div className="lg:flex lg:justify-start sm:mt-[15%]">
+                <button
+                  onClick={DisplayForm}
+                  className="px-3 py-1  bg-[#0d1d3b] text-white hover:text-blue-500 rounded-md"
+                >
+                  Home
+                </button>
+              </div>
+            </div>
+            <div className="lg:mt-1 sm:w-[100%]  sm:mt-5 sm:px-1 lg:w-[80%] rounded-lg lg:ml-[0%]  md:w-[70%] md:ml-[0%] md:mt-5  flex items-center mb-10  bg-[#0d1d3b] pb-9">
               <div className="flex flex-col lg:flex-row items-center ">
                 {/* <button >back</button> */}
-                <div className="bg-transparent rounded-lg">
+                <div className="bg-transparent rounded-lg ">
                   <img
                     src="https://cdni.iconscout.com/illustration/premium/thumb/complaint-resolution-specialist-handling-customer-complaints-and-working-to-resolve-them-8978982-7328703.png?f=webp"
                     alt="Complaint"
@@ -93,35 +109,72 @@ const CommitteeCard = ({ data }) => {
                   </h1>
                   <form onSubmit={handlesubmit}>
                     <div className="mb-4">
-                      <label
-                        className="block text-white  font-bold mb-2"
-                        htmlFor="name"
-                      >
-                        Name
+                      <label className="block text-white text-sm font-bold mb-2">
+                        Identity
                       </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Your Name"
-                      />
+                      <div className="flex items-center">
+                        <input
+                          type="radio"
+                          id="anonymous"
+                          name="identity"
+                          value="anonymous"
+                          checked={isAnonymous}
+                          onChange={handleAnonymousChange}
+                          className="mr-2"
+                        />
+                        <label htmlFor="anonymous" className="text-white mr-4">
+                          Anonymous
+                        </label>
+                        <input
+                          type="radio"
+                          id="notAnonymous"
+                          name="identity"
+                          value="notAnonymous"
+                          checked={!isAnonymous}
+                          onChange={handleAnonymousChange}
+                          className="mr-2"
+                        />
+                        <label htmlFor="notAnonymous" className="text-white">
+                          Specify
+                        </label>
+                      </div>
                     </div>
-                    <div className="mb-4">
-                      <label
-                        className="block text-white  font-bold mb-2"
-                        htmlFor="studentId"
-                      >
-                        Student_Id
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Your Id"
-                      />
-                    </div>
+                    {!isAnonymous && (
+                      <div>
+                        <div className="mb-4">
+                          <label
+                            className="block text-white text-sm font-bold mb-2"
+                            htmlFor="name"
+                          >
+                            Name
+                          </label>
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Your Name"
+                          />
+                        </div>
+                        <div className="mb-4">
+                          <label
+                            className="block text-white text-sm font-bold mb-2"
+                            htmlFor="studentId"
+                          >
+                            Student ID
+                          </label>
+                          <input
+                            type="text"
+                            id="studentId"
+                            name="studentId"
+                            value={studentId}
+                            onChange={(e) => setStudentId(e.target.value)}
+                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Your Student ID"
+                          />
+                        </div>
+                      </div>
+                    )}
                     <div className="mb-4">
                       <label
                         className="block text-white font-bold mb-2"
@@ -137,49 +190,43 @@ const CommitteeCard = ({ data }) => {
                         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       >
                         <option value=""> Select year</option>
-                        <option value="P1">P1</option>
-                        <option value="P2">P2</option>
                         <option value="E1">E1</option>
                         <option value="E2">E2</option>
                         <option value="E3">E3</option>
                         <option value="E4">E4</option>
                       </select>
                     </div>
-                    {(year === 'E1' ||
-                      year === 'E2' ||
-                      year === 'E3' ||
-                      year === 'E4') && (
-                      <div className="mb-4">
-                        <label
-                          className="block text-white  font-bold mb-2"
-                          htmlFor="otherCategory"
-                        >
-                          Please specify
-                        </label>
-                        <select
-                          id="branch"
-                          name="branch"
-                          value={branch}
-                          onChange={handleBranch}
-                          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <option value=""> Select branch</option>
-                          <option value="P1">CSE</option>
-                          <option value="P2">ECE</option>
-                          <option value="E1">EEE</option>
-                          <option value="E2">CE</option>
-                          <option value="E3">ME</option>
-                          <option value="E4">CHE</option>
-                          <option value="E4">MME</option>
-                        </select>
-                      </div>
-                    )}
+
+                    <div className="mb-4">
+                      <label
+                        className="block text-white  font-bold mb-2"
+                        htmlFor="otherCategory"
+                      >
+                        Department
+                      </label>
+                      <select
+                        id="branch"
+                        name="branch"
+                        value={branch}
+                        onChange={handleBranch}
+                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        <option value=""> Select branch</option>
+                        <option value="cse">CSE</option>
+                        <option value="ece">ECE</option>
+                        <option value="eee">EEE</option>
+                        <option value="chem">CE</option>
+                        <option value="mech">ME</option>
+                        <option value="chem">CHE</option>
+                        <option value="mme">MME</option>
+                      </select>
+                    </div>
                     <div className="mb-4">
                       <label
                         className="block text-white font-bold mb-2"
                         htmlFor="category"
                       >
-                        Suggestion/Grievance Category
+                        Grievance Category
                       </label>
                       <select
                         id="category"
@@ -194,7 +241,7 @@ const CommitteeCard = ({ data }) => {
                         ))}
                       </select>
                     </div>
-                    {category === 'Other' && (
+                    {(category === 'Other' || category === 'other') && (
                       <div className="mb-4">
                         <label
                           className="block text-white  font-bold mb-2"

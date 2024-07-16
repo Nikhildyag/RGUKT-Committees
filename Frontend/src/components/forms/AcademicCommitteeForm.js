@@ -1,232 +1,119 @@
-import React, { useState } from "react";
-import AcademicHeader from "../Commities/Acadamic/AcademicHeader";
-import AcademicSidebar from "../Commities/Acadamic/AcademicSidebar";
+import React from 'react'
+import AcademicHeader from '../Commities/Acadamic/AcademicHeader'
+import AcademicSidebar from '../Commities/Acadamic/AcademicSidebar'
 
-const AcademicCommitteForm = () => {
-  const [category, setCategory] = useState("");
-  const [otherCategory, setOtherCategory] = useState("");
-  const [year, setYear] = useState("");
-  const [branch, setBranch] = useState("");
-  const [isAnonymous, setIsAnonymous] = useState(false);
-  const [studentId, setStudentId] = useState("");
-
-  const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-  };
-
-  const handleYear = (e) => {
-    setYear(e.target.value);
-  };
-
-  const handleBranch = (e) => {
-    setBranch(e.target.value);
-  };
-
-  const handleAnonymousChange = (e) => {
-    setIsAnonymous(e.target.value === "anonymous");
-  };
-
+const AcademicCommiteeForm = () => {
+  const committees = [
+    'Academic Committee',
+    'Campus Amenities Committee',
+    'Mess Advisory Committee',
+    'External Activities Committee',
+    'Photography Committee',
+    'Environment/Sustainability Committee',
+    'Health Committee',
+    'Placement and Internship Committee',
+    'Grievance and Redressal Committee',
+    'Hostel Committee',
+    'Innovation and Incubation Committee',
+    'Cultural Committee',
+    'Sports Committee',
+    'Technical Committee',
+    'Library Committee',
+    'Transportation Committee',
+    'Security Committee',
+    'Alumni Committee',
+  ]
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <AcademicHeader name={"Academic Committee"} />
+      <AcademicHeader name={'Academic Committee'} />
       <div className="flex w-full">
         <AcademicSidebar />
       </div>
-      <div className="mt-16 sm:w-[100%] sm:px-6 lg:w-[118%] md:w-[116%] md:mt-12 flex items-center mb-10">
-        <div className="max-w-lg mx-auto mt-10 p-6 bg-[#03193d] rounded-lg shadow-md border border-black">
-          <h1 className="text-2xl font-bold mb-6 text-center text-white">
-            Academic Committee Grievance Form
-          </h1>
-          <form>
-            <div className="mb-4">
-              <label className="block text-white text-sm font-bold mb-2">
-                Identity
-              </label>
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="anonymous"
-                  name="identity"
-                  value="anonymous"
-                  checked={isAnonymous}
-                  onChange={handleAnonymousChange}
-                  className="mr-2"
-                />
-                <label htmlFor="anonymous" className="text-white mr-4">
-                  Anonymous
-                </label>
-                <input
-                  type="radio"
-                  id="notAnonymous"
-                  name="identity"
-                  value="notAnonymous"
-                  checked={!isAnonymous}
-                  onChange={handleAnonymousChange}
-                  className="mr-2"
-                />
-                <label htmlFor="notAnonymous" className="text-white">
-                  Specify
-                </label>
-              </div>
-            </div>
-            {!isAnonymous && (
-              <div>
-                <div className="mb-4">
-                  <label
-                    className="block text-white text-sm font-bold mb-2"
-                    htmlFor="name"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    className="block text-white text-sm font-bold mb-2"
-                    htmlFor="studentId"
-                  >
-                    Student ID
-                  </label>
-                  <input
-                    type="text"
-                    id="studentId"
-                    name="studentId"
-                    value={studentId}
-                    onChange={(e) => setStudentId(e.target.value)}
-                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Your Student ID"
-                  />
-                </div>
-              </div>
-            )}
-            <div className="mb-4">
-              <label
-                className="block text-white text-sm font-bold mb-2"
-                htmlFor="year"
-              >
-                Year
-              </label>
-              <select
-                id="year"
-                name="year"
-                value={year}
-                onChange={handleYear}
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">Select year</option>
-                <option value="E1">E1</option>
-                <option value="E2">E2</option>
-                <option value="E3">E3</option>
-                <option value="E4">E4</option>
-              </select>
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-white text-sm font-bold mb-2"
-                htmlFor="branch"
-              >
-                Branch
-              </label>
-              <select
-                id="branch"
-                name="branch"
-                value={branch}
-                onChange={handleBranch}
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">Select branch</option>
-                <option value="CSE">CSE</option>
-                <option value="ECE">ECE</option>
-                <option value="EEE">EEE</option>
-                <option value="CE">CE</option>
-                <option value="ME">ME</option>
-                <option value="CHE">CHE</option>
-                <option value="MME">MME</option>
-              </select>
-            </div>
-            <div className="mb-4">
-              <label
-                className="block text-white text-sm font-bold mb-2"
-                htmlFor="category"
-              >
-                Suggestion/Grievance Category
-              </label>
-              <select
-                id="category"
-                name="category"
-                value={category}
-                onChange={handleCategoryChange}
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">Select a category</option>
-                <option value="Monitor academic performance">
-                  Monitor academic performance
-                </option>
-                <option value="Academic workshops, seminars, and guest lectures">
-                  Academic workshops, seminars, and guest lectures
-                </option>
-                <option value="Course feedback and improvements">
-                  Course feedback and improvements
-                </option>
-                <option value="Academic policies and curriculum development">
-                  Academic policies and curriculum development
-                </option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            {category === "Other" && (
+      <div className="lg:mt-24 sm:w-[90%] sm:ml-[5%]  sm:mt-24 sm:px-4 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-[#0d1d3b] pb-9">
+        <div className="flex flex-col lg:flex-row items-center ">
+          <div className="bg-transparent rounded-lg">
+            <img
+              src="https://cdni.iconscout.com/illustration/premium/thumb/complaint-resolution-specialist-handling-customer-complaints-and-working-to-resolve-them-8978982-7328703.png?f=webp"
+              alt="Complaint"
+              className=" lg:w-[80em] lg:h-[30em] md:w-[80em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
+            />
+          </div>
+          <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-4 md:mt-0  lg:mt-10 sm:mt-2 px-5  bg-[#223b5d] rounded-lg shadow-md  py-6 ">
+            <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white">
+              Academic Committee Grievance Form
+            </h1>
+            <form>
               <div className="mb-4">
                 <label
-                  className="block text-white text-sm font-bold mb-2"
-                  htmlFor="otherCategory"
+                  className="block text-gray-200 text-sm font-bold mb-2"
+                  htmlFor="idNumber"
                 >
-                  Please specify
+                  ID Number
                 </label>
                 <input
                   type="text"
-                  id="otherCategory"
-                  name="otherCategory"
-                  value={otherCategory}
-                  onChange={(e) => setOtherCategory(e.target.value)}
-                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Specify your category"
+                  id="idNumber"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
-            )}
-            <div className="mb-4">
-              <label
-                className="block text-white text-sm font-bold mb-2"
-                htmlFor="message"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your Feedback or Grievance"
-                rows="5"
-              ></textarea>
-            </div>
-            <div className="flex items-center justify-center">
-              <button
-                type="submit"
-                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+              <div className="mb-4">
+                <label
+                  className="block text-gray-200 text-sm font-bold mb-2"
+                  htmlFor="year"
+                >
+                  Year
+                </label>
+                <input
+                  type="text"
+                  id="year"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block text-gray-200 text-sm font-bold mb-2"
+                  htmlFor="committee"
+                >
+                  Committee
+                </label>
+                <select
+                  id="committee"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                >
+                  {committees.map((committee, index) => (
+                    <option key={index} value={committee}>
+                      {committee}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block text-gray-200 text-sm font-bold mb-2"
+                  htmlFor="message"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div className="flex items-center justify-between">
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AcademicCommitteForm;
+export default AcademicCommiteeForm
