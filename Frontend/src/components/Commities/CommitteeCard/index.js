@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 const CommitteeCard = ({ data }) => {
   const { rolesAndResponsibilities } = data
   const committee_name = data.name
@@ -65,13 +65,9 @@ const CommitteeCard = ({ data }) => {
                   ))}
                 </ul>
               </div>
-              <div className="font-serif flex flex-row justify-center text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg w-[80%] md:mt-[5%] gap-3 sm:flex-col sm:items-center sm:mt-[14%] md:flex-row">
-                <button className="w-[12em] h-[3em] bg-blue-500 text-white rounded-md">
-                  Submit Feedback
-                </button>
-
+              <div className=" flex flex-row justify-center text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg w-[80%] md:mt-[5%] gap-3 sm:flex-col sm:items-center sm:mt-[14%] md:flex-row">
                 <button
-                  className="w-[12em] h-[3em] bg-orange-400 text-white rounded-md cursor-pointer"
+                  className="w-[12em] h-[3em] bg-blue-500 text-white rounded-md cursor-pointer"
                   onClick={DisplayForm}
                 >
                   Submit Complaint

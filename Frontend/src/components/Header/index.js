@@ -45,7 +45,12 @@ const Header = () => {
             <FaBars />
           </button>
         </div>
-        <div className="flex gap-5 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
+        <div className="flex gap-5 sm:gap-3 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
+          <Link to="/feedbackform">
+            <button className=" text-white  hover:text-blue-500 rounded-md ">
+              Feedback
+            </button>
+          </Link>
           <Link to="/">
             <button className="text-white sm:hidden md:block">Home</button>
           </Link>
