@@ -158,6 +158,23 @@ const fetchParticularDepartmentForCentral = async (req, res) => {
   }
 };
 
+const logoutDepartment = async (req, res) => {
+  //console.log(req.user);
+  await Department.findByIdAndUpdate(req.member._id);
+  const options = {
+    path: "/",
+    secure: true,
+    sameSite: "None",
+  };
+  return res
+    .status(200)
+    .clearCookie("accessToken", options)
+    .json({ message: "Logged out successfully" });
+  // .json({
+  //   tokens: { accessToken, refreshToken },
+  // });
+};
+
 export {
   createDepartmentMember,
   loginDepartmentMember,
@@ -166,4 +183,5 @@ export {
   fetchParticularDepartment,
   fetchParticularDepartmentForCentral,
   createBulk,
+  logoutDepartment,
 };

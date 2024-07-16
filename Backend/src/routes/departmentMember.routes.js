@@ -7,6 +7,7 @@ import {
   fetchParticularDepartment,
   createBulk,
   fetchParticularDepartmentForCentral,
+  logoutDepartment,
 } from "../controllers/departmentCommittee.controller.js";
 import {
   verifyCentralJWT,
@@ -40,4 +41,7 @@ router
 router
   .route("/get/committee/departmentMembers1")
   .get(verifyCentralJWT, fetchParticularDepartmentForCentral);
+
+//logout the department user
+router.route("/logout").get(verifyDepartmentJWT, logoutDepartment);
 export default router;
