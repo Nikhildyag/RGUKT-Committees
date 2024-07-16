@@ -1,20 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars, FaAngleDown, FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const DepartmentHeader = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const menuRef = useRef(null)
-  const dropdownRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const menuRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen)
-  }
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   const handleClickOutside = (event) => {
     if (
@@ -22,17 +22,17 @@ const DepartmentHeader = () => {
       !menuRef.current.contains(event.target) &&
       (!dropdownRef.current || !dropdownRef.current.contains(event.target))
     ) {
-      setIsOpen(false)
-      setIsDropdownOpen(false)
+      setIsOpen(false);
+      setIsDropdownOpen(false);
     }
-  }
+  };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-[#426CAD] fixed w-full top-0 left-0 right-0 p-4 ">
@@ -46,7 +46,7 @@ const DepartmentHeader = () => {
           </button>
         </div>
         <div className="flex gap-5 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-          <Link to="/">
+          <Link to="/departments">
             <button className="text-white sm:hidden md:block">Home</button>
           </Link>
           <button className="text-white">Login</button>
@@ -55,7 +55,7 @@ const DepartmentHeader = () => {
 
       <div
         className={`fixed top-0 left-0 h-full bg-white transition-transform transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         } w-64`}
         ref={menuRef}
       >
@@ -86,7 +86,7 @@ const DepartmentHeader = () => {
               </button>
               <ul
                 className={`${
-                  isDropdownOpen ? 'block' : 'hidden'
+                  isDropdownOpen ? "block" : "hidden"
                 } ml-2 bg-white rounded text-black`}
               >
                 <li className=" text-black">
@@ -190,7 +190,7 @@ const DepartmentHeader = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default DepartmentHeader
+export default DepartmentHeader;

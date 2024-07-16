@@ -168,7 +168,7 @@ const logoutDepartment = async (req, res) => {
   };
   return res
     .status(200)
-    .clearCookie("accessToken", options)
+    .clearCookie("departmentToken", options)
     .json({ message: "Logged out successfully" });
   // .json({
   //   tokens: { accessToken, refreshToken },

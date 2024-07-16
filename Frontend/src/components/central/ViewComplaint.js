@@ -9,7 +9,7 @@ const ViewComplaint = () => {
     const fetchComplaint =async() => {
       try {
         const response = await fetch(
-          `http://localhost:1024/api/v1/complaints//get/particularComplaintForCentral/${complaintId}`,
+          `http://localhost:1024/api/v1/complaints/get/particularComplaintForCentral/${complaintId}`,
           {
             method: 'GET',
             credentials: 'include', // Include credentials (cookies)

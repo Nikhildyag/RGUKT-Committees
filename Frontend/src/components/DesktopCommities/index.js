@@ -18,6 +18,7 @@ import {
   FaClipboardList,
   FaGavel,
   FaHome,
+  FaMedal ,
   FaLightbulb,
 } from 'react-icons/fa'
 
@@ -41,6 +42,14 @@ const DesktopCommities = () => {
               <FaBook className="h-4 w-5 mt-1 text-blue-500 hover:animate-spin" />
               <li className="list-none hover:text-white truncate text-black ml-2">
                 Academic Committee
+              </li>
+            </div>
+          </Link>
+          <Link to="/excellence">
+            <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
+              <FaMedal  className="h-4 w-5 mt-1 text-pink-500 hover:animate-spin" />
+              <li className="list-none hover:text-white truncate text-black ml-2">
+                Excellence Committee
               </li>
             </div>
           </Link>
@@ -88,7 +97,7 @@ const DesktopCommities = () => {
             <div className="flex flex-row mx-2 py-2 cursor-pointer hover:px-2 hover:bg-[#800e08] hover:text-white rounded-md">
               <FaGraduationCap className="h-4 w-5 mt-1 text-teal-500 hover:animate-ping" />
               <li className="list-none hover:text-white truncate text-black ml-2">
-                Educational Opportunities Committee
+                Educational Opportunites Committee
               </li>
             </div>
           </Link>

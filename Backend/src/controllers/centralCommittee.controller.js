@@ -166,10 +166,28 @@ const getCentralMembersByLogin = async (req, res) => {
   }
 };
 
+const logoutCentral = async (req, res) => {
+  //console.log(req.user);
+  await Central.findByIdAndUpdate(req.member._id);
+  const options = {
+    path: "/",
+    secure: true,
+    sameSite: "None",
+  };
+  return res
+    .status(200)
+    .clearCookie("centralToken", options)
+    .json({ message: "Logged out successfully" });
+  // .json({
+  //   tokens: { accessToken, refreshToken },
+  // });
+};
+
 export {
   createcentralMember,
   loginCentralMember,
   updateCentralMember,
   getcentralCommitteMembers,
   getCentralMembersByLogin,
+  logoutCentral,
 };

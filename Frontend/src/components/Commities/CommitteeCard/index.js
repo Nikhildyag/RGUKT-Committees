@@ -1,39 +1,76 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
 const CommitteeCard = ({ data }) => {
-  const { rolesAndResponsibilities } = data
-  const committee_name = data.name
-  const categories = data.categories
-  const [showForm, setShowForm] = useState(false)
-  const [category, setCategory] = useState('')
-  const [otherCategory, setOtherCategory] = useState('')
-  const [year, setYear] = useState('')
-  const [branch, setBranch] = useState('')
-  const [isAnonymous, setIsAnonymous] = useState(false)
-  const [studentId, setStudentId] = useState('')
+  const { rolesAndResponsibilities } = data;
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const committee_name = data.name;
+  const categories = data.categories;
+  const [showForm, setShowForm] = useState(false);
+  const [category, setCategory] = useState("");
+  const [otherCategory, setOtherCategory] = useState("");
+  const [year, setYear] = useState("");
+  const [branch, setBranch] = useState("");
+  const [isAnonymous, setIsAnonymous] = useState(false);
+  const [studentId, setStudentId] = useState("");
 
   const handleAnonymousChange = (e) => {
-    setIsAnonymous(e.target.value === 'anonymous')
-  }
+    setIsAnonymous(e.target.value === "anonymous");
+  };
 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value)
-  }
+    setCategory(e.target.value);
+  };
 
   const handleYear = (e) => {
-    setYear(e.target.value)
-  }
+    setYear(e.target.value);
+  };
   const handleBranch = (e) => {
-    setBranch(e.target.value)
-  }
-  const handlesubmit = (e) => {
-    e.preventDefault()
-  }
+    setBranch(e.target.value);
+  };
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+    console.log(year, branch, category);
+    if (!year || !category || !branch || !message || !committee_name) {
+      alert("mention all the feilds");
+      return;
+    }
+    console.log(committee_name);
+    const Details = {
+      fullName: name,
+      year,
+      studentId: studentId,
+      category,
+      committee_name: data.committee_name,
+      department: branch,
+      description: message,
+    };
+    const committe_details = JSON.stringify(Details);
+    try {
+      const response = await fetch(
+        `http://localhost:1024/api/v1/complaints/create-complaint`,
+        {
+          method: "POST",
+          credentials: "include", // Include credentials (cookies)
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: committe_details,
+        }
+      );
+      if (!response.ok) {
+        alert("Error in submiting complaint");
+        throw new Error("Network response was not ok");
+      }
+      const json = await response.json();
+      console.log(json);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const DisplayForm = () => {
-    setShowForm(!showForm)
-  }
-
+    setShowForm(!showForm);
+  };
   return (
     <div>
       {!showForm ? (
@@ -146,6 +183,7 @@ const CommitteeCard = ({ data }) => {
                             type="text"
                             id="name"
                             name="name"
+                            onChange={(e) => setName(e.target.value)}
                             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="Your Name"
                           />
@@ -230,12 +268,14 @@ const CommitteeCard = ({ data }) => {
                         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"
                       >
                         <option value="">Select a category</option>
-                        {categories.map((category) => (
-                          <option value={category}>{category}</option>
+                        {categories.map((category, index) => (
+                          <option key={index} value={category}>
+                            {category}
+                          </option>
                         ))}
                       </select>
                     </div>
-                    {(category === 'Other' || category === 'other') && (
+                    {(category === "Other" || category === "other") && (
                       <div className="mb-4">
                         <label
                           className="block text-white  font-bold mb-2"
@@ -266,6 +306,7 @@ const CommitteeCard = ({ data }) => {
                         name="message"
                         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="Your Feedback or Grievance"
+                        onChange={(e) => setMessage(e.target.value)}
                         rows="5"
                       ></textarea>
                     </div>
@@ -285,7 +326,7 @@ const CommitteeCard = ({ data }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CommitteeCard
+export default CommitteeCard;
