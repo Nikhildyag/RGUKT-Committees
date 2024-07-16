@@ -127,6 +127,7 @@ import Departmentfeedbacks from './components/DepartmentLevel/Departmentfeedback
 import DepartmentEditProfile from './components/DepartmentLevel/DepartmentEditProfile.js'
 import CentralEditprofile from './components/central/CentralEditprofile.js'
 import CentralHomesection from './components/central/Home/index.js'
+import index from './components/FacultyInchargeLevel/index.js'
 
 const App = () => (
   <BrowserRouter>
@@ -152,8 +153,12 @@ const App = () => (
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
       <Route exact path="/excellence" Component={Excellence} />
-      <Route exact path="/departmenteditProfile" Component={DepartmentEditProfile} />
-      <Route exact path='/centraleditprofile' Component={CentralEditprofile}/>
+      <Route
+        exact
+        path="/departmenteditProfile"
+        Component={DepartmentEditProfile}
+      />
+      <Route exact path="/centraleditprofile" Component={CentralEditprofile} />
       {/* //second level routes*/}
       <Route exact path="/departments" Component={Departments} />
       <Route
@@ -204,9 +209,21 @@ const App = () => (
         path="/academic/studentcommitte"
         Component={AcadamicStudentCommittee}
       />
-      <Route exact path='/excellence/studentcommitte' Component={ExcellenceStudentCommittees} />
-      <Route exact path='/excellence/centralaurhority' Component={ExcellenceCentralAuthority} />
-      <Route exact path='/excellence/facultyincarge'  Component={ExcellenceFacultyIncarge}/>
+      <Route
+        exact
+        path="/excellence/studentcommitte"
+        Component={ExcellenceStudentCommittees}
+      />
+      <Route
+        exact
+        path="/excellence/centralaurhority"
+        Component={ExcellenceCentralAuthority}
+      />
+      <Route
+        exact
+        path="/excellence/facultyincarge"
+        Component={ExcellenceFacultyIncarge}
+      />
       <Route
         exact
         path="/campusamenties/centralaurhority"
@@ -383,7 +400,11 @@ const App = () => (
         Component={InnovationStudentCommittee}
       />
       {/* feedbackRoutes */}
-      <Route exact path='/departmentfeedbacks' Component={Departmentfeedbacks}/>
+      <Route
+        exact
+        path="/departmentfeedbacks"
+        Component={Departmentfeedbacks}
+      />
       <Route
         exact
         path="/mess/centralaurhority"
@@ -577,7 +598,11 @@ const App = () => (
       <Route exact path="/feedbackform" Component={FeedbackForm} />
 
       {/* Third Level UI => For Central Authority */}
-      <Route exact path="/centralAuthorityHome" Component={CentralHomesection} />
+      <Route
+        exact
+        path="/centralAuthorityHome"
+        Component={CentralHomesection}
+      />
       <Route
         exact
         path="/central/centralauthority"
@@ -652,6 +677,9 @@ const App = () => (
 
       {/*Footer */}
       <Route exact path="/footer" Component={Footer} />
+
+      {/* Faculty Incharge Level */}
+      <Route exact path="/facultyInchargeHome" Component={index} />
     </Routes>
   </BrowserRouter>
 )
