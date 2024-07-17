@@ -29,6 +29,7 @@ const showNotices = async (req, res) => {
     if (!notices) {
       return res.status(400).json({ message: "No notices found" });
     }
+    notices.reverse();
     return res.status(200).json({ notices });
   } catch (error) {
     return res.status(400).json({ message: error.message });

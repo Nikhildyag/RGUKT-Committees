@@ -8,6 +8,7 @@ import {
   createBulk,
   fetchParticularDepartmentForCentral,
   logoutDepartment,
+  getDepartmentMember,
 } from "../controllers/departmentCommittee.controller.js";
 import {
   verifyCentralJWT,
@@ -44,6 +45,10 @@ router
 router
   .route("/get/committee/departmentMembers2")
   .get(verifyInchargeJWT, fetchParticularDepartmentForCentral);
+
+router
+  .route("/get/departmentMember")
+  .get(verifyDepartmentJWT, getDepartmentMember);
 
 //logout the department user
 router.route("/logout").get(verifyDepartmentJWT, logoutDepartment);
