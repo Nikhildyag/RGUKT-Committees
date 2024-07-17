@@ -67,7 +67,7 @@ const FicHeader = () => {
               Home
             </button>
           </Link>
-          <Link to="/centraleditprofile">
+          <Link to="/facultyIncharge/editprofile">
             <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
               Edit Profile
             </button>

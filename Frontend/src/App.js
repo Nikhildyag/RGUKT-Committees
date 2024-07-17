@@ -133,6 +133,7 @@ import FicComplaintDetails from './components/FacultyInchargeLevel/FicComplaintD
 import FicFacultyMembers from './components/FacultyInchargeLevel/FicFacultyMembers.js'
 import FicStudentCommittee from './components/FacultyInchargeLevel/FicStudentCommittee.js'
 import FicCentralAuthority from './components/FacultyInchargeLevel/FicCentralAuthority.js'
+import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
 
 const App = () => (
   <BrowserRouter>
@@ -163,7 +164,11 @@ const App = () => (
         path="/departmenteditProfile"
         Component={DepartmentEditProfile}
       />
-      <Route exact path='/centralmemberschatbox' Component={CentralMembersChatBox}/>
+      <Route
+        exact
+        path="/centralmemberschatbox"
+        Component={CentralMembersChatBox}
+      />
       <Route exact path="/centraleditprofile" Component={CentralEditprofile} />
       {/* //second level routes*/}
       <Route exact path="/departments" Component={Departments} />
@@ -705,6 +710,11 @@ const App = () => (
         exact
         path="/facultyIncharge/centralauthority-members"
         Component={FicCentralAuthority}
+      />
+      <Route
+        exact
+        path="/facultyIncharge/editprofile"
+        Component={FicEditProfile}
       />
     </Routes>
   </BrowserRouter>
