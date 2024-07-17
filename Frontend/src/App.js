@@ -144,6 +144,7 @@ import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
 import FacultyNoticeSend from './components/FacultyInchargeLevel/FacultyNoticeSend.js'
 import FicComplaintDetails from './components/FacultyInchargeLevel/FicComplaintDetails.js'
 import NoticeBoard from './components/Noticeboard/index.js'
+import CentralAuthorityFeedback from './components/central/CentralAuthorityContents/CentralAuthorityFeedback.js'
 
 const App = () => (
   <BrowserRouter>
@@ -700,6 +701,11 @@ const App = () => (
         exact
         path="/central/complaint/:complaintId"
         Component={ComplaintDetails}
+      />
+      <Route
+        exact
+        path="/central/feedbacks"
+        Component={CentralAuthorityFeedback}
       />
 
       <Route

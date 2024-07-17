@@ -7,6 +7,7 @@ import {
 import {
   verifyCentralJWT,
   verifyDepartmentJWT,
+  verifyInchargeJWT,
 } from "../middlewares/auth.middleware.js";
 const router = Router();
 
@@ -22,4 +23,10 @@ router
 router
   .route("/get/feedbacksForCentral")
   .get(verifyCentralJWT, getFeedbacksForCentral);
+
+//get the feedbacks for the incharge side
+router
+  .route("/get/feedbacksForCentral1")
+  .get(verifyInchargeJWT, getFeedbacksForCentral);
+
 export default router;
