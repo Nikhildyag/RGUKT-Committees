@@ -143,6 +143,7 @@ import FacultyCsechatBox from './components/FacultyInchargeLevel/ChatBoxes/Facul
 import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
 import FacultyNoticeSend from './components/FacultyInchargeLevel/FacultyNoticeSend.js'
 import FicComplaintDetails from './components/FacultyInchargeLevel/FicComplaintDetails.js'
+import NoticeBoard from './components/Noticeboard/index.js'
 import CentralAuthorityFeedback from './components/central/CentralAuthorityContents/CentralAuthorityFeedback.js'
 import FicFeedback from './components/FacultyInchargeLevel/FicFeedback.js'
 
@@ -170,8 +171,9 @@ const App = () => (
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
       <Route exact path="/excellence" Component={Excellence} />
+      <Route exact path='/noticeboard' Component={NoticeBoard}/>
       <Route
-        exact
+        exact 
         path="/departmenteditProfile"
         Component={DepartmentEditProfile}
       />
