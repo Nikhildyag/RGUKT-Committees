@@ -2,21 +2,17 @@ import React, { useState, useRef, useEffect } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import '../../../index.css'
+
 const CareerHeader = () => {
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef(null)
-  const dropdownRef = useRef(null)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
+
   const handleClickOutside = (event) => {
-    if (
-      menuRef.current &&
-      !menuRef.current.contains(event.target) &&
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target)
-    ) {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsOpen(false)
     }
   }
@@ -57,14 +53,23 @@ const CareerHeader = () => {
       </div>
 
       <div
-        className={`fixed top-0 left-0 h-full bg-[#426CAD]  sm:block md:hidden transition-transform transform ${
+        className={`fixed top-0 left-0 h-full bg-[#ece8e8] sm:block md:hidden transition-transform transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
-        } w-64 p-4`}
+        } w-64 z-50`}
         ref={menuRef}
       >
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full  mt-4`}>
+        <div>
+          <div className="flex flex-row bg-[#426CAD] p-0 h-[3.5em]">
+            <img
+              src="https://hub.rgukt.ac.in/hub/static/images/logo.png"
+              className="h-9 mt-2 ml-3 rounded-[50%]"
+              alt="RGUKT Logo"
+            />
+          </div>
+        </div>
+        <div className="w-full mt-4">
           <ul className="flex flex-col">
-            <li className="text-white">
+            <li className="text-black">
               <Link
                 to="/"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
@@ -72,7 +77,7 @@ const CareerHeader = () => {
                 Home
               </Link>
             </li>
-            <li className="text-white">
+            <li className="text-black">
               <Link
                 to="/career"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
@@ -80,7 +85,7 @@ const CareerHeader = () => {
                 Career Committee
               </Link>
             </li>
-            <li className="text-white">
+            <li className="text-black">
               <Link
                 to="/career/facultyincarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
@@ -88,7 +93,7 @@ const CareerHeader = () => {
                 Faculty Incharge
               </Link>
             </li>
-            <li className="text-white">
+            <li className="text-black">
               <Link
                 to="/career/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
@@ -96,12 +101,12 @@ const CareerHeader = () => {
                 Central Authority
               </Link>
             </li>
-            <li className="text-white">
+            <li className="text-black">
               <Link
                 to="/career/studentcommitte"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                Department Commities
+                Department Committees
               </Link>
             </li>
           </ul>
