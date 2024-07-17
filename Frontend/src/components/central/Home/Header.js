@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { FaAngleDown, FaAngleRight } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify' // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,8 +44,10 @@ const Header = () => {
       if (!response.ok) {
         throw new Error('Network response was not ok')
       }
-      alert('logged out')
-      navigate('/')
+      toast.success('User logged out successfully')
+      setTimeout(() => {
+        navigate('/')
+      }, 1500)
     } catch (error) {
       console.log(error)
     }
@@ -56,6 +60,7 @@ const Header = () => {
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
+      <ToastContainer />
       <div className="flex justify-between items-center">
         <div className="text-white text-lg font-bold lg:hidden sm:block">
           <button
