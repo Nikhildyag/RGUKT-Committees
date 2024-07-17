@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { FaAngleDown, FaAngleRight } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { FaAngleDown, FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const FicSidebar = () => {
-  const [isChatboxOpen, setIsChatboxOpen] = useState(false)
+  const [isChatboxOpen, setIsChatboxOpen] = useState(false);
 
   const toggleChatboxMenu = () => {
-    setIsChatboxOpen(!isChatboxOpen)
-  }
+    setIsChatboxOpen(!isChatboxOpen);
+  };
   return (
     <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:block xl:block w-2/12 bg-[#ede6e5] shadow-lg mt-14">
       <div className="overflow-y-auto h-full">
@@ -78,19 +78,19 @@ const FicSidebar = () => {
             </ul>
           )}
           <Link to="/faculty/sendnotice">
-              <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Add Notice
-             </li>
-          </Link>
-          <Link  to="/faculty/feedbacks">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-            Feedback
-          </li>
+              Add Notice
+            </li>
+          </Link>
+          <Link to="/faculty/feedbacks">
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+              Feedback
+            </li>
           </Link>
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FicSidebar
+export default FicSidebar;

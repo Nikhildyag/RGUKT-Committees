@@ -3,8 +3,10 @@ import { IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const FicComplaints = () => {
-  const [complaints, setcomplainte] = useState();
-  const [complatsReady, setcomplantsReady] = useState();
+  const [complaints, setComplaints] = useState([]);
+  const [complaintsReady, setComplaintsReady] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [complaintsPerPage] = useState(10); // Number of complaints per page
 
   const fetchComplaints = async () => {
     const url =
@@ -21,26 +23,33 @@ const FicComplaints = () => {
         throw new Error("Network response was not ok");
       }
       const json = await response.json();
-      setcomplainte(json.complaints);
-      setcomplantsReady(true);
+      setComplaints(json.complaints);
+      setComplaintsReady(true);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching complaints:", error);
     }
   };
+
   const formatDate = (dateString) => {
-    console.log(dateString);
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
-    console.log(day, month, year);
-
     return `${day}/${month}/${year}`;
   };
 
   useEffect(() => {
     fetchComplaints();
   }, []);
+
+  const indexOfLastComplaint = currentPage * complaintsPerPage;
+  const indexOfFirstComplaint = indexOfLastComplaint - complaintsPerPage;
+  const currentComplaints =
+    complaintsReady &&
+    complaints.slice(indexOfFirstComplaint, indexOfLastComplaint);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full mt-16">
@@ -63,9 +72,9 @@ const FicComplaints = () => {
             </tr>
           </thead>
           <tbody className="text-gray-700">
-            {complatsReady &&
-              complaints.map((complaint) => (
-                <tr key={complaint.id} className="bg-gray-50 odd:bg-gray-100">
+            {complaintsReady &&
+              currentComplaints.map((complaint) => (
+                <tr key={complaint._id} className="bg-gray-50 odd:bg-gray-100">
                   <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
                     <div className="flex items-center">
                       <Link to={`/incharge/complaint/${complaint._id}`}>
@@ -85,7 +94,7 @@ const FicComplaints = () => {
                   </td>
                 </tr>
               ))}
-            {complatsReady && complaints.length === 0 && (
+            {complaintsReady && complaints.length === 0 && (
               <tr>
                 <td colSpan="4" className="text-center py-4">
                   No complaints found
@@ -94,6 +103,28 @@ const FicComplaints = () => {
             )}
           </tbody>
         </table>
+      </div>
+      <div className="relative flex justify-center mt-4 mb-6">
+        <button
+          className={`bg-blue-500 text-white px-4 py-2 mx-2 rounded-md ${
+            currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          onClick={() => paginate(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+        <button
+          className={`bg-blue-500 text-white px-4 py-2 mx-2 rounded-md ${
+            indexOfLastComplaint >= complaints.length
+              ? "opacity-50 cursor-not-allowed"
+              : ""
+          }`}
+          onClick={() => paginate(currentPage + 1)}
+          disabled={indexOfLastComplaint >= complaints.length}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

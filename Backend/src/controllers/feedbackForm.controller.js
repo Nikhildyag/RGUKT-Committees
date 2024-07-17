@@ -34,12 +34,12 @@ const getFeedbacksForDepartment = async (req, res) => {
     if (!department || !committee_name) {
       return res.status(400).json({ message: "you are not logged in" });
     }
-    const feebacks = await Feedback.find({ department, committee_name });
-    if (!feebacks) {
+    const feedbacks = await Feedback.find({ department, committee_name });
+    if (!feedbacks) {
       return res.status(400).json({ message: "No feebacks found" });
     }
-    feebacks.reverse();
-    return res.status(200).json({ feebacks });
+    feedbacks.reverse();
+    return res.status(200).json({ feedbacks });
   } catch (error) {
     // console.log(error);
     return res.status(400).json({ message: error.message });
@@ -53,12 +53,12 @@ const getFeedbacksForCentral = async (req, res) => {
     if (!committee_name) {
       return res.status(400).json({ message: "you are not logged in" });
     }
-    const feebacks = await Feedback.find({ committee_name });
-    if (!feebacks) {
+    const feedbacks = await Feedback.find({ committee_name });
+    if (!feedbacks) {
       return res.status(400).json({ message: "No feebacks found" });
     }
-    feebacks.reverse();
-    return res.status(200).json({ feebacks });
+    feedbacks.reverse();
+    return res.status(200).json({ feedbacks });
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
