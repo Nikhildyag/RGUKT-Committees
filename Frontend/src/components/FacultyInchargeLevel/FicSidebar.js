@@ -40,37 +40,37 @@ const FicSidebar = () => {
           </li>
           {isChatboxOpen && (
             <ul className="ml-4">
-              <Link to="/central/csechatbox">
+              <Link to="/faculty/csechatbox">
                 <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
                   CSE ChatBox
                 </li>
               </Link>
-              <Link to="/central/ecechatbox">
+              <Link to="/faculty/ecechatbox">
                 <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
                   ECE ChatBox
                 </li>
               </Link>
-              <Link to="/central/eeechatbox">
+              <Link to="/faculty/eeechatbox">
                 <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
                   EEE ChatBox
                 </li>
               </Link>
-              <Link to="/central/civilchatbox">
+              <Link to="/faculty/civilchatbox">
                 <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
                   Civil ChatBox
                 </li>
               </Link>
-              <Link to="/central/mechchatbox">
+              <Link to="/faculty/mechchatbox">
                 <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
                   Mech ChatBox
                 </li>
               </Link>
-              <Link to="/central/chemchatbox">
+              <Link to="/faculty/chemchatbox">
                 <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
                   Chem ChatBox
                 </li>
               </Link>
-              <Link to="/central/mmechatbox">
+              <Link to="/faculty/mmechatbox">
                 <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
                   MME ChatBox
                 </li>

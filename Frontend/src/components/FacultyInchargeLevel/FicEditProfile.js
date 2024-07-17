@@ -1,67 +1,58 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import Departments from "./index";
-import { useNavigate } from "react-router-dom";
-=======
 import React, { useState } from 'react'
-import Departments from './index'
-import { useNavigate } from 'react-router-dom'
->>>>>>> 7dfcb68f8c1b62616395d47508f59679682c95f3
 
-const DepartmentEditProfile = () => {
-  const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [userId, setuserId] = useState("");
-  const [password, setPassword] = useState("");
+import { useNavigate } from 'react-router-dom'
+import FicComplaints from './FicComplaints'
+
+const FicEditProfile = () => {
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('')
+  const [userId, setuserId] = useState('')
+  const [password, setPassword] = useState('')
   const handleEdit = async (e) => {
-    e.preventDefault();
-    console.log("submit");
+    e.preventDefault()
+    console.log('submit')
     if (!username || !password || !userId) {
-      alert("fill all the details");
-      return;
+      alert('fill all the details')
+      return
     }
-    console.log("submit");
+    console.log('submit')
     const data = {
       fullName: username,
       Id_number: userId,
       password,
-    };
-    const userDetails = JSON.stringify(data);
-    const url = "http://localhost:1024/api/v1/department/update";
+    }
+    const userDetails = JSON.stringify(data)
+    const url = 'http://localhost:1024/api/v1/central/update'
     try {
       const response = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: userDetails,
-      });
+      })
       if (!response.ok) {
-        throw new Error(response, "Network response was not ok");
+        throw new Error(response, 'Network response was not ok')
       }
-<<<<<<< HEAD
-      alert("successfully updated your profile");
-      navigate("/departments");
-=======
-      // const json = await response.json()
+      const json = await response.json()
+      console.log(json)
       alert('successfully updated your profile')
-      navigate('/departments')
->>>>>>> 7dfcb68f8c1b62616395d47508f59679682c95f3
+      navigate('/centralAuthorityHome')
     } catch (error) {
-      alert(error);
-      console.log(error);
+      alert(error)
+      console.log(error)
     }
-  };
+  }
   return (
     <div className="relative">
       <div className="opacity-25">
-        <Departments />
+        <FicComplaints />
       </div>
 
       <div className="absolute top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center bg-gray-950 bg-opacity-75 h-screen">
         <div className="relative w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[6%]">
           {/* Close Button */}
           <button
-            onClick={() => navigate("/departments")}
+            onClick={() => navigate('/centralAuthorityHome')}
             className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center bg-white text-black rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-colors"
           >
             ✖
@@ -80,8 +71,11 @@ const DepartmentEditProfile = () => {
 
           {/* Form */}
           <div className="flex flex-col items-center w-full">
-            <h2 className="text-center text-2xl font-semibold text-gray-700 mb-1">
-              Enter Valid Details to Edit your profile
+            <h1 className="text-center text-2xl font-semibold text-green-500 mb-1">
+              CentralAuthority
+            </h1>
+            <h2 className="text-center text-xl font-semibold text-gray-700 mb-1">
+              Enter Details to Edit
             </h2>
             <form onSubmit={handleEdit} className="w-full px-6 pt-1 pb-2">
               <div className="mb-3 w-full">
@@ -153,7 +147,7 @@ const DepartmentEditProfile = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DepartmentEditProfile;
+export default FicEditProfile

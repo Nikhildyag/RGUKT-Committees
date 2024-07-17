@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { FaAngleDown, FaAngleRight } from 'react-icons/fa'
 
 const FicHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,11 @@ const FicHeader = () => {
     ) {
       setIsOpen(false);
     }
+  };
+   const [isChatboxOpen, setIsChatboxOpen] = useState(false);
+
+  const toggleChatboxMenu = () => {
+    setIsChatboxOpen(!isChatboxOpen);
   };
 
   useEffect(() => {
@@ -67,7 +73,7 @@ const FicHeader = () => {
               Home
             </button>
           </Link>
-          <Link to="/centraleditprofile">
+          <Link to="/facultyIncharge/editprofile">
             <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
               Edit Profile
             </button>
@@ -91,7 +97,7 @@ const FicHeader = () => {
           <ul className="flex flex-col">
             <li className="text-white">
               <Link
-                to="/"
+                to="/facultyInchargeHome"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
@@ -122,6 +128,59 @@ const FicHeader = () => {
                 Central Authority
               </Link>
             </li>
+              <li 
+            className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2 flex items-center"
+            onClick={toggleChatboxMenu}
+          >
+            <span className="text-white">View ChatBoxes</span>{isChatboxOpen ? <FaAngleDown className='ml-2' /> : <FaAngleRight className='ml-2'/>}
+          </li>
+          {isChatboxOpen && (
+            <ul className="ml-4 text-white">
+              <Link to="/faculty/csechatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  CSE ChatBox
+                </li>
+              </Link>
+              <Link to="/faculty/ecechatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  ECE ChatBox
+                </li>
+              </Link>
+              <Link to="/faculty/eeechatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  EEE ChatBox
+                </li>
+              </Link>
+              <Link to="/faculty/civilchatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  Civil ChatBox
+                </li>
+              </Link>
+              <Link to="/faculty/mechchatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  Mech ChatBox
+                </li>
+              </Link>
+              <Link to="/faculty/chemchatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  Chem ChatBox
+                </li>
+              </Link>
+              <Link to="/faculty/mmechatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  MME ChatBox
+                </li>
+                </Link>
+                 <li className="text-white">
+              <Link
+                to="/central/feedbacks"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Feedbacks
+              </Link>
+            </li>
+            </ul>
+          )}
             <li className="text-white">
               <Link
                 to="/academic/studentcommitte"
