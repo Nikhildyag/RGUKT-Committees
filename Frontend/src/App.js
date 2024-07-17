@@ -1,108 +1,108 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import Homepage from "./components/Home";
-import Acadamic from "./components/Commities/Acadamic";
-import CampusGreening from "./components/Commities/CampusGreening";
-import CampusAmenties from "./components/Commities/CampusAmenties";
-import Career from "./components/Commities/Career";
-import Cultural from "./components/Commities/Cultural";
-import Education from "./components/Commities/Education";
-import Environment from "./components/Commities/Environment";
-import External from "./components/Commities/External";
-import Grievance from "./components/Commities/Grievance";
-import Health from "./components/Commities/Health";
-import Hostel from "./components/Commities/Hostel";
-import Innovation from "./components/Commities/Innovation";
-import Mess from "./components/Commities/Mess";
-import Photography from "./components/Commities/Photography";
-import Placement from "./components/Commities/Placement";
-import Safety from "./components/Commities/Safety";
-import Social from "./components/Commities/Social";
-import Sports from "./components/Commities/Sports";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import './App.css'
+import Homepage from './components/Home'
+import Acadamic from './components/Commities/Acadamic'
+import CampusGreening from './components/Commities/CampusGreening'
+import CampusAmenties from './components/Commities/CampusAmenties'
+import Career from './components/Commities/Career'
+import Cultural from './components/Commities/Cultural'
+import Education from './components/Commities/Education'
+import Environment from './components/Commities/Environment'
+import External from './components/Commities/External'
+import Grievance from './components/Commities/Grievance'
+import Health from './components/Commities/Health'
+import Hostel from './components/Commities/Hostel'
+import Innovation from './components/Commities/Innovation'
+import Mess from './components/Commities/Mess'
+import Photography from './components/Commities/Photography'
+import Placement from './components/Commities/Placement'
+import Safety from './components/Commities/Safety'
+import Social from './components/Commities/Social'
+import Sports from './components/Commities/Sports'
 //second level imports
-import CampusAmentiesCentralAuthority from "./components/Commities/CampusAmenties/CampusAmentiesCentralAuthority";
-import CampusAmentiesFacultyIncarge from "./components/Commities/CampusAmenties/CampusAmentiesFacultyIncarge";
-import CampusAmentiesStudentCommittee from "./components/Commities/CampusAmenties/CampusAmentiesStudentCommittee.js";
-import CampusGreeningFacultyIncarge from "./components/Commities/CampusGreening/CampusGreeningFacultyIncharge.js";
-import CampusGreeningCentralAuthority from "./components/Commities/CampusGreening/CampusGreeningCentralAuthority.js";
-import CampusGreeningStudentCommittee from "./components/Commities/CampusGreening/CampusGreeningStudentCommittees.js";
-import CareerCentralAuthority from "./components/Commities/Career/CareerCentralAuthority.js";
-import CareerFacultyIncarge from "./components/Commities/Career/CareerFacultyIncharge.js";
-import CareerStudentCommittee from "./components/Commities/Career/CareerStudentCommittees.js";
-import CulturalCentralAuthority from "./components/Commities/Cultural/CulturalCentralAuthority.js";
-import CulturalFacultyIncarge from "./components/Commities/Cultural/CulturalFacultyIncharge.js";
-import CulturalStudentCommittee from "./components/Commities/Cultural/CulturalStudentCommittees.js";
-import EducationCentralAuthority from "./components/Commities/Education/EducationCentralAuthority.js";
-import EducationFacultyIncarge from "./components/Commities/Education/EducationFacultyIncharge.js";
-import EducationStudentCommittee from "./components/Commities/Education/EducationStudentCommittees.js";
-import EnvironmentCentralAuthority from "./components/Commities/Environment/EnvironmentCentralAuthority.js";
-import EnvironmentFacultyIncarge from "./components/Commities/Environment/EnvironmentFacultyIncharge.js";
-import EnvironmentStudentCommittee from "./components/Commities/Environment/EnvironmentStudentCommittees.js";
-import ExternalCentralAuthority from "./components/Commities/External/ExternalCentralAuthority.js";
-import ExternalFacultyIncarge from "./components/Commities/External/ExternalFacultyIncharge.js";
-import ExternalStudentCommittee from "./components/Commities/External/ExternalStudentCommittees.js";
-import GrievanceCentralAuthority from "./components/Commities/Grievance/GrievanceCentralAuthority.js";
-import GrievanceFacultyIncarge from "./components/Commities/Grievance/GrievanceFacultyIncharge.js";
-import GrievanceStudentCommittee from "./components/Commities/Grievance/GrievanceStudentCommittees.js";
-import HealthCentralAuthority from "./components/Commities/Health/HealthCentralAuthority.js";
-import HealthFacultyIncarge from "./components/Commities/Health/HealthFacultyIncharge.js";
-import HealthStudentCommittee from "./components/Commities/Health/HealthStudentCommittees.js";
-import HostelCentralAuthority from "./components/Commities/Hostel/HostelCentralAuthority.js";
-import HostelFacultyIncarge from "./components/Commities/Hostel/HostelFacultyIncharge.js";
-import HostelStudentCommittee from "./components/Commities/Hostel/HostelStudentCommittees.js";
-import InnovationCentralAuthority from "./components/Commities/Innovation/InnovationCentralAuthority.js";
-import InnovationFacultyIncarge from "./components/Commities/Innovation/InnovationFacultyIncharge.js";
-import InnovationStudentCommittee from "./components/Commities/Innovation/InnovationStudentCommittees.js";
-import MessCentralAuthority from "./components/Commities/Mess/MessCentralAuthority.js";
-import MessFacultyIncarge from "./components/Commities/Mess/MessFacultyIncharge.js";
-import MessStudentCommittee from "./components/Commities/Mess/MessStudentCommittees.js";
-import PhotographyCentralAuthority from "./components/Commities/Photography/PhotographyCentralAuthority.js";
-import PhotographyFacultyIncarge from "./components/Commities/Photography/PhotographyFacultyIncharge.js";
-import PhotographyStudentCommittee from "./components/Commities/Photography/PhotographyStudentCommittees.js";
-import PlacementCentralAuthority from "./components/Commities/Placement/PlacementCentralAuthority.js";
-import PlacementFacultyIncarge from "./components/Commities/Placement/PlacementFacultyIncharge.js";
-import PlacementStudentCommittee from "./components/Commities/Placement/PlacementStudentCommittees.js";
-import SafetyCentralAuthority from "./components/Commities/Safety/SafetyCentralAuthority.js";
-import SafetyFacultyIncarge from "./components/Commities/Safety/SafetyFacultyIncharge.js";
-import SafetyStudentCommittee from "./components/Commities/Safety/SafetyStudentCommittees.js";
+import CampusAmentiesCentralAuthority from './components/Commities/CampusAmenties/CampusAmentiesCentralAuthority'
+import CampusAmentiesFacultyIncarge from './components/Commities/CampusAmenties/CampusAmentiesFacultyIncarge'
+import CampusAmentiesStudentCommittee from './components/Commities/CampusAmenties/CampusAmentiesStudentCommittee.js'
+import CampusGreeningFacultyIncarge from './components/Commities/CampusGreening/CampusGreeningFacultyIncharge.js'
+import CampusGreeningCentralAuthority from './components/Commities/CampusGreening/CampusGreeningCentralAuthority.js'
+import CampusGreeningStudentCommittee from './components/Commities/CampusGreening/CampusGreeningStudentCommittees.js'
+import CareerCentralAuthority from './components/Commities/Career/CareerCentralAuthority.js'
+import CareerFacultyIncarge from './components/Commities/Career/CareerFacultyIncharge.js'
+import CareerStudentCommittee from './components/Commities/Career/CareerStudentCommittees.js'
+import CulturalCentralAuthority from './components/Commities/Cultural/CulturalCentralAuthority.js'
+import CulturalFacultyIncarge from './components/Commities/Cultural/CulturalFacultyIncharge.js'
+import CulturalStudentCommittee from './components/Commities/Cultural/CulturalStudentCommittees.js'
+import EducationCentralAuthority from './components/Commities/Education/EducationCentralAuthority.js'
+import EducationFacultyIncarge from './components/Commities/Education/EducationFacultyIncharge.js'
+import EducationStudentCommittee from './components/Commities/Education/EducationStudentCommittees.js'
+import EnvironmentCentralAuthority from './components/Commities/Environment/EnvironmentCentralAuthority.js'
+import EnvironmentFacultyIncarge from './components/Commities/Environment/EnvironmentFacultyIncharge.js'
+import EnvironmentStudentCommittee from './components/Commities/Environment/EnvironmentStudentCommittees.js'
+import ExternalCentralAuthority from './components/Commities/External/ExternalCentralAuthority.js'
+import ExternalFacultyIncarge from './components/Commities/External/ExternalFacultyIncharge.js'
+import ExternalStudentCommittee from './components/Commities/External/ExternalStudentCommittees.js'
+import GrievanceCentralAuthority from './components/Commities/Grievance/GrievanceCentralAuthority.js'
+import GrievanceFacultyIncarge from './components/Commities/Grievance/GrievanceFacultyIncharge.js'
+import GrievanceStudentCommittee from './components/Commities/Grievance/GrievanceStudentCommittees.js'
+import HealthCentralAuthority from './components/Commities/Health/HealthCentralAuthority.js'
+import HealthFacultyIncarge from './components/Commities/Health/HealthFacultyIncharge.js'
+import HealthStudentCommittee from './components/Commities/Health/HealthStudentCommittees.js'
+import HostelCentralAuthority from './components/Commities/Hostel/HostelCentralAuthority.js'
+import HostelFacultyIncarge from './components/Commities/Hostel/HostelFacultyIncharge.js'
+import HostelStudentCommittee from './components/Commities/Hostel/HostelStudentCommittees.js'
+import InnovationCentralAuthority from './components/Commities/Innovation/InnovationCentralAuthority.js'
+import InnovationFacultyIncarge from './components/Commities/Innovation/InnovationFacultyIncharge.js'
+import InnovationStudentCommittee from './components/Commities/Innovation/InnovationStudentCommittees.js'
+import MessCentralAuthority from './components/Commities/Mess/MessCentralAuthority.js'
+import MessFacultyIncarge from './components/Commities/Mess/MessFacultyIncharge.js'
+import MessStudentCommittee from './components/Commities/Mess/MessStudentCommittees.js'
+import PhotographyCentralAuthority from './components/Commities/Photography/PhotographyCentralAuthority.js'
+import PhotographyFacultyIncarge from './components/Commities/Photography/PhotographyFacultyIncharge.js'
+import PhotographyStudentCommittee from './components/Commities/Photography/PhotographyStudentCommittees.js'
+import PlacementCentralAuthority from './components/Commities/Placement/PlacementCentralAuthority.js'
+import PlacementFacultyIncarge from './components/Commities/Placement/PlacementFacultyIncharge.js'
+import PlacementStudentCommittee from './components/Commities/Placement/PlacementStudentCommittees.js'
+import SafetyCentralAuthority from './components/Commities/Safety/SafetyCentralAuthority.js'
+import SafetyFacultyIncarge from './components/Commities/Safety/SafetyFacultyIncharge.js'
+import SafetyStudentCommittee from './components/Commities/Safety/SafetyStudentCommittees.js'
 
-import AcadamicCentralAuthority from "./components/Commities/Acadamic/AcademicCentralAuthority.js";
-import AcadamicFacultyIncarge from "./components/Commities/Acadamic/AcademicFacultyIncarge.js";
-import AcadamicStudentCommittee from "./components/Commities/Acadamic/StudentCommittee";
-import CampusAmenitiesForm from "./components/forms/CampusAmenitiesForm";
-import MessAdvisoryForm from "./components/forms/MessAdvisoryForm ";
-import CareerGuidanceForm from "./components/forms/CareerGuidanceForm";
-import SportsCommitteeForm from "./components/forms/SportsCommitteeForm";
-import CulturalCommitteeForm from "./components/forms/CulturalForm";
-import EducationalOpportunitiesForm from "./components/forms/EducationalCommitteeForm";
-import ExternalActivitiesForm from "./components/forms/ExternalActivitiesForm";
-import SocialServiceForm from "./components/forms/SocialServiceForm";
-import PhotographyForm from "./components/forms/PhotographyForm";
-import SustainabilityForm from "./components/forms/SustainabilityForm";
-import CampusGreeningForm from "./components/forms/CampusGreeningForm";
-import CampusSafetyForm from "./components/forms/CampusSafetyForm";
-import HealthCommitteeForm from "./components/forms/HealthCommitteeForm";
-import PlacementInternshipForm from "./components/forms/PlacementInternshipForm";
-import GrievanceRedressalForm from "./components/forms/GrievanceRedressalForm";
-import HostelCommitteeForm from "./components/forms/HostelForm";
-import InnovationForm from "./components/forms/InnovationForm";
-import AcademicCommitteForm from "./components/forms/AcademicCommitteeForm";
-import SportsCentralAuthority from "./components/Commities/Sports/SportsCentralAuthority.js";
-import SportsStudentCommittee from "./components/Commities/Sports/SportsStudentCommittee.js";
-import SportsFacultyIncarge from "./components/Commities/Sports/SportsFacultyIncarge.js";
-import SocialCentralAuthority from "./components/Commities/Social/SocialCentralAuthority.js";
-import SocialFacultyIncarge from "./components/Commities/Social/SocialFacultyIncharge.js";
-import SocialStudentCommittee from "./components/Commities/Social/StudentCommittees.js";
-import FormCard from "./components/forms/FormCard.js";
-import CentralAuthority from "./components/central/CentralAuthorityContents/CentralAuthority.js";
-import CentralAuthorityFIC from "./components/central/CentralAuthorityContents/CentralAuthorityFIC.js";
-import CentralAuthorityStudentCommittee from "./components/central/CentralAuthorityContents/CentralAuthorityStudentCommittee.js";
-import ChatBox from "./components/Chat.js";
-import Departments from "./components/DepartmentLevel/index.js";
-import DepartmentMembers from "./components/DepartmentLevel/DepartmentMembers.js";
-import DepartmentFacultymember from "./components/DepartmentLevel/DepartmentFacultymember.js";
-import DepartmentCentralAuthority from "./components/DepartmentLevel/DepartmentCentralAuthority.js";
-import DepartmentLoginform from "./components/LoginForms/DepartmentLoginform.js";
+import AcadamicCentralAuthority from './components/Commities/Acadamic/AcademicCentralAuthority.js'
+import AcadamicFacultyIncarge from './components/Commities/Acadamic/AcademicFacultyIncarge.js'
+import AcadamicStudentCommittee from './components/Commities/Acadamic/StudentCommittee'
+import CampusAmenitiesForm from './components/forms/CampusAmenitiesForm'
+import MessAdvisoryForm from './components/forms/MessAdvisoryForm '
+import CareerGuidanceForm from './components/forms/CareerGuidanceForm'
+import SportsCommitteeForm from './components/forms/SportsCommitteeForm'
+import CulturalCommitteeForm from './components/forms/CulturalForm'
+import EducationalOpportunitiesForm from './components/forms/EducationalCommitteeForm'
+import ExternalActivitiesForm from './components/forms/ExternalActivitiesForm'
+import SocialServiceForm from './components/forms/SocialServiceForm'
+import PhotographyForm from './components/forms/PhotographyForm'
+import SustainabilityForm from './components/forms/SustainabilityForm'
+import CampusGreeningForm from './components/forms/CampusGreeningForm'
+import CampusSafetyForm from './components/forms/CampusSafetyForm'
+import HealthCommitteeForm from './components/forms/HealthCommitteeForm'
+import PlacementInternshipForm from './components/forms/PlacementInternshipForm'
+import GrievanceRedressalForm from './components/forms/GrievanceRedressalForm'
+import HostelCommitteeForm from './components/forms/HostelForm'
+import InnovationForm from './components/forms/InnovationForm'
+import AcademicCommitteForm from './components/forms/AcademicCommitteeForm'
+import SportsCentralAuthority from './components/Commities/Sports/SportsCentralAuthority.js'
+import SportsStudentCommittee from './components/Commities/Sports/SportsStudentCommittee.js'
+import SportsFacultyIncarge from './components/Commities/Sports/SportsFacultyIncarge.js'
+import SocialCentralAuthority from './components/Commities/Social/SocialCentralAuthority.js'
+import SocialFacultyIncarge from './components/Commities/Social/SocialFacultyIncharge.js'
+import SocialStudentCommittee from './components/Commities/Social/StudentCommittees.js'
+import FormCard from './components/forms/FormCard.js'
+import CentralAuthority from './components/central/CentralAuthorityContents/CentralAuthority.js'
+import CentralAuthorityFIC from './components/central/CentralAuthorityContents/CentralAuthorityFIC.js'
+import CentralAuthorityStudentCommittee from './components/central/CentralAuthorityContents/CentralAuthorityStudentCommittee.js'
+import ChatBox from './components/Chat.js'
+import Departments from './components/DepartmentLevel/index.js'
+import DepartmentMembers from './components/DepartmentLevel/DepartmentMembers.js'
+import DepartmentFacultymember from './components/DepartmentLevel/DepartmentFacultymember.js'
+import DepartmentCentralAuthority from './components/DepartmentLevel/DepartmentCentralAuthority.js'
+import DepartmentLoginform from './components/LoginForms/DepartmentLoginform.js'
 
 import CompalintDetails from "./components/DepartmentLevel/CompalintDetails.js";
 import FacultyLoginForm from "./components/LoginForms/FacultyLoginForm.js";
@@ -735,8 +735,8 @@ const App = () => (
       <Route exact path="/facultyInchargeHome" Component={FacultyIchargeLevel} />
       <Route
         exact
-        path="/facultyIncharge/complaint/:complaintId"
-        Component={FicComplaintDetails}
+        path="/incharge/complaint/:complaintId"
+        Component={FicViewComplaints}
       />
       <Route
         exact
@@ -755,11 +755,11 @@ const App = () => (
       />
       <Route
         exact
-        path="/incharge/complaint/:complaintId"
-        Component={FicViewComplaints}
+        path="/facultyIncharge/editprofile"
+        Component={FicEditProfile}
       />
     </Routes>
   </BrowserRouter>
-);
+)
 
-export default App;
+export default App
