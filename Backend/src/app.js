@@ -7,6 +7,7 @@ import messagesRouter from "./routes/messages.routes.js";
 import cookieParser from "cookie-parser";
 import complaintRouter from "./routes/complaintForm.routes.js";
 import feedbackRouter from "./routes/feedbackForm.routes.js";
+import noticeRouter from "./routes/notice.routes.js";
 const app = express();
 const corsOptions = {
   origin: ["http://localhost:3000"], // Frontend domain
@@ -21,4 +22,5 @@ app.use("/api/v1/central", centralRouter);
 app.use("/api/v1/messages", messagesRouter);
 app.use("/api/v1/complaints", complaintRouter);
 app.use("/api/v1/feedbacks", feedbackRouter);
+app.use("/api/v1/notices", noticeRouter);
 export default app;
