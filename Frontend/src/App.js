@@ -104,45 +104,45 @@ import DepartmentFacultymember from './components/DepartmentLevel/DepartmentFacu
 import DepartmentCentralAuthority from './components/DepartmentLevel/DepartmentCentralAuthority.js'
 import DepartmentLoginform from './components/LoginForms/DepartmentLoginform.js'
 
-import CompalintDetails from "./components/DepartmentLevel/CompalintDetails.js";
-import FacultyLoginForm from "./components/LoginForms/FacultyLoginForm.js";
-import ComplaintDetails from "./components/central/ComplaintDetails.js";
-import FeedbackForm from "./components/forms/FeedbackForm.js";
-import DepartmentCentralAuthorityLoginform from "./components/LoginForms/CentralLoginForm.js";
-import DepartmentChatbox from "./components/DepartmentLevel/DepartmentChatbox.js";
-import CentralChatBoxSection from "./components/central/CentralChatBoxSection/index.js";
-import CentralCseChatBoxSection from "./components/central/CentralChatBoxSection/CentralCseChatbox.js";
-import CentralEceChatBoxSection from "./components/central/CentralChatBoxSection/CentralEceChatBoxSection.js";
-import CentralEeeChatBoxSection from "./components/central/CentralChatBoxSection/CentralEeeChatBoxSection.js";
-import CentralCivilChatBoxSection from "./components/central/CentralChatBoxSection/CentralCivilChatBoxSection.js";
-import CentralMechChatBoxSection from "./components/central/CentralChatBoxSection/CentralMechChatBoxSection.js";
-import CentralChemChatBoxSection from "./components/central/CentralChatBoxSection/CentralChemChatBoxSection.js";
-import CentralMmeChatBoxSection from "./components/central/CentralChatBoxSection/CentralMmeChatBoxSection.js";
-import Excellence from "./components/Commities/Excellence/index.js";
-import ExcellenceStudentCommittees from "./components/Commities/Excellence/ExcellenceStudentCommittees.js";
-import ExcellenceCentralAuthority from "./components/Commities/Excellence/ExcellenceCentralAuthority.js";
-import ExcellenceFacultyIncarge from "./components/Commities/Excellence/ExcellenceFacultyIncharge.js";
-import Footer from "./components/footer/Footer.js";
-import Departmentfeedbacks from "./components/DepartmentLevel/Departmentfeedbacks.js";
-import DepartmentEditProfile from "./components/DepartmentLevel/DepartmentEditProfile.js";
-import CentralEditprofile from "./components/central/CentralEditprofile.js";
-import CentralHomesection from "./components/central/Home/index.js";
-import FacultyIchargeLevel from "./components/FacultyInchargeLevel/index.js";
-import FicComplaintDetails from "./components/FacultyInchargeLevel/FicComplaintDetails.js";
-import FicFacultyMembers from "./components/FacultyInchargeLevel/FicFacultyMembers.js";
-import FicStudentCommittee from "./components/FacultyInchargeLevel/FicStudentCommittee.js";
-import FicCentralAuthority from "./components/FacultyInchargeLevel/FicCentralAuthority.js";
-import FicViewComplaints from "./components/FacultyInchargeLevel/FicViewComplaints.js";
-import CentralMembersChatBox from "./components/central/CentralMembersChatBox.js";
-import FacultyMmechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyMmechatBox.js";
-import FacultyChemchatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyChemchatBox.js";
-import FacultyMechchatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyMechchatBox.js";
-import FacultyCivilchatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyCivilchatBox.js";
-import FacultyEcechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyEcechatBox.js";
-import FacultyEeechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyEeechatBox.js";
-import FacultyCsechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyCsechatBox.js";
+import CompalintDetails from './components/DepartmentLevel/CompalintDetails.js'
+import FacultyLoginForm from './components/LoginForms/FacultyLoginForm.js'
+import ComplaintDetails from './components/central/ComplaintDetails.js'
+import FeedbackForm from './components/forms/FeedbackForm.js'
+import DepartmentCentralAuthorityLoginform from './components/LoginForms/CentralLoginForm.js'
+import DepartmentChatbox from './components/DepartmentLevel/DepartmentChatbox.js'
+import CentralChatBoxSection from './components/central/CentralChatBoxSection/index.js'
+import CentralCseChatBoxSection from './components/central/CentralChatBoxSection/CentralCseChatbox.js'
+import CentralEceChatBoxSection from './components/central/CentralChatBoxSection/CentralEceChatBoxSection.js'
+import CentralEeeChatBoxSection from './components/central/CentralChatBoxSection/CentralEeeChatBoxSection.js'
+import CentralCivilChatBoxSection from './components/central/CentralChatBoxSection/CentralCivilChatBoxSection.js'
+import CentralMechChatBoxSection from './components/central/CentralChatBoxSection/CentralMechChatBoxSection.js'
+import CentralChemChatBoxSection from './components/central/CentralChatBoxSection/CentralChemChatBoxSection.js'
+import CentralMmeChatBoxSection from './components/central/CentralChatBoxSection/CentralMmeChatBoxSection.js'
+import Excellence from './components/Commities/Excellence/index.js'
+import ExcellenceStudentCommittees from './components/Commities/Excellence/ExcellenceStudentCommittees.js'
+import ExcellenceCentralAuthority from './components/Commities/Excellence/ExcellenceCentralAuthority.js'
+import ExcellenceFacultyIncarge from './components/Commities/Excellence/ExcellenceFacultyIncharge.js'
+import Footer from './components/footer/Footer.js'
+import Departmentfeedbacks from './components/DepartmentLevel/Departmentfeedbacks.js'
+import DepartmentEditProfile from './components/DepartmentLevel/DepartmentEditProfile.js'
+import CentralEditprofile from './components/central/CentralEditprofile.js'
+import CentralHomesection from './components/central/Home/index.js'
+import FacultyIchargeLevel from './components/FacultyInchargeLevel/index.js'
+import FicFacultyMembers from './components/FacultyInchargeLevel/FicFacultyMembers.js'
+import FicStudentCommittee from './components/FacultyInchargeLevel/FicStudentCommittee.js'
+import FicCentralAuthority from './components/FacultyInchargeLevel/FicCentralAuthority.js'
+import FicViewComplaints from './components/FacultyInchargeLevel/FicViewComplaints.js'
+import CentralMembersChatBox from './components/central/CentralMembersChatBox.js'
+import FacultyMmechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyMmechatBox.js'
+import FacultyChemchatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyChemchatBox.js'
+import FacultyMechchatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyMechchatBox.js'
+import FacultyCivilchatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyCivilchatBox.js'
+import FacultyEcechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyEcechatBox.js'
+import FacultyEeechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyEeechatBox.js'
+import FacultyCsechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyCsechatBox.js'
 import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
 import FacultyNoticeSend from './components/FacultyInchargeLevel/FacultyNoticeSend.js'
+import FicComplaintDetails from './components/FacultyInchargeLevel/FicComplaintDetails.js'
 
 const App = () => (
   <BrowserRouter>
@@ -673,41 +673,17 @@ const App = () => (
         path="/central/mmechatbox"
         Component={CentralMmeChatBoxSection}
       />
-        <Route
-        exact
-        path="/faculty/csechatbox"
-        Component={FacultyCsechatBox}
-      />
-      <Route
-        exact
-        path="/faculty/ecechatbox"
-        Component={FacultyEcechatBox}
-      />
-      <Route
-        exact
-        path="/faculty/eeechatbox"
-        Component={FacultyEeechatBox}
-      />
+      <Route exact path="/faculty/csechatbox" Component={FacultyCsechatBox} />
+      <Route exact path="/faculty/ecechatbox" Component={FacultyEcechatBox} />
+      <Route exact path="/faculty/eeechatbox" Component={FacultyEeechatBox} />
       <Route
         exact
         path="/faculty/civilchatbox"
         Component={FacultyCivilchatBox}
       />
-      <Route
-        exact
-        path="/faculty/mechchatbox"
-        Component={FacultyMechchatBox}
-      />
-      <Route
-        exact
-        path="/faculty/chemchatbox"
-        Component={FacultyChemchatBox}
-      />
-      <Route
-        exact
-        path="/faculty/mmechatbox"
-        Component={FacultyMmechatBox}
-      />
+      <Route exact path="/faculty/mechchatbox" Component={FacultyMechchatBox} />
+      <Route exact path="/faculty/chemchatbox" Component={FacultyChemchatBox} />
+      <Route exact path="/faculty/mmechatbox" Component={FacultyMmechatBox} />
       <Route
         exact
         path="/central/facultyIncharge"
@@ -734,11 +710,15 @@ const App = () => (
       <Route exact path="/footer" Component={Footer} />
 
       {/* Faculty Incharge Level */}
-      <Route exact path="/facultyInchargeHome" Component={FacultyIchargeLevel} />
+      <Route
+        exact
+        path="/facultyInchargeHome"
+        Component={FacultyIchargeLevel}
+      />
       <Route
         exact
         path="/incharge/complaint/:complaintId"
-        Component={FicViewComplaints}
+        Component={FicComplaintDetails}
       />
       <Route
         exact

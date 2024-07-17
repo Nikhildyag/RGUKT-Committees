@@ -1,45 +1,44 @@
-import React, { useState } from 'react'
-import Departments from './index'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import Departments from "./index";
+import { useNavigate } from "react-router-dom";
 
 const DepartmentEditProfile = () => {
-  const navigate = useNavigate()
-  const [username, setUsername] = useState('')
-  const [userId, setuserId] = useState('')
-  const [password, setPassword] = useState('')
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [userId, setuserId] = useState("");
+  const [password, setPassword] = useState("");
   const handleEdit = async (e) => {
-    e.preventDefault()
-    console.log('submit')
+    e.preventDefault();
+    console.log("submit");
     if (!username || !password || !userId) {
-      alert('fill all the details')
-      return
+      alert("fill all the details");
+      return;
     }
-    console.log('submit')
+    console.log("submit");
     const data = {
       fullName: username,
       Id_number: userId,
       password,
-    }
-    const userDetails = JSON.stringify(data)
-    const url = 'http://localhost:1024/api/v1/department/update'
+    };
+    const userDetails = JSON.stringify(data);
+    const url = "http://localhost:1024/api/v1/department/update";
     try {
       const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: userDetails,
-      })
+      });
       if (!response.ok) {
-        throw new Error(response, 'Network response was not ok')
+        throw new Error(response, "Network response was not ok");
       }
-      // const json = await response.json()
-      alert('successfully updated your profile')
-      navigate('/departments')
+      alert("successfully updated your profile");
+      navigate("/departments");
     } catch (error) {
-      alert(error)
-      console.log(error)
+      alert(error);
+      console.log(error);
     }
-  }
+  };
   return (
     <div className="relative">
       <div className="opacity-25">
@@ -50,7 +49,7 @@ const DepartmentEditProfile = () => {
         <div className="relative w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[6%]">
           {/* Close Button */}
           <button
-            onClick={() => navigate('/departments')}
+            onClick={() => navigate("/departments")}
             className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center bg-white text-black rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-colors"
           >
             ✖
@@ -142,7 +141,7 @@ const DepartmentEditProfile = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DepartmentEditProfile
+export default DepartmentEditProfile;

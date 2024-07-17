@@ -10,7 +10,7 @@ const Departmentfeedbacks = () => {
 
   const fetchfeedbacks = async () => {
     const url =
-      "http://localhost:1024/api/v1/feebacks/get/feedbacksForDepartment";
+      "http://localhost:1024/api/v1/feedbacks/get/feedbacksForDepartment";
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -24,7 +24,7 @@ const Departmentfeedbacks = () => {
       }
       const json = await response.json();
       console.log(json);
-      setfeedbacks(json.feedbacks);
+      setfeedbacks(json.feebacks);
       setfeedbacksReady(true);
     } catch (error) {
       console.log(error);
@@ -34,12 +34,12 @@ const Departmentfeedbacks = () => {
     fetchfeedbacks();
   }, []);
   const formatDate = (dateString) => {
-    console.log(dateString);
+    // console.log(dateString);
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
-    console.log(day, month, year);
+    //console.log(day, month, year);
 
     return `${day}/${month}/${year}`;
   };
@@ -65,33 +65,37 @@ const Departmentfeedbacks = () => {
                     </th>
                   </tr>
                 </thead>
-                {/* <tbody className="text-gray-700">
-                    {feedbacksReady && feedbacks.map((feedback) => (
-                        <tr key={feedback.id} className="bg-gray-50 odd:bg-gray-100">
-                            <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
-                            <div className="flex items-center">
-                                <Link to={`/department/complaint/${feedback._id}`}>
-                                  <IoEyeOutline className="text-blue-500 hover:text-blue-700 mt-1" />
-                                </Link>
-                                <span className="ml-2">{feedback.id}</span>
-                            </div>
-                            </td>
-                            <td className="w-3/6 sm:w-3/6 md:w-3/6 lg:w-3/6 xl:w-3/6 text-left py-3 px-4">
-                            {feedback.category}
-                            </td>
-                            <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
-                            {formatDate(feedback.createdAt)}
-                            </td>
-                        </tr>
-                        ))}
-                        {feedbacksReady && feedbacks.length === 0 && (
-                        <tr>
-                            <td colSpan="4" className="text-center py-4">
-                            No feedbacks found
-                            </td>
-                        </tr>
-                        )}
-                    </tbody> */}
+                <tbody className="text-gray-700">
+                  {feedbacksReady &&
+                    feedbacks.map((feedback) => (
+                      <tr
+                        key={feedback._id}
+                        className="bg-gray-50 odd:bg-gray-100"
+                      >
+                        <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
+                          <div className="flex items-center">
+                            <Link to={`/department/complaint/${feedback._id}`}>
+                              <IoEyeOutline className="text-blue-500 hover:text-blue-700 mt-1" />
+                            </Link>
+                            <span className="ml-2">{feedback.id}</span>
+                          </div>
+                        </td>
+                        <td className="w-3/6 sm:w-3/6 md:w-3/6 lg:w-3/6 xl:w-3/6 text-left py-3 px-4">
+                          {feedback.category}
+                        </td>
+                        <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
+                          {formatDate(feedback.createdAt)}
+                        </td>
+                      </tr>
+                    ))}
+                  {feedbacksReady && feedbacks.length === 0 && (
+                    <tr>
+                      <td colSpan="4" className="text-center py-4">
+                        No feedbacks found
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
               </table>
             </div>
           </div>
