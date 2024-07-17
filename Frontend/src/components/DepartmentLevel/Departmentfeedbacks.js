@@ -34,12 +34,12 @@ const Departmentfeedbacks = () => {
     fetchfeedbacks();
   }, []);
   const formatDate = (dateString) => {
-    console.log(dateString);
+    // console.log(dateString);
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
-    console.log(day, month, year);
+    //console.log(day, month, year);
 
     return `${day}/${month}/${year}`;
   };
@@ -69,7 +69,7 @@ const Departmentfeedbacks = () => {
                   {feedbacksReady &&
                     feedbacks.map((feedback) => (
                       <tr
-                        key={feedback.id}
+                        key={feedback._id}
                         className="bg-gray-50 odd:bg-gray-100"
                       >
                         <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
