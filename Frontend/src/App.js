@@ -142,6 +142,7 @@ import FacultyEeechatBox from './components/FacultyInchargeLevel/ChatBoxes/Facul
 import FacultyCsechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyCsechatBox.js'
 import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
 import FicComplaintDetails from './components/FacultyInchargeLevel/FicComplaintDetails.js'
+import CentralAuthorityFeedback from './components/central/CentralAuthorityContents/CentralAuthorityFeedback.js'
 
 const App = () => (
   <BrowserRouter>
@@ -697,6 +698,11 @@ const App = () => (
         exact
         path="/central/complaint/:complaintId"
         Component={ComplaintDetails}
+      />
+      <Route
+        exact
+        path="/central/feedbacks"
+        Component={CentralAuthorityFeedback}
       />
 
       <Route
