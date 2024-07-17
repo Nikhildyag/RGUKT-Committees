@@ -6,6 +6,7 @@ import {
   getIncharge1,
   getInchargeForUser,
   loginIncharge,
+  logoutIncharge,
 } from "../controllers/incharge.controller.js";
 import {
   verifyCentralJWT,
@@ -32,4 +33,7 @@ router.route("/get-inchargeforuser").post(getInchargeForUser);
 // for central level
 router.route("/get-incharge2").get(verifyCentralJWT, getIncharge1);
 // router.route("/login-incharge1").post(createBulk);
+
+//logout incharge
+router.route("/logout").get(verifyInchargeJWT, logoutIncharge);
 export default router;

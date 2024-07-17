@@ -1,38 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-import FicHeader from './FicHeader'
-import FicSidebar from './FicSidebar'
-import FicProfileCard from './FicProfileCard'
+import FicHeader from "./FicHeader";
+import FicSidebar from "./FicSidebar";
+import FicProfileCard from "./FicProfileCard";
 
 const FicCentralAuthority = () => {
-  const [students, setStudents] = useState([])
-  const [isDataReady, setIsdataready] = useState()
+  const [students, setStudents] = useState([]);
+  const [isDataReady, setIsdataready] = useState();
 
   useEffect(() => {
     const fetchStudentCommittees = async () => {
       try {
         const response = await fetch(
-          'http://localhost:1024/api/v1/central/get/centralMembersByLogin1',
+          "http://localhost:1024/api/v1/central/get/centralMembersByLogin2",
           {
-            method: 'GET',
-            credentials: 'include', // Include credentials (cookies)
+            method: "GET",
+            credentials: "include", // Include credentials (cookies)
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
           }
-        )
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok after nikhils')
+          throw new Error("Network response was not ok after nikhils");
         }
-        const json = await response.json()
-        setStudents(json.MembersArray)
-        setIsdataready(true)
+        const json = await response.json();
+        setStudents(json.MembersArray);
+        setIsdataready(true);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-    fetchStudentCommittees()
-  }, [])
+    };
+    fetchStudentCommittees();
+  }, []);
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <FicHeader />
@@ -65,7 +65,7 @@ const FicCentralAuthority = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FicCentralAuthority
+export default FicCentralAuthority;

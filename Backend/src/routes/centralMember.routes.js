@@ -10,6 +10,7 @@ import {
 import {
   verifyCentralJWT,
   verifyDepartmentJWT,
+  verifyInchargeJWT,
 } from "../middlewares/auth.middleware.js";
 const router = Router();
 
@@ -34,6 +35,10 @@ router
 router
   .route("/get/centralMembersByLogin1")
   .get(verifyCentralJWT, getCentralMembersByLogin);
+
+router
+  .route("/get/centralMembersByLogin2")
+  .get(verifyInchargeJWT, getCentralMembersByLogin);
 
 router.route("/logout").get(verifyCentralJWT, logoutCentral);
 export default router;

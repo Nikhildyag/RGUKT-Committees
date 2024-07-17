@@ -9,6 +9,7 @@ import {
 import {
   verifyCentralJWT,
   verifyDepartmentJWT,
+  verifyInchargeJWT,
 } from "../middlewares/auth.middleware.js";
 const router = Router();
 
@@ -28,6 +29,10 @@ router
 
 //for central use
 router.route("/get/centralMessage").post(verifyCentralJWT, getCentralMessages);
+
+router
+  .route("/get/centralMessage1")
+  .post(verifyInchargeJWT, getCentralMessages);
 
 //get central members chat
 router
