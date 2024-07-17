@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Header from '../Header'
 import DesktopCommities from '../DesktopCommities'
+import { useNavigate } from 'react-router-dom';
 
 const AcademicCommiteeForm = () => {
+  const [year, setYear] = useState('E1');
+  const [branch, setBranch] = useState('cse');
+  const [committee, setCommitte] = useState('Academic Committee');
+  const [message, setMessage] = useState();
+  const navigate = useNavigate();
   const committees = [
     'Academic Committee',
     'Campus Amenities Committee',
@@ -24,6 +30,38 @@ const AcademicCommiteeForm = () => {
     'External Committee',
     'Campus Safety Committee',
   ]
+  const submitFeedback = async (e) => {
+    e.preventDefault();
+    if (!year || !branch || !committee || !message) {
+      alert("All the feilds are Required");
+      return;
+    }
+    const data = {
+      committee_name: committee,
+      year:year,
+      department: branch,
+      description:message,
+    }
+    const feedbackDetails = JSON.stringify(data);
+    const url="http://localhost:1024/api/v1/feedbacks/create-feedback"
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          'Content-Type':'application/json',
+        },
+        credentials: 'include',
+        body:feedbackDetails,
+      })
+      if (!response.ok) {
+        throw new Error("Error in the Response");
+      }
+      alert("Feedback submitted successfully");
+      navigate('/');
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
   return (
     <div className="flex flex-col h-screen overflow-x-hidden overflow-y-auto">
       <Header />
@@ -42,32 +80,45 @@ const AcademicCommiteeForm = () => {
               <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white ">
                 Feedback Form
               </h1>
-              <form>
-                <div className="mb-4">
-                  <label
-                    className="block text-gray-200 text-sm font-bold mb-2"
-                    htmlFor="idNumber"
-                  >
-                    ID Number
-                  </label>
-                  <input
-                    type="text"
-                    id="idNumber"
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                </div>
-                <div className="mb-4">
+              <form onSubmit={submitFeedback}>
+               <div className="mb-4">
                   <label
                     className="block text-gray-200 text-sm font-bold mb-2"
                     htmlFor="year"
                   >
-                    Year
+                    YEAR
                   </label>
-                  <input
-                    type="text"
+                  <select
                     id="year"
+                    onChange={(e)=>setYear(e.target.value)}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  />
+                  >
+                    <option value="E1">E1</option>
+                    <option value="E2">E2</option>
+                    <option value="E3">E3</option>
+                    <option value="E4">E4</option>
+                  </select>
+                </div>
+                  <div className="mb-4">
+                  <label
+                    className="block text-gray-200 text-sm font-bold mb-2"
+                    htmlFor="branch"
+                  >
+                    Branch
+                  </label>
+                  <select
+                    id="branch"
+                    onChange={(e)=>setBranch(e.target.value)}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  >
+                    <option value="cse">CSE</option>
+                    <option value="ece">ECE</option>
+                    <option value="eee">EEE</option>
+                    <option value="cevil">Cevil</option>
+                    <option value="mech">Mech</option>
+                    <option value="chem">Chem</option>
+                    <option value="mme">MME</option>
+                  </select>
                 </div>
                 <div className="mb-4">
                   <label
@@ -78,6 +129,7 @@ const AcademicCommiteeForm = () => {
                   </label>
                   <select
                     id="committee"
+                    onChange={(e)=>setCommitte(e.target.value)}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   >
                     {committees.map((committee, index) => (
@@ -96,6 +148,8 @@ const AcademicCommiteeForm = () => {
                   </label>
                   <textarea
                     id="message"
+                    placeholder='Enter yout suggestion/feedback'
+                    onChange={(e)=>setMessage(e.target.value)}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     rows="4"
                   ></textarea>
