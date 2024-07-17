@@ -1,4 +1,4 @@
-import { Notice } from "../models/notice.model";
+import { Notice } from "../models/notice.model.js";
 
 const createNotice = async (req, res) => {
   try {
@@ -25,7 +25,7 @@ const createNotice = async (req, res) => {
 
 const showNotices = async (req, res) => {
   try {
-    const notices = Notice.find();
+    const notices = await Notice.find();
     if (!notices) {
       return res.status(400).json({ message: "No notices found" });
     }
