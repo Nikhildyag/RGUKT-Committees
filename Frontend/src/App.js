@@ -163,6 +163,11 @@ const App = () => (
         path="/departmenteditProfile"
         Component={DepartmentEditProfile}
       />
+      <Route
+        exact
+        path="/centralmemberschatbox"
+        Component={CentralMembersChatBox}
+      />
       <Route exact path="/centraleditprofile" Component={CentralEditprofile} />
       {/* //second level routes*/}
       <Route exact path="/departments" Component={Departments} />

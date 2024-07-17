@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
+import { FaAngleDown, FaAngleRight } from 'react-icons/fa'
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -47,6 +48,11 @@ const Header = () => {
       console.log(error);
     }
   };
+   const [isChatboxOpen, setIsChatboxOpen] = useState(false);
+
+  const toggleChatboxMenu = () => {
+    setIsChatboxOpen(!isChatboxOpen);
+  };
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
@@ -59,9 +65,9 @@ const Header = () => {
             <FaBars />
           </button>
         </div>
-        <Link to="/academic" className="hidden md:block text-white">
-          Academic Committee
-        </Link>
+        <div  className="hidden md:block text-white">
+        Central Members
+        </div>
          <div className="flex gap-5 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
           <Link to="/centralAuthorityHome">
             <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
@@ -97,15 +103,7 @@ const Header = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/academic"
-                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
-              >
-                Academic Committee
-              </Link>
-            </li>
-            <li className="text-white">
-              <Link
-                to="/academic/facultyincarge"
+                to="/central/facultyIncarge"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -114,7 +112,7 @@ const Header = () => {
 
             <li className="text-white">
               <Link
-                to="/academic/centralaurhority"
+                to="/central/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
@@ -122,12 +120,73 @@ const Header = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/academic/studentcommitte"
+                to="/central/studentcommittee"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Department Commities
               </Link>
             </li>
+             <li className="text-white">
+              <Link
+                to="/centralmemberschatbox"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Chat with Central members
+              </Link>
+            </li>
+          <li 
+            className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2 flex items-center"
+            onClick={toggleChatboxMenu}
+          >
+            <span className="text-white">View ChatBoxes</span>{isChatboxOpen ? <FaAngleDown className='ml-2' /> : <FaAngleRight className='ml-2'/>}
+          </li>
+          {isChatboxOpen && (
+            <ul className="ml-4 text-white">
+              <Link to="/central/csechatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  CSE ChatBox
+                </li>
+              </Link>
+              <Link to="/central/ecechatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  ECE ChatBox
+                </li>
+              </Link>
+              <Link to="/central/eeechatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  EEE ChatBox
+                </li>
+              </Link>
+              <Link to="/central/civilchatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  Civil ChatBox
+                </li>
+              </Link>
+              <Link to="/central/mechchatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  Mech ChatBox
+                </li>
+              </Link>
+              <Link to="/central/chemchatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  Chem ChatBox
+                </li>
+              </Link>
+              <Link to="/central/mmechatbox">
+                <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-white cursor-pointer rounded-md py-2">
+                  MME ChatBox
+                </li>
+                </Link>
+                 <li className="text-white">
+              <Link
+                to="/central/feedbacks"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Feedbacks
+              </Link>
+            </li>
+            </ul>
+          )}
           </ul>
         </div>
       </div>
