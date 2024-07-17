@@ -16,32 +16,50 @@ const DepartmentChatbox = () => {
   const [department, setDepartment] = useState();
   const [committe, setCommitte] = useState();
   const [message, setMessage] = useState('');
-  const username = "Ramesh";
-  const currentMessage = "How are you buddy";
-  const room = 2439
   const [messages, setMessages] = useState([]);
+  const [room, setRoom] = useState();
   const sendMessage = async () => {
-    console.log('welcome send message here');
-    if (message) {
-      const MessageData = {
+      const messageData = {
         'room': room,
-        'author': username,
-        'message': currentMessage,
-        'time':
+        'author': userId,
+        'message': "How are you",
+         'time':
           new Date(Date.now()).getHours() +
           ":" +
           new Date(Date.now()).getMinutes(),
-      };
-      console.log(MessageData);
-      await socket.emit("sendMessage", MessageData);
-    }
+      }
+     await socket.emit("send_message", messageData);
   }
-  useEffect(() => {
-     
 
-    
-     socket.emit("join_room", room);
-  },[])
+   const fetchUserData = async () => {
+      const url = 'http://localhost:1024/api/v1/department/get/departmentMember';
+      try {
+        const response = await fetch(url, {
+          method: "GET",
+          headers: {
+            'Content-Type':'application/json'
+          },
+          credentials:'include',
+        })
+        if (!response.ok) {
+          throw new Error('Error in the response');
+        }
+        const data = await response.json();
+        setRoom(data.user.committee_name + data.user.department)
+        socket.emit("join_room",room);
+      } catch (error) {
+        console.log(error);
+      }
+     }
+
+  useEffect(() => {
+    fetchUserData();
+    socket.on("receive_message", (data) => {
+      console.log("here you will recive the message");
+      console.log("your message from the response",data);
+    });
+  }, [socket])
+  
   return (
     <div className="max-w-[100%] h-screen overflow-x-hidden text-wrap">
       <DepartmentHeader />

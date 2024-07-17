@@ -27,11 +27,13 @@ connectDB()
     io.on('connection', (socket) => {
        socket.on("join_room", (data) => {
           socket.join(data);
-          console.log(`User with ID: ${socket.id} joined room: ${data}`);
-          });
-      socket.on("sendMessage", async (data) => {
-        socket.to(data.room).emit("recive_message", data);
-      });
+          console.log(`User with ID: joined room: ${data}`);
+       });
+      //send message
+      socket.on("send_message", (data) => {
+        console.log(data);
+          socket.to(data.room).emit("receive_message", data);
+        });
 
       socket.on('disconnect', () => {
         console.log('A user disconnected');
