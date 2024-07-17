@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import FicComplaints from './FicComplaints'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const FicEditProfile = () => {
   const navigate = useNavigate()
@@ -12,7 +14,8 @@ const FicEditProfile = () => {
     e.preventDefault()
     console.log('submit')
     if (!username || !password || !department) {
-      alert('fill all the details')
+      // alert('fill all the details')
+      toast.error('fill all the details')
       return
     }
     console.log('submit')
@@ -35,8 +38,11 @@ const FicEditProfile = () => {
       }
       const json = await response.json()
       console.log(json)
-      alert('successfully updated your profile')
-      navigate('/centralAuthorityHome')
+      toast.success('successfully updated your profile')
+
+      setTimeout(() => {
+        navigate('/facultyInchargeHome')
+      }, 1500)
     } catch (error) {
       alert(error)
       console.log(error)
@@ -44,6 +50,7 @@ const FicEditProfile = () => {
   }
   return (
     <div className="relative">
+      <ToastContainer />
       <div className="opacity-25">
         <FicComplaints />
       </div>

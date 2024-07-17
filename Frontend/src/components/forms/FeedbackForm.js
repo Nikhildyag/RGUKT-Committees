@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Header from '../Header'
 import DesktopCommities from '../DesktopCommities'
 import { useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify' // Import ToastContainer and toast
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const AcademicCommiteeForm = () => {
