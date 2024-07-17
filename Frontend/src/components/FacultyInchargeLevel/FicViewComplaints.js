@@ -6,6 +6,7 @@ const FicViewComplaints = () => {
   const [remarks, setRemarks] = useState()
   const [complaint, setComplaint] = useState(null)
   const [status, setStatus] = useState('pending')
+
   useEffect(() => {
     const fetchComplaint = async () => {
       try {
@@ -48,7 +49,9 @@ const FicViewComplaints = () => {
 
   const submitComplaint = async (e) => {
     e.preventDefault()
-    if (!status || !remarks) return
+    if (!status || !remarks) {
+      return
+    }
     const data = {
       status,
       centralRemarks: remarks,
