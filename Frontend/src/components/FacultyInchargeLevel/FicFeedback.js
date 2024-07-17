@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
-import DepartmentHeader from './DepartmentHeader'
-import DepartmentSidebar from './DepartmentSidebar'
+import FicHeader from './FicHeader'
+import FicSidebar from './FicSidebar'
 
-const Departmentfeedbacks = () => {
+const FicFeedback = () => {
   const colors = [
     'bg-red-300',
     'bg-green-300',
@@ -15,8 +15,7 @@ const Departmentfeedbacks = () => {
   const [feedbacksReady, setfeedbacksReady] = useState(false)
 
   const fetchfeedbacks = async () => {
-    const url =
-      'http://localhost:1024/api/v1/feedbacks/get/feedbacksForDepartment'
+    const url = 'http://localhost:1024/api/v1/feedbacks/get/feedbacksForCentral'
     try {
       const response = await fetch(url, {
         method: 'GET',
@@ -51,9 +50,9 @@ const Departmentfeedbacks = () => {
   }
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
-      <DepartmentHeader />
+      <FicHeader />
       <div className="flex w-full">
-        <DepartmentSidebar />
+        <FicSidebar />
         <div className="relative h-screen w-full lg:left-[8.5%] lg:top-16 md:left-20 md:top-10 sm:top-10">
           <div className=" w-full mt-[-1%] sm:mt-[2em] ">
             <div className="overflow-x-auto ">
@@ -84,4 +83,4 @@ const Departmentfeedbacks = () => {
   )
 }
 
-export default Departmentfeedbacks
+export default FicFeedback
