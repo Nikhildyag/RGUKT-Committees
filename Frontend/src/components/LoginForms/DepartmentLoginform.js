@@ -1,51 +1,54 @@
-import React, { useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Homepage from '../Home'
-import { toast, ToastContainer } from 'react-toastify' // Import ToastContainer and toast
-import 'react-toastify/dist/ReactToastify.css'
+import React, { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Homepage from "../Home";
+import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
+import "react-toastify/dist/ReactToastify.css";
 
 const DepartmentLoginform = () => {
-  const username = useRef(null)
-  const password = useRef(null)
-  const navigate = useNavigate()
+  const username = useRef(null);
+  const password = useRef(null);
+  const navigate = useNavigate();
 
-  const [errorMessage, setErrorMessage] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    if (!username.current.value || !password.current.value) {
+      toast.error("All fields are required");
+    }
     const userdetails = {
       username: username.current.value,
       password: password.current.value,
-    }
-    const data1 = JSON.stringify(userdetails)
-    const url = 'http://localhost:1024/api/v1/department/login'
+    };
+    const data1 = JSON.stringify(userdetails);
+    const url = "http://localhost:1024/api/v1/department/login";
 
     try {
       const response = await fetch(url, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        credentials: 'include',
+        credentials: "include",
         body: data1,
-      })
+      });
 
       if (!response.ok) {
-        throw new Error('Login failed')
+        throw new Error("Login failed");
       }
 
-      const data = await response.json()
-      document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`
+      const data = await response.json();
+      document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
       //alert('user logged in')
-      toast.success('User logged in successfully')
+      toast.success("User logged in successfully");
       setTimeout(() => {
-        navigate('/departments')
-      }, 1500)
+        navigate("/departments");
+      }, 1500);
     } catch (error) {
-      console.error('Login error:', error)
-      setErrorMessage(true)
+      console.error("Login error:", error);
+      setErrorMessage(true);
     }
-  }
+  };
 
   return (
     <div className="relative">
@@ -58,7 +61,7 @@ const DepartmentLoginform = () => {
         <div className="relative w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[6%]">
           {/* Close Button */}
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center bg-white text-black rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-colors"
           >
             ✖
@@ -126,7 +129,7 @@ const DepartmentLoginform = () => {
             {/* Additional Login Options */}
             <div className="flex justify-between w-full mt-4">
               <p className="text-sm">
-                Login as{' '}
+                Login as{" "}
                 <Link
                   to="/department/centralauthorityloginForm"
                   className="text-blue-500 hover:underline"
@@ -135,7 +138,7 @@ const DepartmentLoginform = () => {
                 </Link>
               </p>
               <p className="text-sm">
-                Login as{' '}
+                Login as{" "}
                 <Link
                   to="/facultyinchargeloginForm"
                   className="text-blue-500 hover:underline"
@@ -148,7 +151,7 @@ const DepartmentLoginform = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DepartmentLoginform
+export default DepartmentLoginform;
