@@ -133,6 +133,7 @@ import FicFacultyMembers from "./components/FacultyInchargeLevel/FicFacultyMembe
 import FicStudentCommittee from "./components/FacultyInchargeLevel/FicStudentCommittee.js";
 import FicCentralAuthority from "./components/FacultyInchargeLevel/FicCentralAuthority.js";
 import FicViewComplaints from "./components/FacultyInchargeLevel/FicViewComplaints.js";
+import CentralMembersChatBox from "./components/central/CentralMembersChatBox.js";
 
 const App = () => (
   <BrowserRouter>
