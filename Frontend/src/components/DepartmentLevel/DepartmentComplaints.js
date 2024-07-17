@@ -91,10 +91,10 @@ const DepartmentComplaints = () => {
             )}
           </tbody>
         </table>
-      </div>
-      <div>
-        <button>prev</button>
-        <button>next</button>
+        <div>
+          <button className="bg-blue-600">prev</button>
+          <button>next</button>
+        </div>
       </div>
     </div>
   );
