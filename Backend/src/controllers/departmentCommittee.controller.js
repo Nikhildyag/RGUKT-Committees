@@ -47,6 +47,14 @@ const createDepartmentMember = async (req, res) => {
   }
 };
 
+const getDepartmentMember = async (req, res) => {
+  try {
+    return res.status(200).json({ user: req.member });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
 const departments = ["cse", "ece", "eee", "mech", "civil", "mme", "chem"]; // List of departments
 
 const usersData = departments.flatMap((department) =>
@@ -189,4 +197,5 @@ export {
   fetchParticularDepartmentForCentral,
   createBulk,
   logoutDepartment,
+  getDepartmentMember,
 };

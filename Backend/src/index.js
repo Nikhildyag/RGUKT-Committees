@@ -25,17 +25,15 @@ connectDB()
     });
 
     io.on('connection', (socket) => {
-      console.log('A user connected');
-
-      socket.on('sendMessage', async (data) => {
-        try {
-          const newMessage = new Message(data);
-          await newMessage.save();
-          io.emit('receiveMessage', newMessage); // Emit the message to all connected clients
-        } catch (error) {
-          console.error('Error saving message:', error);
-        }
-      });
+       socket.on("join_room", (data) => {
+          socket.join(data);
+          console.log(`User with ID: joined room: ${data}`);
+       });
+      //send message
+      socket.on("send_message", (data) => {
+        console.log(data);
+          socket.to(data.room).emit("receive_message", data);
+        });
 
       socket.on('disconnect', () => {
         console.log('A user disconnected');
