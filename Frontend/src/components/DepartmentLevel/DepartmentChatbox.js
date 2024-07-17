@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import io from 'socket.io-client';
-import DepartmentHeader from './DepartmentHeader.js';
-import DepartmentSidebar from './DepartmentSidebar.js';
+import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
+import DepartmentHeader from "./DepartmentHeader.js";
+import DepartmentSidebar from "./DepartmentSidebar.js";
 
-const socket = io.connect('http://localhost:1024');
+const socket = io.connect("http://localhost:1024");
 // , {
 //   withCredentials: true,
 //   extraHeaders: {
@@ -12,54 +12,56 @@ const socket = io.connect('http://localhost:1024');
 // });
 
 const DepartmentChatbox = () => {
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState("");
   const [department, setDepartment] = useState();
   const [committe, setCommitte] = useState();
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [room, setRoom] = useState();
   const sendMessage = async () => {
-      const messageData = {
-        'room': room,
-        'author': userId,
-        'message': "How are you",
-         'time':
-          new Date(Date.now()).getHours() +
-          ":" +
-          new Date(Date.now()).getMinutes(),
-      }
-     await socket.emit("send_message", messageData);
-  }
+    const messageData = {
+      room: room,
+      author: userId,
+      message: "How are you",
+      time:
+        new Date(Date.now()).getHours() +
+        ":" +
+        new Date(Date.now()).getMinutes(),
+    };
+    await socket.emit("send_message", messageData);
+  };
 
-   const fetchUserData = async () => {
-      const url = 'http://localhost:1024/api/v1/department/get/departmentMember';
-      try {
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            'Content-Type':'application/json'
-          },
-          credentials:'include',
-        })
-        if (!response.ok) {
-          throw new Error('Error in the response');
-        }
-        const data = await response.json();
-        setRoom(data.user.committee_name + data.user.department)
-        socket.emit("join_room",room);
-      } catch (error) {
-        console.log(error);
+  const fetchUserData = async () => {
+    const url = "http://localhost:1024/api/v1/department/get/departmentMember";
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      if (!response.ok) {
+        throw new Error("Error in the response");
       }
-     }
+      const data = await response.json();
+      console.log(data);
+      setRoom(data.user.committee_name + data.user.department);
+      //console.log(room);
+      room && socket.emit("join_room", room);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     fetchUserData();
     socket.on("receive_message", (data) => {
       console.log("here you will recive the message");
-      console.log("your message from the response",data);
+      console.log("your message from the response", data);
     });
-  }, [socket])
-  
+  }, [room]);
+
   return (
     <div className="max-w-[100%] h-screen overflow-x-hidden text-wrap">
       <DepartmentHeader />
@@ -101,9 +103,6 @@ const DepartmentChatbox = () => {
 
 export default DepartmentChatbox;
 
-
-
-
 //  useEffect(() => {
 //     // const fetchMessages = async () => {
 //     //   try {
@@ -130,7 +129,7 @@ export default DepartmentChatbox;
 //     socket.on('receiveMessage', (data) => {
 //       setMessages((prevMessages) => [...prevMessages, data]);
 //     });
-    
+
 //     return () => {
 //       // Cleanup the socket connection when the component is unmounted
 //       socket.off('receiveMessage');
