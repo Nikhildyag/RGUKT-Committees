@@ -15,7 +15,8 @@ const FicFeedback = () => {
   const [feedbacksReady, setfeedbacksReady] = useState(false)
 
   const fetchfeedbacks = async () => {
-    const url = 'http://localhost:1024/api/v1/feedbacks/get/feedbacksForCentral'
+    const url =
+      'http://localhost:1024/api/v1/feedbacks/get/feedbacksForCentral1'
     try {
       const response = await fetch(url, {
         method: 'GET',

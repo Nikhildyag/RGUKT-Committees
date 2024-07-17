@@ -78,14 +78,14 @@ const FicSidebar = () => {
             </ul>
           )}
           <Link to="/faculty/sendnotice">
-              <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-              Add Notice
-             </li>
-          </Link>
-          <Link  to="/faculty/feedbacks">
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
-            Feedback
-          </li>
+              Add Notice
+            </li>
+          </Link>
+          <Link to="/facultyIncharge/feedbacks">
+            <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
+              Feedback
+            </li>
           </Link>
         </ul>
       </div>
