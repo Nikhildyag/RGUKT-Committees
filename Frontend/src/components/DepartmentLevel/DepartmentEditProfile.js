@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import Departments from "./index";
 import { useNavigate } from "react-router-dom";
-=======
-import React, { useState } from 'react'
-import Departments from './index'
-import { useNavigate } from 'react-router-dom'
->>>>>>> 7dfcb68f8c1b62616395d47508f59679682c95f3
 
 const DepartmentEditProfile = () => {
   const navigate = useNavigate();
@@ -38,14 +32,8 @@ const DepartmentEditProfile = () => {
       if (!response.ok) {
         throw new Error(response, "Network response was not ok");
       }
-<<<<<<< HEAD
       alert("successfully updated your profile");
       navigate("/departments");
-=======
-      // const json = await response.json()
-      alert('successfully updated your profile')
-      navigate('/departments')
->>>>>>> 7dfcb68f8c1b62616395d47508f59679682c95f3
     } catch (error) {
       alert(error);
       console.log(error);
