@@ -120,6 +120,28 @@ const loginIncharge = async (req, res) => {
     .json({ member: inchargeMember, inchargeToken });
 };
 
+const updateInchargeMember = async (req, res) => {
+  try {
+    const { _id } = req.member;
+    const { fullName, department, password } = req.body;
+    if (!fullName && !department && !password) {
+      return res
+        .status(400)
+        .json({ message: "atleast one change is required" });
+    }
+    let inchargeMember = await Incharge.findById(_id);
+    if (fullName) inchargeMember.fullName = fullName;
+    if (department) inchargeMember.department = department;
+    if (password) inchargeMember.password = password;
+    await inchargeMember.save();
+    return res
+      .status(200)
+      .json({ message: "updated successfully", member: inchargeMember });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
 const getIncharge = async (req, res) => {
   try {
     const { _id } = req.member;
@@ -189,4 +211,5 @@ export {
   getIncharge1,
   getInchargeForUser,
   logoutIncharge,
+  updateInchargeMember,
 };
