@@ -45,14 +45,14 @@ const Header = () => {
             <FaBars />
           </button>
         </div>
-        <div className="flex sm:gap-3 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
+        <div className="flex text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
           <Link to="/feedbackform">
             <button className=" mr-5 rounded-md relative text-white underline-transition transition duration-300 ease-in-out ">
               Feedback
             </button>
           </Link>
           <Link to="/">
-            <button className=" mr-5 sm:hidden md:block relative text-white underline-transition transition duration-300 ease-in-out">
+            <button className="mr-5 sm:gap-0 sm:hidden md:block relative text-white underline-transition transition duration-300 ease-in-out">
               Home
             </button>
           </Link>
