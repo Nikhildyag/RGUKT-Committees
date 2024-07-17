@@ -3,7 +3,6 @@ import http from 'http';
 import { Server } from 'socket.io';
 import connectDB from './db/index.js';
 import app from './app.js';
-import { Message } from './models/messages.model.js';
 
 // Load environment variables
 dotenv.config({
@@ -25,16 +24,15 @@ connectDB()
     });
 
     io.on('connection', (socket) => {
-       socket.on("join_room", (data) => {
-          socket.join(data);
-          console.log(`User with ID: joined room: ${data}`);
-       });
-      //send message
-      socket.on("send_message", (data) => {
-        console.log(data);
-          socket.to(data.room).emit("receive_message", data);
-        });
+      socket.on('join_room', (room) => {
+       socket.join(room);
+        console.log(`User with ID: ${socket.id} joined room: ${room}`);
+      });
 
+      socket.on('send_message', (message) => {
+        console.log('Message received:', message.room);
+        socket.emit('receive_message', message);
+      });
       socket.on('disconnect', () => {
         console.log('A user disconnected');
       });
