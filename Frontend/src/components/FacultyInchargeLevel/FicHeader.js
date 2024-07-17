@@ -194,6 +194,22 @@ const FicHeader = () => {
                 Department Commities
               </Link>
             </li>
+            <li className="text-white">
+              <Link
+                to="/faculty/sendnotice"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Add Notice
+              </Link>
+              <li>
+             <Link
+                to="/faculty/feedbacks"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Feedbacks
+              </Link>
+              </li>
+            </li>
           </ul>
         </div>
       </div>
