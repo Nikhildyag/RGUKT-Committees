@@ -144,6 +144,7 @@ import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
 import FacultyNoticeSend from './components/FacultyInchargeLevel/FacultyNoticeSend.js'
 import FicComplaintDetails from './components/FacultyInchargeLevel/FicComplaintDetails.js'
 import CentralAuthorityFeedback from './components/central/CentralAuthorityContents/CentralAuthorityFeedback.js'
+import FicFeedback from './components/FacultyInchargeLevel/FicFeedback.js'
 
 const App = () => (
   <BrowserRouter>
@@ -270,7 +271,7 @@ const App = () => (
         path="/campusgreening/facultyincarge"
         Component={CampusGreeningFacultyIncarge}
       />
-      <Route exact path='/faculty/sendnotice' Component={FacultyNoticeSend}/>
+      <Route exact path="/faculty/sendnotice" Component={FacultyNoticeSend} />
       <Route
         exact
         path="/campusgreening/studentcommitte"
@@ -746,6 +747,8 @@ const App = () => (
         path="/facultyIncharge/editprofile"
         Component={FicEditProfile}
       />
+
+      <Route exact path="/facultyIncharge/feedbacks" Component={FicFeedback} />
     </Routes>
   </BrowserRouter>
 )
