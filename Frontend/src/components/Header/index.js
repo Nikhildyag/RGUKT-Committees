@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import '../../index.css'
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -37,7 +38,7 @@ const Header = () => {
   return (
     <nav className="bg-[#426CAD] p-4 relative">
       <div className="flex justify-between items-center">
-        <div className="text-white text-lg  font-bold">
+        <div className="text-white text-lg font-bold">
           <button
             onClick={toggleMenu}
             className="text-white text-2xl sm:block md:hidden focus:outline-none"
@@ -47,7 +48,7 @@ const Header = () => {
         </div>
         <div className="flex text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
           <Link to="/feedbackform">
-            <button className=" mr-5 rounded-md relative text-white underline-transition transition duration-300 ease-in-out ">
+            <button className="mr-5 rounded-md relative text-white underline-transition transition duration-300 ease-in-out">
               Feedback
             </button>
           </Link>
@@ -57,16 +58,16 @@ const Header = () => {
             </button>
           </Link>
           <Link to="/departmentloginform">
-            <button className=" mr-5 relative text-white underline-transition transition duration-300 ease-in-out">
+            <button className="mr-5 relative text-white underline-transition transition duration-300 ease-in-out">
               Login
             </button>
           </Link>
         </div>
       </div>
       <div
-        className={`fixed top-0 left-0 h-full bg-white transition-transform transform ${
+        className={`fixed top-0 left-0 h-full bg-[#ece8e8] transition-transform transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
-        } w-64`}
+        } w-64 z-50`}
         ref={menuRef}
       >
         <div className="flex flex-row bg-[#426CAD] p-0 h-[3.5em]">
@@ -77,126 +78,126 @@ const Header = () => {
           />
         </div>
         <div className="w-full mt-4">
-          <ul className="flex flex-col text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl ">
-            <li className="text-white">
+          <ul className="flex flex-col text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl">
+            <li className="text-black">
               <Link
                 to="/"
-                className=" text-black block px-2 py-2   hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
               </Link>
             </li>
-            <li className="py-1  text-black relative" ref={dropdownRef}>
+            <li className="py-1 text-black relative" ref={dropdownRef}>
               <button
                 onClick={toggleDropdown}
                 className="flex items-center justify-between w-full text-left px-2 py-1 focus:outline-none"
               >
-                <span className="mr-2  text-black ">Committees</span>
+                <span className="mr-2">Committees</span>
                 {isDropdownOpen ? <FaAngleDown /> : <FaAngleRight />}
               </button>
               <ul
                 className={`${
                   isDropdownOpen ? 'block' : 'hidden'
-                } ml-2 bg-white rounded text-black`}
+                } ml-2 bg-[#ece8e8] rounded text-black`}
               >
-                <li className=" text-black">
-                  <Link to="/academic" className="block  text-black ">
+                <li>
+                  <Link to="/academic" className="block">
                     Academics
                   </Link>
                 </li>
-                 <li className=" text-black">
-                  <Link to="/excellence" className="block  text-black ">
+                <li>
+                  <Link to="/excellence" className="block">
                     Excellence
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/sports" className="block py-1">
                     Sports Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/campusamenties" className="block">
                     Campus Amenities Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/mess" className="block py-1">
                     Mess Advisory Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/hostel" className="block">
                     Hostel Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/career" className="block py-1">
                     Career Guidance Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/innovation" className="block">
                     Innovation and Incubation Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/cultural" className="block py-1">
                     Cultural Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/educational" className="block">
                     Educational Opportunities Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/external" className="block py-1">
                     External Activities Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/grievance" className="block">
                     Grievance and Redressal Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/social" className="block py-1">
                     Social Service Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/photography" className="block">
                     Photography Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/environment" className="block py-1">
                     Environment/Sustainability Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/campusgreening" className="block">
                     Campus Greening Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/safety" className="block py-1">
                     Safety and Security Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/health" className="block">
                     Health Committee
                   </Link>
                 </li>
-                <li className=" text-black">
+                <li>
                   <Link to="/placement" className="block py-1">
                     Placement and Internship Committee
                   </Link>
                 </li>
               </ul>
             </li>
-            <li className=" text-black ">
+            <li className="text-black">
               <Link to="/login" className="block px-2 py-1">
                 Login
               </Link>
