@@ -141,6 +141,7 @@ import FacultyCivilchatBox from "./components/FacultyInchargeLevel/ChatBoxes/Fac
 import FacultyEcechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyEcechatBox.js";
 import FacultyEeechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyEeechatBox.js";
 import FacultyCsechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyCsechatBox.js";
+import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
 
 const App = () => (
   <BrowserRouter>
