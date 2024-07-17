@@ -7,6 +7,7 @@ import {
   getInchargeForUser,
   loginIncharge,
   logoutIncharge,
+  updateInchargeMember,
 } from "../controllers/incharge.controller.js";
 import {
   verifyCentralJWT,
@@ -20,6 +21,9 @@ router.route("/create-incharge").post(createIncharge);
 
 //login incharge
 router.route("/login").post(loginIncharge);
+
+//update incharge
+router.route("/update").post(verifyInchargeJWT, updateInchargeMember);
 
 //for incharge level
 router.route("/get-incharge").get(verifyInchargeJWT, getIncharge);

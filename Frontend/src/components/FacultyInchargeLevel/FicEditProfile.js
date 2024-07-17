@@ -6,23 +6,23 @@ import FicComplaints from './FicComplaints'
 const FicEditProfile = () => {
   const navigate = useNavigate()
   const [username, setUsername] = useState('')
-  const [userId, setuserId] = useState('')
+  const [department, setDepartment] = useState('')
   const [password, setPassword] = useState('')
   const handleEdit = async (e) => {
     e.preventDefault()
     console.log('submit')
-    if (!username || !password || !userId) {
+    if (!username || !password || !department) {
       alert('fill all the details')
       return
     }
     console.log('submit')
     const data = {
       fullName: username,
-      Id_number: userId,
+      department,
       password,
     }
     const userDetails = JSON.stringify(data)
-    const url = 'http://localhost:1024/api/v1/central/update'
+    const url = 'http://localhost:1024/api/v1/incharge/update'
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -72,7 +72,7 @@ const FicEditProfile = () => {
           {/* Form */}
           <div className="flex flex-col items-center w-full">
             <h1 className="text-center text-2xl font-semibold text-green-500 mb-1">
-              CentralAuthority
+              Faculty Incharge
             </h1>
             <h2 className="text-center text-xl font-semibold text-gray-700 mb-1">
               Enter Details to Edit
@@ -94,23 +94,23 @@ const FicEditProfile = () => {
                   className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                 />
               </div>
-              <div className="mb-6 w-full">
+              <div className="mb-3 w-full">
                 <label
-                  htmlFor="Id"
+                  htmlFor="department"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  UserId
+                  Department
                 </label>
                 <input
                   type="text"
-                  id="Id"
-                  onChange={(e) => setuserId(e.target.value)}
-                  value={userId}
-                  placeholder="Enter userId"
+                  id="department"
+                  onChange={(e) => setDepartment(e.target.value)}
+                  value={department}
+                  placeholder="Enter department"
                   className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                 />
               </div>
-              <div className="mb-6 w-full">
+              <div className="mb-3 w-full">
                 <label
                   htmlFor="new password"
                   className="block text-sm font-medium text-gray-700"

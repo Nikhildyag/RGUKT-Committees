@@ -3,7 +3,7 @@ import FicHeader from './FicHeader'
 import FicSidebar from './FicSidebar'
 import FicComplaints from './FicComplaints'
 
-const index = () => {
+const FacultyIchargeLevel = () => {
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <FicHeader />
@@ -17,4 +17,4 @@ const index = () => {
   )
 }
 
-export default index
+export default FacultyIchargeLevel
