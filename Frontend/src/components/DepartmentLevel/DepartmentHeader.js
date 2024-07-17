@@ -6,17 +6,12 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const DepartmentHeader = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const menuRef = useRef(null)
   const dropdownRef = useRef(null)
   const navigate = useNavigate()
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
-  }
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen)
   }
 
   const handleClickOutside = (event) => {
@@ -26,7 +21,6 @@ const DepartmentHeader = () => {
       (!dropdownRef.current || !dropdownRef.current.contains(event.target))
     ) {
       setIsOpen(false)
-      setIsDropdownOpen(false)
     }
   }
   useEffect(() => {

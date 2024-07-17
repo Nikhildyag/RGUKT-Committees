@@ -1,39 +1,44 @@
-import React, { useEffect, useState } from "react";
-import io from "socket.io-client";
-import DepartmentHeader from "./DepartmentHeader.js";
-import DepartmentSidebar from "./DepartmentSidebar.js";
+import React, { useEffect, useState } from 'react'
+import io from 'socket.io-client'
+import DepartmentHeader from './DepartmentHeader.js'
+import DepartmentSidebar from './DepartmentSidebar.js'
 
+<<<<<<< HEAD
 const socket = io("http://localhost:1024", {
+=======
+const socket = io('http://localhost:1024', {
+>>>>>>> c0abdba89dd5d6a6829ed5becb8b17f7753b3103
   withCredentials: true,
   extraHeaders: {
-    "my-custom-header": "abcd",
+    'my-custom-header': 'abcd',
   },
-});
+})
 
 const DepartmentChatbox = ({ userId }) => {
-  const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState('')
+  const [messages, setMessages] = useState([])
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/messages/get/departmentMessage",
+          'http://localhost:1024/api/v1/messages/get/departmentMessage',
           {
-            method: "GET",
-            credentials: "include",
+            method: 'GET',
+            credentials: 'include',
           }
-        );
+        )
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error('Network response was not ok')
         }
-        const data = await response.json();
-        setMessages(data.messages);
+        const data = await response.json()
+        setMessages(data.messages)
       } catch (error) {
-        console.error("Error fetching messages:", error);
+        console.error('Error fetching messages:', error)
       }
-    };
+    }
 
+<<<<<<< HEAD
     fetchMessages();
     socket.on("receiveMessage", (data) => {
       setMessages((prevMessages) => [...prevMessages, data]);
@@ -43,13 +48,25 @@ const DepartmentChatbox = ({ userId }) => {
       socket.off("receiveMessage");
     };
   }, [socket]);
+=======
+    fetchMessages()
+    socket.on('receiveMessage', (data) => {
+      setMessages((prevMessages) => [...prevMessages, data])
+    })
+
+    return () => {
+      socket.off('receiveMessage')
+    }
+  }, [])
+>>>>>>> c0abdba89dd5d6a6829ed5becb8b17f7753b3103
 
   const sendMessage = async () => {
     if (message.trim()) {
-      const newMessage = { message };
+      const newMessage = { message }
 
       try {
         // Emit the message to the server via socket.io
+<<<<<<< HEAD
         socket.emit("sendMessage", newMessage);
         setMessage("");
         // Save the message to the backend
@@ -67,15 +84,34 @@ const DepartmentChatbox = ({ userId }) => {
 
         if (!response.ok) {
           throw new Error("Network response was not ok");
+=======
+        socket.emit('sendMessage', newMessage)
+        setMessage('')
+        // Save the message to the backend
+        const response = await fetch(
+          'http://localhost:1024/api/v1/messages/send/message',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newMessage),
+            credentials: 'include',
+          }
+        )
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+>>>>>>> c0abdba89dd5d6a6829ed5becb8b17f7753b3103
         }
 
         // Update the local state
         //  setMessages((prevMessages) => [...prevMessages, newMessage]);
       } catch (error) {
-        console.error("Error sending message:", error);
+        console.error('Error sending message:', error)
       }
     }
-  };
+  }
 
   return (
     <div className="max-w-[100%]  h-screen overflow-x-hidden text-wrap">
@@ -90,8 +126,8 @@ const DepartmentChatbox = ({ userId }) => {
                   key={index}
                   className={`p-3 my-2 rounded-lg ${
                     msg.senderId === userId
-                      ? "bg-green-200 self-end"
-                      : "bg-white self-start border border-gray-200"
+                      ? 'bg-green-200 self-end'
+                      : 'bg-white self-start border border-gray-200'
                   }`}
                 >
                   {msg.message}
@@ -117,7 +153,7 @@ const DepartmentChatbox = ({ userId }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DepartmentChatbox;
+export default DepartmentChatbox
