@@ -131,7 +131,6 @@ import FacultyIchargeLevel from "./components/FacultyInchargeLevel/index.js";
 import FicFacultyMembers from "./components/FacultyInchargeLevel/FicFacultyMembers.js";
 import FicStudentCommittee from "./components/FacultyInchargeLevel/FicStudentCommittee.js";
 import FicCentralAuthority from "./components/FacultyInchargeLevel/FicCentralAuthority.js";
-import FicViewComplaints from "./components/FacultyInchargeLevel/FicViewComplaints.js";
 import CentralMembersChatBox from "./components/central/CentralMembersChatBox.js";
 import FacultyMmechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyMmechatBox.js";
 import FacultyChemchatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyChemchatBox.js";
