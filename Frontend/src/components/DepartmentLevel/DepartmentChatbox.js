@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import DepartmentHeader from "./DepartmentHeader.js";
 import DepartmentSidebar from "./DepartmentSidebar.js";
 
-// Establish Socket.IO connection
+// Establish socket connection outside of the component to ensure a single connection instance
 const socket = io("http://localhost:1024", {
   withCredentials: true,
   extraHeaders: {
@@ -30,24 +30,23 @@ const DepartmentChatbox = ({ userId }) => {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        setMessages(data.messages); // Update messages state with fetched messages
+        setMessages(data.messages);
       } catch (error) {
         console.error("Error fetching messages:", error);
       }
     };
 
-    fetchMessages(); // Fetch messages when component mounts
+    fetchMessages();
 
-    // Listen for 'receiveMessage' events from Socket.IO server
+    // Listen for incoming messages
     socket.on("receiveMessage", (data) => {
-      setMessages((prevMessages) => [...prevMessages, data]); // Update messages state with new message
+      setMessages((prevMessages) => [...prevMessages, data]);
     });
-
-    // Clean up socket event listener on component unmount
     return () => {
+      // Cleanup the socket connection when the component is unmounted
       socket.off("receiveMessage");
     };
-  }, []); // Empty dependency array ensures useEffect runs only once on component mount
+  }, []);
 
   // Function to send a new message
   const sendMessage = async () => {
@@ -57,25 +56,6 @@ const DepartmentChatbox = ({ userId }) => {
       try {
         // Emit the message to the server via socket.io
         socket.emit("sendMessage", newMessage);
-
-        // Save the message to the backend
-        const response = await fetch(
-          "http://localhost:1024/api/v1/messages/send/message",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newMessage),
-            credentials: "include",
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        // Clear the message input field after sending
         setMessage("");
       } catch (error) {
         console.error("Error sending message:", error);
