@@ -142,6 +142,7 @@ import FacultyEcechatBox from "./components/FacultyInchargeLevel/ChatBoxes/Facul
 import FacultyEeechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyEeechatBox.js";
 import FacultyCsechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyCsechatBox.js";
 import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
+import FacultyNoticeSend from './components/FacultyInchargeLevel/FacultyNoticeSend.js'
 
 const App = () => (
   <BrowserRouter>
@@ -258,7 +259,6 @@ const App = () => (
         path="/campusamenties/studentcommitte"
         Component={CampusAmentiesStudentCommittee}
       />
-
       <Route
         exact
         path="/campusgreening/centralaurhority"
@@ -269,6 +269,7 @@ const App = () => (
         path="/campusgreening/facultyincarge"
         Component={CampusGreeningFacultyIncarge}
       />
+      <Route exact path='/faculty/sendnotice' Component={FacultyNoticeSend}/>
       <Route
         exact
         path="/campusgreening/studentcommitte"
