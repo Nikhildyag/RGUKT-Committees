@@ -86,7 +86,6 @@ const createBulk = async (req, res) => {
 
 const loginDepartmentMember = async (req, res) => {
   const { username, password } = req.body;
-  console.log(username);
   if (!username || !password)
     return res.status(400).json({ message: "All fields are required" });
   const departmentMember = await Department.findOne({ username });
@@ -96,7 +95,6 @@ const loginDepartmentMember = async (req, res) => {
   if (!isPasswordValid)
     return res.status(400).json({ message: "your password is not valid" });
   const departmentToken = await departmentMember.generateAccessToken();
-  console.log(departmentToken);
   const options = {
     httpOnly: true,
     secure: true, // Ensure this is true if using HTTPS
