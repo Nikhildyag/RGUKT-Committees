@@ -127,13 +127,20 @@ import Departmentfeedbacks from "./components/DepartmentLevel/Departmentfeedback
 import DepartmentEditProfile from "./components/DepartmentLevel/DepartmentEditProfile.js";
 import CentralEditprofile from "./components/central/CentralEditprofile.js";
 import CentralHomesection from "./components/central/Home/index.js";
-import index from "./components/FacultyInchargeLevel/index.js";
+import FacultyIchargeLevel from "./components/FacultyInchargeLevel/index.js";
 import FicComplaintDetails from "./components/FacultyInchargeLevel/FicComplaintDetails.js";
 import FicFacultyMembers from "./components/FacultyInchargeLevel/FicFacultyMembers.js";
 import FicStudentCommittee from "./components/FacultyInchargeLevel/FicStudentCommittee.js";
 import FicCentralAuthority from "./components/FacultyInchargeLevel/FicCentralAuthority.js";
 import FicViewComplaints from "./components/FacultyInchargeLevel/FicViewComplaints.js";
 import CentralMembersChatBox from "./components/central/CentralMembersChatBox.js";
+import FacultyMmechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyMmechatBox.js";
+import FacultyChemchatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyChemchatBox.js";
+import FacultyMechchatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyMechchatBox.js";
+import FacultyCivilchatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyCivilchatBox.js";
+import FacultyEcechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyEcechatBox.js";
+import FacultyEeechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyEeechatBox.js";
+import FacultyCsechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyCsechatBox.js";
 
 const App = () => (
   <BrowserRouter>
@@ -661,8 +668,43 @@ const App = () => (
       />
       <Route
         exact
-        path="central/mmechatbox"
+        path="/central/mmechatbox"
         Component={CentralMmeChatBoxSection}
+      />
+        <Route
+        exact
+        path="/faculty/csechatbox"
+        Component={FacultyCsechatBox}
+      />
+      <Route
+        exact
+        path="/faculty/ecechatbox"
+        Component={FacultyEcechatBox}
+      />
+      <Route
+        exact
+        path="/faculty/eeechatbox"
+        Component={FacultyEeechatBox}
+      />
+      <Route
+        exact
+        path="/faculty/civilchatbox"
+        Component={FacultyCivilchatBox}
+      />
+      <Route
+        exact
+        path="/faculty/mechchatbox"
+        Component={FacultyMechchatBox}
+      />
+      <Route
+        exact
+        path="/faculty/chemchatbox"
+        Component={FacultyChemchatBox}
+      />
+      <Route
+        exact
+        path="/faculty/mmechatbox"
+        Component={FacultyMmechatBox}
       />
       <Route
         exact
@@ -690,7 +732,7 @@ const App = () => (
       <Route exact path="/footer" Component={Footer} />
 
       {/* Faculty Incharge Level */}
-      <Route exact path="/facultyInchargeHome" Component={index} />
+      <Route exact path="/facultyInchargeHome" Component={FacultyIchargeLevel} />
       <Route
         exact
         path="/facultyIncharge/complaint/:complaintId"

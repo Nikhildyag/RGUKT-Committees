@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Departments from './index'
-import { json, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const DepartmentEditProfile = () => {
   const navigate = useNavigate()
@@ -32,7 +32,7 @@ const DepartmentEditProfile = () => {
       if (!response.ok) {
         throw new Error(response, 'Network response was not ok')
       }
-      const json = await response.json()
+      // const json = await response.json()
       alert('successfully updated your profile')
       navigate('/departments')
     } catch (error) {
