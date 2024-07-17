@@ -52,7 +52,7 @@ const FicEditProfile = () => {
         <div className="relative w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[6%]">
           {/* Close Button */}
           <button
-            onClick={() => navigate('/centralAuthorityHome')}
+            onClick={() => navigate('/facultyInchargeHome')}
             className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center bg-white text-black rounded-full border border-gray-300 hover:bg-blue-500 hover:text-white transition-colors"
           >
             ✖
