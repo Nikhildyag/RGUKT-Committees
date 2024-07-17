@@ -9,6 +9,7 @@ import {
 import {
   verifyCentralJWT,
   verifyDepartmentJWT,
+  verifyInchargeJWT,
 } from "../middlewares/auth.middleware.js";
 
 const router = Router();
@@ -34,6 +35,10 @@ router
   .route("/get/ComplaintsForCentral")
   .get(verifyCentralJWT, getComplaintsForCentral);
 
+router
+  .route("/get/ComplaintsForCentral2")
+  .get(verifyInchargeJWT, getComplaintsForCentral);
+
 //get the particular complaint fro the department side
 router
   .route("/get/particularComplaint/:complaintId")
@@ -43,4 +48,8 @@ router
 router
   .route("/get/particularComplaintForCentral/:complaintId")
   .get(verifyCentralJWT, getparticularComplaint);
+
+router
+  .route("/get/particularComplaintForIncharge/:complaintId")
+  .get(verifyInchargeJWT, getparticularComplaint);
 export default router;

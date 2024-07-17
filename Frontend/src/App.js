@@ -128,11 +128,12 @@ import DepartmentEditProfile from './components/DepartmentLevel/DepartmentEditPr
 import CentralEditprofile from './components/central/CentralEditprofile.js'
 import CentralHomesection from './components/central/Home/index.js'
 import index from './components/FacultyInchargeLevel/index.js'
-import CentralMembersChatBox from './components/central/CentralMembersChatBox.js'
 import FicComplaintDetails from './components/FacultyInchargeLevel/FicComplaintDetails.js'
 import FicFacultyMembers from './components/FacultyInchargeLevel/FicFacultyMembers.js'
 import FicStudentCommittee from './components/FacultyInchargeLevel/FicStudentCommittee.js'
 import FicCentralAuthority from './components/FacultyInchargeLevel/FicCentralAuthority.js'
+import FicViewComplaints from './components/FacultyInchargeLevel/FicViewComplaints.js'
+import CentralMembersChatBox from './components/central/CentralMembersChatBox.js'
 import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
 
 const App = () => (
@@ -693,8 +694,8 @@ const App = () => (
       <Route exact path="/facultyInchargeHome" Component={index} />
       <Route
         exact
-        path="/facultyIncharge/complaint/:complaintId"
-        Component={FicComplaintDetails}
+        path="/incharge/complaint/:complaintId"
+        Component={FicViewComplaints}
       />
       <Route
         exact

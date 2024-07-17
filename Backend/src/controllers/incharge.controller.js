@@ -138,11 +138,11 @@ const getInchargeForUser = async (req, res) => {
   try {
     const { committee_name } = req.body;
     console.log(committee_name);
-    const incharge = await Incharge.findOne({committee_name});
+    const incharge = await Incharge.findOne({ committee_name });
     if (!incharge) {
       return res.status(400).json({ message: "you are not logged in" });
     }
-    console.log(incharge)
+    console.log(incharge);
     return res.status(200).json({ incharge });
   } catch (error) {
     return res.status(400).json({ message: error.message });
@@ -165,4 +165,28 @@ const getIncharge1 = async (req, res) => {
   }
 };
 
-export { createIncharge, loginIncharge, getIncharge, getIncharge1,getInchargeForUser };
+const logoutIncharge = async (req, res) => {
+  //console.log(req.user);
+  await Incharge.findByIdAndUpdate(req.member._id);
+  const options = {
+    path: "/",
+    secure: true,
+    sameSite: "None",
+  };
+  return res
+    .status(200)
+    .clearCookie("inchargeToken", options)
+    .json({ message: "Logged out successfully" });
+  // .json({
+  //   tokens: { accessToken, refreshToken },
+  // });
+};
+
+export {
+  createIncharge,
+  loginIncharge,
+  getIncharge,
+  getIncharge1,
+  getInchargeForUser,
+  logoutIncharge,
+};
