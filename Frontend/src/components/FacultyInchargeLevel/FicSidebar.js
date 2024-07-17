@@ -82,7 +82,11 @@ const FicSidebar = () => {
               Add Notice
             </li>
           </Link>
+<<<<<<< HEAD
           <Link to="/faculty/feedbacks">
+=======
+          <Link to="/facultyIncharge/feedbacks">
+>>>>>>> 5c024851c6020799be76725c7d609c244452046c
             <li className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-2">
               Feedback
             </li>

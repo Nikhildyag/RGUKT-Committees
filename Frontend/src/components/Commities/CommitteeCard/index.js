@@ -1,40 +1,44 @@
 import React, { useState } from 'react'
+
+import { toast, ToastContainer } from 'react-toastify' // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'
+
 const CommitteeCard = ({ data }) => {
-  const { rolesAndResponsibilities } = data;
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const committee_name = data.name;
-  const categories = data.categories;
-  const [showForm, setShowForm] = useState(false);
-  const [category, setCategory] = useState("");
-  const [otherCategory, setOtherCategory] = useState("");
-  const [year, setYear] = useState("");
-  const [branch, setBranch] = useState("");
-  const [isAnonymous, setIsAnonymous] = useState(false);
-  const [studentId, setStudentId] = useState("");
+  const { rolesAndResponsibilities } = data
+  const [name, setName] = useState('')
+  const [message, setMessage] = useState('')
+  const committee_name = data.name
+  const categories = data.categories
+  const [showForm, setShowForm] = useState(false)
+  const [category, setCategory] = useState('')
+  const [otherCategory, setOtherCategory] = useState('')
+  const [year, setYear] = useState('')
+  const [branch, setBranch] = useState('')
+  const [isAnonymous, setIsAnonymous] = useState(false)
+  const [studentId, setStudentId] = useState('')
 
   const handleAnonymousChange = (e) => {
-    setIsAnonymous(e.target.value === "anonymous");
-  };
+    setIsAnonymous(e.target.value === 'anonymous')
+  }
 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-  };
+    setCategory(e.target.value)
+  }
 
   const handleYear = (e) => {
-    setYear(e.target.value);
-  };
+    setYear(e.target.value)
+  }
   const handleBranch = (e) => {
-    setBranch(e.target.value);
-  };
+    setBranch(e.target.value)
+  }
   const handlesubmit = async (e) => {
-    e.preventDefault();
-    console.log(year, branch, category);
+    e.preventDefault()
+    console.log(year, branch, category)
     if (!year || !category || !branch || !message || !committee_name) {
-      alert("mention all the feilds");
-      return;
+      toast.error('All fields are required')
+      return
     }
-    console.log(committee_name);
+    console.log(committee_name)
     const Details = {
       fullName: name,
       year,
@@ -43,45 +47,50 @@ const CommitteeCard = ({ data }) => {
       committee_name: data.committee_name,
       department: branch,
       description: message,
-    };
-    const committe_details = JSON.stringify(Details);
+    }
+    const committe_details = JSON.stringify(Details)
     try {
       const response = await fetch(
         `http://localhost:1024/api/v1/complaints/create-complaint`,
         {
-          method: "POST",
-          credentials: "include", // Include credentials (cookies)
+          method: 'POST',
+          credentials: 'include', // Include credentials (cookies)
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: committe_details,
         }
-      );
+      )
       if (!response.ok) {
-        alert("Error in submiting complaint");
-        throw new Error("Network response was not ok");
+        toast.error('Error in submiting complaint')
+        throw new Error('Network response was not ok')
       }
-      const json = await response.json();
-      console.log(json);
+      const json = await response.json()
+      toast.success('Complaint submitted successfully')
+      setTimeout(() => {
+        setShowForm(!showForm)
+      })
+      console.log(json)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   const DisplayForm = () => {
-    setShowForm(!showForm);
-  };
+    setShowForm(!showForm)
+  }
   return (
     <div>
+      <ToastContainer />
       {!showForm ? (
         <>
-          <div className="p-6 sm:relative md:left-40 sm:left-0 z-0 sm:mt-[2%]">
-            <div className="mb-8 w-full md:w-[85%] break-words px-3">
-              <h1 className="text-sm sm:text-base md:text-2xl lg:text-4xl xl:text-4xl font-bold mb-4 mt-8 text-red-800">
+          <div className="md:p-6 sm:px-0 sm:py-8 sm:relative sm:left-0 lg:left-[10%] md:left-24 z-0 sm:mt-[2%] md:mt-[3%]">
+            <div className="mb-8 w-full md:w-3/4 lg:w-[82%] break-words px-3">
+              <h1 className="text-sm sm:text-base md:text-2xl lg:text-2xl xl:text-4xl font-bold mb-4 mt-8 text-red-800">
                 {` Welcome to RGUKT Basar's ${data.name}`}
               </h1>
               <div>
-                <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-2xl font-semibold mb-2 break-words bg-green-900 w-fit text-white px-2">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-semibold mb-2 break-words bg-green-900 w-fit text-white px-2">
                   Purpose:
                 </h3>
                 <p className="break-words text-sm sm:text-base md:text-md lg:text-md xl:text-lg">
@@ -90,7 +99,7 @@ const CommitteeCard = ({ data }) => {
               </div>
             </div>
             <div className="mb-8 mx-3">
-              <h2 className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-2xl font-bold mb-4 bg-green-900 w-fit text-white px-2">
+              <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-bold mb-4 bg-green-900 w-fit text-white px-2">
                 Roles And Responsibilities
               </h2>
               <div className="mb-4">
@@ -275,7 +284,7 @@ const CommitteeCard = ({ data }) => {
                         ))}
                       </select>
                     </div>
-                    {(category === "Other" || category === "other") && (
+                    {(category === 'Other' || category === 'other') && (
                       <div className="mb-4">
                         <label
                           className="block text-white  font-bold mb-2"
@@ -326,7 +335,7 @@ const CommitteeCard = ({ data }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CommitteeCard;
+export default CommitteeCard

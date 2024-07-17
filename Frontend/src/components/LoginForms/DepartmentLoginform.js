@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Homepage from '../Home'
+import { toast, ToastContainer } from 'react-toastify' // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'
 
 const DepartmentLoginform = () => {
   const username = useRef(null)
@@ -34,7 +36,11 @@ const DepartmentLoginform = () => {
 
       const data = await response.json()
       document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`
-      navigate('/departments')
+      //alert('user logged in')
+      toast.success('User logged in successfully')
+      setTimeout(() => {
+        navigate('/departments')
+      }, 1500)
     } catch (error) {
       console.error('Login error:', error)
       setErrorMessage(true)
@@ -43,6 +49,7 @@ const DepartmentLoginform = () => {
 
   return (
     <div className="relative">
+      <ToastContainer />
       <div className="opacity-25">
         <Homepage />
       </div>

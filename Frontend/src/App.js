@@ -131,6 +131,7 @@ import FacultyIchargeLevel from "./components/FacultyInchargeLevel/index.js";
 import FicFacultyMembers from "./components/FacultyInchargeLevel/FicFacultyMembers.js";
 import FicStudentCommittee from "./components/FacultyInchargeLevel/FicStudentCommittee.js";
 import FicCentralAuthority from "./components/FacultyInchargeLevel/FicCentralAuthority.js";
+import FicViewComplaints from "./components/FacultyInchargeLevel/FicViewComplaints.js";
 import CentralMembersChatBox from "./components/central/CentralMembersChatBox.js";
 import FacultyMmechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyMmechatBox.js";
 import FacultyChemchatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyChemchatBox.js";
@@ -142,6 +143,7 @@ import FacultyCsechatBox from "./components/FacultyInchargeLevel/ChatBoxes/Facul
 import FicEditProfile from "./components/FacultyInchargeLevel/FicEditProfile.js";
 import FacultyNoticeSend from "./components/FacultyInchargeLevel/FacultyNoticeSend.js";
 import FicComplaintDetails from "./components/FacultyInchargeLevel/FicComplaintDetails.js";
+import NoticeBoard from "./components/Noticeboard/index.js";
 import CentralAuthorityFeedback from "./components/central/CentralAuthorityContents/CentralAuthorityFeedback.js";
 import FicFeedback from "./components/FacultyInchargeLevel/FicFeedback.js";
 
@@ -169,6 +171,7 @@ const App = () => (
       <Route exact path="/social" Component={Social} />
       <Route exact path="/sports" Component={Sports} />
       <Route exact path="/excellence" Component={Excellence} />
+      <Route exact path="/noticeboard" Component={NoticeBoard} />
       <Route
         exact
         path="/departmenteditProfile"
@@ -747,6 +750,8 @@ const App = () => (
         path="/facultyIncharge/editprofile"
         Component={FicEditProfile}
       />
+
+      <Route exact path="/facultyIncharge/feedbacks" Component={FicFeedback} />
     </Routes>
   </BrowserRouter>
 );

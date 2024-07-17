@@ -18,7 +18,11 @@ const FicFeedback = () => {
 
   const fetchfeedbacks = async () => {
     const url =
+<<<<<<< HEAD
       "http://localhost:1024/api/v1/feedbacks/get/feedbacksForCentral1";
+=======
+      'http://localhost:1024/api/v1/feedbacks/get/feedbacksForCentral1'
+>>>>>>> 5c024851c6020799be76725c7d609c244452046c
     try {
       const response = await fetch(url, {
         method: "GET",

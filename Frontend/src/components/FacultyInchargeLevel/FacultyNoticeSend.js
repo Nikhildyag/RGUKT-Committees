@@ -7,14 +7,18 @@ const FacultyNoticeSend = () => {
     const [description,setDescription] = useState();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!subject || !description) {
+            alert("fill all the fields");
+            return;
+    }
     const noticeDetails = {
       subject: subject,
       description: description,
     };
     const data1 = JSON.stringify(noticeDetails);
-    const url = "http://localhost:1024/api/v1/incharge/login";
+    const url = "http://localhost:1024/api/v1/notices/create-notice";
 
     try {
       const response = await fetch(url, {
