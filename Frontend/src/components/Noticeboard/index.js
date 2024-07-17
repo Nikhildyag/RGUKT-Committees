@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import DesktopCommities from '../DesktopCommities'
 import Header from '../Header'
-import { FaPlus, FaRegBell } from 'react-icons/fa'
+import { FaPlus } from 'react-icons/fa'
 
 const NoticeBoard = () => {
   const [notices, setNotices] = useState([])
@@ -57,9 +57,6 @@ const NoticeBoard = () => {
           <div className="pb-10">
             {noticeReady &&
               notices.map((notice, index) => {
-                const isToday =
-                  new Date(notice.createdAt).toDateString() ===
-                  new Date().toDateString()
                 const isNewNotice = index < 5
 
                 return (
@@ -70,20 +67,20 @@ const NoticeBoard = () => {
                     }`}
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <div className="flex flex-row  gap-1 py-2 text-sm sm:text-base md:text-md lg:text-lg">
+                      <div className="flex flex-row  gap-1 py-2 text-sm sm:text-base md:text-md lg:text-md">
                         <p className="text-red-900">
                           {formatDate(notice.createdAt)}:
                         </p>
-                        <p className="text-blue-600 capitalize">
+                        <p className="text-blue-500 capitalize">
                           {notice.committee_name} Committee:{' '}
                           <span>{notice.subject}</span>
                         </p>
                       </div>
-                      <div className="flex flex-row gap-4 ml-2">
+                      <div className="flex flex-row gap-4 ml-1">
                         {isNewNotice && (
                           <img
                             src="https://hub.rgukt.ac.in/hub/static/images/new3.gif"
-                            className="w-10 h-5 mt-1"
+                            className="md:w-10 md:h-5 sm:w-6 sm:h-4 mt-1"
                             alt="new notice"
                           />
                         )}
@@ -91,7 +88,7 @@ const NoticeBoard = () => {
                           onClick={() => toggleDescription(index)}
                           className="text-blue-500 hover:text-blue-700 focus:outline-none"
                         >
-                          <FaPlus className="inline-block align-text-top" />
+                          <FaPlus className="inline-block align-text-top sm:mr-4" />
                         </button>
                       </div>
                     </div>

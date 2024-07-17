@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify' // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate } from 'react-router-dom'
 
 const ViewComplaint = () => {
   const { complaintId } = useParams()
   const [remarks, setRemarks] = useState()
   const [complaint, setComplaint] = useState(null)
   const [status, setStatus] = useState('pending')
+  const navigate = useNavigate()
+
   useEffect(() => {
     const fetchComplaint = async () => {
       try {
@@ -47,7 +52,7 @@ const ViewComplaint = () => {
   const submitComplaint = async (e) => {
     e.preventDefault()
     if (!status || !remarks) {
-      alert('all feilds required')
+      toast.error('All fields are required')
       return
     }
     const data = {
@@ -73,10 +78,15 @@ const ViewComplaint = () => {
         throw new Error('Network response was not ok')
       }
       const json = await response.json()
-      alert('status ubdated')
+
+      toast.success('Status updated successfully')
+      setTimeout(() => {
+        navigate('/departments')
+      }, 1500)
+
       console.log(json)
     } catch (error) {
-      alert('Error in ubdating the status')
+      toast.error('Error in updating the status')
       console.log(error)
     }
   }
@@ -86,6 +96,7 @@ const ViewComplaint = () => {
   }
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full max-w-screen">
+      <ToastContainer />
       <h2 className="text-3xl font-bold mb-4 text-gray-800 text-center">
         Complaint Details
       </h2>
