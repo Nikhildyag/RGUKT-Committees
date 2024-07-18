@@ -52,7 +52,7 @@ const FicHeader = () => {
       toast.success('User logged out successfully')
       setTimeout(() => {
         navigate('/')
-      }, 1500)
+      }, 1000)
     } catch (error) {
       console.log(error)
     }
