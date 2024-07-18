@@ -82,7 +82,7 @@ const ViewComplaint = () => {
       toast.success('Status updated successfully')
       setTimeout(() => {
         navigate('/departments')
-      }, 1500)
+      }, 1000)
 
       console.log(json)
     } catch (error) {
@@ -102,10 +102,17 @@ const ViewComplaint = () => {
       </h2>
       <div className="bg-[#0d1d3b] rounded-lg shadow-lg overflow-hidden sm:rounded-lg border border-gray-300 hover:border-blue-500 transition duration-300">
         <div className="p-4">
-          <div className="flex flex-col border-b border-gray-300  px-4">
-            <div className="py-2 border-b border-gray-300">
+          <div className="flex flex-col  px-4">
+            <div className="py-2">
               <p className="text-sm md:text-md text-white mb-2">
                 <span className="md:text-md">ID:</span> {complaint._id}
+              </p>
+              <p className="text-sm md:text-md text-white mb-2">
+                <span className="md:text-md">Year:</span> {complaint.year}
+              </p>
+              <p className="text-sm md:text-md text-white mb-2">
+                <span className="md:text-md">Department:</span>{' '}
+                {complaint.department}
               </p>
               <p className="text-sm md:text-md text-white mb-2">
                 <span className="md:text-md">Category:</span>{' '}
@@ -128,7 +135,7 @@ const ViewComplaint = () => {
                 </select>
               </div>
             </div>
-            <div className="py-2">
+            <div className="pb-2">
               <p className="text-sm md:text-md text-white">
                 <span className="md:text-md">Description:</span>{' '}
                 {complaint.description}
@@ -149,7 +156,7 @@ const ViewComplaint = () => {
                 onClick={submitComplaint}
                 className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md md:text-md"
               >
-                Submit Complaint
+                Update Status
               </button>
             </div>
           </div>

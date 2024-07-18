@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import DepartmentHeader from "./DepartmentHeader.js";
@@ -37,7 +36,7 @@ const DepartmentChatbox = () => {
       setRoom(data.user.committee_name + data.user.department)
 
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
 
   };
@@ -140,7 +139,7 @@ const DepartmentChatbox = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default DepartmentChatbox

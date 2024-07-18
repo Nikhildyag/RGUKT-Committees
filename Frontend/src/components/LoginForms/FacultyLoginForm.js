@@ -39,7 +39,7 @@ const DepartmentLoginform = () => {
       toast.success('User logged in successfully')
       setTimeout(() => {
         navigate('/facultyInchargeHome')
-      }, 1500)
+      }, 1000)
     } catch (error) {
       console.error('Login error:', error)
       setErrorMessage(true)
