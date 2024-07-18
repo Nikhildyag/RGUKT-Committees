@@ -20,6 +20,11 @@ const messageSchema = new Schema(
       enum: ["central", "department"],
       default: "department",
     },
+    user_ids: [
+      {
+        type: String,
+      },
+    ],
   },
   { timestamps: true }
 );

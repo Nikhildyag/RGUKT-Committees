@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import io from 'socket.io-client'
-import DepartmentHeader from './DepartmentHeader.js'
-import DepartmentSidebar from './DepartmentSidebar.js'
 
-const ENDPOINT = 'http://localhost:1024'
-const socket = io(ENDPOINT);
+import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
+import DepartmentHeader from "./DepartmentHeader.js";
+import DepartmentSidebar from "./DepartmentSidebar.js";
+
+const socket = io.connect("http://localhost:1024", {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd",
+  },
+});
 
 const DepartmentChatbox = () => {
-  const [message, setMessage] = useState('')
-  const [messages, setMessages] = useState([])
-  const [backendMessage, setbackendMessage] = useState();
-const [userId, setUserId] = useState('');
-  const [department, setDepartment] = useState('');
-  const [room, setRoom] = useState();
-
+  const [userIds, setUserIds] = useState('')
+  const [department, setDepartment] = useState('')
+  const [room, setRoom] = useState('')
+  const [message, setMessage] = useState();
+  const [messages, setMessages] = useState();
   const fetchUserData = async () => {
-    const url = 'http://localhost:1024/api/v1/department/get/departmentMember';
+    const url = 'http://localhost:1024/api/v1/department/get/departmentMember'
     try {
       const response = await fetch(url, {
         method: 'GET',
@@ -23,25 +26,29 @@ const [userId, setUserId] = useState('');
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-      });
+      })
       if (!response.ok) {
-        throw new Error('Error in the response');
+        throw new Error('Error in the response')
       }
-      const data = await response.json();
-      setUserId(data.user.userId);
-      setDepartment(data.user.department);
-      setRoom(data.user.committee_name + data.user.department);
+      const data = await response.json()
+      console.log(data.userIds);
+      setUserIds(data.userIds);
+      setDepartment(data.user.department)
+      setRoom(data.user.committee_name + data.user.department)
+
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
+
   };
   useEffect(() => {
     fetchUserData();
-    if (room) {
-      socket.emit("setup", room);
+    console.log("fetced data id's");
+    console.log(userIds[0])
+    if (userIds) {
+      socket.emit("setup", userIds[0]);
     } 
    }, []);
-
     const fetchMessages = async () => {
       try {
         const response = await fetch(
@@ -66,19 +73,11 @@ const [userId, setUserId] = useState('');
   useEffect(() => {
     fetchMessages();
   }, [])
-
-  useEffect(() => {
-    socket.on('MessageRecived', (newMessage) => {
-      // console.log("new message recived", newMessage);
-
-    })
-  })
-
   const sendMessage = async () => {
     if (message.trim()) {
      const messageData = {
       room,
-      author: userId,
+      author: userIds[0],
       'message':message,
       time: new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes(),
      };
@@ -108,7 +107,10 @@ const [userId, setUserId] = useState('');
       }
     }
   }
-
+    
+  useEffect(() => {
+    console.log("recive here");
+  })
   return (
     <div className="max-w-[100%]  h-screen overflow-x-hidden text-wrap">
       <DepartmentHeader />
@@ -117,18 +119,7 @@ const [userId, setUserId] = useState('');
         <div className=" w-full md:ml-[18%] sm:ml-[0%] relative top-20 flex items-center">
           <div className="flex flex-col p-5 mx-auto max-w-3xl">
             <div className="flex flex-col md:w-[50vw] sm:w-[80vw] md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 p-4 mb-4">
-              {messages.map((msg, index) => (
-                <div
-                  key={index}
-                  className={`p-3 my-2 rounded-lg ${
-                    msg.senderId === userId
-                      ? 'bg-green-200 self-end'
-                      : 'bg-white self-start border border-gray-200'
-                  }`}
-                >
-                  {msg.message}
-                </div>
-              ))}
+            <p>hiii</p>
             </div>
             <div className="flex w-[50vw] ">
               <input

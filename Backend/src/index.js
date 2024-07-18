@@ -26,15 +26,15 @@ connectDB()
 
     io.on("connection", (socket) => {
       console.log("Connected to socket.io");
-      socket.on("setup", (userData) => {
-      console.log("user joied with id:",userData.sender_id)
-    socket.join(userData.sender_id);
+      socket.on("setup", (userId) => {
+      console.log("user joied with id:",userId)
+      socket.join(userId);
     socket.emit("connected");
     });
       socket.on("join_chat", (room) => {
         console.log("user joined in  the room:", room);
       socket.join(room);
-      console.log("User Joined Room: " + room);
+      // console.log("User Joined Room: " + room);
   });
 
       socket.on('sendMessage', async (newMessage) => {

@@ -49,7 +49,10 @@ const createDepartmentMember = async (req, res) => {
 
 const getDepartmentMember = async (req, res) => {
   try {
-    return res.status(200).json({ user: req.member });
+    const { committee_name, department } = req.member;
+    const members = await Department.find({ committee_name, department });
+    const userIds = members.map((member) => member._id);
+    return res.status(200).json({ user: req.member, userIds });
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
@@ -86,7 +89,6 @@ const createBulk = async (req, res) => {
 
 const loginDepartmentMember = async (req, res) => {
   const { username, password } = req.body;
-  console.log(username);
   if (!username || !password)
     return res.status(400).json({ message: "All fields are required" });
   const departmentMember = await Department.findOne({ username });
@@ -96,7 +98,6 @@ const loginDepartmentMember = async (req, res) => {
   if (!isPasswordValid)
     return res.status(400).json({ message: "your password is not valid" });
   const departmentToken = await departmentMember.generateAccessToken();
-  console.log(departmentToken);
   const options = {
     httpOnly: true,
     secure: true, // Ensure this is true if using HTTPS

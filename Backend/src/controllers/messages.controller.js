@@ -1,3 +1,4 @@
+import { Department } from "../models/departmentCommittee.model.js";
 import { Message } from "../models/messages.model.js";
 
 const getMessages = async (req, res) => {
@@ -16,18 +17,24 @@ const createMessage = async (req, res) => {
   try {
     const { message } = req.body;
     const { role } = req.member;
+
     //console.log(message)
     if (!message) {
       return res.status(400).json({ message: "All fields are required" });
     }
     //console.log(req.member)
     const { _id, department, committee_name } = req.member;
+    const members = await Department.find({ department, committee_name });
+
+    const userIds = members.map((member) => member._id);
+
     const newMessage = await Message.create({
       message,
       sender_id: _id,
       department,
       committee_name,
       role,
+      user_ids: userIds,
     });
     if (!newMessage) {
       return res.status(500).json({ message: "unable to send message" });
