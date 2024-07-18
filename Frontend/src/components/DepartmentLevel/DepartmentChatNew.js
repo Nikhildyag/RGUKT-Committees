@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const DepartmentChatNew = ({ data }) => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const { socket, userId, room } = data;
 
@@ -10,33 +10,36 @@ const DepartmentChatNew = ({ data }) => {
       room,
       author: userId,
       message,
-      time: new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes(),
+      time:
+        new Date(Date.now()).getHours() +
+        ":" +
+        new Date(Date.now()).getMinutes(),
     };
     if (socket) {
-    //   console.log('Sending message:', messageData);
-      await socket.emit('send_message', messageData);
-        console.log('Message sent');
+      //   console.log('Sending message:', messageData);
+      await socket.emit("send_message", messageData);
+      console.log("Message sent");
     }
-    setMessage('');
+    setMessage("");
   };
 
   useEffect(() => {
     if (socket) {
-      console.log('Setting up socket listeners');
-      socket.on('receive_message', (message) => {
-        console.log('Received message:', message);
+      console.log("Setting up socket listeners");
+      socket.on("receive_message", (message) => {
+        console.log("Received message:", message);
         setMessages((prevMessages) => [...prevMessages, message]);
       });
 
       // Cleanup on unmount
       return () => {
-        console.log('Cleaning up socket listeners');
-        socket.off('receive_message');
+        console.log("Cleaning up socket listeners");
+        socket.off("receive_message");
       };
     } else {
-      console.log('Socket is not defined');
+      console.log("Socket is not defined");
     }
-  });
+  }, [socket]);
 
   return (
     <div className="max-w-[100%] w-full h-screen overflow-x-hidden text-wrap">
@@ -46,7 +49,7 @@ const DepartmentChatNew = ({ data }) => {
             <div className="flex flex-col md:w-[50vw] sm:w-[80vw] md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 p-4 mb-4">
               {messages.map((msg, index) => (
                 <div key={index} className="mb-2">
-                  <span className="font-bold">{msg.author}</span>: {msg.message}{' '}
+                  <span className="font-bold">{msg.author}</span>: {msg.message}{" "}
                   <span className="text-gray-500 text-sm">{msg.time}</span>
                 </div>
               ))}
