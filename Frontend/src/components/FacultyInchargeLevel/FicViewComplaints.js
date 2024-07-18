@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const FicViewComplaints = () => {
-  const { complaintId } = useParams()
-  const [remarks, setRemarks] = useState()
-  const [complaint, setComplaint] = useState(null)
-  const [status, setStatus] = useState('pending')
+  const { complaintId } = useParams();
+  const [complaint, setComplaint] = useState(null);
+  const [status, setStatus] = useState("pending");
 
   useEffect(() => {
     const fetchComplaint = async () => {
@@ -13,76 +12,42 @@ const FicViewComplaints = () => {
         const response = await fetch(
           `http://localhost:1024/api/v1/complaints/get/particularComplaintForIncharge/${complaintId}`,
           {
-            method: 'GET',
-            credentials: 'include', // Include credentials (cookies)
+            method: "GET",
+            credentials: "include", // Include credentials (cookies)
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
           }
-        )
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok')
+          throw new Error("Network response was not ok");
         }
-        const json = await response.json()
-        console.log(json.complaint)
-        setComplaint(json.complaint)
-        setStatus(json.complaint.status)
+        const json = await response.json();
+        console.log(json.complaint);
+        setComplaint(json.complaint);
+        setStatus(json.complaint.status);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-    fetchComplaint()
-  }, [complaintId])
+    };
+    fetchComplaint();
+  }, [complaintId]);
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString)
-    const day = String(date.getDate()).padStart(2, '0')
-    const month = String(date.getMonth() + 1).padStart(2, '0')
-    const year = date.getFullYear()
-    return `${day}/${month}/${year}`
-  }
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
 
   const handleStatusChange = (e) => {
-    const newStatus = e.target.value
-    setStatus(newStatus)
-  }
-
-  const submitComplaint = async (e) => {
-    e.preventDefault()
-    if (!status || !remarks) {
-      return
-    }
-    const data = {
-      status,
-      centralRemarks: remarks,
-      complaint_id: complaintId,
-    }
-    const complaintDetails = JSON.stringify(data)
-    try {
-      const response = await fetch(
-        `http://localhost:1024/api/v1/complaints/update-complaintForCentral`,
-        {
-          method: 'POST',
-          credentials: 'include', // Include credentials (cookies)
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: complaintDetails,
-        }
-      )
-      //console.log(response)
-      if (!response.ok) {
-        throw new Error('Network response was not ok')
-      }
-      const json = await response.json()
-      console.log(json)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+    const newStatus = e.target.value;
+    setStatus(newStatus);
+  };
 
   if (!complaint) {
-    return <div className="text-center mt-4">Loading...</div>
+    return <div className="text-center mt-4">Loading...</div>;
   }
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full max-w-screen">
@@ -97,11 +62,11 @@ const FicViewComplaints = () => {
                 <span className="md:text-md">ID:</span> {complaint._id}
               </p>
               <p className="text-sm md:text-md text-white mb-3">
-                <span className="md:text-md">Category:</span>{' '}
+                <span className="md:text-md">Category:</span>{" "}
                 {complaint.category}
               </p>
               <p className="text-sm md:text-md text-white mb-3">
-                <span className="md:text-md font-medium">Date:</span>{' '}
+                <span className="md:text-md font-medium">Date:</span>{" "}
                 {formatDate(complaint.createdAt)}
               </p>
               <div className="text-sm md:text-md text-white mb-3">
@@ -118,7 +83,7 @@ const FicViewComplaints = () => {
             </div>
             <div className="py-2">
               <p className="text-sm md:text-md text-white">
-                <span className="md:text-md">Description:</span>{' '}
+                <span className="md:text-md">Description:</span>{" "}
                 {complaint.description}
               </p>
             </div>
@@ -126,7 +91,7 @@ const FicViewComplaints = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FicViewComplaints
+export default FicViewComplaints;
