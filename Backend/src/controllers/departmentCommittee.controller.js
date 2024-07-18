@@ -49,7 +49,10 @@ const createDepartmentMember = async (req, res) => {
 
 const getDepartmentMember = async (req, res) => {
   try {
-    return res.status(200).json({ user: req.member });
+    const { committee_name, department } = req.member;
+    const members = await Department.find({ committee_name, department });
+    const userIds = members.map((member) => member._id);
+    return res.status(200).json({ user: req.member, userIds });
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
