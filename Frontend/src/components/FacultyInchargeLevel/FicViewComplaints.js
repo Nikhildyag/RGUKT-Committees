@@ -42,9 +42,15 @@ const FicViewComplaints = () => {
   };
 
   const handleStatusChange = (e) => {
+<<<<<<< HEAD
     const newStatus = e.target.value;
     setStatus(newStatus);
   };
+=======
+    const newStatus = e.target.value
+    setStatus(newStatus)
+  }
+>>>>>>> 4b55cac2c80f82068a625f91f2ccfd91d17ee4dc
 
   if (!complaint) {
     return <div className="text-center mt-4">Loading...</div>;
@@ -56,10 +62,17 @@ const FicViewComplaints = () => {
       </h2>
       <div className="bg-[#0d1d3b] rounded-lg shadow-lg overflow-hidden sm:rounded-lg border border-gray-300 hover:border-blue-500 transition duration-300">
         <div className="p-4">
-          <div className="flex flex-col border-b border-gray-300  px-4">
+          <div className="flex flex-col  px-4">
             <div className="py-2 border-b border-gray-300">
               <p className="text-sm md:text-md text-white mb-3">
                 <span className="md:text-md">ID:</span> {complaint._id}
+              </p>
+              <p className="text-sm md:text-md text-white mb-2">
+                <span className="md:text-md">Year:</span> {complaint.year}
+              </p>
+              <p className="text-sm md:text-md text-white mb-2">
+                <span className="md:text-md">Department:</span>{' '}
+                {complaint.department}
               </p>
               <p className="text-sm md:text-md text-white mb-3">
                 <span className="md:text-md">Category:</span>{" "}
@@ -70,15 +83,10 @@ const FicViewComplaints = () => {
                 {formatDate(complaint.createdAt)}
               </p>
               <div className="text-sm md:text-md text-white mb-3">
-                <span className="md:text-md">Status:{` `}</span>
-                <select
-                  className="border border-gray-300 rounded px-2 py-2 mt-1 ml-0 md:text-md text-black"
-                  value={status}
-                  onChange={handleStatusChange}
-                >
-                  <option value="pending">Pending</option>
-                  <option value="resolved">Resolved</option>
-                </select>
+                <span className="md:text-md">
+                  Status:{` `}
+                  <span className="capitalize">{complaint.status}</span>
+                </span>
               </div>
             </div>
             <div className="py-2">

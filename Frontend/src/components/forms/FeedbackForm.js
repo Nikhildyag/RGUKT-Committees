@@ -61,7 +61,7 @@ const AcademicCommiteeForm = () => {
       toast.success('Feedback submitted successfully')
       setTimeout(() => {
         navigate('/')
-      }, 1500)
+      }, 1000)
     } catch (error) {
       throw new Error(error)
     }
