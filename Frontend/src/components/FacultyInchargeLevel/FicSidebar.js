@@ -52,7 +52,7 @@ const FicSidebar = () => {
                   : 'hover:bg-[#800e08] hover:text-white hover:px-2'
               } truncate text-black cursor-pointer rounded-md py-2`}
             >
-              Central Authority
+              Central Committees
             </li>
           </Link>
           <Link
