@@ -1,48 +1,62 @@
-import dotenv from 'dotenv';
-import http from 'http';
-import { Server } from 'socket.io';
-import connectDB from './db/index.js';
-import app from './app.js';
+import dotenv from 'dotenv'
+import http from 'http'
+import { Server } from 'socket.io'
 
-// Load environment variables
 dotenv.config({
   path: '../.env',
-});
+})
+import connectDB from './db/index.js'
+import app from './app.js'
+import { Message } from './models/messages.model.js'
 
 // Connect to the database
 connectDB()
   .then(() => {
-    const server = http.createServer(app);
+    const server = http.createServer(app)
 
     // Attach Socket.IO to the HTTP server
     const io = new Server(server, {
+      pingTimeout:60000,
       cors: {
         origin: 'http://localhost:3000', // Change this to your frontend URL in production
         methods: ['GET', 'POST'],
         credentials: true,
       },
+    })
+
+    io.on("connection", (socket) => {
+      console.log("Connected to socket.io");
+      socket.on("setup", (userId) => {
+      console.log("user joied with id:",userId)
+      socket.join(userId);
+    socket.emit("connected");
     });
+      socket.on("join_chat", (room) => {
+        console.log("user joined in  the room:", room);
+      socket.join(room);
+      // console.log("User Joined Room: " + room);
+  });
 
-    io.on('connection', (socket) => {
-      socket.on('join_room', (room) => {
-       socket.join(room);
-        console.log(`User with ID: ${socket.id} joined room: ${room}`);
-      });
+      socket.on('sendMessage', async (newMessage) => {
+        const newRoom = newMessage.department + newMessage.committee_name;
+        console.log(newRoom);
+        console.log(newMessage);
+        socket.emit('MessageRecived', newMessage);
 
-      socket.on('send_message', (message) => {
-        console.log('Message received:', message.room);
-        socket.emit('receive_message', message);
-      });
+      })
+
       socket.on('disconnect', () => {
-        console.log('A user disconnected');
-      });
-    });
+        console.log('user disconnected')
+      })
+    })
 
     // Start the server
     server.listen(process.env.PORT, () => {
-      console.log(`Server is running at port ${process.env.PORT}`);
-    });
+      console.log(
+        `Connection successful! Server is running at port ${process.env.PORT}`
+      )
+    })
   })
   .catch((error) => {
-    console.log('Server error:', error);
-  });
+    console.log('Server error', error)
+  })
