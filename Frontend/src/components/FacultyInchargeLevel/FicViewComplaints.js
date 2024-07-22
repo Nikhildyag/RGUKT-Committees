@@ -42,15 +42,9 @@ const FicViewComplaints = () => {
   };
 
   const handleStatusChange = (e) => {
-<<<<<<< HEAD
-    const newStatus = e.target.value;
-    setStatus(newStatus);
-  };
-=======
     const newStatus = e.target.value
     setStatus(newStatus)
   }
->>>>>>> 4b55cac2c80f82068a625f91f2ccfd91d17ee4dc
 
   if (!complaint) {
     return <div className="text-center mt-4">Loading...</div>;

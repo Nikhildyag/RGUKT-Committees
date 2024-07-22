@@ -16,7 +16,7 @@ connectDB()
 
     // Attach Socket.IO to the HTTP server
     const io = new Server(server, {
-      pingTimeout:60000,
+     pingTimeout: 60000,
       cors: {
         origin: 'http://localhost:3000', // Change this to your frontend URL in production
         methods: ['GET', 'POST'],
@@ -25,22 +25,15 @@ connectDB()
     })
 
     io.on("connection", (socket) => {
-      console.log("Connected to socket.io");
+      console.log('connected to the socket');
       socket.on("setup", (userId) => {
-      console.log("user joied with id:",userId)
+      console.log("User joined with ID:", userId);
       socket.join(userId);
-    socket.emit("connected");
-    });
-      socket.on("join_chat", (room) => {
-        console.log("user joined in  the room:", room);
-      socket.join(room);
-      // console.log("User Joined Room: " + room);
+      socket.emit("Connected");
   });
-
       socket.on('sendMessage', async (newMessage) => {
         const newRoom = newMessage.department + newMessage.committee_name;
         console.log(newRoom);
-        console.log(newMessage);
         socket.emit('MessageRecived', newMessage);
 
       })
