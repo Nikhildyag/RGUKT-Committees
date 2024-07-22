@@ -70,7 +70,7 @@ const DepartmentHeader = () => {
             </button>
           </Link>
           <Link to="/departmenteditProfile">
-            <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
+            <button className="relative text-white underline-transition transition duration-300 ease-in-out  md:block">
               Edit Profile
             </button>
           </Link>
@@ -84,7 +84,7 @@ const DepartmentHeader = () => {
       </div>
 
       <div
-        className={`fixed top-0 left-0 h-full bg-white transition-transform transform ${
+        className={`fixed top-0 left-0 h-full bg-[#ece8e8] transition-transform transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } w-64`}
         ref={menuRef}

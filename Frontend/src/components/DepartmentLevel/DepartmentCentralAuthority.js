@@ -39,8 +39,8 @@ const DepartmentCentralAuthority = () => {
       <div className="flex w-full">
         <DepartmentSidebar />
         {isDataReady && (
-          <div className="relative md:left-36  lg:left-[18%] lg:mt-[4%] md:mt-[5%] sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%] ">
-            <h1 className="mt-10 font-bold text-2xl md:hidden text-pink-400">
+          <div className="relative md:left-36  lg:left-[18%] lg:mt-[4%] md:mt-[5%] sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%]  ">
+            <h1 className="mt-10 font-bold text-2xl md:hidden  text-orange-500">
               Central Committee Members
             </h1>
             <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
