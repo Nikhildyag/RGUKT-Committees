@@ -37,8 +37,11 @@ const DepartmentFacultymember = () => {
       <DepartmentHeader />
       <div className="flex w-full">
         <DepartmentSidebar />
-        <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%]">
-          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4">
+        <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-col flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%] lg:mt-[4%] sm:mt-[4%] md:mt-[6%]">
+          <h1 className=" text-xl font-bold text-orange-500  block md:hidden lg:hidden  sm:mt-[12%]">
+            Faculty Incharge
+          </h1>
+          <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 px-2 mb-4 ">
             {facultyMember && <ProfileCard Data={facultyMember} />}
           </div>
         </div>

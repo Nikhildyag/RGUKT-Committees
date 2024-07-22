@@ -50,7 +50,7 @@ const DepartmentSidebar = () => {
                   : 'hover:bg-[#800e08] hover:text-white hover:px-2'
               } truncate text-black cursor-pointer rounded-md py-2`}
             >
-              Chatbox
+              Discussion Forum
             </li>
           </Link>
           <Link
@@ -64,7 +64,7 @@ const DepartmentSidebar = () => {
                   : 'hover:bg-[#800e08] hover:text-white hover:px-2'
               } truncate text-black cursor-pointer rounded-md py-2`}
             >
-              Central Authority
+              Central Committee
             </li>
           </Link>
           <Link
