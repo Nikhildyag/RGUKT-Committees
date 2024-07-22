@@ -42,15 +42,9 @@ const FicViewComplaints = () => {
   }
 
   const handleStatusChange = (e) => {
-<<<<<<< HEAD
-    const newStatus = e.target.value;
-    setStatus(newStatus);
-  };
-=======
     const newStatus = e.target.value
     setStatus(newStatus)
   }
->>>>>>> 7c227dbf72148337824c43235b07006817ab4801
 
   if (!complaint) {
     return <div className="text-center mt-4">Loading...</div>
@@ -71,7 +65,7 @@ const FicViewComplaints = () => {
                 <span className="md:text-md">Year:</span> {complaint.year}
               </p>
               <p className="text-sm md:text-md text-white mb-2">
-                <span className="md:text-md">Department:</span>{" "}
+                <span className="md:text-md">Department:</span>{' '}
                 {complaint.department}
               </p>
               <p className="text-sm md:text-md text-white mb-3">

@@ -124,7 +124,7 @@ import ExcellenceCentralAuthority from './components/Commities/Excellence/Excell
 import ExcellenceFacultyIncarge from './components/Commities/Excellence/ExcellenceFacultyIncharge.js'
 import Footer from './components/footer/Footer.js'
 import Departmentfeedbacks from './components/DepartmentLevel/Departmentfeedbacks.js'
-import DepartmentEditProfile from './components/DepartmentLevel/DepartmentEditProfile.js'
+
 import CentralEditprofile from './components/central/CentralEditprofile.js'
 import CentralHomesection from './components/central/Home/index.js'
 import FacultyIchargeLevel from './components/FacultyInchargeLevel/index.js'
@@ -139,13 +139,15 @@ import FacultyCivilchatBox from './components/FacultyInchargeLevel/ChatBoxes/Fac
 import FacultyEcechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyEcechatBox.js'
 import FacultyEeechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyEeechatBox.js'
 import FacultyCsechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyCsechatBox.js'
-import FicEditProfile from './components/FacultyInchargeLevel/FicEditProfile.js'
-import FacultyNoticeSend from './components/FacultyInchargeLevel/FacultyNoticeSend.js'
+
 import FicComplaintDetails from './components/FacultyInchargeLevel/FicComplaintDetails.js'
 import NoticeBoard from './components/Noticeboard/index.js'
 import CentralAuthorityFeedback from './components/central/CentralAuthorityContents/CentralAuthorityFeedback.js'
 import FicFeedback from './components/FacultyInchargeLevel/FicFeedback.js'
 import EditProfile from './components/DepartmentLevel/EditProfile.js'
+import EditProfileFI from './components/FacultyInchargeLevel/EditProfileFI.js'
+import AddNotice from './components/FacultyInchargeLevel/AddNotice.js'
+import EditProfileC from './components/central/EditProfileC.js'
 
 const App = () => (
   <BrowserRouter>
@@ -178,7 +180,7 @@ const App = () => (
         path="/centralmemberschatbox"
         Component={CentralMembersChatBox}
       />
-      <Route exact path="/centraleditprofile" Component={CentralEditprofile} />
+      <Route exact path="/centraleditprofile" Component={EditProfileC} />
       {/* //second level routes*/}
       <Route exact path="/departments" Component={Departments} />
       <Route
@@ -269,7 +271,7 @@ const App = () => (
         path="/campusgreening/facultyincarge"
         Component={CampusGreeningFacultyIncarge}
       />
-      <Route exact path="/faculty/sendnotice" Component={FacultyNoticeSend} />
+      <Route exact path="/faculty/sendnotice" Component={AddNotice} />
       <Route exact path="/faculty/feedbacks" Component={FicFeedback} />
       <Route
         exact
@@ -744,7 +746,7 @@ const App = () => (
       <Route
         exact
         path="/facultyIncharge/editprofile"
-        Component={FicEditProfile}
+        Component={EditProfileFI}
       />
 
       <Route exact path="/facultyIncharge/feedbacks" Component={FicFeedback} />
