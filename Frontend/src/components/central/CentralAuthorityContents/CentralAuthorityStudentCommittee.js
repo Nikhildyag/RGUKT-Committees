@@ -39,7 +39,7 @@ const CentralAuthorityStudentCommittee = () => {
       <div className="flex w-full">
         <CentralAuthoritySidebar />
         {isDataReady && (
-          <div className="mt-8 h-fit  md:relative z-[-1] md:left-[21%]  md:top-0 rounded-md pb-4 lg:w-[80%] lg:left-[29.5%] md:w-[80%] sm:w-[100%] sm:mt-20 sm:ml-[-3%] sm:mb-10  md:overflow-y-hidden">
+          <div className="mt-8 h-fit  md:relative z-[-1] md:left-[21%]  md:top-0 rounded-md pb-4 lg:w-[90%] lg:left-[25.5%] md:w-[80%] sm:w-[100%] sm:mt-20 sm:ml-[-3%] sm:mb-10  md:overflow-y-hidden">
             <div className="mt-8 border border-[#c85cdb] rounded-md pb-4 lg:w-[80%] sm:w-[90%]   sm:mx-8 lg:mx-0">
               <h1 className=" bg-[#c85cdb]  text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl  text-center py-2">
                 Computer Science and Engineering
