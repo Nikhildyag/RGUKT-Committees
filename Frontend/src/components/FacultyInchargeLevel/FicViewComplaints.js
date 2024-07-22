@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 const FicViewComplaints = () => {
   const { complaintId } = useParams()
   const [complaint, setComplaint] = useState(null)
-  const [status, setStatus] = useState('pending')
+  // const [status, setStatus] = useState('pending')
 
   useEffect(() => {
     const fetchComplaint = async () => {
@@ -25,7 +25,7 @@ const FicViewComplaints = () => {
         const json = await response.json()
         console.log(json.complaint)
         setComplaint(json.complaint)
-        setStatus(json.complaint.status)
+        // setStatus(json.complaint.status)
       } catch (error) {
         console.log(error)
       }
@@ -39,11 +39,6 @@ const FicViewComplaints = () => {
     const month = String(date.getMonth() + 1).padStart(2, '0')
     const year = date.getFullYear()
     return `${day}/${month}/${year}`
-  }
-
-  const handleStatusChange = (e) => {
-    const newStatus = e.target.value
-    setStatus(newStatus)
   }
 
   if (!complaint) {

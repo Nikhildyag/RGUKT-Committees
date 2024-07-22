@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import FacultyIchargeLevel from '.'
 
 const FacultyNoticeSend = () => {
   const [subject, setSubject] = useState('')
@@ -46,11 +45,11 @@ const FacultyNoticeSend = () => {
   return (
     <div>
       <div className="flex items-center justify-center  h-screen">
-        <div className="relative w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[6%]">
+        <div className="relative w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[6%]">
           <div className="flex justify-center mb-4 md:mb-0 md:mr-4">
             <div className="h-fit w-full flex items-center justify-center">
               <img
-                src="https://thumbs.dreamstime.com/b/online-registration-illustration-design-concept-websites-landing-pages-mobile-applications-posters-banners-241322799.jpg"
+                src="https://images.squarespace-cdn.com/content/v1/6341e6a4afa32423fdb0b286/68e01887-8c8d-48da-ba9e-88553bd45ab7/Notice+board.png?format=500w"
                 alt="this is login page logo"
                 className="w-[120%] h-[100%] "
               />
@@ -62,7 +61,7 @@ const FacultyNoticeSend = () => {
             <h2 className="text-center text-2xl font-semibold text-gray-700 mb-1">
               Notice Details
             </h2>
-            <form onSubmit={handleSubmit} className="w-full px-6 pt-1 pb-2">
+            <form onSubmit={handleSubmit} className="w-full px-10 pt-1 pb-2">
               <div className="mb-3 w-full">
                 <label
                   htmlFor="subject"

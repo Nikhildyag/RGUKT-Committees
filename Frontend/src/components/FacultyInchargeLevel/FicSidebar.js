@@ -12,8 +12,10 @@ const FicSidebar = () => {
   }
 
   useEffect(() => {
-    if (location.pathname.includes('/faculty/')) {
+    if (location.pathname.includes('/faculty/sendnotice/')) {
       setIsChatboxOpen(true)
+    } else {
+      setIsChatboxOpen(false)
     }
   }, [location.pathname])
 
@@ -77,7 +79,7 @@ const FicSidebar = () => {
             } truncate text-black cursor-pointer rounded-md py-2 flex items-center`}
             onClick={toggleChatboxMenu}
           >
-            <span>ChatBox</span>
+            <span>Discussion Forum</span>
             {isChatboxOpen ? (
               <FaAngleDown className="ml-2" />
             ) : (
@@ -97,7 +99,7 @@ const FicSidebar = () => {
                       : 'hover:bg-[#a9dd41] hover:text-white hover:px-2'
                   } truncate text-black cursor-pointer rounded-md py-2`}
                 >
-                  CSE ChatBox
+                  CSE
                 </li>
               </Link>
               <Link
@@ -111,7 +113,7 @@ const FicSidebar = () => {
                       : 'hover:bg-[#a9dd41] hover:text-white hover:px-2'
                   } truncate text-black cursor-pointer rounded-md py-2`}
                 >
-                  ECE ChatBox
+                  ECE
                 </li>
               </Link>
               <Link
@@ -125,7 +127,7 @@ const FicSidebar = () => {
                       : 'hover:bg-[#a9dd41] hover:text-white hover:px-2'
                   } truncate text-black cursor-pointer rounded-md py-2`}
                 >
-                  EEE ChatBox
+                  EEE
                 </li>
               </Link>
               <Link
@@ -139,7 +141,7 @@ const FicSidebar = () => {
                       : 'hover:bg-[#a9dd41] hover:text-white hover:px-2'
                   } truncate text-black cursor-pointer rounded-md py-2`}
                 >
-                  Civil ChatBox
+                  CIVIL
                 </li>
               </Link>
               <Link
@@ -153,7 +155,7 @@ const FicSidebar = () => {
                       : 'hover:bg-[#a9dd41] hover:text-white hover:px-2'
                   } truncate text-black cursor-pointer rounded-md py-2`}
                 >
-                  Mech ChatBox
+                  MECH
                 </li>
               </Link>
               <Link
@@ -167,7 +169,7 @@ const FicSidebar = () => {
                       : 'hover:bg-[#a9dd41] hover:text-white hover:px-2'
                   } truncate text-black cursor-pointer rounded-md py-2`}
                 >
-                  Chem ChatBox
+                  CHEM
                 </li>
               </Link>
               <Link
@@ -181,7 +183,7 @@ const FicSidebar = () => {
                       : 'hover:bg-[#a9dd41] hover:text-white hover:px-2'
                   } truncate text-black cursor-pointer rounded-md py-2`}
                 >
-                  MME ChatBox
+                  MME
                 </li>
               </Link>
             </ul>

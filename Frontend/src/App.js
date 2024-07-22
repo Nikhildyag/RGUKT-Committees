@@ -125,7 +125,6 @@ import ExcellenceFacultyIncarge from './components/Commities/Excellence/Excellen
 import Footer from './components/footer/Footer.js'
 import Departmentfeedbacks from './components/DepartmentLevel/Departmentfeedbacks.js'
 
-import CentralEditprofile from './components/central/CentralEditprofile.js'
 import CentralHomesection from './components/central/Home/index.js'
 import FacultyIchargeLevel from './components/FacultyInchargeLevel/index.js'
 import FicFacultyMembers from './components/FacultyInchargeLevel/FicFacultyMembers.js'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Departments from './index'
+
 import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -46,14 +46,14 @@ const DepartmentEditProfile = () => {
   return (
     <div>
       <ToastContainer />
-      <div className="flex items-center justify-center h-screen  sm:mt-[15%] ">
-        <div className="sm:mt-[10%] w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[0%]">
+      <div className="flex items-center justify-center h-screen ">
+        <div className="w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg  flex flex-col md:flex-row items-center sm:mb-[5%] sm:mt-[10%]  md:mt-[0%]">
           <div className="flex justify-center mb-4 md:mb-0 md:mr-4">
             <div className="h-fit w-full flex items-center justify-center">
               <img
                 src="https://img.freepik.com/premium-vector/illustration-vector-graphic-cartoon-character-system-update_516790-1241.jpg?w=740"
                 alt="this is login page logo"
-                className="lg:w-[120%] lg:h-[100%] md:w-[100%] md:h-[80%] sm:w-[90%] sm:h-[100%] "
+                className="w-[120%] h-[100%] sm:w-[120%] sm:h-[80%] sm:mt-[15%] "
               />
             </div>
           </div>
