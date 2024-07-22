@@ -12,7 +12,15 @@ const FicSidebar = () => {
   }
 
   useEffect(() => {
-    if (location.pathname.includes('/faculty/sendnotice/')) {
+    if (
+      location.pathname.includes('/faculty/csechatbox') ||
+      location.pathname.includes('/faculty/ecechatbox') ||
+      location.pathname.includes('/faculty/eeechatbox') ||
+      location.pathname.includes('/faculty/civilchatbox') ||
+      location.pathname.includes('/faculty/mechchatbox') ||
+      location.pathname.includes('/faculty/chemchatbox') ||
+      location.pathname.includes('/faculty/mmechatbox')
+    ) {
       setIsChatboxOpen(true)
     } else {
       setIsChatboxOpen(false)
@@ -21,6 +29,9 @@ const FicSidebar = () => {
 
   const handleLinkClick = (path) => {
     setActiveLink(path)
+    if (!path.includes('/faculty/')) {
+      setIsChatboxOpen(false)
+    }
   }
 
   return (
