@@ -45,7 +45,7 @@ const FacultyNoticeSend = () => {
   return (
     <div>
       <div className="flex items-center justify-center  h-screen">
-        <div className="relative w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[6%]">
+        <div className="relative w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white flex flex-col md:flex-row items-center sm:mb-[5%] md:mt-[6%] sm:border sm:border-gray-200 md:border md:border-gray-50 sm:py-10">
           <div className="flex justify-center mb-4 md:mb-0 md:mr-4">
             <div className="h-fit w-full flex items-center justify-center">
               <img
@@ -61,7 +61,10 @@ const FacultyNoticeSend = () => {
             <h2 className="text-center text-2xl font-semibold text-gray-700 mb-1">
               Notice Details
             </h2>
-            <form onSubmit={handleSubmit} className="w-full px-10 pt-1 pb-2">
+            <form
+              onSubmit={handleSubmit}
+              className="w-full px-10 sm:px-0 pt-1 pb-2"
+            >
               <div className="mb-3 w-full">
                 <label
                   htmlFor="subject"

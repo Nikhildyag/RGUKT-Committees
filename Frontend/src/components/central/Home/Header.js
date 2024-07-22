@@ -118,7 +118,7 @@ const Header = () => {
 
             <li className="text-white">
               <Link
-                to="/central/centralaurhority"
+                to="/central/centralauthority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority

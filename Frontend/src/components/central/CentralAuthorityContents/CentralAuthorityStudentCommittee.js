@@ -1,46 +1,46 @@
-import React, { useEffect, useState } from "react";
-import Header from "../Home/Header";
-import CentralAuthoritySidebar from "../Home/CentralAuthoritySidebar";
-import CentralAuthorityProfileCard from "../ProfileCard/CentralAuthorityProfileCard";
+import React, { useEffect, useState } from 'react'
+import Header from '../Home/Header'
+import CentralAuthoritySidebar from '../Home/CentralAuthoritySidebar'
+import CentralAuthorityProfileCard from '../ProfileCard/CentralAuthorityProfileCard'
 
 const CentralAuthorityStudentCommittee = () => {
-  const [students, setStudents] = useState([]);
-  const [isDataReady, setIsdataready] = useState();
+  const [students, setStudents] = useState([])
+  const [isDataReady, setIsdataready] = useState()
 
   useEffect(() => {
     const fetchStudentCommittees = async () => {
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/department/get/committee/departmentMembers1",
+          'http://localhost:1024/api/v1/department/get/committee/departmentMembers1',
           {
-            method: "GET",
-            credentials: "include", // Include credentials (cookies)
+            method: 'GET',
+            credentials: 'include', // Include credentials (cookies)
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
           }
-        );
+        )
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error('Network response was not ok')
         }
-        const json = await response.json();
-        setStudents(json.members);
-        setIsdataready(true);
+        const json = await response.json()
+        setStudents(json.members)
+        setIsdataready(true)
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
-    };
+    }
 
-    fetchStudentCommittees();
-  }, []);
+    fetchStudentCommittees()
+  }, [])
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <Header />
       <div className="flex w-full">
         <CentralAuthoritySidebar />
         {isDataReady && (
-          <div className="relative md:left-40  lg:left-60 sm:left-0 z-[-1] flex flex-wrap justify-center items-center mt-10 md:w-[80%] sm:w-[100%]">
-            <div className="mt-8 border border-[#c85cdb] rounded-md pb-4 lg:w-[80%] sm:w-[100%] sm:mx-8 lg:mx-0">
+          <div className="mt-8 h-fit  md:relative z-[-1] md:left-[21%]  md:top-0 rounded-md pb-4 lg:w-[80%] lg:left-[29.5%] md:w-[80%] sm:w-[100%] sm:mt-20 sm:ml-[-3%] sm:mb-10  md:overflow-y-hidden">
+            <div className="mt-8 border border-[#c85cdb] rounded-md pb-4 lg:w-[80%] sm:w-[90%]   sm:mx-8 lg:mx-0">
               <h1 className=" bg-[#c85cdb]  text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl  text-center py-2">
                 Computer Science and Engineering
               </h1>
@@ -59,7 +59,7 @@ const CentralAuthorityStudentCommittee = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-8 border border-[#45d9b9] rounded-md pb-4 lg:w-[80%] sm:w-[100%] sm:mx-8 lg:mx-0">
+            <div className="mt-8 border border-[#45d9b9] rounded-md pb-4 lg:w-[80%] sm:w-[90%] sm:mx-8 lg:mx-0">
               <h1 className="bg-[#45d9b9]  text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl  text-center py-2">
                 Electronics and Communications Engineering
               </h1>
@@ -78,7 +78,7 @@ const CentralAuthorityStudentCommittee = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-8 border border-[#eb692d] rounded-md pb-4 lg:w-[80%] sm:w-[100%] sm:mx-8 lg:mx-0">
+            <div className="mt-8 border border-[#eb692d] rounded-md pb-4 lg:w-[80%] sm:w-[90%] sm:mx-8 lg:mx-0">
               <h1 className=" bg-[#eb692d]  text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl  text-center py-2">
                 Electronical Engineering
               </h1>
@@ -97,7 +97,7 @@ const CentralAuthorityStudentCommittee = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-8 border border-[#bddc3f] rounded-md pb-4 lg:w-[80%] sm:w-[100%] sm:mx-8 lg:mx-0">
+            <div className="mt-8 border border-[#bddc3f] rounded-md pb-4 lg:w-[80%] sm:w-[90%] sm:mx-8 lg:mx-0">
               <h1 className=" bg-[#bddc3f]  text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl  text-center py-2">
                 Mechanical Engineering
               </h1>
@@ -116,7 +116,7 @@ const CentralAuthorityStudentCommittee = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-8 border border-[#e33244] rounded-md pb-4 lg:w-[80%] sm:w-[100%] sm:mx-8 lg:mx-0">
+            <div className="mt-8 border border-[#e33244] rounded-md pb-4 lg:w-[80%] sm:w-[90%] sm:mx-8 lg:mx-0">
               <h1 className=" bg-[#e33244]  text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl  text-center py-2">
                 Civil Engineering
               </h1>
@@ -135,7 +135,7 @@ const CentralAuthorityStudentCommittee = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-8 border border-[#1d4872] rounded-md pb-4 lg:w-[80%] sm:w-[100%] sm:mx-8 lg:mx-0">
+            <div className="mt-8 border border-[#1d4872] rounded-md pb-4 lg:w-[80%] sm:w-[90%] sm:mx-8 lg:mx-0">
               <h1 className=" bg-[#1d4872]  text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl  text-center py-2">
                 Metallurgical and Material Engineering
               </h1>
@@ -154,7 +154,7 @@ const CentralAuthorityStudentCommittee = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-8 border border-[#e81791] rounded-md pb-4 lg:w-[80%] sm:w-[100%] sm:mx-8 lg:mx-0 mb-4">
+            <div className="mt-8 border border-[#e81791] rounded-md pb-4 lg:w-[80%] sm:w-[90%] sm:mx-8 lg:mx-0 mb-4">
               <h1 className=" bg-[#e81791]  text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl  text-center py-2">
                 Chemical Engineering
               </h1>
@@ -177,7 +177,7 @@ const CentralAuthorityStudentCommittee = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CentralAuthorityStudentCommittee;
+export default CentralAuthorityStudentCommittee
