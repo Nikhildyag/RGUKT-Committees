@@ -1,5 +1,4 @@
 // DepartmentChatbox.js
-
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import DepartmentHeader from "./DepartmentHeader.js";
@@ -7,18 +6,18 @@ import DepartmentSidebar from "./DepartmentSidebar.js";
 let socket, selectedChatCompare;
 
 const ENDPOINT = "http://localhost:1024"; // Adjust this to your server endpoint
-//socket = io(ENDPOINT);
+// socket = io(ENDPOINT);
 
 const DepartmentChatbox = () => {
   const userInfo = JSON.parse(localStorage.getItem("department"));
   // console.log(userInfo);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const [socketConnected, setSocketConnected] = useState(false);
+  // const [socketConnected, setSocketConnected] = useState(false);
 
   const fetchMessages = async () => {
     const response = await fetch(
-      "http://localhost:1024/api/v1/messages/recive/messages",
+      "http://localhost:1024/api/v1/messages/get/departmentMessage",
       {
         method: "GET",
         headers: {
@@ -28,8 +27,8 @@ const DepartmentChatbox = () => {
       }
     );
     const data = await response.json();
-    console.log(data);
-    setMessages(data);
+    console.log("fetched messages",data);
+    setMessages(data.messages);
     socket.emit("join chat", userInfo.department + userInfo.committee_name);
   };
 
@@ -66,8 +65,8 @@ const DepartmentChatbox = () => {
 
       socket.emit("sendMessage", newMessage);
       setMessages([...messages, newMessage]);
-
-      setMessages((prevMessages) => [...prevMessages, newMessage]);
+      
+      // setMessages((prevMessages) => [...prevMessages, newMessage]);
       setCurrentMessage(""); // Clear input field
     } catch (error) {
       console.error("Error sending message:", error);
@@ -110,7 +109,7 @@ const DepartmentChatbox = () => {
         <div className="w-full md:ml-[18%] sm:ml-[0%] relative top-20 flex items-center">
           <div className="flex flex-col p-5 mx-auto max-w-3xl">
             <div className="flex flex-col md:w-[50vw] sm:w-[80vw] md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 p-4 mb-4">
-              {messages.map((m, index) => (
+              {messages.length>0 && messages.map((m, index) => (
                 <p key={index}>{m.message}</p>
               ))}
             </div>
