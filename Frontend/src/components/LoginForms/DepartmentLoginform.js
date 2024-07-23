@@ -38,7 +38,10 @@ const DepartmentLoginform = () => {
       }
 
       const data = await response.json();
-      localStorage.setItem("department", JSON.stringify(data));
+      const member = data.member;
+      setTimeout(() => {
+        localStorage.setItem("department", JSON.stringify(member));
+      }, 1000);
       document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
       //alert('user logged in')
       toast.success("User logged in successfully");

@@ -62,7 +62,7 @@ const NoticeBoard = () => {
           <h1 className="ml-2 font-bold text-blue-500 text-[25px]">
             Notice Board
           </h1>
-          <div className="pb-10">
+          <div className="pb-10 ">
             {noticeReady &&
               currentNotices.map((notice, index) => {
                 const isNewNotice = index < 5;

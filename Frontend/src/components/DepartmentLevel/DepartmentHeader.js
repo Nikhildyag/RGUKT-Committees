@@ -1,18 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { FaBars } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify' // Import ToastContainer and toast
-import 'react-toastify/dist/ReactToastify.css'
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
+import "react-toastify/dist/ReactToastify.css";
 
 const DepartmentHeader = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const menuRef = useRef(null)
-  const dropdownRef = useRef(null)
-  const navigate = useNavigate()
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const handleClickOutside = (event) => {
     if (
@@ -20,36 +20,37 @@ const DepartmentHeader = () => {
       !menuRef.current.contains(event.target) &&
       (!dropdownRef.current || !dropdownRef.current.contains(event.target))
     ) {
-      setIsOpen(false)
+      setIsOpen(false);
     }
-  }
+  };
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   const Logout = async () => {
-    const url = 'http://localhost:1024/api/v1/department/logout'
+    const url = "http://localhost:1024/api/v1/department/logout";
     try {
       const response = await fetch(url, {
-        method: 'GET',
-        credentials: 'include', // Include credentials (cookies)
+        method: "GET",
+        credentials: "include", // Include credentials (cookies)
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      })
+      });
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        throw new Error("Network response was not ok");
       }
-      toast.success('User logged out successfully')
+      localStorage.removeItem("department");
+      toast.success("User logged out successfully");
       setTimeout(() => {
-        navigate('/')
-      }, 1000)
+        navigate("/");
+      }, 1000);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <nav className="bg-[#426CAD] fixed w-full top-0 left-0 right-0 p-4 z-10">
@@ -84,8 +85,8 @@ const DepartmentHeader = () => {
       </div>
 
       <div
-        className={`fixed top-0 left-0 h-full bg-[#ece8e8] transition-transform transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed top-0 left-0 h-full bg-white transition-transform transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
         } w-64`}
         ref={menuRef}
       >
@@ -150,7 +151,7 @@ const DepartmentHeader = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default DepartmentHeader
+export default DepartmentHeader;

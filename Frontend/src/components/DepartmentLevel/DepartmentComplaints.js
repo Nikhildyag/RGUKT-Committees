@@ -1,72 +1,72 @@
-import React, { useEffect, useState } from 'react'
-import { IoEyeOutline } from 'react-icons/io5'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { IoEyeOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const DepartmentComplaints = () => {
-  const [complaints, setComplaints] = useState([])
-  const [complaintsReady, setComplaintsReady] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [complaintsPerPage] = useState(10) // Number of complaints per page
+  const [complaints, setComplaints] = useState([]);
+  const [complaintsReady, setComplaintsReady] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [complaintsPerPage] = useState(10); // Number of complaints per page
 
   const fetchComplaints = async () => {
     const url =
-      'http://localhost:1024/api/v1/complaints/get/ComplaintsForDepartment'
+      "http://localhost:1024/api/v1/complaints/get/ComplaintsForDepartment";
     try {
       const response = await fetch(url, {
-        method: 'GET',
-        credentials: 'include', // Include credentials (cookies)
+        method: "GET",
+        credentials: "include", // Include credentials (cookies)
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      })
+      });
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        throw new Error("Network response was not ok");
       }
-      const json = await response.json()
-      setComplaints(json.complaints)
-      setComplaintsReady(true)
+      const json = await response.json();
+      setComplaints(json.complaints);
+      setComplaintsReady(true);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString)
-    const day = String(date.getDate()).padStart(2, '0')
-    const month = String(date.getMonth() + 1).padStart(2, '0')
-    const year = date.getFullYear()
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
 
-    return `${day}/${month}/${year}`
-  }
+    return `${day}/${month}/${year}`;
+  };
 
   useEffect(() => {
-    fetchComplaints()
-  }, [])
+    fetchComplaints();
+  }, []);
 
   // Get current complaints
-  const indexOfLastComplaint = currentPage * complaintsPerPage
-  const indexOfFirstComplaint = indexOfLastComplaint - complaintsPerPage
+  const indexOfLastComplaint = currentPage * complaintsPerPage;
+  const indexOfFirstComplaint = indexOfLastComplaint - complaintsPerPage;
   const currentComplaints = complaints.slice(
     indexOfFirstComplaint,
     indexOfLastComplaint
-  )
+  );
 
   // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Function to determine status color
   const getStatusColor = (status) => {
     switch (status.toLowerCase()) {
-      case 'pending':
-        return 'text-red-400 font-semibold '
-      case 'resolved':
-        return 'text-green-700 font-semibold'
-      case 'forwarded':
-        return 'text-blue-400 font-semibold'
+      case "pending":
+        return "text-red-400 font-semibold ";
+      case "resolved":
+        return "text-green-700 font-semibold";
+      case "forwarded":
+        return "text-blue-400 font-semibold";
       default:
-        return 'text-red-400'
+        return "text-red-400";
     }
-  }
+  };
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full mt-16">
@@ -91,7 +91,7 @@ const DepartmentComplaints = () => {
           <tbody className="text-gray-700">
             {complaintsReady &&
               currentComplaints.map((complaint) => (
-                <tr key={complaint.id} className="bg-gray-50 odd:bg-gray-100">
+                <tr key={complaint._id} className="bg-gray-50 odd:bg-gray-100">
                   <td className="w-1/6 text-left py-3 px-4">
                     <div className="flex items-center">
                       <Link to={`/department/complaint/${complaint._id}`}>
@@ -128,7 +128,7 @@ const DepartmentComplaints = () => {
       <div className="relative flex justify-center mt-4 mb-6">
         <button
           className={`bg-blue-500 text-white px-4 py-2 mx-2 rounded-md ${
-            currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+            currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
           }`}
           onClick={() => paginate(currentPage - 1)}
           disabled={currentPage === 1}
@@ -138,8 +138,8 @@ const DepartmentComplaints = () => {
         <button
           className={`bg-blue-500 text-white px-4 py-2 mx-2 rounded-md ${
             indexOfLastComplaint >= complaints.length
-              ? 'opacity-50 cursor-not-allowed'
-              : ''
+              ? "opacity-50 cursor-not-allowed"
+              : ""
           }`}
           onClick={() => paginate(currentPage + 1)}
           disabled={indexOfLastComplaint >= complaints.length}
@@ -148,7 +148,7 @@ const DepartmentComplaints = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DepartmentComplaints
+export default DepartmentComplaints;
