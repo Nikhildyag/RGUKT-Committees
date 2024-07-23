@@ -104,7 +104,6 @@ import DepartmentFacultymember from "./components/DepartmentLevel/DepartmentFacu
 import DepartmentCentralAuthority from "./components/DepartmentLevel/DepartmentCentralAuthority.js";
 import DepartmentLoginform from "./components/LoginForms/DepartmentLoginform.js";
 
-<<<<<<< HEAD
 import CompalintDetails from "./components/DepartmentLevel/CompalintDetails.js";
 import FacultyLoginForm from "./components/LoginForms/FacultyLoginForm.js";
 import ComplaintDetails from "./components/central/ComplaintDetails.js";
@@ -125,8 +124,7 @@ import ExcellenceCentralAuthority from "./components/Commities/Excellence/Excell
 import ExcellenceFacultyIncarge from "./components/Commities/Excellence/ExcellenceFacultyIncharge.js";
 import Footer from "./components/footer/Footer.js";
 import Departmentfeedbacks from "./components/DepartmentLevel/Departmentfeedbacks.js";
-import DepartmentEditProfile from "./components/DepartmentLevel/DepartmentEditProfile.js";
-import CentralEditprofile from "./components/central/CentralEditprofile.js";
+
 import CentralHomesection from "./components/central/Home/index.js";
 import FacultyIchargeLevel from "./components/FacultyInchargeLevel/index.js";
 import FicFacultyMembers from "./components/FacultyInchargeLevel/FicFacultyMembers.js";
@@ -140,58 +138,15 @@ import FacultyCivilchatBox from "./components/FacultyInchargeLevel/ChatBoxes/Fac
 import FacultyEcechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyEcechatBox.js";
 import FacultyEeechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyEeechatBox.js";
 import FacultyCsechatBox from "./components/FacultyInchargeLevel/ChatBoxes/FacultyCsechatBox.js";
-import FicEditProfile from "./components/FacultyInchargeLevel/FicEditProfile.js";
-import FacultyNoticeSend from "./components/FacultyInchargeLevel/FacultyNoticeSend.js";
+
 import FicComplaintDetails from "./components/FacultyInchargeLevel/FicComplaintDetails.js";
 import NoticeBoard from "./components/Noticeboard/index.js";
 import CentralAuthorityFeedback from "./components/central/CentralAuthorityContents/CentralAuthorityFeedback.js";
 import FicFeedback from "./components/FacultyInchargeLevel/FicFeedback.js";
 import EditProfile from "./components/DepartmentLevel/EditProfile.js";
-=======
-import CompalintDetails from './components/DepartmentLevel/CompalintDetails.js'
-import FacultyLoginForm from './components/LoginForms/FacultyLoginForm.js'
-import ComplaintDetails from './components/central/ComplaintDetails.js'
-import FeedbackForm from './components/forms/FeedbackForm.js'
-import DepartmentCentralAuthorityLoginform from './components/LoginForms/CentralLoginForm.js'
-import DepartmentChatbox from './components/DepartmentLevel/DepartmentChatbox.js'
-import CentralChatBoxSection from './components/central/CentralChatBoxSection/index.js'
-import CentralCseChatBoxSection from './components/central/CentralChatBoxSection/CentralCseChatbox.js'
-import CentralEceChatBoxSection from './components/central/CentralChatBoxSection/CentralEceChatBoxSection.js'
-import CentralEeeChatBoxSection from './components/central/CentralChatBoxSection/CentralEeeChatBoxSection.js'
-import CentralCivilChatBoxSection from './components/central/CentralChatBoxSection/CentralCivilChatBoxSection.js'
-import CentralMechChatBoxSection from './components/central/CentralChatBoxSection/CentralMechChatBoxSection.js'
-import CentralChemChatBoxSection from './components/central/CentralChatBoxSection/CentralChemChatBoxSection.js'
-import CentralMmeChatBoxSection from './components/central/CentralChatBoxSection/CentralMmeChatBoxSection.js'
-import Excellence from './components/Commities/Excellence/index.js'
-import ExcellenceStudentCommittees from './components/Commities/Excellence/ExcellenceStudentCommittees.js'
-import ExcellenceCentralAuthority from './components/Commities/Excellence/ExcellenceCentralAuthority.js'
-import ExcellenceFacultyIncarge from './components/Commities/Excellence/ExcellenceFacultyIncharge.js'
-import Footer from './components/footer/Footer.js'
-import Departmentfeedbacks from './components/DepartmentLevel/Departmentfeedbacks.js'
-
-import CentralHomesection from './components/central/Home/index.js'
-import FacultyIchargeLevel from './components/FacultyInchargeLevel/index.js'
-import FicFacultyMembers from './components/FacultyInchargeLevel/FicFacultyMembers.js'
-import FicStudentCommittee from './components/FacultyInchargeLevel/FicStudentCommittee.js'
-import FicCentralAuthority from './components/FacultyInchargeLevel/FicCentralAuthority.js'
-import CentralMembersChatBox from './components/central/CentralMembersChatBox.js'
-import FacultyMmechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyMmechatBox.js'
-import FacultyChemchatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyChemchatBox.js'
-import FacultyMechchatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyMechchatBox.js'
-import FacultyCivilchatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyCivilchatBox.js'
-import FacultyEcechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyEcechatBox.js'
-import FacultyEeechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyEeechatBox.js'
-import FacultyCsechatBox from './components/FacultyInchargeLevel/ChatBoxes/FacultyCsechatBox.js'
-
-import FicComplaintDetails from './components/FacultyInchargeLevel/FicComplaintDetails.js'
-import NoticeBoard from './components/Noticeboard/index.js'
-import CentralAuthorityFeedback from './components/central/CentralAuthorityContents/CentralAuthorityFeedback.js'
-import FicFeedback from './components/FacultyInchargeLevel/FicFeedback.js'
-import EditProfile from './components/DepartmentLevel/EditProfile.js'
-import EditProfileFI from './components/FacultyInchargeLevel/EditProfileFI.js'
-import AddNotice from './components/FacultyInchargeLevel/AddNotice.js'
-import EditProfileC from './components/central/EditProfileC.js'
->>>>>>> e6b447bb3cf43b2cb1682337457b20ecec98b3c4
+import EditProfileFI from "./components/FacultyInchargeLevel/EditProfileFI.js";
+import AddNotice from "./components/FacultyInchargeLevel/AddNotice.js";
+import EditProfileC from "./components/central/EditProfileC.js";
 
 const App = () => (
   <BrowserRouter>
