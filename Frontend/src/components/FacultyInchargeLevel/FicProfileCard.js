@@ -6,7 +6,7 @@ const FicProfileCard = ({ Data }) => {
   return (
     <div className="flex justify-center mt-8 md:mt-10">
       <div className="max-w-xs md:max-w-lg">
-        <div className="flex flex-row items-center bg-white border border-gray-200 rounded-lg shadow-md">
+        <div className="flex flex-row  w-fit px-10 items-center bg-white border border-gray-200 rounded-lg shadow-md">
           <img
             className="object-cover  rounded-t-lg h-auto w-32 md:rounded-none md:rounded-l-lg"
             src={ImageUrl}

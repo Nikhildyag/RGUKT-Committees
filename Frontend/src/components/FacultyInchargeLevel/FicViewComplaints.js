@@ -2,9 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const FicViewComplaints = () => {
+<<<<<<< HEAD
   const { complaintId } = useParams();
   const [complaint, setComplaint] = useState(null);
   const [status, setStatus] = useState("pending");
+=======
+  const { complaintId } = useParams()
+  const [complaint, setComplaint] = useState(null)
+  // const [status, setStatus] = useState('pending')
+>>>>>>> e6b447bb3cf43b2cb1682337457b20ecec98b3c4
 
   useEffect(() => {
     const fetchComplaint = async () => {
@@ -22,10 +28,17 @@ const FicViewComplaints = () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
+<<<<<<< HEAD
         const json = await response.json();
         console.log(json.complaint);
         setComplaint(json.complaint);
         setStatus(json.complaint.status);
+=======
+        const json = await response.json()
+        console.log(json.complaint)
+        setComplaint(json.complaint)
+        // setStatus(json.complaint.status)
+>>>>>>> e6b447bb3cf43b2cb1682337457b20ecec98b3c4
       } catch (error) {
         console.log(error);
       }
@@ -41,11 +54,14 @@ const FicViewComplaints = () => {
     return `${day}/${month}/${year}`;
   };
 
+<<<<<<< HEAD
   const handleStatusChange = (e) => {
     const newStatus = e.target.value;
     setStatus(newStatus);
   };
 
+=======
+>>>>>>> e6b447bb3cf43b2cb1682337457b20ecec98b3c4
   if (!complaint) {
     return <div className="text-center mt-4">Loading...</div>;
   }
@@ -65,7 +81,7 @@ const FicViewComplaints = () => {
                 <span className="md:text-md">Year:</span> {complaint.year}
               </p>
               <p className="text-sm md:text-md text-white mb-2">
-                <span className="md:text-md">Department:</span>{" "}
+                <span className="md:text-md">Department:</span>{' '}
                 {complaint.department}
               </p>
               <p className="text-sm md:text-md text-white mb-3">

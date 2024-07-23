@@ -135,5 +135,4 @@ const DepartmentChatbox = () => {
     </div>
   );
 };
-
 export default DepartmentChatbox;
