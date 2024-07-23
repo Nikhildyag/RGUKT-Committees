@@ -49,6 +49,7 @@ const getDepartmentMessages = async (req, res) => {
   try {
     //console.log(req);
     const { department, committee_name } = req.member;
+    // console.log(`logged department ${department} to get the department messages ${committee_name}`)
     if (!department) {
       return res.status(400).json({ message: "you are not logged in" });
     }
