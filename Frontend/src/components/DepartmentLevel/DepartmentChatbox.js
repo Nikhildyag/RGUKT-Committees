@@ -98,7 +98,7 @@ const DepartmentChatbox = () => {
   useEffect(() => {
     socket.on("message received", (newMessageRecieved) => {
       console.log(messages);
-      //setMessages([...messages, newMessageRecieved]);
+      setMessages([...messages, newMessageRecieved]);
     });
   });
 
@@ -126,7 +126,7 @@ const DepartmentChatbox = () => {
                 onClick={handleSubmit}
                 className="px-8 py-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600"
               >
-                Send
+                Send1
               </button>
             </div>
           </div>
@@ -135,4 +135,5 @@ const DepartmentChatbox = () => {
     </div>
   );
 };
+
 export default DepartmentChatbox;
