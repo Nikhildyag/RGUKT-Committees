@@ -27,8 +27,8 @@ const DepartmentChatbox = () => {
       }
     );
     const data = await response.json();
-    console.log(data);
-    setMessages(data);
+    console.log("fetched messages",data);
+    setMessages(data.messages);
     socket.emit("join chat", userInfo.department + userInfo.committee_name);
   };
 
@@ -65,7 +65,7 @@ const DepartmentChatbox = () => {
 
       socket.emit("sendMessage", newMessage);
       setMessages([...messages, newMessage]);
-
+      
       // setMessages((prevMessages) => [...prevMessages, newMessage]);
       setCurrentMessage(""); // Clear input field
     } catch (error) {
