@@ -25,22 +25,17 @@ connectDB()
     })
 
     io.on("connection", (socket) => {
-      console.log('connected to the socket');
-      socket.on("setup", (userId) => {
-      console.log("User joined with ID:", userId);
-      socket.join(userId);
-      socket.emit("Connected");
-  });
-      socket.on('sendMessage', async (newMessage) => {
-        const newRoom = newMessage.department + newMessage.committee_name;
-        console.log(newRoom);
-        socket.emit('MessageRecived', newMessage);
+      console.log(`user connected with the ID ${socket.id}`);
+      socket.emit("welcome", `welcome to the server ${socket.id}`);
 
+      socket.on("message", (data) => {
+        console.log(data);
+      })
+      socket.on("disconnect", () => {
+        console.log(`user disconnected ${socket.id}`);
       })
 
-      socket.on('disconnect', () => {
-        console.log('user disconnected')
-      })
+
     })
 
     // Start the server
