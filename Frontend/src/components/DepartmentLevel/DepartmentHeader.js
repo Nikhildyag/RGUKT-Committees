@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
+import Cookie from 'js-cookie'
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
 import "react-toastify/dist/ReactToastify.css";
@@ -39,6 +40,9 @@ const DepartmentHeader = () => {
           "Content-Type": "application/json",
         },
       });
+      Cookie.remove('Department_jwt_token');
+      const DepartmentToken = Cookie.get('Department_jwt_token');
+      console.log(DepartmentToken)
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

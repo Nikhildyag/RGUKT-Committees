@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Homepage from "../Home";
+import Cookies from 'js-cookie'
 import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
 import "react-toastify/dist/ReactToastify.css";
 
@@ -41,6 +42,7 @@ const DepartmentLoginform = () => {
       const member = data.member;
       localStorage.setItem("department", JSON.stringify(member));
       document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
+     Cookies.set('Department_jwt_token', data.departmentToken, {expires: 100000000})
       //alert('user logged in')
       toast.success("User logged in successfully");
       setTimeout(() => {
