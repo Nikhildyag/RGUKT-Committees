@@ -147,6 +147,7 @@ import EditProfile from "./components/DepartmentLevel/EditProfile.js";
 import EditProfileFI from "./components/FacultyInchargeLevel/EditProfileFI.js";
 import AddNotice from "./components/FacultyInchargeLevel/AddNotice.js";
 import EditProfileC from "./components/central/EditProfileC.js";
+// import DepartmentProtected from "./components/DepartmentProtected.js";
 
 const App = () => (
   <BrowserRouter>
@@ -214,7 +215,9 @@ const App = () => (
         path="/department/centralauthority"
         Component={DepartmentCentralAuthority}
       />
-      <Route exact path="/departments" Component={Departments} />
+      <Route exact path="/departments" Component={Departments}/>
+      {/* <DepartmentProtected exact path="/departments" Component={Departments} />
+      <Route path="/department" element={<DepartmentProtected element={Departments} />}/> */}
       <Route
         exact
         path="/academic/centralaurhority"
@@ -747,7 +750,6 @@ const App = () => (
         path="/facultyIncharge/editprofile"
         Component={EditProfileFI}
       />
-
       <Route exact path="/facultyIncharge/feedbacks" Component={FicFeedback} />
     </Routes>
   </BrowserRouter>

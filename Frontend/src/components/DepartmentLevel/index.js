@@ -1,9 +1,17 @@
 import DepartmentHeader from './DepartmentHeader'
 import DepartmentSidebar from './DepartmentSidebar'
 import DepartmentComplaints from './DepartmentComplaints'
+import Cookies from 'js-cookie'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Departments = () => {
+  const navigate = useNavigate();
+  const DepartmentToken = Cookies.get('Department_jwt_token')
+  console.log(DepartmentToken);
+  if (DepartmentToken === null) {
+   return  navigate('/departmentloginform');
+  }
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <DepartmentHeader />

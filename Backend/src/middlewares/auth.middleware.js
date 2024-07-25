@@ -34,7 +34,6 @@ const verifyCentralJWT = async (req, res, next) => {
   try {
     const token = req.cookies.centralToken;
     //console.log("Token received:", token); // Log the token
-
     if (!token) {
       return res.status(401).json({ message: "Unauthorized request" });
     }
