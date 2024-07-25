@@ -1,63 +1,64 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars, FaAngleDown, FaAngleRight } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const menuRef = useRef(null)
-  const navigate = useNavigate()
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setIsOpen(false)
+      setIsOpen(false);
     }
-  }
+  };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const Logout = async () => {
-    const url = 'http://localhost:1024/api/v1/central/logout'
+    const url = "http://localhost:1024/api/v1/central/logout";
     try {
       const response = await fetch(url, {
-        method: 'GET',
-        credentials: 'include', // Include credentials (cookies)
+        method: "GET",
+        credentials: "include", // Include credentials (cookies)
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      })
+      });
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        throw new Error("Network response was not ok");
       }
-      toast.success('User logged out successfully')
+      localStorage.removeItem("central");
+      toast.success("User logged out successfully");
       setTimeout(() => {
-        navigate('/')
-      }, 1000)
+        navigate("/");
+      }, 1000);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
-  const [isChatboxOpen, setIsChatboxOpen] = useState(false)
+  const [isChatboxOpen, setIsChatboxOpen] = useState(false);
 
   const toggleChatboxMenu = () => {
-    setIsChatboxOpen(!isChatboxOpen)
-  }
+    setIsChatboxOpen(!isChatboxOpen);
+  };
 
   const closeMenu = () => {
-    setIsOpen(false)
-    setIsChatboxOpen(false)
-  }
+    setIsOpen(false);
+    setIsChatboxOpen(false);
+  };
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
@@ -94,7 +95,7 @@ const Header = () => {
 
       <div
         className={`fixed top-0 left-0 h-full bg-[#ece8e8] sm:block md:hidden transition-transform transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         } w-64  z-50`}
         ref={menuRef}
       >
@@ -107,7 +108,7 @@ const Header = () => {
             />
           </div>
         </div>
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full mt-4`}>
+        <div className={`${isOpen ? "block" : "hidden"} w-full mt-4`}>
           <ul className="flex flex-col ml-2">
             <li className="text-black" onClick={closeMenu}>
               <Link
@@ -211,7 +212,7 @@ const Header = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

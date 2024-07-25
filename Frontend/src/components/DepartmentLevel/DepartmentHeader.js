@@ -117,7 +117,7 @@ const DepartmentHeader = () => {
             </li>
             <li className="text-white">
               <Link
-                to="/chatbox"
+                to="/departmentmembersChatbox"
                 className=" text-black block px-2 py-2  ml-2  hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Chatbox

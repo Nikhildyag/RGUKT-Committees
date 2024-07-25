@@ -13,7 +13,9 @@ const DepartmentChatbox = () => {
   // console.log(userInfo);
   const [currentMessage, setCurrentMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  // const [socketConnected, setSocketConnected] = useState(false);
+  const [socketConnected, setSocketConnected] = useState(false);
+  const [typing, setTyping] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
 
   const fetchMessages = async () => {
     const response = await fetch(
@@ -27,13 +29,31 @@ const DepartmentChatbox = () => {
       }
     );
     const data = await response.json();
-    console.log("fetched messages",data);
+    console.log("fetched messages", data);
     setMessages(data.messages);
     socket.emit("join chat", userInfo.department + userInfo.committee_name);
   };
 
   const handleChange = (e) => {
     setCurrentMessage(e.target.value);
+    if (!socketConnected) return;
+    if (!typing) {
+      setTyping(true);
+      socket.emit("typing", userInfo.department + userInfo.committee_name);
+    }
+    let lastTypingTime = new Date().getTime();
+    var timerLength = 3000;
+    setTimeout(() => {
+      var timeNow = new Date().getTime();
+      var timeDiff = timeNow - lastTypingTime;
+      if (timeDiff >= timerLength && typing) {
+        socket.emit(
+          "stop typing",
+          userInfo.department + userInfo.committee_name
+        );
+        setTyping(false);
+      }
+    }, timerLength);
   };
 
   const handleSubmit = async (e) => {
@@ -61,11 +81,12 @@ const DepartmentChatbox = () => {
       }
 
       const responseData = await response.json();
+      //console.log(responseData);
       const newMessage = responseData.newMessage;
 
       socket.emit("sendMessage", newMessage);
       setMessages([...messages, newMessage]);
-      
+
       // setMessages((prevMessages) => [...prevMessages, newMessage]);
       setCurrentMessage(""); // Clear input field
     } catch (error) {
@@ -76,7 +97,12 @@ const DepartmentChatbox = () => {
   useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", userInfo);
-    socket.on("connected", () => console.log("connected"));
+    socket.on("connected", () => setSocketConnected(true));
+    socket.on("typing", () => setIsTyping(true));
+    socket.on("stop typing", () => {
+      setIsTyping(false);
+      console.log("fghjk");
+    });
     return () => {
       socket.disconnect(); // Disconnect in cleanup function
     };
@@ -109,10 +135,24 @@ const DepartmentChatbox = () => {
         <div className="w-full md:ml-[18%] sm:ml-[0%] relative top-20 flex items-center">
           <div className="flex flex-col p-5 mx-auto max-w-3xl">
             <div className="flex flex-col md:w-[50vw] sm:w-[80vw] md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 p-4 mb-4">
-              {messages.length>0 && messages.map((m, index) => (
-                <p key={index}>{m.message}</p>
-              ))}
+              {messages.length > 0 &&
+                messages.map((m, index) => (
+                  <p
+                    className={
+                      m.sender_id !== userInfo._id ? "text-left" : "text-right"
+                    }
+                    key={index}
+                  >
+                    {m.message}
+                  </p>
+                ))}
+              {isTyping ? (
+                <div className="text-blue-600">Loading...</div>
+              ) : (
+                <></>
+              )}
             </div>
+
             <div className="flex w-[50vw]">
               <input
                 type="text"
