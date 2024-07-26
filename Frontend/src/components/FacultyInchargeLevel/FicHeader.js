@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
+import Cookie from 'js-cookie'
 import 'react-toastify/dist/ReactToastify.css'
 
 const FicHeader = () => {
@@ -46,6 +47,7 @@ const FicHeader = () => {
         throw new Error('Network response was not ok')
       }
       toast.success('User logged out successfully')
+      Cookie.remove('Faculty_jwt_token');
       setTimeout(() => {
         navigate('/')
       }, 1000)

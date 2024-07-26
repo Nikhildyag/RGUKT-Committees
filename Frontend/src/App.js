@@ -147,7 +147,9 @@ import EditProfile from "./components/DepartmentLevel/EditProfile.js";
 import EditProfileFI from "./components/FacultyInchargeLevel/EditProfileFI.js";
 import AddNotice from "./components/FacultyInchargeLevel/AddNotice.js";
 import EditProfileC from "./components/central/EditProfileC.js";
-// import DepartmentProtected from "./components/DepartmentProtected.js";
+import DepartmentProtected from "./components/ProtectedRoutes/DepartmentProtected.js";
+import CentralProtected from "./components/ProtectedRoutes/CentralProtected.js";
+import FacultyProtected from "./components/ProtectedRoutes/FacultyProtected.js";
 
 const App = () => (
   <BrowserRouter>
@@ -175,52 +177,18 @@ const App = () => (
       <Route exact path="/excellence" Component={Excellence} />
       <Route exact path="/noticeboard" Component={NoticeBoard} />
       <Route exact path="/departmenteditProfile" Component={EditProfile} />
-      <Route
-        exact
-        path="/centralmemberschatbox"
-        Component={CentralMembersChatBox}
-      />
       <Route exact path="/centraleditprofile" Component={EditProfileC} />
       {/* //second level routes*/}
-      <Route exact path="/departments" Component={Departments} />
-      <Route
-        exact
-        path="/department/departmentmembers"
-        Component={DepartmentMembers}
-      />
-      <Route
-        exact
-        path="/department/facultyincharge"
-        Component={DepartmentFacultymember}
-      />
-      <Route
-        exact
-        path="/department/centralauthority"
-        Component={DepartmentCentralAuthority}
-      />
+       {/* Department Related protected routes*/}
+      <Route exact path="/departments" element={<DepartmentProtected element={Departments} />} />
+      <Route exact  path="/department/departmentmembers" element={<DepartmentProtected element={DepartmentMembers} />}/>
+      <Route exact  path="/department/facultyincharge" element={<DepartmentProtected element={DepartmentFacultymember} />}/>
+      <Route exact path="/department/centralauthority" element={<DepartmentProtected element={DepartmentCentralAuthority} />} />
+      <Route exact path="/departmentfeedbacks" element={<DepartmentProtected element={Departmentfeedbacks} />} />
+      <Route exact path="/departmentmembersChatbox" element={<DepartmentProtected element={DepartmentChatbox} />} />
+       <Route exact  path="/department/complaint/:complaintId" element={<DepartmentProtected element={CompalintDetails} />} />
       <Route exact path="/chatbox" Component={ChatBox} />
-      <Route exact path="/departments" Component={Departments} />
-      <Route
-        exact
-        path="/department/departmentmembers"
-        Component={DepartmentMembers}
-      />
-      <Route
-        exact
-        path="/department/facultyincharge"
-        Component={DepartmentFacultymember}
-      />
-      <Route
-        exact
-        path="/department/centralauthority"
-        Component={DepartmentCentralAuthority}
-      />
-      <Route exact path="/departments" Component={Departments}/>
-      {/* <DepartmentProtected exact path="/departments" Component={Departments} />
-      <Route path="/department" element={<DepartmentProtected element={Departments} />}/> */}
-      <Route
-        exact
-        path="/academic/centralaurhority"
+      <Route exact path="/academic/centralaurhority"
         Component={AcadamicCentralAuthority}
       />
       <Route
@@ -273,8 +241,6 @@ const App = () => (
         path="/campusgreening/facultyincarge"
         Component={CampusGreeningFacultyIncarge}
       />
-      <Route exact path="/faculty/sendnotice" Component={AddNotice} />
-      <Route exact path="/faculty/feedbacks" Component={FicFeedback} />
       <Route
         exact
         path="/campusgreening/studentcommitte"
@@ -425,11 +391,6 @@ const App = () => (
         Component={InnovationStudentCommittee}
       />
       {/* feedbackRoutes */}
-      <Route
-        exact
-        path="/departmentfeedbacks"
-        Component={Departmentfeedbacks}
-      />
       <Route
         exact
         path="/mess/centralaurhority"
@@ -623,134 +584,47 @@ const App = () => (
       <Route exact path="/feedbackform" Component={FeedbackForm} />
 
       {/* Third Level UI => For Central Authority */}
-      <Route
-        exact
-        path="/centralAuthorityHome"
-        Component={CentralHomesection}
-      />
-      <Route
-        exact
-        path="/central/centralauthority"
-        Component={CentralAuthority}
-      />
-      <Route
-        exact
-        path="/departmentmembersChatbox"
-        Component={DepartmentChatbox}
-      />
+      {/* Central level Protected Routes*/} 
+      <Route exact path="/centralAuthorityHome" element={<CentralProtected element={CentralHomesection} />} />
+      <Route exact path="/central/facultyIncharge" element={<CentralProtected element={CentralAuthorityFIC} />} />
+      <Route exact path="/central/centralauthority" element={<CentralProtected element={CentralAuthority} />} />
+      <Route exact path="/central/studentcommittee" element={<CentralProtected element={CentralAuthorityStudentCommittee} />} />
+      <Route exact path="/centralmemberschatbox" element={<CentralProtected element={CentralMembersChatBox} />} />
+      <Route exact path="/central/csechatbox" element={<CentralProtected element={CentralCseChatBoxSection} />} />
+      <Route exact path="/central/ecechatbox" element={<CentralProtected element={CentralEceChatBoxSection} />} />
+      <Route exact path="/central/eeechatbox" element={<CentralProtected element={CentralEeeChatBoxSection} />} />
+      <Route exact path="/central/civilchatbox" element={<CentralProtected element={CentralCivilChatBoxSection} />} />
+      <Route exact path="/central/mechchatbox" element={<CentralProtected element={CentralMechChatBoxSection} />} />
+      <Route exact path="/central/chemchatbox" element={<CentralProtected element={CentralChemChatBoxSection} />} />
+      <Route exact path="/central/mmechatbox" element={<CentralProtected element={CentralMmeChatBoxSection} />} />
+      <Route exact path="/central/feedbacks" element={<CentralProtected element={CentralAuthorityFeedback} />} />
+      <Route exact path="/central/complaint/:complaintId" element={<CentralProtected element={ComplaintDetails} />}/>
       <Route
         exact
         path="/centralchatboxsection"
         Component={CentralChatBoxSection}
       />
-      <Route
-        exact
-        path="/central/csechatbox"
-        Component={CentralCseChatBoxSection}
-      />
-      <Route
-        exact
-        path="/central/ecechatbox"
-        Component={CentralEceChatBoxSection}
-      />
-      <Route
-        exact
-        path="/central/eeechatbox"
-        Component={CentralEeeChatBoxSection}
-      />
-      <Route
-        exact
-        path="/central/civilchatbox"
-        Component={CentralCivilChatBoxSection}
-      />
-      <Route
-        exact
-        path="/central/mechchatbox"
-        Component={CentralMechChatBoxSection}
-      />
-      <Route
-        exact
-        path="/central/chemchatbox"
-        Component={CentralChemChatBoxSection}
-      />
-      <Route
-        exact
-        path="/central/mmechatbox"
-        Component={CentralMmeChatBoxSection}
-      />
-      <Route exact path="/faculty/csechatbox" Component={FacultyCsechatBox} />
-      <Route exact path="/faculty/ecechatbox" Component={FacultyEcechatBox} />
-      <Route exact path="/faculty/eeechatbox" Component={FacultyEeechatBox} />
-      <Route
-        exact
-        path="/faculty/civilchatbox"
-        Component={FacultyCivilchatBox}
-      />
-      <Route exact path="/faculty/mechchatbox" Component={FacultyMechchatBox} />
-      <Route exact path="/faculty/chemchatbox" Component={FacultyChemchatBox} />
-      <Route exact path="/faculty/mmechatbox" Component={FacultyMmechatBox} />
-      <Route
-        exact
-        path="/central/facultyIncharge"
-        Component={CentralAuthorityFIC}
-      />
-      <Route
-        exact
-        path="/central/studentcommittee"
-        Component={CentralAuthorityStudentCommittee}
-      />
-      <Route
-        exact
-        path="/central/complaint/:complaintId"
-        Component={ComplaintDetails}
-      />
-      <Route
-        exact
-        path="/central/feedbacks"
-        Component={CentralAuthorityFeedback}
-      />
-
-      <Route
-        exact
-        path="/department/complaint/:complaintId"
-        Component={CompalintDetails}
-      />
-
       {/*Footer */}
       <Route exact path="/footer" Component={Footer} />
 
       {/* Faculty Incharge Level */}
-      <Route
-        exact
-        path="/facultyInchargeHome"
-        Component={FacultyIchargeLevel}
-      />
-      <Route
-        exact
-        path="/incharge/complaint/:complaintId"
-        Component={FicComplaintDetails}
-      />
-      <Route
-        exact
-        path="/facultyIncharge/facultyMembers"
-        Component={FicFacultyMembers}
-      />
-      <Route
-        exact
-        path="/facultyIncharge/studentcommittee"
-        Component={FicStudentCommittee}
-      />
-      <Route
-        exact
-        path="/facultyIncharge/centralauthority-members"
-        Component={FicCentralAuthority}
-      />
-      <Route
-        exact
-        path="/facultyIncharge/editprofile"
-        Component={EditProfileFI}
-      />
-      <Route exact path="/facultyIncharge/feedbacks" Component={FicFeedback} />
+      {/* Faculty Protected Routes */}
+      <Route exact path="/facultyInchargeHome" element={<FacultyProtected element={FacultyIchargeLevel} />} />
+      <Route exact path="/facultyIncharge/facultyMembers" element={<FacultyProtected element={FicFacultyMembers} />} />
+      <Route exact path="/incharge/complaint/:complaintId" element={<FacultyProtected element={FicComplaintDetails} />} />
+      <Route exact path="/facultyIncharge/studentcommittee" element={<FacultyProtected element={FicStudentCommittee} />} />
+      <Route exact path="/facultyIncharge/centralauthority-members" element={<FacultyProtected element={FicCentralAuthority} />} />
+      <Route exact path="/facultyIncharge/editprofile" element={<FacultyProtected element={EditProfileFI} />} />
+      <Route exact path="/facultyIncharge/feedbacks" element={<FacultyProtected element={FicFeedback} />} />
+      <Route exact path="/faculty/csechatbox" element={<FacultyProtected element={FacultyCsechatBox} />} />
+      <Route exact path="/faculty/ecechatbox" element={<FacultyProtected element={FacultyEcechatBox} />} />
+      <Route exact path="/faculty/eeechatbox" element={<FacultyProtected element={FacultyEeechatBox} />} />
+      <Route exact path="/faculty/civilchatbox" element={<FacultyProtected element={FacultyCivilchatBox} />} />
+      <Route exact path="/faculty/mechchatbox" element={<FacultyProtected element={FacultyMechchatBox} />} />
+      <Route exact path="/faculty/chemchatbox" element={<FacultyProtected element={FacultyChemchatBox} />} />
+      <Route exact path="/faculty/mmechatbox" element={<FacultyProtected element={FacultyMmechatBox} />} />
+      <Route exact path="/faculty/sendnotice" element={<FacultyProtected element={AddNotice} />} />
+       <Route exact path="/faculty/feedbacks" element={<FacultyProtected element={FicFeedback} />} />
     </Routes>
   </BrowserRouter>
 );

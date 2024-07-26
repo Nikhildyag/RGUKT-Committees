@@ -42,8 +42,7 @@ const DepartmentLoginform = () => {
       const member = data.member;
       localStorage.setItem("department", JSON.stringify(member));
       document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
-     Cookies.set('Department_jwt_token', data.departmentToken, {expires: 100000000})
-      //alert('user logged in')
+      Cookies.set('Department_jwt_token', data.departmentToken, { expires: 100000000 })
       toast.success("User logged in successfully");
       setTimeout(() => {
         navigate("/departments");

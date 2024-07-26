@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import DepartmentHeader from "./DepartmentHeader.js";
 import DepartmentSidebar from "./DepartmentSidebar.js";
-let socket, selectedChatCompare;
+let socket;
 
 const ENDPOINT = "http://localhost:1024"; // Adjust this to your server endpoint
 // socket = io(ENDPOINT);
@@ -117,7 +117,6 @@ const DepartmentChatbox = () => {
 
   useEffect(() => {
     fetchMessages();
-    selectedChatCompare = userInfo.department + userInfo.committee_name;
   }, [userInfo.department + userInfo.committee_name]);
 
   useEffect(() => {

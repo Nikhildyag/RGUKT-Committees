@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars, FaAngleDown, FaAngleRight } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import Cookie from 'js-cookie'
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -40,6 +41,7 @@ const Header = () => {
         throw new Error("Network response was not ok");
       }
       localStorage.removeItem("central");
+      Cookie.remove('Central_jwt_token');
       toast.success("User logged out successfully");
       setTimeout(() => {
         navigate("/");

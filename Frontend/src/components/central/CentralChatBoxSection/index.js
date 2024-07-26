@@ -1,4 +1,4 @@
-import Header from "../../Header";
+import Header from "../Home/Header";
 import CentralAuthoritySidebar from "../Home/CentralAuthoritySidebar";
 
 const CentralChatBoxSection = () => {

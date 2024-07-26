@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Homepage from '../Home'
+import Cookies from 'js-cookie'
 import { toast, ToastContainer } from 'react-toastify' // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -36,6 +37,7 @@ const DepartmentLoginform = () => {
 
       const data = await response.json()
       document.cookie = `inchargeToken=${data.inchargeToken}; Secure; SameSite=None; Path=/`
+       Cookies.set('Faculty_jwt_token', data.departmentToken, { expires: 100000000 })
       toast.success('User logged in successfully')
       setTimeout(() => {
         navigate('/facultyInchargeHome')
