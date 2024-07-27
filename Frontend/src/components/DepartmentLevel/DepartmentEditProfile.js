@@ -1,48 +1,55 @@
-import React, { useState } from 'react'
+import React, { Profiler, useState } from "react";
 
-import { useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DepartmentEditProfile = () => {
-  const navigate = useNavigate()
-  const [username, setUsername] = useState('')
-  const [userId, setuserId] = useState('')
-  const [password, setPassword] = useState('')
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [userId, setuserId] = useState("");
+  const [password, setPassword] = useState("");
+  const [imageFile, setImageFile] = useState("");
   const handleEdit = async (e) => {
-    e.preventDefault()
-    console.log('submit')
+    e.preventDefault();
     if (!username || !password || !userId) {
-      toast.error('fill all the details')
-      return
+      toast.error("fill all the details");
+      return;
     }
-    console.log('submit')
-    const data = {
-      fullName: username,
-      Id_number: userId,
-      password,
-    }
-    const userDetails = JSON.stringify(data)
-    const url = 'http://localhost:1024/api/v1/department/update'
+
+    const formData = new FormData();
+    formData.append("fullName", username);
+    formData.append("Id_number", userId);
+    formData.append("password", password);
+    formData.append("profile", imageFile);
+
+    const url = "http://localhost:1024/api/v1/department/update";
     try {
       const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: userDetails,
-      })
+        method: "POST",
+        headers: {
+          credentials: "include",
+        },
+        body: formData,
+      });
       if (!response.ok) {
-        throw new Error(response, 'Network response was not ok')
+        throw new Error(response, "Network response was not ok");
       }
-      toast.success('successfully updated your profile')
+      toast.success("successfully updated your profile");
+      setImageFile(null);
       setTimeout(() => {
-        navigate('/departments')
-      }, 1500)
+        navigate("/departments");
+      }, 1500);
     } catch (error) {
-      alert(error)
-      console.log(error)
+      alert(error);
+      console.log(error);
     }
-  }
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setImageFile(file);
+  };
   return (
     <div>
       <ToastContainer />
@@ -116,6 +123,14 @@ const DepartmentEditProfile = () => {
                   password option
                 </span>
               </div>
+              <div>
+                {/* <label htmlFor="dropzone-file">Drop your image file</label> */}
+                <input
+                  id="dropzone-file"
+                  type="file"
+                  onChange={handleImageChange}
+                />
+              </div>
               {/* {errorMessage && (
                 <p className="text-sm text-red-500 mb-2">
                   Username and password didn't match.
@@ -133,7 +148,7 @@ const DepartmentEditProfile = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DepartmentEditProfile
+export default DepartmentEditProfile;

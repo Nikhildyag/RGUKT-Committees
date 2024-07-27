@@ -34,6 +34,11 @@ const departmentSchema = new Schema(
       enum: ["central", "department"],
       default: "department",
     },
+    image_url: {
+      type: String,
+      default:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s",
+    },
   },
   { timestamps: true }
 );

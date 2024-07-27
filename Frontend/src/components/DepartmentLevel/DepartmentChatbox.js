@@ -1,8 +1,9 @@
 // DepartmentChatbox.js
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
 import DepartmentHeader from "./DepartmentHeader.js";
 import DepartmentSidebar from "./DepartmentSidebar.js";
+import ScrollableFeed from "react-scrollable-feed";
 let socket, selectedChatCompare;
 
 const ENDPOINT = "http://localhost:1024"; // Adjust this to your server endpoint
@@ -16,6 +17,7 @@ const DepartmentChatbox = () => {
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
+  const typingTimeoutRef = useRef(null);
 
   const fetchMessages = async () => {
     const response = await fetch(
@@ -42,7 +44,7 @@ const DepartmentChatbox = () => {
       socket.emit("typing", userInfo.department + userInfo.committee_name);
     }
     let lastTypingTime = new Date().getTime();
-    var timerLength = 3000;
+    var timerLength = 1000;
     setTimeout(() => {
       var timeNow = new Date().getTime();
       var timeDiff = timeNow - lastTypingTime;
@@ -61,6 +63,7 @@ const DepartmentChatbox = () => {
     const messageDetails = {
       message: currentMessage,
     };
+    setCurrentMessage("");
     const data = JSON.stringify(messageDetails);
 
     try {
@@ -94,6 +97,13 @@ const DepartmentChatbox = () => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.code === "Enter" && currentMessage) {
+      e.preventDefault(); // Prevent default Enter key action
+      handleSubmit(e);
+    }
+  };
+
   useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", userInfo);
@@ -101,7 +111,6 @@ const DepartmentChatbox = () => {
     socket.on("typing", () => setIsTyping(true));
     socket.on("stop typing", () => {
       setIsTyping(false);
-      console.log("fghjk");
     });
     return () => {
       socket.disconnect(); // Disconnect in cleanup function
@@ -133,21 +142,25 @@ const DepartmentChatbox = () => {
       <div className="flex w-full">
         <DepartmentSidebar />
         <div className="w-full md:ml-[18%] sm:ml-[0%] relative top-20 flex items-center">
-          <div className="flex flex-col p-5 mx-auto max-w-3xl">
+          <div className="flex flex-col p-5 mx-auto max-w-3xl sm:h-fit">
             <div className="flex flex-col md:w-[50vw] sm:w-[80vw] md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 p-4 mb-4">
-              {messages.length > 0 &&
-                messages.map((m, index) => (
-                  <p
-                    className={
-                      m.sender_id !== userInfo._id ? "text-left" : "text-right"
-                    }
-                    key={index}
-                  >
-                    {m.message}
-                  </p>
-                ))}
+              <ScrollableFeed>
+                {messages.length > 0 &&
+                  messages.map((m, index) => (
+                    <div
+                      className={`w-[80%] ${
+                        m.sender_id !== userInfo._id
+                          ? "text-left self-start ml-0"
+                          : "text-right self-end ml-auto"
+                      } p-2 mb-2`}
+                      key={index}
+                    >
+                      <p className="inline-block break-words">{m.message}</p>
+                    </div>
+                  ))}
+              </ScrollableFeed>
               {isTyping ? (
-                <div className="text-blue-600">Loading...</div>
+                <div className="text-blue-600">typing...</div>
               ) : (
                 <></>
               )}
@@ -160,6 +173,7 @@ const DepartmentChatbox = () => {
                 value={currentMessage}
                 onChange={handleChange}
                 className="flex-1 p-3 border border-gray-300 rounded-l-lg"
+                onKeyDown={handleKeyDown}
               />
               <button
                 onClick={handleSubmit}

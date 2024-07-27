@@ -68,8 +68,6 @@ const usersData = departments.flatMap((department) =>
     committee_name: "excellence",
     Id_number: "BXXXXXX",
     department: department,
-    image_url:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s",
   }))
 );
 

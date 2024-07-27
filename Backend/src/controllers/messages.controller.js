@@ -99,6 +99,28 @@ const getDepartmentMessages = async (req, res) => {
   }
 };
 
+const getDepartmentMessagesForCentral = async (req, res) => {
+  try {
+    //console.log(req);
+    const { committee_name } = req.member;
+    const { department } = req.body;
+    // console.log(`logged department ${department} to get the department messages ${committee_name}`)
+    if (!department) {
+      return res.status(400).json({ message: "department is requierd" });
+    }
+    const messages = await Message.find({
+      department,
+      committee_name,
+      role: "department",
+    });
+    if (!messages)
+      return res.status(400).json({ message: "Messages are not found" });
+    return res.status(200).json({ messages });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
 const getCentralMessages = async (req, res) => {
   // console.log("central message requestd");
   try {
@@ -141,4 +163,5 @@ export {
   getCentralMessages,
   getCentralMembersChat,
   createMessageForCentral,
+  getDepartmentMessagesForCentral,
 };

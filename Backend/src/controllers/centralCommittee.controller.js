@@ -47,49 +47,49 @@ const createcentralMember = async (req, res) => {
   }
 };
 
-// const committees = [
-//   "academic",
-//   "amenities",
-//   "greening",
-//   "career",
-//   "cultural",
-//   "oppurtunities",
-//   "environment",
-//   "external",
-//   "grievance",
-//   "health",
-//   "hostel",
-//   "mess",
-//   "photography",
-//   "placement",
-//   "safety",
-//   "social",
-//   "sports",
-//   "innovation",
-//   "excellence",
-// ]; // List of departments
+const committees = [
+  "academic",
+  "amenities",
+  "greening",
+  "career",
+  "cultural",
+  "oppurtunities",
+  "environment",
+  "external",
+  "grievance",
+  "health",
+  "hostel",
+  "mess",
+  "photography",
+  "placement",
+  "safety",
+  "social",
+  "sports",
+  "innovation",
+  "excellence",
+]; // List of departments
 
-// const usersData = committees.flatMap((committee) =>
-//   Array.from({ length: 7 }, (_, index) => ({
-//     username: `central${committee}${index + 1}`,
-//     password: "rgukt123",
-//     committee_name: committee,
-//   }))
-// );
+const usersData = committees.flatMap((committee) =>
+  Array.from({ length: 7 }, (_, index) => ({
+    username: `central${committee}${index + 1}`,
+    password: "rgukt123",
+    committee_name: committee,
+  }))
+);
 
-// const createBulk = async (req, res) => {
-//   try {
-//     for (let userData of usersData) {
-//       // Assuming User.create() is a method to create users in your model
-//       await Central.create(userData);
-//       console.log(`Created user: ${userData.username}`);
-//     }
-//     console.log("Bulk user creation completed.");
-//     return res.status(200).json({ message: "completed" });
-//   } catch (error) {
-//     console.error("Error creating users:", error);
-//   }
-// };
+const createBulk = async (req, res) => {
+  try {
+    for (let userData of usersData) {
+      // Assuming User.create() is a method to create users in your model
+      await Central.create(userData);
+      console.log(`Created user: ${userData.username}`);
+    }
+    console.log("Bulk user creation completed.");
+    return res.status(200).json({ message: "completed" });
+  } catch (error) {
+    console.error("Error creating users:", error);
+  }
+};
 
 const loginCentralMember = async (req, res) => {
   const { username, password } = req.body;
@@ -193,4 +193,5 @@ export {
   getcentralCommitteMembers,
   getCentralMembersByLogin,
   logoutCentral,
+  createBulk,
 };

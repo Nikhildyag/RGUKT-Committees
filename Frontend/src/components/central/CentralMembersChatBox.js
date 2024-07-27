@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import Header from "./Home/Header.js";
 import CentralAuthoritySidebar from "./Home/CentralAuthoritySidebar.js";
+import ScrollableFeed from "react-scrollable-feed";
 let socket, selectedChatCompare;
 
 const ENDPOINT = "http://localhost:1024";
@@ -134,18 +135,22 @@ const CentralMembersChatBox = ({ userId }) => {
         <div className="w-full md:ml-[18%] sm:ml-[0%] relative top-20 flex items-center">
           <div className="flex flex-col p-5 mx-auto max-w-3xl">
             <div className="flex flex-col md:w-[50vw] sm:w-[80vw] md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 p-4 mb-4">
-              {messages.length > 0 &&
-                messages.map((m, index) => (
-                  <p
-                    className={
-                      m.sender_id !== userInfo._id ? "text-left" : "text-right"
-                    }
-                    key={index}
-                  >
-                    {m.message}
-                  </p>
-                ))}
-              {isTyping ? <div>Loading...</div> : <></>}
+              <ScrollableFeed>
+                {messages.length > 0 &&
+                  messages.map((m, index) => (
+                    <div
+                      className={`w-[80%] ${
+                        m.sender_id !== userInfo._id
+                          ? "text-left self-start ml-0"
+                          : "text-right self-end ml-auto"
+                      } p-2 mb-2`}
+                      key={index}
+                    >
+                      <p className="inline-block break-words">{m.message}</p>
+                    </div>
+                  ))}
+              </ScrollableFeed>
+              {/* {isTyping ? <div>Loading...</div> : <></>} */}
             </div>
             <div className="flex w-[50vw]">
               <input
