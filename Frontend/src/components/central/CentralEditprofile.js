@@ -9,10 +9,46 @@ const CentralEditprofile = () => {
   const [username, setUsername] = useState('')
   const [userId, setuserId] = useState('')
   const [password, setPassword] = useState('')
+  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState();
+
+  const submitImage = async (e) => {
+    console.log(image);
+    if (!image) {
+      toast.error('Please select an image to upload');
+      return;
+    }
+
+    const data = new FormData();
+    data.append('file', image);
+    data.append('upload_preset', 'committees');
+    data.append('cloud_name', 'merndeveloper');
+    
+    try {
+      const response = await fetch('https://api.cloudinary.com/v1_1/merndeveloper/image/upload', {
+        method: 'POST',
+        body: data,
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        setImageUrl(result.url)
+        console.log('Upload successful:' );
+        toast.success('Image uploaded successfully');
+      } else {
+        console.error('Upload error:', result);
+        toast.error('Failed to upload image');
+      }
+    } catch (error) {
+      console.error('Error occurred during image upload:', error);
+      toast.error('An error occurred during the upload');
+    }
+  };
+
   const handleEdit = async (e) => {
     e.preventDefault()
     console.log('submit')
-    if (!username || !password || !userId) {
+    if (!username || !password || !userId || !imageUrl) {
       toast.error('fill all the details')
       return
     }
@@ -21,6 +57,7 @@ const CentralEditprofile = () => {
       fullName: username,
       Id_number: userId,
       password,
+      image_url:imageUrl
     }
     const userDetails = JSON.stringify(data)
     const url = 'http://localhost:1024/api/v1/central/update'
@@ -117,11 +154,27 @@ const CentralEditprofile = () => {
                   password option
                 </span>
               </div>
-              {/* {errorMessage && (
-                <p className="text-sm text-red-500 mb-2">
-                  Username and password didn't match.
-                </p>
-              )} */}
+              <div className="mb-6 w-full">
+                <label
+                  htmlFor="profileImage"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Profile Image
+                </label>
+                <input
+                  type="file"
+                  id="profileImage"
+                  onChange={(e)=> setImage(e.target.files[0])}
+                  className="w-full px-3 py-2 mt-1 text-sm rounded-md focus:outline-none"
+                />
+                <button
+                  type="button"
+                  className="mt-2 w-full px-4 py-2 text-white bg-blue-500 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  onClick={submitImage}
+                >
+                  Upload Image
+                </button>
+              </div>
               <button
                 type="submit"
                 className="w-full px-4 py-2 text-white bg-blue-500 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"

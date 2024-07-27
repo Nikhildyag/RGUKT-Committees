@@ -99,7 +99,7 @@ const DepartmentEditProfile = () => {
 
           {/* Form */}
           <div className="flex flex-col items-center w-full">
-            <h2 className="text-center lg:text-xl md:text-xl sm:text-lg font-semibold text-gray-700 mb-1">
+            <h2 className="text-center md:pt-10 lg:text-xl md:text-xl sm:text-lg font-semibold text-gray-700 mb-1">
               Edit Profile
             </h2>
             <form onSubmit={handleEdit} className="w-full px-6 pt-1 pb-2">
