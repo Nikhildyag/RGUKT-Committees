@@ -124,7 +124,7 @@ const DepartmentEditProfile = () => {
                   htmlFor="Id"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  UserId
+                  Student Id
                 </label>
                 <input
                   type="text"
