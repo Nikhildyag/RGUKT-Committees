@@ -150,7 +150,11 @@ const CentralMembersChatBox = ({ userId }) => {
                     </div>
                   ))}
               </ScrollableFeed>
-              {/* {isTyping ? <div>Loading...</div> : <></>} */}
+              {isTyping ? (
+                <div className="text-blue-500">typing...</div>
+              ) : (
+                <></>
+              )}
             </div>
             <div className="flex w-[50vw]">
               <input

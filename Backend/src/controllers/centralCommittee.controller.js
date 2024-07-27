@@ -118,8 +118,8 @@ const loginCentralMember = async (req, res) => {
 const updateCentralMember = async (req, res) => {
   try {
     const { _id } = req.member;
-    const { fullName, Id_number, department, password } = req.body;
-    if (!fullName && !Id_number && !department && !password) {
+    const { fullName, Id_number, department, password, image_url } = req.body;
+    if (!fullName && !Id_number && !department && !password && !image_url) {
       return res
         .status(400)
         .json({ message: "atleast one change is required" });
@@ -129,6 +129,7 @@ const updateCentralMember = async (req, res) => {
     if (Id_number) centralMember.Id_number = Id_number;
     if (department) centralMember.department = department;
     if (password) centralMember.password = password;
+    if (image_url) centralMember.image_url = image_url;
     await centralMember.save();
     return res
       .status(200)
