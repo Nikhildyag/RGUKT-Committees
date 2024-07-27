@@ -126,7 +126,6 @@ const DepartmentChatbox = () => {
 
   useEffect(() => {
     fetchMessages();
-    selectedChatCompare = userInfo.department + userInfo.committee_name;
   }, [userInfo.department + userInfo.committee_name]);
 
   useEffect(() => {
