@@ -42,11 +42,11 @@ io.on("connection", (socket) => {
   socket.on("stop typing", (room) => socket.in(room).emit("stop typing"));
 
   socket.on("sendMessage", async (newMessage) => {
-    console.log(newMessage);
+    //console.log(newMessage);
     newMessage.user_ids.forEach((user) => {
       if (user == newMessage.sender_id) return;
-      console.log("user", user);
-      console.log("sender id", newMessage.sender_id);
+      //console.log("user", user);
+      //console.log("sender id", newMessage.sender_id);
       socket.in(user).emit("message received", newMessage);
     });
   });
