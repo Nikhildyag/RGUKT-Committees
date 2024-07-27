@@ -80,7 +80,7 @@ import FormCard from './components/forms/FormCard.js'
 import CentralAuthority from './components/central/CentralAuthorityContents/CentralAuthority.js'
 import CentralAuthorityFIC from './components/central/CentralAuthorityContents/CentralAuthorityFIC.js'
 import CentralAuthorityStudentCommittee from './components/central/CentralAuthorityContents/CentralAuthorityStudentCommittee.js'
-import ChatBox from './components/Chat.js'
+
 import Departments from './components/DepartmentLevel/index.js'
 import DepartmentMembers from './components/DepartmentLevel/DepartmentMembers.js'
 import DepartmentFacultymember from './components/DepartmentLevel/DepartmentFacultymember.js'
@@ -199,7 +199,7 @@ const App = () => (
         path="/department/complaint/:complaintId"
         element={<DepartmentProtected element={CompalintDetails} />}
       />
-      <Route exact path="/chatbox" Component={ChatBox} />
+
       <Route
         exact
         path="/academic/centralaurhority"
