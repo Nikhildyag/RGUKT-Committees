@@ -102,6 +102,7 @@ const FicHeader = () => {
             className="h-9 mt-2 ml-3 rounded-full"
             alt="RGUKT Logo"
           />
+          <h1 className="h-9 mt-4 ml-3 text-white">Faculty Incharge</h1>
         </div>
         <div className={`${isOpen ? "block" : "hidden"} w-full mt-4`}>
           <ul className="flex flex-col">
@@ -146,7 +147,7 @@ const FicHeader = () => {
               </Link>
             </li>
             <li
-              className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-0 flex items-center"
+              className="m-2 list-none hover:bg-[#6a2121] hover:text-white hover:px-2 py-2 truncate text-black cursor-pointer rounded-md flex items-center"
               onClick={toggleChatboxMenu}
             >
               <span className="text-black hover:text-white">

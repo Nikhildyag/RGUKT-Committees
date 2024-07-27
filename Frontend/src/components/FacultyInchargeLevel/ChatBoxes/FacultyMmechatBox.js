@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import FicHeader from "../FicHeader.js";
 import FicSidebar from "../FicSidebar.js";
+import ScrollableFeed from "react-scrollable-feed";
 
 const socket = io("http://localhost:1024", {
   withCredentials: true,
@@ -51,28 +52,29 @@ const FacultyMmechatBox = ({ userId }) => {
   }, []);
 
   return (
-    <div className="max-w-[100%] overflow-x-hidden text-wrap">
+    <div className="max-w-[100%]  h-screen overflow-x-hidden text-wrap">
       <FicHeader />
-      <div className="flex w-full">
+      <div className="flex w-full h-[85%]">
         <FicSidebar />
-        <div className=" w-full ml-[18%] relative top-20 h-screen flex items-center">
-          <div className="flex flex-col p-5 mx-auto max-w-3xl">
+        <div className=" md:ml-[18%] sm:ml-[0%] sm:h-full overflow-y-hidden relative top-20 flex w-full">
+          <div className="flex flex-col p-4 mx-auto lg:w-[100%] sm:h-full md:max-w-full items-center ">
             <h1 className="text-[25px] font-semibold font-serif text-blue-400">
-              Welcome to MME chat box
+              Welcome to MME Chat Box
             </h1>
-            <div className="flex flex-col w-[50vw] h-96 overflow-y-scroll border border-gray-300 p-4 mb-4">
-              {messages.map((msg, index) => (
-                <div
-                  key={index}
-                  className={`p-3 my-2 rounded-lg ${
-                    msg.senderId === userId
-                      ? "bg-green-200 self-end"
-                      : "bg-white self-start border border-gray-200"
-                  }`}
-                >
-                  {msg.message}
+            <div className="flex flex-col lg:w-[90%] lg:h-[100%] md:w-[77%] sm:w-full md:h-[30em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
+              <ScrollableFeed>
+                <div className="flex flex-col space-y-4">
+                  {messages.length > 0 &&
+                    messages.map((m, index) => (
+                      <div
+                        className="justify-start flex items-center max-w-xs md:max-w-md space-x-2 bg-white text-gray-800 px-3 py-1 rounded-lg shadow"
+                        key={index}
+                      >
+                        <p className="break-words w-auto">{m.message}</p>
+                      </div>
+                    ))}
                 </div>
-              ))}
+              </ScrollableFeed>
             </div>
           </div>
         </div>

@@ -165,14 +165,13 @@ const DepartmentChatbox = () => {
                         >
                           <p className="break-words">{m.message}</p>
                         </div>
-                        {isTyping ? (
-                          <div className="text-blue-500">typing...</div>
-                        ) : (
-                          <></>
-                        )}
                       </div>
                     ))}
-                  {isTyping && <div className="text-gray-500">Loading...</div>}
+                  {isTyping && (
+                    <div className="text-green-500 font-bold text-sm">
+                      typing...
+                    </div>
+                  )}
                 </div>
               </ScrollableFeed>
             </div>
