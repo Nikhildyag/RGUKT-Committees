@@ -82,6 +82,20 @@ const FicSidebar = () => {
               Department Committees
             </li>
           </Link>
+            <Link
+            to="/facultyIncharge/centralDiscussionForum"
+            onClick={() => handleLinkClick('/facultyIncharge/centralDiscussionForum')}
+          >
+            <li
+              className={`m-2 list-none ${
+                activeLink === '/facultyIncharge/centralDiscussionForum'
+                  ? 'bg-[#800e08] text-white px-2'
+                  : 'hover:bg-[#800e08] hover:text-white hover:px-2'
+              } truncate text-black cursor-pointer rounded-md py-2`}
+            >
+              Central Discussion Forum
+            </li>
+          </Link>
           <li
             className={`m-2 list-none ${
               isChatboxOpen
@@ -90,7 +104,7 @@ const FicSidebar = () => {
             } truncate text-black cursor-pointer rounded-md py-2 flex items-center`}
             onClick={toggleChatboxMenu}
           >
-            <span>Discussion Forum</span>
+            <span>Department Discussion Forum</span>
             {isChatboxOpen ? (
               <FaAngleDown className="ml-2" />
             ) : (

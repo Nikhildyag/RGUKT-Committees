@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
-import FicHeader from "../FicHeader.js";
-import FicSidebar from "../FicSidebar.js";
-
+import FicHeader from "./FicHeader.js";
+import FicSidebar from "./FicSidebar";
 const socket = io("http://localhost:1024", {
   withCredentials: true,
   extraHeaders: {
@@ -10,13 +9,13 @@ const socket = io("http://localhost:1024", {
   },
 });
 
-const FacultyCivilchatBox = ({ userId }) => {
+const CentralChatBox = ({ userId }) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     const fetchMessages = async () => {
       const data = {
-        department: "civil",
+        department: "cse",
       };
       const branch = JSON.stringify(data);
       try {
@@ -58,7 +57,7 @@ const FacultyCivilchatBox = ({ userId }) => {
         <div className=" w-full ml-[18%] relative top-20 h-screen flex items-center">
           <div className="flex flex-col p-5 mx-auto max-w-3xl">
             <h1 className="text-[25px] font-semibold font-serif text-blue-400">
-              Welcome to Civil chat box
+              Central Members Discussion Forum
             </h1>
             <div className="flex flex-col w-[50vw] h-96 overflow-y-scroll border border-gray-300 p-4 mb-4">
               {messages.map((msg, index) => (
@@ -80,5 +79,4 @@ const FacultyCivilchatBox = ({ userId }) => {
     </div>
   );
 };
-
-export default FacultyCivilchatBox;
+export default CentralChatBox

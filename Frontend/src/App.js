@@ -150,6 +150,7 @@ import EditProfileC from "./components/central/EditProfileC.js";
 import DepartmentProtected from "./components/ProtectedRoutes/DepartmentProtected.js";
 import CentralProtected from "./components/ProtectedRoutes/CentralProtected.js";
 import FacultyProtected from "./components/ProtectedRoutes/FacultyProtected.js";
+import CentralChatBox from "./components/FacultyInchargeLevel/CentralChatBox.js";
 
 const App = () => (
   <BrowserRouter>
@@ -624,7 +625,8 @@ const App = () => (
       <Route exact path="/faculty/chemchatbox" element={<FacultyProtected element={FacultyChemchatBox} />} />
       <Route exact path="/faculty/mmechatbox" element={<FacultyProtected element={FacultyMmechatBox} />} />
       <Route exact path="/faculty/sendnotice" element={<FacultyProtected element={AddNotice} />} />
-       <Route exact path="/faculty/feedbacks" element={<FacultyProtected element={FicFeedback} />} />
+      <Route exact path="/faculty/feedbacks" element={<FacultyProtected element={FicFeedback} />} />
+      <Route exact path="/facultyIncharge/centralDiscussionForum" element={<FacultyProtected element={CentralChatBox}/>}/>
     </Routes>
   </BrowserRouter>
 );

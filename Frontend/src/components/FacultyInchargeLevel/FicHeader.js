@@ -137,12 +137,20 @@ const FicHeader = () => {
                 Department Committee
               </Link>
             </li>
+             <li className="text-black">
+              <Link
+                to="/facultyIncharge/centralDiscussionForum"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Central Discussion Forum
+              </Link>
+            </li>
             <li
               className="m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate text-black cursor-pointer rounded-md py-0 flex items-center"
               onClick={toggleChatboxMenu}
             >
               <span className="text-black hover:text-white">
-                View ChatBoxes
+                Department Discussion Forum
               </span>
               {isChatboxOpen ? (
                 <FaAngleDown className="ml-2" />
