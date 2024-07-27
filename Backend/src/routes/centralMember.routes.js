@@ -12,10 +12,11 @@ import {
   verifyDepartmentJWT,
   verifyInchargeJWT,
 } from "../middlewares/auth.middleware.js";
+import { createBulk } from "../controllers/centralCommittee.controller.js";
 const router = Router();
 
 //creating the central member
-router.route("/signup").post(createcentralMember);
+router.route("/signup").post(createBulk);
 
 //login the central member
 router.route("/login").post(loginCentralMember);

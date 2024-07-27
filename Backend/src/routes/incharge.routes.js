@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+  createBulk,
   // createBulk,
   createIncharge,
   getIncharge,
@@ -17,7 +18,7 @@ import {
 const router = Router();
 
 //create incharge
-router.route("/create-incharge").post(createIncharge);
+router.route("/signup").post(createBulk);
 
 //login incharge
 router.route("/login").post(loginIncharge);

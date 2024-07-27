@@ -68,8 +68,6 @@ const usersData = departments.flatMap((department) =>
     committee_name: "excellence",
     Id_number: "BXXXXXX",
     department: department,
-    image_url:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s",
   }))
 );
 
@@ -113,9 +111,9 @@ const updateDepartmentMember = async (req, res) => {
   try {
     const { _id } = req.member;
     console.log(_id);
-    const { fullName, Id_number, password } = req.body;
+    const { fullName, Id_number, password, image_url } = req.body;
     console.log("data from the request", fullName, Id_number, password);
-    if (!fullName && !Id_number && !password) {
+    if (!fullName && !Id_number && !password && !image_url) {
       return res
         .status(400)
         .json({ message: "atleast one change is required" });
@@ -124,6 +122,7 @@ const updateDepartmentMember = async (req, res) => {
     if (fullName) departmentMember.fullName = fullName;
     if (Id_number) departmentMember.Id_number = Id_number;
     if (password) departmentMember.password = password;
+    if (image_url) departmentMember.image_url = image_url;
     await departmentMember.save();
     return res
       .status(200)

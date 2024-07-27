@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
-import Cookie from 'js-cookie'
+import Cookie from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
 import "react-toastify/dist/ReactToastify.css";
@@ -40,9 +40,9 @@ const DepartmentHeader = () => {
           "Content-Type": "application/json",
         },
       });
-      Cookie.remove('Department_jwt_token');
-      const DepartmentToken = Cookie.get('Department_jwt_token');
-      console.log(DepartmentToken)
+      Cookie.remove("Department_jwt_token");
+      const DepartmentToken = Cookie.get("Department_jwt_token");
+      console.log(DepartmentToken);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -124,7 +124,7 @@ const DepartmentHeader = () => {
                 to="/departmentmembersChatbox"
                 className=" text-black block px-2 py-2  ml-2  hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                Chatbox
+                Discussion Forum
               </Link>
             </li>
             <li className="text-white">

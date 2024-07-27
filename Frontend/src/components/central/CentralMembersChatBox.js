@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { FaPaperPlane } from 'react-icons/fa'
 import io from 'socket.io-client'
 import Header from './Home/Header.js'
 import CentralAuthoritySidebar from './Home/CentralAuthoritySidebar.js'
+import ScrollableFeed from 'react-scrollable-feed'
+import { FaPaperPlane } from 'react-icons/fa'
 
 let socket, selectedChatCompare
 
@@ -136,44 +137,51 @@ const CentralMembersChatBox = ({ userId }) => {
         <div className=" md:ml-[18%] lg:ml-[10%] sm:ml-[0%] relative top-20 flex w-full ">
           <div className="flex flex-col p-4 mx-auto lg:max-w-6xl  md:max-w-4xl  ">
             <div className="flex flex-col lg:w-[80vw] md:w-[77%] sm:w-full md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
-              <div className="flex flex-col space-y-4">
-                {messages.length > 0 &&
-                  messages.map((m, index) => (
-                    <div
-                      className={`flex ${
-                        m.sender_id !== userInfo._id
-                          ? 'justify-start'
-                          : 'justify-end'
-                      }`}
-                      key={index}
-                    >
+              <ScrollableFeed>
+                <div className="flex flex-col space-y-4">
+                  {messages.length > 0 &&
+                    messages.map((m, index) => (
                       <div
-                        className={`flex items-center space-x-2 ${
+                        className={`flex ${
                           m.sender_id !== userInfo._id
-                            ? 'bg-white text-gray-800'
-                            : 'bg-blue-500 text-white'
-                        } max-w-xs md:max-w-md px-3 py-1 rounded-lg shadow`}
+                            ? 'justify-start'
+                            : 'justify-end'
+                        }`}
+                        key={index}
                       >
-                        {m.sender_id !== userInfo._id && (
-                          <img
-                            src="https://placehold.co/200x/ffa8e4/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato"
-                            alt="User Avatar"
-                            className="w-8 h-8 rounded-full"
-                          />
-                        )}
-                        <p className="break-words">{m.message}</p>
-                        {m.sender_id === userInfo._id && (
-                          <img
-                            src="https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato"
-                            alt="My Avatar"
-                            className="w-8 h-8 rounded-full"
-                          />
+                        <div
+                          className={`flex items-center space-x-2 ${
+                            m.sender_id !== userInfo._id
+                              ? 'bg-white text-gray-800'
+                              : 'bg-blue-500 text-white'
+                          } max-w-xs md:max-w-md px-3 py-1 rounded-lg shadow`}
+                        >
+                          {m.sender_id !== userInfo._id && (
+                            <img
+                              src="https://placehold.co/200x/ffa8e4/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato"
+                              alt="User Avatar"
+                              className="w-8 h-8 rounded-full"
+                            />
+                          )}
+                          <p className="break-words">{m.message}</p>
+                          {m.sender_id === userInfo._id && (
+                            <img
+                              src="https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato"
+                              alt="My Avatar"
+                              className="w-8 h-8 rounded-full"
+                            />
+                          )}
+                        </div>
+                        {isTyping ? (
+                          <div className="text-blue-500">typing...</div>
+                        ) : (
+                          <></>
                         )}
                       </div>
-                    </div>
-                  ))}
-                {isTyping && <div className="text-gray-500">Loading...</div>}
-              </div>
+                    ))}
+                  {isTyping && <div className="text-gray-500">Loading...</div>}
+                </div>
+              </ScrollableFeed>
             </div>
             <div className="flex w-full md:w-[77%] lg:w-[78%]">
               <input

@@ -1,50 +1,50 @@
 import { Incharge } from "../models/incharge.model.js";
 
-// const committees = [
-//   "academic",
-//   "amenities",
-//   "greening",
-//   "career",
-//   "cultural",
-//   "oppurtunities",
-//   "environment",
-//   "external",
-//   "grievance",
-//   "health",
-//   "hostel",
-//   "mess",
-//   "photography",
-//   "placement",
-//   "safety",
-//   "social",
-//   "sports",
-//   "innovation",
-//   "excellence",
-// ]; // List of departments
+const committees = [
+  "academic",
+  "amenities",
+  "greening",
+  "career",
+  "cultural",
+  "oppurtunities",
+  "environment",
+  "external",
+  "grievance",
+  "health",
+  "hostel",
+  "mess",
+  "photography",
+  "placement",
+  "safety",
+  "social",
+  "sports",
+  "innovation",
+  "excellence",
+]; // List of departments
 
-// const usersData = committees.flatMap((committee) =>
-//   Array.from({ length: 1 }, (_, index) => ({
-//     username: `${committee}incharge`,
-//     password: "rgukt123",
-//     committee_name: committee,
-//     fullName: "Faculty Name",
-//     department: "Department Name",
-//   }))
-// );
+const usersData = committees.flatMap((committee) =>
+  Array.from({ length: 1 }, (_, index) => ({
+    username: `${committee}incharge`,
+    password: "rgukt123",
+    committee_name: committee,
+    fullName: "Faculty Name",
+    department: "Department Name",
+  }))
+);
 
-// const createBulk = async (req, res) => {
-//   try {
-//     for (let userData of usersData) {
-//       // Assuming User.create() is a method to create users in your model
-//       await Incharge.create(userData);
-//       console.log(`Created user: ${userData.username}`);
-//     }
-//     console.log("Bulk user creation completed.");
-//     return res.status(200).json({ message: "completed" });
-//   } catch (error) {
-//     console.error("Error creating users:", error);
-//   }
-// };
+const createBulk = async (req, res) => {
+  try {
+    for (let userData of usersData) {
+      // Assuming User.create() is a method to create users in your model
+      await Incharge.create(userData);
+      console.log(`Created user: ${userData.username}`);
+    }
+    console.log("Bulk user creation completed.");
+    return res.status(200).json({ message: "completed" });
+  } catch (error) {
+    console.error("Error creating users:", error);
+  }
+};
 
 const createIncharge = async (req, res) => {
   try {
@@ -123,8 +123,8 @@ const loginIncharge = async (req, res) => {
 const updateInchargeMember = async (req, res) => {
   try {
     const { _id } = req.member;
-    const { fullName, department, password } = req.body;
-    if (!fullName && !department && !password) {
+    const { fullName, department, password, image_url } = req.body;
+    if (!fullName && !department && !password && !image_url) {
       return res
         .status(400)
         .json({ message: "atleast one change is required" });
@@ -133,6 +133,7 @@ const updateInchargeMember = async (req, res) => {
     if (fullName) inchargeMember.fullName = fullName;
     if (department) inchargeMember.department = department;
     if (password) inchargeMember.password = password;
+    if (image_url) inchargeMember.image_url = image_url;
     await inchargeMember.save();
     return res
       .status(200)
@@ -212,4 +213,5 @@ export {
   getInchargeForUser,
   logoutIncharge,
   updateInchargeMember,
+  createBulk,
 };

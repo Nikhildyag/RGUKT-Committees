@@ -6,6 +6,7 @@ import {
   getCentralMessages,
   getCentralMembersChat,
   createMessageForCentral,
+  getDepartmentMessagesForCentral,
 } from "../controllers/messages.controller.js";
 import {
   verifyCentralJWT,
@@ -30,8 +31,11 @@ router
   .route("/get/departmentMessage")
   .get(verifyDepartmentJWT, getDepartmentMessages);
 
-//for central use
+//for central use to get the central members messages
 router.route("/get/centralMessage").get(verifyCentralJWT, getCentralMessages);
+router
+  .route("/get/departmentMessagesForCentral")
+  .post(verifyCentralJWT, getDepartmentMessagesForCentral);
 
 router
   .route("/get/centralMessage1")
