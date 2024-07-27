@@ -1,15 +1,13 @@
 import React from 'react'
 
 const CentralAuthorityProfileCard = ({ Data }) => {
-  const ImageUrl =
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIGVupSyE17k0s5mH43ut12XoKYUgKCi6bQ&s'
   return (
     <div className="flex justify-center mt-8 md:mt-10">
       <div className="max-w-xs md:max-w-lg">
         <div className="flex flex-row items-center w-fit lg:px-8 md:px-0 sm:px-8 bg-white border border-gray-200 rounded-lg shadow-md">
           <img
             className="object-cover  rounded-t-lg h-auto w-32 md:rounded-none md:rounded-l-lg"
-            src={ImageUrl}
+            src={Data.image_url}
             alt="Profile"
           />
           <div className="flex flex-col justify-between p-4 leading-normal text-sm sm:text-base md:text-md lg:text-md xl:text-lg">

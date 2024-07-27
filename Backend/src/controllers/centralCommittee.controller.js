@@ -119,6 +119,7 @@ const updateCentralMember = async (req, res) => {
   try {
     const { _id } = req.member;
     const { fullName, Id_number, department, password, image_url } = req.body;
+    console.log(image_url);
     if (!fullName && !Id_number && !department && !password && !image_url) {
       return res
         .status(400)
@@ -130,6 +131,7 @@ const updateCentralMember = async (req, res) => {
     if (department) centralMember.department = department;
     if (password) centralMember.password = password;
     if (image_url) centralMember.image_url = image_url;
+    console.log(centralMember.image_url)
     await centralMember.save();
     return res
       .status(200)
