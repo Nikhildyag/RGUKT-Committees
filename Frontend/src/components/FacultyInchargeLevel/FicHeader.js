@@ -48,6 +48,7 @@ const FicHeader = () => {
       }
       toast.success("User logged out successfully");
       Cookie.remove("Faculty_jwt_token");
+      localStorage.removeItem("incharge");
       setTimeout(() => {
         navigate("/");
       }, 1000);
@@ -138,7 +139,7 @@ const FicHeader = () => {
                 Department Committee
               </Link>
             </li>
-             <li className="text-black">
+            <li className="text-black">
               <Link
                 to="/facultyIncharge/centralDiscussionForum"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"

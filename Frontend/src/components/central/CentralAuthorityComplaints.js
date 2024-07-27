@@ -75,7 +75,7 @@ const CentralAuthorityComplaints = () => {
           <tbody className="text-gray-700">
             {complaintsReady &&
               currentComplaints.map((complaint) => (
-                <tr key={complaint.id} className="bg-gray-50 odd:bg-gray-100">
+                <tr key={complaint._id} className="bg-gray-50 odd:bg-gray-100">
                   <td className="w-1/6 sm:w-1/6 md:w-1/6 lg:w-1/6 xl:w-1/6 text-left py-3 px-4">
                     <div className="flex items-center">
                       <Link to={`/central/complaint/${complaint._id}`}>

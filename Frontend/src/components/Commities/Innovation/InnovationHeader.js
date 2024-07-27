@@ -1,27 +1,27 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { FaBars } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const InnovationHeader = ({ name }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const menuRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setIsOpen(false)
+      setIsOpen(false);
     }
-  }
+  };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
@@ -60,12 +60,12 @@ const InnovationHeader = ({ name }) => {
 
       <div
         className={`fixed top-0 left-0 h-full bg-[#ece8e8] sm:block md:hidden transition-transform transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         } w-64  z-50`}
         ref={menuRef}
       >
         <div>
-          <div className="flex flex-row bg-[#8C1C1C] p-0 h-[3.5em]">
+          <div className="flex flex-row bg-[#426CAD] p-0 h-[3.5em]">
             <img
               src="https://hub.rgukt.ac.in/hub/static/images/logo.png"
               className="h-9 mt-2 ml-3 rounded-[50%]"
@@ -73,7 +73,7 @@ const InnovationHeader = ({ name }) => {
             />
           </div>
         </div>
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full mt-4`}>
+        <div className={`${isOpen ? "block" : "hidden"} w-full mt-4`}>
           <ul className="flex flex-col">
             <li className="text-black">
               <Link
@@ -119,7 +119,7 @@ const InnovationHeader = ({ name }) => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default InnovationHeader
+export default InnovationHeader;

@@ -1,27 +1,27 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { FaBars } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ExternalHeader = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const menuRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setIsOpen(false)
+      setIsOpen(false);
     }
-  }
+  };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
@@ -53,7 +53,7 @@ const ExternalHeader = () => {
 
       <div
         className={`fixed top-0 left-0 h-full bg-[#ece8e8] sm:block md:hidden transition-transform transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         } w-64 z-50`}
         ref={menuRef}
       >
@@ -70,18 +70,18 @@ const ExternalHeader = () => {
           <ul className="flex flex-col">
             <li className="text-black">
               <Link
-                to="/external"
-                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
-              >
-                External Committee
-              </Link>
-            </li>
-            <li className="text-black">
-              <Link
                 to="/"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Home
+              </Link>
+            </li>
+            <li className="text-black">
+              <Link
+                to="/external"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                External Committee
               </Link>
             </li>
             <li className="text-black">
@@ -112,7 +112,7 @@ const ExternalHeader = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default ExternalHeader
+export default ExternalHeader;
