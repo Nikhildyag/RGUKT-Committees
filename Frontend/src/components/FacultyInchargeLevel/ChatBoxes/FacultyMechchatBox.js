@@ -22,7 +22,7 @@ const FacultyMechchatBox = ({ userId }) => {
       const branch = JSON.stringify(data);
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/messages/get/centralMessage1",
+          "http://localhost:1024/api/v1/messages/get/departmentMessagesForCentral1",
           {
             method: "POST",
             credentials: "include",
