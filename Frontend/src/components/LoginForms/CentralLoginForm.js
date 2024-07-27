@@ -1,14 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Homepage from "../Home";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
 import "react-toastify/dist/ReactToastify.css";
 
 const DepartmentLoginform = () => {
+  const navigate = useNavigate();
+  const userInfo = localStorage.getItem("central");
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/centralAuthorityHome");
+    }
+  }, []);
   const username = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState(false);
 
@@ -40,7 +46,9 @@ const DepartmentLoginform = () => {
       localStorage.setItem("central", JSON.stringify(member));
       document.cookie = `centralToken=${data.centralToken}; Secure; SameSite=None; Path=/`;
       console.log();
-      Cookies.set('Central_jwt_token', data.centralToken, { expires: 100000000 })
+      Cookies.set("Central_jwt_token", data.centralToken, {
+        expires: 100000000,
+      });
       toast.success("User logged in successfully");
       setTimeout(() => {
         navigate("/centralAuthorityHome");

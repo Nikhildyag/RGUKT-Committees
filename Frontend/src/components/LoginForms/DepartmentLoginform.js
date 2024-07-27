@@ -1,14 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Homepage from "../Home";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
 import "react-toastify/dist/ReactToastify.css";
 
 const DepartmentLoginform = () => {
+  const navigate = useNavigate();
+  const userInfo = localStorage.getItem("department");
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/departments");
+    }
+  }, []);
   const username = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState(false);
 
@@ -42,7 +48,9 @@ const DepartmentLoginform = () => {
       const member = data.member;
       localStorage.setItem("department", JSON.stringify(member));
       document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
-      Cookies.set('Department_jwt_token', data.departmentToken, { expires: 100000000 })
+      Cookies.set("Department_jwt_token", data.departmentToken, {
+        expires: 100000000,
+      });
       toast.success("User logged in successfully");
       setTimeout(() => {
         navigate("/departments");
