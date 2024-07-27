@@ -4,6 +4,7 @@ import io from "socket.io-client";
 import DepartmentHeader from "./DepartmentHeader.js";
 import DepartmentSidebar from "./DepartmentSidebar.js";
 import ScrollableFeed from "react-scrollable-feed";
+import { FaPaperPlane } from "react-icons/fa";
 let socket, selectedChatCompare;
 
 const ENDPOINT = "http://localhost:1024"; // Adjust this to your server endpoint
@@ -138,47 +139,57 @@ const DepartmentChatbox = () => {
   return (
     <div className="max-w-[100%] h-screen overflow-x-hidden text-wrap">
       <DepartmentHeader />
-      <div className="flex w-full">
+      <div className="flex w-full h-[88%]">
         <DepartmentSidebar />
-        <div className="w-full md:ml-[18%] sm:ml-[0%] relative top-20 flex items-center">
-          <div className="flex flex-col p-5 mx-auto max-w-3xl sm:h-fit">
-            <div className="flex flex-col md:w-[50vw] sm:w-[80vw] md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 p-4 mb-4">
+        <div className=" md:ml-[18%] sm:ml-[0%] sm:h-full overflow-y-hidden relative top-20 flex w-full">
+          <div className="flex flex-col p-4 mx-auto lg:w-[100%] sm:h-full md:max-w-full items-center ">
+            <div className="flex flex-col lg:w-[90%] lg:h-[100%] md:w-[77%] sm:w-full md:h-[30em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
               <ScrollableFeed>
-                {messages.length > 0 &&
-                  messages.map((m, index) => (
-                    <div
-                      className={`w-[80%] ${
-                        m.sender_id !== userInfo._id
-                          ? "text-left self-start ml-0"
-                          : "text-right self-end ml-auto"
-                      } p-2 mb-2`}
-                      key={index}
-                    >
-                      <p className="inline-block break-words">{m.message}</p>
-                    </div>
-                  ))}
+                <div className="flex flex-col space-y-4">
+                  {messages.length > 0 &&
+                    messages.map((m, index) => (
+                      <div
+                        className={`flex ${
+                          m.sender_id !== userInfo._id
+                            ? "justify-start"
+                            : "justify-end"
+                        }`}
+                        key={index}
+                      >
+                        <div
+                          className={`flex items-center space-x-2 ${
+                            m.sender_id !== userInfo._id
+                              ? "bg-white text-gray-800"
+                              : "bg-blue-500 text-white"
+                          } max-w-xs md:max-w-md px-3 py-1 rounded-lg shadow`}
+                        >
+                          <p className="break-words">{m.message}</p>
+                        </div>
+                        {isTyping ? (
+                          <div className="text-blue-500">typing...</div>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    ))}
+                  {isTyping && <div className="text-gray-500">Loading...</div>}
+                </div>
               </ScrollableFeed>
-              {isTyping ? (
-                <div className="text-blue-600">typing...</div>
-              ) : (
-                <></>
-              )}
             </div>
-
-            <div className="flex w-[50vw]">
+            <div className="flex w-full md:w-[90%] lg:w-[90%]">
               <input
                 type="text"
                 placeholder="Type a message"
                 value={currentMessage}
                 onChange={handleChange}
-                className="flex-1 p-3 border border-gray-300 rounded-l-lg"
                 onKeyDown={handleKeyDown}
+                className="flex-1 p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-blue-500"
               />
               <button
                 onClick={handleSubmit}
-                className="px-8 py-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600"
+                className="px-8 py-3 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 transition-colors duration-300"
               >
-                Send1
+                <FaPaperPlane className="text-white" size={24} />
               </button>
             </div>
           </div>

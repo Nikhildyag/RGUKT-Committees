@@ -33,9 +33,16 @@ router
 
 //for central use to get the central members messages
 router.route("/get/centralMessage").get(verifyCentralJWT, getCentralMessages);
+
+//get the department messages to fetch for the central
 router
   .route("/get/departmentMessagesForCentral")
   .post(verifyCentralJWT, getDepartmentMessagesForCentral);
+
+//get the department messages to fetch for the faculty
+router
+  .route("/get/departmentMessagesForCentral1")
+  .post(verifyInchargeJWT, getDepartmentMessagesForCentral);
 
 router
   .route("/get/centralMessage1")

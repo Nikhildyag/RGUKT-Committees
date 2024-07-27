@@ -1,61 +1,61 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
-import Cookie from 'js-cookie'
-import 'react-toastify/dist/ReactToastify.css'
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars, FaAngleDown, FaAngleRight } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import Cookie from "js-cookie";
+import "react-toastify/dist/ReactToastify.css";
 
 const FicHeader = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isChatboxOpen, setIsChatboxOpen] = useState(false)
-  const menuRef = useRef(null)
-  const navigate = useNavigate()
+  const [isOpen, setIsOpen] = useState(false);
+  const [isChatboxOpen, setIsChatboxOpen] = useState(false);
+  const menuRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev)
-  }
+    setIsOpen((prev) => !prev);
+  };
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setIsOpen(false)
-      setIsChatboxOpen(false)
+      setIsOpen(false);
+      setIsChatboxOpen(false);
     }
-  }
+  };
 
   const toggleChatboxMenu = () => {
-    setIsChatboxOpen((prev) => !prev)
-  }
+    setIsChatboxOpen((prev) => !prev);
+  };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const Logout = async () => {
-    const url = 'http://localhost:1024/api/v1/incharge/logout'
+    const url = "http://localhost:1024/api/v1/incharge/logout";
     try {
       const response = await fetch(url, {
-        method: 'GET',
-        credentials: 'include',
+        method: "GET",
+        credentials: "include",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      })
+      });
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        throw new Error("Network response was not ok");
       }
-      toast.success('User logged out successfully')
-      Cookie.remove('Faculty_jwt_token');
+      toast.success("User logged out successfully");
+      Cookie.remove("Faculty_jwt_token");
       setTimeout(() => {
-        navigate('/')
-      }, 1000)
+        navigate("/");
+      }, 1000);
     } catch (error) {
-      console.error('Logout error:', error)
-      toast.error('Logout failed')
+      console.error("Logout error:", error);
+      toast.error("Logout failed");
     }
-  }
+  };
 
   return (
     <nav className="bg-[#426CAD] p-4 fixed top-0 left-0 z-10 right-0 w-full">
@@ -69,9 +69,7 @@ const FicHeader = () => {
             <FaBars />
           </button>
         </div>
-        <Link to="/academic" className="hidden md:block text-white">
-          Academic Committee
-        </Link>
+        <div className="hidden md:block text-white">Faculty Incharge</div>
         <div className="flex gap-5 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
           <Link to="/facultyInchargeHome">
             <button className="relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
@@ -94,7 +92,7 @@ const FicHeader = () => {
 
       <div
         className={`fixed top-0 left-0 h-full bg-[#ece8e8] transition-transform transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         } w-64 z-50`}
         ref={menuRef}
       >
@@ -105,7 +103,7 @@ const FicHeader = () => {
             alt="RGUKT Logo"
           />
         </div>
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full mt-4`}>
+        <div className={`${isOpen ? "block" : "hidden"} w-full mt-4`}>
           <ul className="flex flex-col">
             <li className="text-black">
               <Link
@@ -117,15 +115,7 @@ const FicHeader = () => {
             </li>
             <li className="text-black">
               <Link
-                to="/academic"
-                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
-              >
-                Academic Committee
-              </Link>
-            </li>
-            <li className="text-black">
-              <Link
-                to="/academic/facultyincarge"
+                to="/facultyIncharge/facultyMembers"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Faculty Incharge
@@ -133,10 +123,18 @@ const FicHeader = () => {
             </li>
             <li className="text-black">
               <Link
-                to="/academic/centralauthority"
+                to="/facultyIncharge/centralauthority-members"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
                 Central Authority
+              </Link>
+            </li>
+            <li className="text-black">
+              <Link
+                to="/facultyIncharge/studentcommittee"
+                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
+              >
+                Department Committee
               </Link>
             </li>
             <li
@@ -191,14 +189,7 @@ const FicHeader = () => {
                 </Link>
               </ul>
             )}
-            <li className="text-black">
-              <Link
-                to="/academic/studentcommitte"
-                className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
-              >
-                Department Committee
-              </Link>
-            </li>
+
             <li className="text-black">
               <Link
                 to="/faculty/sendnotice"
@@ -219,7 +210,7 @@ const FicHeader = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default FicHeader
+export default FicHeader;

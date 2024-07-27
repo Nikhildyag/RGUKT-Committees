@@ -1,114 +1,121 @@
-import React, { useEffect, useState } from 'react'
-import io from 'socket.io-client'
-import Header from './Home/Header.js'
-import CentralAuthoritySidebar from './Home/CentralAuthoritySidebar.js'
-import ScrollableFeed from 'react-scrollable-feed'
-import { FaPaperPlane } from 'react-icons/fa'
+import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
+import Header from "./Home/Header.js";
+import CentralAuthoritySidebar from "./Home/CentralAuthoritySidebar.js";
+import ScrollableFeed from "react-scrollable-feed";
+import { FaPaperPlane } from "react-icons/fa";
 
-let socket, selectedChatCompare
+let socket, selectedChatCompare;
 
-const ENDPOINT = 'http://localhost:1024'
+const ENDPOINT = "http://localhost:1024";
 
 const CentralMembersChatBox = ({ userId }) => {
-  const userInfo = JSON.parse(localStorage.getItem('central'))
+  const userInfo = JSON.parse(localStorage.getItem("central"));
   // console.log(userInfo);
-  const [currentMessage, setCurrentMessage] = useState('')
-  const [messages, setMessages] = useState([])
-  const [socketConnected, setSocketConnected] = useState(false)
-  const [typing, setTyping] = useState(false)
-  const [isTyping, setIsTyping] = useState(false)
+  const [currentMessage, setCurrentMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [socketConnected, setSocketConnected] = useState(false);
+  const [typing, setTyping] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
 
   const fetchMessages = async () => {
     const response = await fetch(
-      'http://localhost:1024/api/v1/messages/get/centralMessage',
+      "http://localhost:1024/api/v1/messages/get/centralMessage",
       // http://localhost:1024/api/v1/messages/send/messageForCentral
       {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        credentials: 'include',
+        credentials: "include",
       }
-    )
-    const data = await response.json()
-    console.log('fetched messages', data)
-    setMessages(data.messages)
-    socket.emit('join chat', userInfo.department + userInfo.committee_name)
-  }
+    );
+    const data = await response.json();
+    console.log("fetched messages", data);
+    setMessages(data.messages);
+    socket.emit("join chat", userInfo.department + userInfo.committee_name);
+  };
 
   const handleChange = (e) => {
-    setCurrentMessage(e.target.value)
-    if (!socketConnected) return
+    setCurrentMessage(e.target.value);
+    if (!socketConnected) return;
     if (!typing) {
-      setTyping(true)
-      socket.emit('typing', userInfo.department + userInfo.committee_name)
+      setTyping(true);
+      socket.emit("typing", userInfo.department + userInfo.committee_name);
     }
-    let lastTypingTime = new Date().getTime()
-    var timerLength = 2000
+    let lastTypingTime = new Date().getTime();
+    var timerLength = 2000;
     setTimeout(() => {
-      var timeNow = new Date().getTime()
-      var timeDiff = timeNow - lastTypingTime
+      var timeNow = new Date().getTime();
+      var timeDiff = timeNow - lastTypingTime;
       if (timeDiff >= timerLength && typing) {
         socket.emit(
-          'stop typing',
+          "stop typing",
           userInfo.department + userInfo.committee_name
-        )
-        setTyping(false)
+        );
+        setTyping(false);
       }
-    }, timerLength)
-  }
+    }, timerLength);
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const messageDetails = {
       message: currentMessage,
-    }
-    const data = JSON.stringify(messageDetails)
+    };
+    const data = JSON.stringify(messageDetails);
 
     try {
       const response = await fetch(
-        'http://localhost:1024/api/v1/messages/send/messageForCentral',
+        "http://localhost:1024/api/v1/messages/send/messageForCentral",
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
-          credentials: 'include',
+          credentials: "include",
           body: data,
         }
-      )
+      );
 
       if (!response.ok) {
-        throw new Error('Sending message failed')
+        throw new Error("Sending message failed");
       }
 
-      const responseData = await response.json()
+      const responseData = await response.json();
       //console.log(responseData);
-      const newMessage = responseData.newMessage
+      const newMessage = responseData.newMessage;
 
-      socket.emit('sendMessage', newMessage)
-      setMessages([...messages, newMessage])
+      socket.emit("sendMessage", newMessage);
+      setMessages([...messages, newMessage]);
 
       // setMessages((prevMessages) => [...prevMessages, newMessage]);
-      setCurrentMessage('') // Clear input field
+      setCurrentMessage(""); // Clear input field
     } catch (error) {
-      console.error('Error sending message:', error)
+      console.error("Error sending message:", error);
     }
-  }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.code === "Enter" && currentMessage) {
+      e.preventDefault(); // Prevent default Enter key action
+      handleSubmit(e);
+    }
+  };
 
   useEffect(() => {
-    socket = io(ENDPOINT)
-    socket.emit('setup', userInfo)
-    socket.on('connected', () => setSocketConnected(true))
-    socket.on('typing', () => setIsTyping(true))
-    socket.on('stop typing', () => {
-      setIsTyping(false)
-      console.log('fghjk')
-    })
+    socket = io(ENDPOINT);
+    socket.emit("setup", userInfo);
+    socket.on("connected", () => setSocketConnected(true));
+    socket.on("typing", () => setIsTyping(true));
+    socket.on("stop typing", () => {
+      setIsTyping(false);
+      console.log("fghjk");
+    });
     return () => {
-      socket.disconnect() // Disconnect in cleanup function
-    }
-  }, [])
+      socket.disconnect(); // Disconnect in cleanup function
+    };
+  }, []);
 
   // useEffect(() => {
   //   console.log("count");
@@ -118,25 +125,25 @@ const CentralMembersChatBox = ({ userId }) => {
   // }, []);
 
   useEffect(() => {
-    fetchMessages()
-    selectedChatCompare = userInfo.department + userInfo.committee_name
-  }, [userInfo.department + userInfo.committee_name])
+    fetchMessages();
+    selectedChatCompare = userInfo.department + userInfo.committee_name;
+  }, [userInfo.department + userInfo.committee_name]);
 
   useEffect(() => {
-    socket.on('message received', (newMessageRecieved) => {
-      console.log(messages)
-      setMessages([...messages, newMessageRecieved])
-    })
-  })
+    socket.on("message received", (newMessageRecieved) => {
+      console.log(messages);
+      setMessages([...messages, newMessageRecieved]);
+    });
+  });
 
   return (
-    <div className="max-w-[100%] h-screen overflow-x-hidden text-wrap">
+    <div className="max-w-full h-screen overflow-x-hidden text-wrap">
       <Header />
-      <div className="flex w-full">
+      <div className="flex w-full h-[88%]">
         <CentralAuthoritySidebar />
-        <div className=" md:ml-[18%] lg:ml-[10%] sm:ml-[0%] relative top-20 flex w-full ">
-          <div className="flex flex-col p-4 mx-auto lg:max-w-6xl  md:max-w-4xl  ">
-            <div className="flex flex-col lg:w-[80vw] md:w-[77%] sm:w-full md:h-[30em] sm:h-[40em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
+        <div className=" md:ml-[18%] sm:ml-[0%] sm:h-full overflow-y-hidden relative top-20 flex w-full">
+          <div className="flex flex-col p-4 mx-auto lg:w-[100%] sm:h-full md:max-w-full items-center ">
+            <div className="flex flex-col lg:w-[90%] lg:h-[100%] md:w-[77%] sm:w-full md:h-[30em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
               <ScrollableFeed>
                 <div className="flex flex-col space-y-4">
                   {messages.length > 0 &&
@@ -144,16 +151,16 @@ const CentralMembersChatBox = ({ userId }) => {
                       <div
                         className={`flex ${
                           m.sender_id !== userInfo._id
-                            ? 'justify-start'
-                            : 'justify-end'
+                            ? "justify-start"
+                            : "justify-end"
                         }`}
                         key={index}
                       >
                         <div
                           className={`flex items-center space-x-2 ${
                             m.sender_id !== userInfo._id
-                              ? 'bg-white text-gray-800'
-                              : 'bg-blue-500 text-white'
+                              ? "bg-white text-gray-800"
+                              : "bg-blue-500 text-white"
                           } max-w-xs md:max-w-md px-3 py-1 rounded-lg shadow`}
                         >
                           {m.sender_id !== userInfo._id && (
@@ -183,12 +190,13 @@ const CentralMembersChatBox = ({ userId }) => {
                 </div>
               </ScrollableFeed>
             </div>
-            <div className="flex w-full md:w-[77%] lg:w-[78%]">
+            <div className="flex w-full md:w-[90%] lg:w-[90%]">
               <input
                 type="text"
                 placeholder="Type a message"
                 value={currentMessage}
                 onChange={handleChange}
+                onKeyDown={handleKeyDown}
                 className="flex-1 p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:border-blue-500"
               />
               <button
@@ -202,7 +210,7 @@ const CentralMembersChatBox = ({ userId }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CentralMembersChatBox
+export default CentralMembersChatBox;
