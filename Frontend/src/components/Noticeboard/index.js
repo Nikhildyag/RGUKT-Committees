@@ -70,7 +70,8 @@ const NoticeBoard = () => {
                 return (
                   <div
                     key={index}
-                    className={`lg:w-[75%] md:w-[60%] px-4 py-1 shadow-lg border border-gray-200 my-4 ${
+                    onClick={() => toggleDescription(index)}
+                    className={`lg:w-[75%] cursor-pointer md:w-[60%] px-4 py-1 shadow-lg border border-gray-200 my-4 ${
                       index === notices.length - 1 ? "mb-4" : ""
                     }`}
                   >
@@ -85,17 +86,18 @@ const NoticeBoard = () => {
                         </p>
                       </div>
                       <div className="flex flex-row gap-4 ml-1">
-                        {isNewNotice && (
-                          <img
-                            src="https://hub.rgukt.ac.in/hub/static/images/new3.gif"
-                            className="md:w-10 md:h-5 sm:w-6 sm:h-4 mt-1"
-                            alt="new notice"
-                          />
+                        {currentPage === 1 && (
+                          <div>
+                            {isNewNotice && (
+                              <img
+                                src="https://hub.rgukt.ac.in/hub/static/images/new3.gif"
+                                className="md:w-10 md:h-5 sm:w-6 sm:h-4 mt-1"
+                                alt="new notice"
+                              />
+                            )}
+                          </div>
                         )}
-                        <button
-                          onClick={() => toggleDescription(index)}
-                          className="text-blue-500 hover:text-blue-700 focus:outline-none"
-                        >
+                        <button className="text-blue-500 hover:text-blue-700 focus:outline-none">
                           <FaPlus className="inline-block align-text-top sm:mr-4" />
                         </button>
                       </div>

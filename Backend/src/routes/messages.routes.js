@@ -44,9 +44,7 @@ router
   .route("/get/departmentMessagesForCentral1")
   .post(verifyInchargeJWT, getDepartmentMessagesForCentral);
 
-router
-  .route("/get/centralMessage1")
-  .post(verifyInchargeJWT, getCentralMessages);
+router.route("/get/centralMessage1").get(verifyInchargeJWT, getCentralMessages);
 
 //get central members chat
 router
