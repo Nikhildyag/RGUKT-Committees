@@ -38,9 +38,14 @@ const CampusAmentiesHeader = () => {
         <Link to="/campusamenties" className="hidden md:block text-white">
           Campus Amenities Committee
         </Link>
-        <div className="flex gap-5">
+        <div className="flex">
+           <Link to="/feedbackform">
+            <button className="mr-5 rounded-md relative text-white underline-transition transition duration-300 ease-in-out">
+              Feedback
+            </button>
+          </Link>
           <Link to="/">
-            <button className="sm:hidden md:block relative text-white underline-transition transition duration-300 ease-in-out">
+            <button className="mr-5 sm:hidden md:block relative text-white underline-transition transition duration-300 ease-in-out">
               Home
             </button>
           </Link>
