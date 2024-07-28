@@ -1,86 +1,89 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FicEditProfile = () => {
-  const navigate = useNavigate()
-  const [username, setUsername] = useState('')
-  const [department, setDepartment] = useState('')
-  const [password, setPassword] = useState('')
-  const [image, setImage] = useState('');
-   const [imageUrl, setImageUrl] = useState();
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [department, setDepartment] = useState("");
+  const [password, setPassword] = useState("");
+  const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState();
 
   const submitImage = async () => {
     if (!image) {
-      toast.error('Please select an image to upload');
+      toast.error("Please select an image to upload");
       return;
     }
 
     const data = new FormData();
-    data.append('file', image);
-    data.append('upload_preset', 'committees');
-    data.append('cloud_name', 'merndeveloper');
-    
+    data.append("file", image);
+    data.append("upload_preset", "committees");
+    data.append("cloud_name", "merndeveloper");
+
     try {
-      const response = await fetch('https://api.cloudinary.com/v1_1/merndeveloper/image/upload', {
-        method: 'POST',
-        body: data,
-      });
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/merndeveloper/image/upload",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
 
       const result = await response.json();
       if (response.ok) {
-        setImageUrl(result.url)
-        toast.success('Image uploaded successfully');
+        setImageUrl(result.url);
+        toast.success("Image uploaded successfully");
       } else {
-        console.error('Upload error:', result);
-        toast.error('Failed to upload image');
+        console.error("Upload error:", result);
+        toast.error("Failed to upload image");
       }
     } catch (error) {
-      console.error('Error occurred during image upload:', error);
-      toast.error('An error occurred during the upload');
+      console.error("Error occurred during image upload:", error);
+      toast.error("An error occurred during the upload");
     }
   };
 
   const handleEdit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!username || !password || !department) {
       // alert('fill all the details')
-      toast.error('fill all the details')
-      return
+      toast.error("fill all the details");
+      return;
     }
     const data = {
       fullName: username,
       department,
       password,
-      image_url:imageUrl
-    }
-    const userDetails = JSON.stringify(data)
-    const url = 'http://localhost:1024/api/v1/incharge/update'
+      image_url: imageUrl,
+    };
+    const userDetails = JSON.stringify(data);
+    const url = "http://localhost:1024/api/v1/incharge/update";
     try {
       const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: userDetails,
-      })
+      });
       if (!response.ok) {
-        throw new Error(response, 'Network response was not ok')
+        throw new Error(response, "Network response was not ok");
       }
-      const json = await response.json()
-      console.log(json)
-      toast.success('successfully updated your profile')
+      const json = await response.json();
+      console.log(json);
+      toast.success("successfully updated your profile");
 
       setTimeout(() => {
-        navigate('/facultyInchargeHome')
-      }, 1500)
+        navigate("/facultyInchargeHome");
+      }, 1500);
     } catch (error) {
-      alert(error)
-      console.log(error)
+      alert(error);
+      console.log(error);
     }
-  }
+  };
   return (
     <div>
       <ToastContainer />
@@ -107,7 +110,7 @@ const FicEditProfile = () => {
                   htmlFor="username"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Username
+                  Faculty Name
                 </label>
                 <input
                   value={username}
@@ -154,7 +157,7 @@ const FicEditProfile = () => {
                   password option
                 </span>
               </div>
-               <div className="mb-6 w-full">
+              <div className="mb-6 w-full">
                 <label
                   htmlFor="profileImage"
                   className="block text-sm font-medium text-gray-700"
@@ -187,7 +190,7 @@ const FicEditProfile = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FicEditProfile
+export default FicEditProfile;

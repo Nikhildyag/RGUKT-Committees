@@ -1,92 +1,97 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import { useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CentralEditprofile = () => {
-  const navigate = useNavigate()
-  const [username, setUsername] = useState('')
-  const [userId, setuserId] = useState('')
-  const [password, setPassword] = useState('')
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [userId, setuserId] = useState("");
+  const [password, setPassword] = useState("");
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState();
+  const [Department, setDepartment] = useState("");
 
   const submitImage = async (e) => {
     console.log(image);
     if (!image) {
-      toast.error('Please select an image to upload');
+      toast.error("Please select an image to upload");
       return;
     }
 
     const data = new FormData();
-    data.append('file', image);
-    data.append('upload_preset', 'committees');
-    data.append('cloud_name', 'merndeveloper');
-    
+    data.append("file", image);
+    data.append("upload_preset", "committees");
+    data.append("cloud_name", "merndeveloper");
+
     try {
-      const response = await fetch('https://api.cloudinary.com/v1_1/merndeveloper/image/upload', {
-        method: 'POST',
-        body: data,
-      });
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/merndeveloper/image/upload",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
 
       const result = await response.json();
       if (response.ok) {
-        setImageUrl(result.url)
-        console.log('Upload successful:' );
-        toast.success('Image uploaded successfully');
+        setImageUrl(result.url);
+        console.log("Upload successful:");
+        toast.success("Image uploaded successfully");
       } else {
-        console.error('Upload error:', result);
-        toast.error('Failed to upload image');
+        console.error("Upload error:", result);
+        toast.error("Failed to upload image");
       }
     } catch (error) {
-      console.error('Error occurred during image upload:', error);
-      toast.error('An error occurred during the upload');
+      console.error("Error occurred during image upload:", error);
+      toast.error("An error occurred during the upload");
     }
   };
 
   const handleEdit = async (e) => {
-    e.preventDefault()
-    console.log('submit')
-    if (!username || !password || !userId || !imageUrl) {
-      toast.error('fill all the details')
-      return
+    e.preventDefault();
+    console.log("submit");
+    if (!username || !password || !userId || !imageUrl || !Department) {
+      toast.error("fill all the details");
+      return;
     }
-    console.log('submit')
+    console.log("submit");
     const data = {
       fullName: username,
       Id_number: userId,
       password,
-      image_url:imageUrl
-    }
-    const userDetails = JSON.stringify(data)
-    const url = 'http://localhost:1024/api/v1/central/update'
+      image_url: imageUrl,
+      department: Department,
+    };
+    const userDetails = JSON.stringify(data);
+    const url = "http://localhost:1024/api/v1/central/update";
     try {
       const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: userDetails,
-      })
+      });
       if (!response.ok) {
-        throw new Error(response, 'Network response was not ok')
+        throw new Error(response, "Network response was not ok");
       }
-      const json = await response.json()
-      console.log(json)
-      toast.success('successfully updated your profile')
+      const json = await response.json();
+      console.log(json);
+      toast.success("successfully updated your profile");
       setTimeout(() => {
-        navigate('/centralAuthorityHome')
-      }, 1500)
+        navigate("/centralAuthorityHome");
+      }, 1500);
     } catch (error) {
-      alert(error)
-      console.log(error)
+      alert(error);
+      console.log(error);
     }
-  }
+  };
   return (
     <div>
       <ToastContainer />
       <div className="flex items-center justify-center h-screen  ">
-        <div className=" w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg  flex flex-col md:flex-row items-center sm:mb-[5%] sm:mt-[10%]  md:mt-[0%]">
+        <div className="sm:mt-[10rem] w-full max-w-xs md:max-w-2xl px-4 py-2 lg:max-w-3xl bg-white rounded-lg  flex flex-col md:flex-row items-center sm:mb-[5%]  md:mt-[0%]">
           <div className="flex justify-center mb-4 md:mb-0 md:mr-4">
             <div className="h-fit w-full flex items-center justify-center">
               <img
@@ -97,7 +102,7 @@ const CentralEditprofile = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center w-full">
+          <div className="flex flex-col items-center w-full lg:mt-[25%]">
             <h2 className="text-center text-xl font-semibold text-gray-700 mb-1">
               Edit Profile
             </h2>
@@ -107,7 +112,7 @@ const CentralEditprofile = () => {
                   htmlFor="username"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Username
+                  Student Name
                 </label>
                 <input
                   value={username}
@@ -123,7 +128,7 @@ const CentralEditprofile = () => {
                   htmlFor="Id"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  UserId
+                  Student Id
                 </label>
                 <input
                   type="text"
@@ -131,6 +136,22 @@ const CentralEditprofile = () => {
                   onChange={(e) => setuserId(e.target.value)}
                   value={userId}
                   placeholder="Enter userId"
+                  className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+                />
+              </div>
+              <div className="mb-6 w-full">
+                <label
+                  htmlFor="Department"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Department
+                </label>
+                <input
+                  type="text"
+                  id="Department"
+                  onChange={(e) => setDepartment(e.target.value)}
+                  value={Department}
+                  placeholder="Enter Department"
                   className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                 />
               </div>
@@ -164,7 +185,7 @@ const CentralEditprofile = () => {
                 <input
                   type="file"
                   id="profileImage"
-                  onChange={(e)=> setImage(e.target.files[0])}
+                  onChange={(e) => setImage(e.target.files[0])}
                   className="w-full px-3 py-2 mt-1 text-sm rounded-md focus:outline-none"
                 />
                 <button
@@ -187,7 +208,7 @@ const CentralEditprofile = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CentralEditprofile
+export default CentralEditprofile;
