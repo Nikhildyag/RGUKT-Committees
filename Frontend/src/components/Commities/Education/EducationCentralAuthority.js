@@ -9,7 +9,7 @@ const CentralAuthority = () => {
   useEffect(() => {
     const fetchCentralCommittees = async () => {
       const data = {
-        committee_name: "oppurtunities",
+        committee_name: "opportunities",
       };
       const committee_details = JSON.stringify(data);
       try {
