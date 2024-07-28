@@ -51,7 +51,7 @@ const InnovationHeader = ({ name }) => {
             </button>
           </Link>
           <Link to="/">
-            <button className="mr- 5relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
+            <button className="mr-5 5relative text-white underline-transition transition duration-300 ease-in-out sm:hidden md:block">
               Home
             </button>
           </Link>
