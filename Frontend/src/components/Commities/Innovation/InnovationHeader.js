@@ -45,7 +45,7 @@ const InnovationHeader = ({ name }) => {
           </div>
         </Link>
         <div className="flex">
-           <Link to="/feedbackform">
+          <Link to="/feedbackform">
             <button className="mr-5 rounded-md relative text-white underline-transition transition duration-300 ease-in-out">
               Feedback
             </button>
@@ -109,7 +109,7 @@ const InnovationHeader = ({ name }) => {
                 to="/innovation/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                Central Authority
+                Central Committee
               </Link>
             </li>
             <li className="text-black">

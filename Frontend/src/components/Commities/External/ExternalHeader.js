@@ -38,7 +38,7 @@ const ExternalHeader = () => {
           External Committee
         </Link>
         <div className="flex">
-           <Link to="/feedbackform">
+          <Link to="/feedbackform">
             <button className="mr-5 rounded-md relative text-white underline-transition transition duration-300 ease-in-out">
               Feedback
             </button>
@@ -94,7 +94,7 @@ const ExternalHeader = () => {
                 to="/external/centralaurhority"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                Central Authority
+                Central Committee
               </Link>
             </li>
             <li className="text-black">
@@ -110,7 +110,7 @@ const ExternalHeader = () => {
                 to="/external/studentcommitte"
                 className="block px-2 py-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                Department Committees
+                Department Committee
               </Link>
             </li>
           </ul>

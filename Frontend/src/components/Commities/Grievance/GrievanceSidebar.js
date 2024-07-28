@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const GrievanceSidebar = () => {
-  const location = useLocation()
-  const [activeLink, setActiveLink] = useState(location.pathname)
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState(location.pathname);
 
   const handleLinkClick = (path) => {
-    setActiveLink(path)
-  }
+    setActiveLink(path);
+  };
 
   return (
     <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:block xl:block w-2/12 bg-[#ece8e8] shadow-lg mt-14">
@@ -15,13 +15,13 @@ const GrievanceSidebar = () => {
         <ul className="list-none px-4 py-5">
           <Link
             to="/grievance/facultyincarge"
-            onClick={() => handleLinkClick('/grievance/facultyincarge')}
+            onClick={() => handleLinkClick("/grievance/facultyincarge")}
           >
             <li
               className={`m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate cursor-pointer rounded-md py-2 ${
-                activeLink === '/grievance/facultyincarge'
-                  ? 'bg-[#800e08] text-white px-2'
-                  : 'text-black'
+                activeLink === "/grievance/facultyincarge"
+                  ? "bg-[#800e08] text-white px-2"
+                  : "text-black"
               }`}
             >
               Faculty Incharge
@@ -29,36 +29,36 @@ const GrievanceSidebar = () => {
           </Link>
           <Link
             to="/grievance/centralaurhority"
-            onClick={() => handleLinkClick('/grievance/centralaurhority')}
+            onClick={() => handleLinkClick("/grievance/centralaurhority")}
           >
             <li
               className={`m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate cursor-pointer rounded-md py-2 ${
-                activeLink === '/grievance/centralaurhority'
-                  ? 'bg-[#800e08] text-white px-2'
-                  : 'text-black'
+                activeLink === "/grievance/centralaurhority"
+                  ? "bg-[#800e08] text-white px-2"
+                  : "text-black"
               }`}
             >
-              Central Authority
+              Central Committee
             </li>
           </Link>
           <Link
             to="/grievance/studentcommitte"
-            onClick={() => handleLinkClick('/grievance/studentcommitte')}
+            onClick={() => handleLinkClick("/grievance/studentcommitte")}
           >
             <li
               className={`m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate cursor-pointer rounded-md py-2 ${
-                activeLink === '/grievance/studentcommitte'
-                  ? 'bg-[#800e08] text-white px-2'
-                  : 'text-black'
+                activeLink === "/grievance/studentcommitte"
+                  ? "bg-[#800e08] text-white px-2"
+                  : "text-black"
               }`}
             >
-              Department Commities
+              Department Committee
             </li>
           </Link>
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GrievanceSidebar
+export default GrievanceSidebar;

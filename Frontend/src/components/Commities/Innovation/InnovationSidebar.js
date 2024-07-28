@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const InnovationSidebar = () => {
-  const location = useLocation()
-  const [activeLink, setActiveLink] = useState(location.pathname)
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState(location.pathname);
 
   const handleLinkClick = (path) => {
-    setActiveLink(path)
-  }
+    setActiveLink(path);
+  };
 
   return (
     <div className="min-h-screen h-full sm:hidden md:block fixed top-0 lg:block xl:block w-2/12 bg-[#ece8e8] shadow-lg mt-14">
@@ -15,13 +15,13 @@ const InnovationSidebar = () => {
         <ul className="list-none px-4 py-5">
           <Link
             to="/innovation/facultyincarge"
-            onClick={() => handleLinkClick('/innovation/facultyincarge')}
+            onClick={() => handleLinkClick("/innovation/facultyincarge")}
           >
             <li
               className={`m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate cursor-pointer rounded-md py-2 ${
-                activeLink === '/innovation/facultyincarge'
-                  ? 'bg-[#800e08] text-white px-2'
-                  : 'text-black'
+                activeLink === "/innovation/facultyincarge"
+                  ? "bg-[#800e08] text-white px-2"
+                  : "text-black"
               }`}
             >
               Faculty Incharge
@@ -29,27 +29,27 @@ const InnovationSidebar = () => {
           </Link>
           <Link
             to="/innovation/centralaurhority"
-            onClick={() => handleLinkClick('/innovation/centralaurhority')}
+            onClick={() => handleLinkClick("/innovation/centralaurhority")}
           >
             <li
               className={`m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate cursor-pointer rounded-md py-2 ${
-                activeLink === '/innovation/centralaurhority'
-                  ? 'bg-[#800e08] text-white px-2'
-                  : 'text-black'
+                activeLink === "/innovation/centralaurhority"
+                  ? "bg-[#800e08] text-white px-2"
+                  : "text-black"
               }`}
             >
-              Central Authority
+              Central Committee
             </li>
           </Link>
           <Link
             to="/innovation/studentcommitte"
-            onClick={() => handleLinkClick('/innovation/studentcommitte')}
+            onClick={() => handleLinkClick("/innovation/studentcommitte")}
           >
             <li
               className={`m-2 list-none hover:bg-[#800e08] hover:text-white hover:px-2 truncate cursor-pointer rounded-md py-2 ${
-                activeLink === '/innovation/studentcommitte'
-                  ? 'bg-[#800e08] text-white px-2'
-                  : 'text-black'
+                activeLink === "/innovation/studentcommitte"
+                  ? "bg-[#800e08] text-white px-2"
+                  : "text-black"
               }`}
             >
               Department Committee
@@ -58,7 +58,7 @@ const InnovationSidebar = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default InnovationSidebar
+export default InnovationSidebar;
