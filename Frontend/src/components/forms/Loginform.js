@@ -1,16 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Homepage from "../Home";
 import Cookies from "js-cookie";
 import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
 import "react-toastify/dist/ReactToastify.css";
 
-const DepartmentLoginform = () => {
+const Loginform = () => {
   const navigate = useNavigate();
-  const userInfo = localStorage.getItem("department");
+  const departmentInfo = Cookies.get("Department_jwt_token");
+  const inchargeInfo = Cookies.get("Faculty_jwt_token");
+  const centralInfo = Cookies.get("Central_jwt_token");
   useEffect(() => {
-    if (userInfo) {
+    if (departmentInfo) {
       navigate("/departments");
+    } else if (centralInfo) {
+      navigate("/centralAuthorityHome");
+    } else if (inchargeInfo) {
+      navigate("/facultyInchargeHome");
     }
   }, []);
   const username = useRef(null);
@@ -46,15 +52,37 @@ const DepartmentLoginform = () => {
 
       const data = await response.json();
       const member = data.member;
-      localStorage.setItem("department", JSON.stringify(member));
-      document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
-      Cookies.set("Department_jwt_token", data.departmentToken, {
-        expires: 100000000,
-      });
-      toast.success("User logged in successfully");
-      setTimeout(() => {
-        navigate("/departments");
-      }, 1000);
+      if (member.username.startsWith("central")) {
+        localStorage.setItem("central", JSON.stringify(member));
+        document.cookie = `centralToken=${data.centralToken}; Secure; SameSite=None; Path=/`;
+        Cookies.set("Central_jwt_token", data.centralToken, {
+          expires: 100000000,
+        });
+        toast.success("logged in successfully");
+        setTimeout(() => {
+          navigate("/centralAuthorityHome");
+        }, 1000);
+      } else if (member.username.endsWith("incharge")) {
+        localStorage.setItem("incharge", JSON.stringify(member));
+        document.cookie = `inchargeToken=${data.inchargeToken}; Secure; SameSite=None; Path=/`;
+        Cookies.set("Faculty_jwt_token", data.inchargeToken, {
+          expires: 100000000,
+        });
+        toast.success("logged in successfully");
+        setTimeout(() => {
+          navigate("/facultyInchargeHome");
+        }, 1000);
+      } else {
+        localStorage.setItem("department", JSON.stringify(member));
+        document.cookie = `departmentToken=${data.departmentToken}; Secure; SameSite=None; Path=/`;
+        Cookies.set("Department_jwt_token", data.departmentToken, {
+          expires: 100000000,
+        });
+        toast.success(" logged in successfully");
+        setTimeout(() => {
+          navigate("/departments");
+        }, 1000);
+      }
     } catch (error) {
       console.error("Login error:", error);
       setErrorMessage(true);
@@ -92,7 +120,7 @@ const DepartmentLoginform = () => {
           {/* Form */}
           <div className="flex flex-col items-center w-full">
             <h2 className="text-center text-2xl font-semibold text-gray-700 mb-1">
-              Department Login
+              Login Form
             </h2>
             <form onSubmit={handleSubmit} className="w-full px-6 pt-1 pb-2">
               <div className="mb-3 w-full">
@@ -137,27 +165,6 @@ const DepartmentLoginform = () => {
                 Login
               </button>
             </form>
-            {/* Additional Login Options */}
-            <div className="flex justify-between w-full mt-4">
-              <p className="text-sm">
-                Login as{" "}
-                <Link
-                  to="/department/centralauthorityloginForm"
-                  className="text-blue-500 hover:underline"
-                >
-                  Central Authority
-                </Link>
-              </p>
-              <p className="text-sm">
-                Login as{" "}
-                <Link
-                  to="/facultyinchargeloginForm"
-                  className="text-blue-500 hover:underline"
-                >
-                  Faculty Incharge
-                </Link>
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -165,4 +172,4 @@ const DepartmentLoginform = () => {
   );
 };
 
-export default DepartmentLoginform;
+export default Loginform;

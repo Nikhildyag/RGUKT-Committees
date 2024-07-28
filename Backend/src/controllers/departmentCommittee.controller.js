@@ -1,4 +1,6 @@
+import { Central } from "../models/centralMember.model.js";
 import { Department } from "../models/departmentCommittee.model.js";
+import { Incharge } from "../models/incharge.model.js";
 
 const createDepartmentMember = async (req, res) => {
   try {
@@ -89,22 +91,59 @@ const loginDepartmentMember = async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password)
     return res.status(400).json({ message: "All fields are required" });
-  const departmentMember = await Department.findOne({ username });
-  if (!departmentMember)
-    return res.status(400).json({ message: "you are not authorized" });
-  const isPasswordValid = await departmentMember.isPasswordCorrect(password);
-  if (!isPasswordValid)
-    return res.status(400).json({ message: "your password is not valid" });
-  const departmentToken = await departmentMember.generateAccessToken();
-  const options = {
-    httpOnly: true,
-    secure: true, // Ensure this is true if using HTTPS
-    sameSite: "None",
-  };
-  return res
-    .status(200)
-    .cookie("departmentToken", departmentToken, options)
-    .json({ member: departmentMember, departmentToken });
+  let member;
+  if (username.startsWith("central")) {
+    member = await Central.findOne({ username });
+    if (!member)
+      return res.status(400).json({ message: "you are not authorized" });
+    const isPasswordValid = await member.isPasswordCorrect(password);
+    if (!isPasswordValid)
+      return res.status(400).json({ message: "your password is not valid" });
+    const centralToken = await member.generateAccessToken();
+    const options = {
+      httpOnly: true,
+      secure: true, // Ensure this is true if using HTTPS
+      sameSite: "None",
+    };
+    return res
+      .status(200)
+      .cookie("centralToken", centralToken, options)
+      .json({ member: member, centralToken });
+  } else if (username.endsWith("incharge")) {
+    member = await Incharge.findOne({ username });
+    if (!member)
+      return res.status(400).json({ message: "you are not authorized" });
+    const isPasswordValid = await member.isPasswordCorrect(password);
+    if (!isPasswordValid)
+      return res.status(400).json({ message: "your password is not valid" });
+    const inchargeToken = await member.generateAccessToken();
+    const options = {
+      httpOnly: true,
+      secure: true, // Ensure this is true if using HTTPS
+      sameSite: "None",
+    };
+    return res
+      .status(200)
+      .cookie("inchargeToken", inchargeToken, options)
+      .json({ member: member, inchargeToken });
+  } else {
+    member = await Department.findOne({ username });
+    if (!member)
+      return res.status(400).json({ message: "you are not authorized" });
+    const isPasswordValid = await member.isPasswordCorrect(password);
+    if (!isPasswordValid)
+      return res.status(400).json({ message: "your password is not valid" });
+    const departmentToken = await member.generateAccessToken();
+    const options = {
+      httpOnly: true,
+      secure: true, // Ensure this is true if using HTTPS
+      sameSite: "None",
+    };
+    return res
+      .status(200)
+      .cookie("departmentToken", departmentToken, options)
+      .json({ member: member, departmentToken });
+  }
 };
 
 const updateDepartmentMember = async (req, res) => {
