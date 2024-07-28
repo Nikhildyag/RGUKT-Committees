@@ -1,11 +1,11 @@
 // DepartmentChatbox.js
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import DepartmentHeader from "./DepartmentHeader.js";
 import DepartmentSidebar from "./DepartmentSidebar.js";
 import ScrollableFeed from "react-scrollable-feed";
 import { FaPaperPlane } from "react-icons/fa";
-let socket, selectedChatCompare;
+let socket;
 
 const ENDPOINT = "http://localhost:1024"; // Adjust this to your server endpoint
 // socket = io(ENDPOINT);
@@ -18,7 +18,6 @@ const DepartmentChatbox = () => {
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
-  const typingTimeoutRef = useRef(null);
 
   const fetchMessages = async () => {
     const response = await fetch(

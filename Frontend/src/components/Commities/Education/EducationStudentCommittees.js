@@ -29,6 +29,7 @@ const EducationStudentCommittee = () => {
           throw new Error("Network response was not ok");
         }
         const json = await response.json();
+        console.log(json);
         setStudents(json.MembesArray);
         setIsdataready(true);
       } catch (error) {
