@@ -132,7 +132,7 @@ const DepartmentHeader = () => {
                 to="/department/centralauthority"
                 className=" text-black block px-2 py-2  ml-2 hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                CentralAuthority
+                Central Committtee
               </Link>
             </li>
             <li className="text-white">
@@ -140,7 +140,7 @@ const DepartmentHeader = () => {
                 to="/department/departmentmembers"
                 className=" text-black block px-2 py-2 ml-2  hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                Department Committtes
+                Department Committtee
               </Link>
             </li>
             <li className="text-white">
@@ -148,7 +148,7 @@ const DepartmentHeader = () => {
                 to="/departmentfeedbacks"
                 className=" text-black block px-2 py-2 ml-2  hover:bg-[#6a2121] hover:text-white hover:rounded-lg"
               >
-                feebacks
+                Feedbacks
               </Link>
             </li>
           </ul>

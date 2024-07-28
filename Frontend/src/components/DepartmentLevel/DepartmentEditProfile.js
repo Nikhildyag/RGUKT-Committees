@@ -1,45 +1,48 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DepartmentEditProfile = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [userId, setUserId] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState();
 
   const submitImage = async () => {
     if (!image) {
-      toast.error('Please select an image to upload');
+      toast.error("Please select an image to upload");
       return;
     }
 
     const data = new FormData();
-    data.append('file', image);
-    data.append('upload_preset', 'committees');
-    data.append('cloud_name', 'merndeveloper');
-    
+    data.append("file", image);
+    data.append("upload_preset", "committees");
+    data.append("cloud_name", "merndeveloper");
+
     try {
-      const response = await fetch('https://api.cloudinary.com/v1_1/merndeveloper/image/upload', {
-        method: 'POST',
-        body: data,
-      });
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/merndeveloper/image/upload",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
 
       const result = await response.json();
       if (response.ok) {
-        setImageUrl(result.url)
-        console.log('Upload successful:' );
-        toast.success('Image uploaded successfully');
+        setImageUrl(result.url);
+        console.log("Upload successful:");
+        toast.success("Image uploaded successfully");
       } else {
-        console.error('Upload error:', result);
-        toast.error('Failed to upload image');
+        console.error("Upload error:", result);
+        toast.error("Failed to upload image");
       }
     } catch (error) {
-      console.error('Error occurred during image upload:', error);
-      toast.error('An error occurred during the upload');
+      console.error("Error occurred during image upload:", error);
+      toast.error("An error occurred during the upload");
     }
   };
 
@@ -47,7 +50,7 @@ const DepartmentEditProfile = () => {
     e.preventDefault();
 
     if (!username || !password || !userId || !imageUrl) {
-      toast.error('Please fill in all the details');
+      toast.error("Please fill in all the details");
       return;
     }
 
@@ -55,30 +58,30 @@ const DepartmentEditProfile = () => {
       fullName: username,
       Id_number: userId,
       password,
-      image_url:imageUrl
+      image_url: imageUrl,
     };
     const userDetails = JSON.stringify(data);
-    const url = 'http://localhost:1024/api/v1/department/update';
+    const url = "http://localhost:1024/api/v1/department/update";
 
     try {
       const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: userDetails,
       });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
 
-      toast.success('Profile updated successfully');
+      toast.success("Profile updated successfully");
       setTimeout(() => {
-        navigate('/departments');
+        navigate("/departments");
       }, 1500);
     } catch (error) {
-      console.error('Error occurred:', error);
-      toast.error('An error occurred while updating the profile');
+      console.error("Error occurred:", error);
+      toast.error("An error occurred while updating the profile");
     }
   };
 
@@ -108,7 +111,7 @@ const DepartmentEditProfile = () => {
                   htmlFor="username"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Username
+                  Student Name
                 </label>
                 <input
                   value={username}
@@ -151,7 +154,8 @@ const DepartmentEditProfile = () => {
                   className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                 />
                 <span className="text-red-500 text-[10px]">
-                  * Please remember it carefully. You will not have a forgot password option.
+                  * Please remember it carefully. You will not have a forgot
+                  password option.
                 </span>
               </div>
               <div className="mb-6 w-full">

@@ -120,7 +120,7 @@ const Loginform = () => {
           {/* Form */}
           <div className="flex flex-col items-center w-full">
             <h2 className="text-center text-2xl font-semibold text-gray-700 mb-1">
-              Login Form
+              Login
             </h2>
             <form onSubmit={handleSubmit} className="w-full px-6 pt-1 pb-2">
               <div className="mb-3 w-full">
