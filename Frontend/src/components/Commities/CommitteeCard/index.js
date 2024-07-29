@@ -133,7 +133,7 @@ const CommitteeCard = ({ data }) => {
                 </button>
               </div>
             </div>
-            <div className="lg:mt-1 sm:w-[100%]  sm:mt-5 sm:px-1 lg:w-[80%] rounded-lg lg:ml-[0%]  md:w-[70%] md:ml-[0%] md:mt-5  flex items-center mb-10  bg-white pb-9">
+            <div className="lg:mt-1 sm:w-[100%]  sm:mt-5 sm:px-1 lg:w-[80%] rounded-lg lg:ml-[0%]  md:w-[70%] md:ml-[0%] md:mt-5  flex items-center mb-10  bg-white pb-9 border border-gray-200">
               <div className="flex flex-col lg:flex-row items-center ">
                 {/* <button >back</button> */}
                 <div className="bg-transparent rounded-lg ">
@@ -143,7 +143,7 @@ const CommitteeCard = ({ data }) => {
                     className=" lg:w-[80em] lg:h-[30em] md:w-[80em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
                   />
                 </div>
-                <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-3 md:mt-0  lg:mt-10 sm:mt-2 px-4  bg-white rounded-lg shadow-md  py-6 border border-gray-200 ">
+                <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-3 md:mt-0  lg:mt-10 sm:mt-2 px-4  bg-white rounded-lg shadow-md  py-6  ">
                   <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-black">
                     {committee_name} Grievance Form
                   </h1>
