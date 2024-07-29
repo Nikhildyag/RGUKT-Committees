@@ -72,7 +72,7 @@ const AcademicCommiteeForm = () => {
       <Header />
       <div className="flex flex-1 overflow-auto sm:max-w-full md:max-w-3/4 overflow-x-hidden">
         <DesktopCommities className="md:w-1/4 min-h-full overflow-auto sm:max-w-0 w-full inset-0" />
-        <div className=" h-fit py-[5%] lg:mt-16 sm:w-[90%] sm:ml-[5%]  sm:mt-12 sm:px-4 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-[#0d1d3b] pb-9">
+        <div className=" h-fit py-[5%] lg:mt-16 sm:w-[90%] sm:ml-[5%]  sm:mt-12 sm:px-4 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-white pb-9 border border-gray-300">
           <div className="flex flex-col lg:flex-row items-center ">
             <div className="bg-transparent rounded-lg]">
               <img
@@ -81,14 +81,14 @@ const AcademicCommiteeForm = () => {
                 className=" lg:w-[80em] lg:h-[30em] md:w-[80em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
               />
             </div>
-            <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-4 md:mt-0 sm:mt-2 px-5  bg-[#223b5d] rounded-lg shadow-md  py-6 ">
-              <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white ">
+            <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-4 md:mt-0 sm:mt-2 px-5  bg-white rounded-lg shadow-md  py-6 ">
+              <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-black ">
                 Feedback Form
               </h1>
               <form onSubmit={submitFeedback}>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-200 text-sm font-bold mb-2"
+                    className="block text-black text-sm font-bold mb-2"
                     htmlFor="year"
                   >
                     YEAR
@@ -107,7 +107,7 @@ const AcademicCommiteeForm = () => {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-200 text-sm font-bold mb-2"
+                    className="block text-black text-sm font-bold mb-2"
                     htmlFor="branch"
                   >
                     Branch
@@ -115,7 +115,7 @@ const AcademicCommiteeForm = () => {
                   <select
                     id="branch"
                     onChange={(e) => setBranch(e.target.value)}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
                   >
                     <option value="">Select Department</option>
                     <option value="cse">CSE</option>
@@ -129,7 +129,7 @@ const AcademicCommiteeForm = () => {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-200 text-sm font-bold mb-2"
+                    className="block text-black text-sm font-bold mb-2"
                     htmlFor="committee"
                   >
                     Committee
@@ -149,7 +149,7 @@ const AcademicCommiteeForm = () => {
                 </div>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-200 text-sm font-bold mb-2"
+                    className="block text-black text-sm font-bold mb-2"
                     htmlFor="message"
                   >
                     Message

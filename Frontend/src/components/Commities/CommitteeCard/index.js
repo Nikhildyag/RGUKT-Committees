@@ -133,7 +133,7 @@ const CommitteeCard = ({ data }) => {
                 </button>
               </div>
             </div>
-            <div className="lg:mt-1 sm:w-[100%]  sm:mt-5 sm:px-1 lg:w-[80%] rounded-lg lg:ml-[0%]  md:w-[70%] md:ml-[0%] md:mt-5  flex items-center mb-10  bg-[#0d1d3b] pb-9">
+            <div className="lg:mt-1 sm:w-[100%]  sm:mt-5 sm:px-1 lg:w-[80%] rounded-lg lg:ml-[0%]  md:w-[70%] md:ml-[0%] md:mt-5  flex items-center mb-10  bg-white pb-9">
               <div className="flex flex-col lg:flex-row items-center ">
                 {/* <button >back</button> */}
                 <div className="bg-transparent rounded-lg ">
@@ -143,13 +143,13 @@ const CommitteeCard = ({ data }) => {
                     className=" lg:w-[80em] lg:h-[30em] md:w-[80em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
                   />
                 </div>
-                <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-3 md:mt-0  lg:mt-10 sm:mt-2 px-4  bg-[#223b5d] rounded-lg shadow-md  py-6 ">
-                  <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-white">
+                <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-3 md:mt-0  lg:mt-10 sm:mt-2 px-4  bg-white rounded-lg shadow-md  py-6 border border-gray-200 ">
+                  <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-black">
                     {committee_name} Grievance Form
                   </h1>
                   <form onSubmit={handlesubmit}>
                     <div className="mb-4">
-                      <label className="block text-white text-sm font-bold mb-2">
+                      <label className="block text-black text-sm font-bold mb-2">
                         Identity
                       </label>
                       <div className="flex items-center">
@@ -162,7 +162,7 @@ const CommitteeCard = ({ data }) => {
                           onChange={handleAnonymousChange}
                           className="mr-2"
                         />
-                        <label htmlFor="anonymous" className="text-white mr-4">
+                        <label htmlFor="anonymous" className="text-black mr-4">
                           Anonymous
                         </label>
                         <input
@@ -174,7 +174,7 @@ const CommitteeCard = ({ data }) => {
                           onChange={handleAnonymousChange}
                           className="mr-2"
                         />
-                        <label htmlFor="notAnonymous" className="text-white">
+                        <label htmlFor="notAnonymous" className="text-black">
                           Specify
                         </label>
                       </div>
@@ -183,7 +183,7 @@ const CommitteeCard = ({ data }) => {
                       <div>
                         <div className="mb-4">
                           <label
-                            className="block text-white text-sm font-bold mb-2"
+                            className="block text-black text-sm font-bold mb-2"
                             htmlFor="name"
                           >
                             Name
@@ -199,7 +199,7 @@ const CommitteeCard = ({ data }) => {
                         </div>
                         <div className="mb-4">
                           <label
-                            className="block text-white text-sm font-bold mb-2"
+                            className="block text-black text-sm font-bold mb-2"
                             htmlFor="studentId"
                           >
                             Student ID
@@ -218,7 +218,7 @@ const CommitteeCard = ({ data }) => {
                     )}
                     <div className="mb-4">
                       <label
-                        className="block text-white font-bold mb-2"
+                        className="block text-black font-bold mb-2"
                         htmlFor="studentId"
                       >
                         year
@@ -240,7 +240,7 @@ const CommitteeCard = ({ data }) => {
 
                     <div className="mb-4">
                       <label
-                        className="block text-white  font-bold mb-2"
+                        className="block text-black  font-bold mb-2"
                         htmlFor="otherCategory"
                       >
                         Department
@@ -264,7 +264,7 @@ const CommitteeCard = ({ data }) => {
                     </div>
                     <div className="mb-4">
                       <label
-                        className="block text-white font-bold mb-2"
+                        className="block text-black font-bold mb-2"
                         htmlFor="category"
                       >
                         Grievance Category
@@ -287,7 +287,7 @@ const CommitteeCard = ({ data }) => {
                     {(category === 'Other' || category === 'other') && (
                       <div className="mb-4">
                         <label
-                          className="block text-white  font-bold mb-2"
+                          className="block text-black  font-bold mb-2"
                           htmlFor="otherCategory"
                         >
                           Please specify
@@ -305,7 +305,7 @@ const CommitteeCard = ({ data }) => {
                     )}
                     <div className="mb-4">
                       <label
-                        className="block text-white  font-bold mb-2"
+                        className="block text-black  font-bold mb-2"
                         htmlFor="message"
                       >
                         Message
