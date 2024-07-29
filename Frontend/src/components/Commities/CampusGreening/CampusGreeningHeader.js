@@ -49,7 +49,7 @@ const CampusGreeningHeader = () => {
               Home
             </button>
           </Link>
-          <Link to="/departmentloginform">
+          <Link to="/login">
             <button className="relative text-white underline-transition transition duration-300 ease-in-out">
               Login
             </button>
