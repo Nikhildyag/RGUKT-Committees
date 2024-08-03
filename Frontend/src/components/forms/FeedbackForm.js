@@ -67,22 +67,22 @@ const AcademicCommiteeForm = () => {
     }
   }
   return (
-    <div className="flex flex-col h-screen overflow-x-hidden overflow-y-auto">
+    <div className="flex flex-col h-screen overflow-x-hidden">
       <ToastContainer />
       <Header />
       <div className="flex flex-1 overflow-auto sm:max-w-full md:max-w-3/4 overflow-x-hidden">
         <DesktopCommities className="md:w-1/4 min-h-full overflow-auto sm:max-w-0 w-full inset-0" />
-        <div className=" h-fit py-[5%] lg:mt-16 sm:w-[90%] sm:ml-[5%]  sm:mt-12 sm:px-4 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-white pb-9 border border-gray-300">
-          <div className="flex flex-col lg:flex-row items-center ">
-            <div className="bg-transparent rounded-lg]">
+        <div className=" h-fit py-[4%] lg:mt-[0.1em] sm:w-[90%] sm:ml-[5%]  sm:mt-12 sm:px-4 lg:w-[70%] rounded-lg lg:ml-[23%]  md:w-[70%] md:ml-[14rem] md:mt-[2rem]  flex items-center justify-center  bg-white">
+          <div className="flex flex-col lg:flex-row items-center lg:items-stretch  lg:h-[32em] rounded-md shadow-lg  overflow-hidden">
+            <div className="flex-1 flex items-center justify-center bg-indigo-500  p-4">
               <img
                 src="https://png.pngtree.com/png-vector/20230808/ourmid/pngtree-suggestion-box-vector-png-image_6882474.png"
                 alt="suggestion"
-                className=" lg:w-[80em] lg:h-[30em] md:w-[80em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
+                className="w-full h-full object-contain"
               />
             </div>
-            <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-4 md:mt-0 sm:mt-2 px-5  bg-white rounded-lg shadow-md  py-6 ">
-              <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-black ">
+            <div className="flex-1 bg-white p-8 flex flex-col justify-center">
+              <h1 className="text-2xl font-bold mb-6 text-center text-black">
                 Feedback Form
               </h1>
               <form onSubmit={submitFeedback}>
@@ -91,7 +91,7 @@ const AcademicCommiteeForm = () => {
                     className="block text-black text-sm font-bold mb-2"
                     htmlFor="year"
                   >
-                    YEAR
+                    Year
                   </label>
                   <select
                     id="year"
@@ -121,7 +121,7 @@ const AcademicCommiteeForm = () => {
                     <option value="cse">CSE</option>
                     <option value="ece">ECE</option>
                     <option value="eee">EEE</option>
-                    <option value="cevil">Cevil</option>
+                    <option value="cevil">Civil</option>
                     <option value="mech">Mech</option>
                     <option value="chem">Chem</option>
                     <option value="mme">MME</option>
@@ -156,7 +156,7 @@ const AcademicCommiteeForm = () => {
                   </label>
                   <textarea
                     id="message"
-                    placeholder="Enter yout suggestion/feedback"
+                    placeholder="Enter your suggestion/feedback"
                     onChange={(e) => setMessage(e.target.value)}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     rows="4"
@@ -165,7 +165,7 @@ const AcademicCommiteeForm = () => {
                 <div className="flex items-center justify-between">
                   <button
                     type="submit"
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className=" bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
                     Submit
                   </button>
