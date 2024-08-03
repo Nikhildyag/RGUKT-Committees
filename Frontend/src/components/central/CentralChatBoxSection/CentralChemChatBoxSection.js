@@ -51,17 +51,51 @@ const CentralChemChatBoxSection = ({ userId }) => {
     };
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const formatTime = (dateStr) => {
+    const date = new Date(dateStr);
+
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      throw new Error("Invalid date");
+    }
+
+    // Extract hours, minutes, and seconds
+    let hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    // Determine AM/PM
+    const ampm = hours >= 12 ? "pm" : "am";
+
+    // Convert hours from 24-hour to 12-hour format
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+
+    // Format hours as "hh"
+    const formattedHours = String(hours).padStart(2, "0");
+
+    // Format the time as "hh:mm:ss AM/PM"
+    return `${formattedHours}:${minutes}${ampm}`;
+  };
+
   return (
     <div className="max-w-[100%]  h-screen overflow-x-hidden text-wrap">
       <Header />
       <div className="flex w-full h-[85%]">
         <CentralAuthoritySidebar />
-        <div className=" md:ml-[18%] sm:ml-[0%] sm:h-full overflow-y-hidden relative top-20 flex w-full">
-          <div className="flex flex-col p-4 mx-auto lg:w-[100%] sm:h-full md:max-w-full items-center ">
-            <h1 className="text-[25px] font-semibold font-serif text-blue-400">
-              Welcome to CHEM Chat Box
-            </h1>
-            <div className="flex flex-col lg:w-[90%] lg:h-[100%] md:w-[77%] sm:w-full md:h-[30em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
+        <div className=" md:ml-[18%] sm:ml-[0%] overflow-y-hidden relative top-20 flex w-full">
+          <div className="flex flex-col p-4 mx-auto lg:w-[100%] md:max-w-full items-center ">
+            <div className="flex flex-col lg:w-[90%] sm:h-[100%] lg:h-[100%] md:w-[77%] sm:w-full md:h-[30em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
+              <h1 className="text-[25px] font-semibold font-serif text-blue-400">
+                Welcome to CHEM Chat Box
+              </h1>
               <ScrollableFeed>
                 <div className="flex flex-col space-y-4">
                   {messages.length > 0 &&
@@ -71,6 +105,24 @@ const CentralChemChatBoxSection = ({ userId }) => {
                         key={index}
                       >
                         <p className="break-words w-auto">{m.message}</p>
+                        {m.user && (
+                          <p
+                            style={{ fontSize: "0.5rem" }}
+                            className={` text-green-400
+                            `}
+                          >
+                            {m.user.Id_number}
+                          </p>
+                        )}
+                        <p className="break-words">{m.message}</p>
+                        <div className="flex justify-between gap-1">
+                          <p style={{ fontSize: "0.5rem" }}>
+                            {formatDate(m.createdAt)}
+                          </p>
+                          <p style={{ fontSize: "0.5rem" }}>
+                            {formatTime(m.createdAt)}
+                          </p>
+                        </div>
                       </div>
                     ))}
                 </div>

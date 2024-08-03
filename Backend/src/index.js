@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
 
   socket.on("sendMessage", async (newMessage) => {
     //console.log(newMessage);
-    newMessage.user_ids.forEach((user) => {
+    newMessage.message.user_ids.forEach((user) => {
       if (user == newMessage.sender_id) return;
       //console.log("user", user);
       //console.log("sender id", newMessage.sender_id);

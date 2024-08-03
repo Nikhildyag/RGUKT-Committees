@@ -17,11 +17,11 @@ const CentralMembersChatBox = ({ userId }) => {
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
+  const [id, setId] = useState();
 
   const fetchMessages = async () => {
     const response = await fetch(
-      "http://localhost:1024/api/v1/messages/get/centralMessage",
-      // http://localhost:1024/api/v1/messages/send/messageForCentral
+      "http://localhost:1024/api/v1/messages/get/centralMembersChat",
       {
         method: "GET",
         headers: {
@@ -84,10 +84,13 @@ const CentralMembersChatBox = ({ userId }) => {
 
       const responseData = await response.json();
       //console.log(responseData);
-      const newMessage = responseData.newMessage;
+      const newMessage = {
+        message: responseData.newMessage,
+        username: userInfo.Id_number,
+      };
 
       socket.emit("sendMessage", newMessage);
-      setMessages([...messages, newMessage]);
+      setMessages([...messages, newMessage.message]);
 
       // setMessages((prevMessages) => [...prevMessages, newMessage]);
       setCurrentMessage(""); // Clear input field
@@ -131,10 +134,45 @@ const CentralMembersChatBox = ({ userId }) => {
 
   useEffect(() => {
     socket.on("message received", (newMessageRecieved) => {
-      console.log(messages);
-      setMessages([...messages, newMessageRecieved]);
+      console.log(newMessageRecieved);
+      setId(newMessageRecieved.username);
+      setMessages([...messages, newMessageRecieved.message]);
     });
   });
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const formatTime = (dateStr) => {
+    const date = new Date(dateStr);
+
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      throw new Error("Invalid date");
+    }
+
+    // Extract hours, minutes, and seconds
+    let hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    // Determine AM/PM
+    const ampm = hours >= 12 ? "pm" : "am";
+
+    // Convert hours from 24-hour to 12-hour format
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+
+    // Format hours as "hh"
+    const formattedHours = String(hours).padStart(2, "0");
+
+    // Format the time as "hh:mm:ss AM/PM"
+    return `${formattedHours}:${minutes}${ampm}`;
+  };
 
   return (
     <div className="max-w-full h-screen overflow-x-hidden text-wrap">
@@ -143,7 +181,7 @@ const CentralMembersChatBox = ({ userId }) => {
         <CentralAuthoritySidebar />
         <div className=" md:ml-[18%] sm:ml-[0%] sm:h-full overflow-y-hidden relative top-20 flex w-full">
           <div className="flex flex-col p-4 mx-auto lg:w-[100%] sm:h-full md:max-w-full items-center ">
-            <div className="flex flex-col lg:w-[90%] lg:h-[100%] md:w-[77%] sm:w-full md:h-[30em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
+            <div className="flex flex-col lg:w-[90%] lg:h-[100%] md:w-[77%] sm:h-[100%] sm:w-full md:h-[30em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
               <ScrollableFeed>
                 <div className="flex flex-col space-y-4">
                   {messages.length > 0 &&
@@ -157,36 +195,39 @@ const CentralMembersChatBox = ({ userId }) => {
                         key={index}
                       >
                         <div
-                          className={`flex items-center space-x-2 ${
+                          className={`flex flex-col space-x-2 ${
                             m.sender_id !== userInfo._id
                               ? "bg-white text-gray-800"
                               : "bg-blue-500 text-white"
-                          } max-w-xs md:max-w-md px-3 py-1 rounded-lg shadow`}
+                          } max-w-xs md:max-w-md px-3 rounded-lg shadow`}
                         >
-                          {m.sender_id !== userInfo._id && (
-                            <img
-                              src="https://placehold.co/200x/ffa8e4/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato"
-                              alt="User Avatar"
-                              className="w-8 h-8 rounded-full"
-                            />
+                          {(id || m.user) && (
+                            <p
+                              style={{ fontSize: "0.5rem" }}
+                              className={` text-green-400 ${
+                                m.sender_id == userInfo._id ? "hidden" : "block"
+                              }`}
+                            >
+                              {id || m.user.Id_number}
+                            </p>
                           )}
                           <p className="break-words">{m.message}</p>
-                          {m.sender_id === userInfo._id && (
-                            <img
-                              src="https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato"
-                              alt="My Avatar"
-                              className="w-8 h-8 rounded-full"
-                            />
-                          )}
+                          <div className="flex justify-between gap-1">
+                            <p style={{ fontSize: "0.5rem" }}>
+                              {formatDate(m.createdAt)}
+                            </p>
+                            <p style={{ fontSize: "0.5rem" }}>
+                              {formatTime(m.createdAt)}
+                            </p>
+                          </div>
                         </div>
-                        {isTyping ? (
-                          <div className="text-blue-500">typing...</div>
-                        ) : (
-                          <></>
-                        )}
                       </div>
                     ))}
-                  {isTyping && <div className="text-gray-500">Loading...</div>}
+                  {isTyping && (
+                    <div className="text-green-500 font-bold text-sm">
+                      typing...
+                    </div>
+                  )}
                 </div>
               </ScrollableFeed>
             </div>
