@@ -2,18 +2,6 @@ import { Central } from "../models/centralMember.model.js";
 import { Department } from "../models/departmentCommittee.model.js";
 import { Message } from "../models/messages.model.js";
 
-const getMessages = async (req, res) => {
-  try {
-    const messages = await Message.find();
-    if (!messages)
-      return res.status(400).json({ message: "No messages found" });
-    // console.log(messages);
-    res.json(messages);
-  } catch (err) {
-    res.status(500).json({ error: "Failed to fetch messages" });
-  }
-};
-
 const createMessage = async (req, res) => {
   try {
     const { message } = req.body;
@@ -40,7 +28,7 @@ const createMessage = async (req, res) => {
     if (!newMessage) {
       return res.status(500).json({ message: "unable to send message" });
     }
-    return res.status(200).json({ newMessage });
+    return res.status(200).json({ newMessage, user: req.member });
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
@@ -93,7 +81,18 @@ const getDepartmentMessages = async (req, res) => {
     });
     if (!messages)
       return res.status(400).json({ message: "Messages are not found" });
-    return res.status(200).json({ messages });
+    const messagesWithUserData = await Promise.all(
+      messages.map(async (message) => {
+        const user = await Department.findById(message.sender_id);
+        //console.log(user);
+        return {
+          ...message._doc, // _doc contains the document data
+          user, // add user data
+        };
+      })
+    );
+
+    return res.status(200).json({ messages: messagesWithUserData });
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
@@ -115,7 +114,18 @@ const getDepartmentMessagesForCentral = async (req, res) => {
     });
     if (!messages)
       return res.status(400).json({ message: "Messages are not found" });
-    return res.status(200).json({ messages });
+    const messagesWithUserData = await Promise.all(
+      messages.map(async (message) => {
+        const user = await Department.findById(message.sender_id);
+        //console.log(user);
+        return {
+          ...message._doc, // _doc contains the document data
+          user, // add user data
+        };
+      })
+    );
+
+    return res.status(200).json({ messages: messagesWithUserData });
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }
@@ -125,14 +135,25 @@ const getCentralMessages = async (req, res) => {
   // console.log("central message requestd");
   try {
     const { committee_name } = req.member;
-    const messages = await Message.find({
+    const messages = await Central.find({
       committee_name,
       role: "central",
     });
     if (!messages)
       return res.status(400).json({ message: "Messages are not found" });
     // console.log(messages);
-    return res.status(200).json({ messages });
+    const messagesWithUserData = await Promise.all(
+      messages.map(async (message) => {
+        const user = await Department.findById(message.sender_id);
+        //console.log(user);
+        return {
+          ...message._doc, // _doc contains the document data
+          user, // add user data
+        };
+      })
+    );
+
+    return res.status(200).json({ messages: messagesWithUserData });
   } catch (error) {
     // console.log(error);
     return res.status(400).json({ message: error.message });
@@ -149,7 +170,18 @@ const getCentralMembersChat = async (req, res) => {
     if (!messages)
       return res.status(400).json({ message: "Messages are not found" });
     //console.log(messages);
-    return res.status(200).json({ messages });
+    const messagesWithUserData = await Promise.all(
+      messages.map(async (message) => {
+        const user = await Central.findById(message.sender_id);
+        //console.log(user);
+        return {
+          ...message._doc, // _doc contains the document data
+          user, // add user data
+        };
+      })
+    );
+
+    return res.status(200).json({ messages: messagesWithUserData });
   } catch (error) {
     //console.log(error);
     return res.status(400).json({ message: error.message });
@@ -157,7 +189,6 @@ const getCentralMembersChat = async (req, res) => {
 };
 
 export {
-  getMessages,
   createMessage,
   getDepartmentMessages,
   getCentralMessages,
