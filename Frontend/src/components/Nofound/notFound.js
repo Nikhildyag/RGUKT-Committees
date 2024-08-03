@@ -9,10 +9,10 @@ const notFound = () => {
         className="w-full max-w-sm mb-4"
       />
       <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-center">
-        Oops! No Internet Connection
+        Oops!! Page Not Found
       </h1>
       <p className="text-gray-600 text-center text-sm md:text-base">
-        Please check your network settings and try again.
+        Please check your path  or check your Network Settings network settings and try again.
       </p>
     </div>
   )

@@ -132,6 +132,7 @@ import DepartmentProtected from './components/ProtectedRoutes/DepartmentProtecte
 import CentralProtected from './components/ProtectedRoutes/CentralProtected.js'
 import FacultyProtected from './components/ProtectedRoutes/FacultyProtected.js'
 import CentralChatBox from './components/FacultyInchargeLevel/CentralChatBox.js'
+import notFound from './components/Nofound/notFound.js'
 
 const App = () => (
   <BrowserRouter>
@@ -672,6 +673,7 @@ const App = () => (
         path="/facultyIncharge/centralDiscussionForum"
         element={<FacultyProtected element={CentralChatBox} />}
       />
+     <Route path="*" Component={notFound} />
     </Routes>
   </BrowserRouter>
 )
