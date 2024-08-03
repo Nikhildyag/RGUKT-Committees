@@ -121,30 +121,28 @@ const CommitteeCard = ({ data }) => {
           </div>
         </>
       ) : (
-        <div className="p-6 sm:relative md:left-[22%] lg:left-[16%] sm:ml-[-9%] sm:mx-[-2%] z-0 md:mt-[-5%] lg:mt-[-10%]">
+        <div className="p-6 sm:relative md:left-[22%] lg:left-[16%] sm:ml-[-9%] sm:mx-[-2%] z-0 md:mt-[-5%] lg:mt-[-12%]">
           <div className="max-w-[100%] overflow-x-hidden text-wrap">
-            <div>
-              <div className="lg:flex lg:justify-start sm:mt-[15%]">
-                <button
-                  onClick={DisplayForm}
-                  className="px-3 py-1  bg-[#0d1d3b] text-white hover:text-blue-500 rounded-md"
-                >
-                  Home
-                </button>
-              </div>
+            <div className="lg:flex lg:justify-start sm:mt-[15%]">
+              <button
+                onClick={DisplayForm}
+                className="px-4 py-1 ml-1  bg-indigo-500   text-white hover:text-white rounded-md"
+              >
+                Home
+              </button>
             </div>
-            <div className="lg:mt-1 sm:w-[100%]  sm:mt-5 sm:px-1 lg:w-[80%] rounded-lg lg:ml-[0%]  md:w-[70%] md:ml-[0%] md:mt-5  flex items-center mb-10  bg-white pb-9 border border-gray-200">
-              <div className="flex flex-col lg:flex-row items-center ">
+            <div className="lg:mt-1 sm:w-[100%]  sm:mt-5 sm:px-1 lg:w-[80%] rounded-lg lg:ml-[0%]  md:w-[70%] md:ml-[0%] md:mt-5  flex items-center  bg-white shadow-md">
+              <div className="flex flex-col lg:flex-row items-center lg:items-stretch   lg:h-fit   overflow-hidden">
                 {/* <button >back</button> */}
-                <div className="bg-transparent rounded-lg ">
+                <div className=" bg-indigo-500 flex items-center">
                   <img
                     src="https://cdni.iconscout.com/illustration/premium/thumb/complaint-resolution-specialist-handling-customer-complaints-and-working-to-resolve-them-8978982-7328703.png?f=webp"
                     alt="Complaint"
-                    className=" lg:w-[80em] lg:h-[30em] md:w-[80em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
+                    className=" lg:w-[80em] lg:h-[35em] md:w-[80em] md:h-[25em] sm:w-[60em] sm:h-[20em] "
                   />
                 </div>
-                <div className="max-w-lg lg:w-[100%] mx-auto sm:mx-3 md:mt-0  lg:mt-10 sm:mt-2 px-4  bg-white rounded-lg shadow-md  py-6  ">
-                  <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-6 text-center text-black">
+                <div className="max-w-lg lg:w-[100%] bg-white mx-auto sm:mx-3 md:mt-0  lg:mt-0 sm:mt-2 px-4   py-6  ">
+                  <h1 className=" sm:text-md text-base md:text-lg lg:text-xl font-bold mb-3 text-center text-black">
                     {committee_name} Grievance Form
                   </h1>
                   <form onSubmit={handlesubmit}>
@@ -319,10 +317,10 @@ const CommitteeCard = ({ data }) => {
                         rows="5"
                       ></textarea>
                     </div>
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center">
                       <button
                         type="submit"
-                        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                        className="px-10 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                       >
                         Submit
                       </button>

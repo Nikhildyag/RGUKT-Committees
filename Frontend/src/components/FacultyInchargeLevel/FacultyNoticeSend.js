@@ -56,7 +56,7 @@ const FacultyNoticeSend = () => {
             </div>
           </div>
 
-          {/* Form */}
+          {/* Form  */}
           <div className="flex flex-col items-center w-full">
             <h2 className="text-center text-2xl font-semibold text-gray-700 mb-1">
               Notice Details
