@@ -31,7 +31,7 @@ const DepartmentChatbox = () => {
       }
     );
     const data = await response.json();
-    console.log("fetched messages", data);
+    // console.log("fetched messages", data);
     setMessages(data.messages);
     socket.emit("join chat", userInfo.department + userInfo.committee_name);
   };
@@ -130,10 +130,44 @@ const DepartmentChatbox = () => {
 
   useEffect(() => {
     socket.on("message received", (newMessageRecieved) => {
-      console.log(messages);
+      // console.log(messages);
       setMessages([...messages, newMessageRecieved]);
     });
   });
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const formatTime = (dateStr) => {
+    const date = new Date(dateStr);
+
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      throw new Error("Invalid date");
+    }
+
+    // Extract hours, minutes, and seconds
+    let hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    // Determine AM/PM
+    const ampm = hours >= 12 ? "pm" : "am";
+
+    // Convert hours from 24-hour to 12-hour format
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+
+    // Format hours as "hh"
+    const formattedHours = String(hours).padStart(2, "0");
+
+    // Format the time as "hh:mm:ss AM/PM"
+    return `${formattedHours}:${minutes}${ampm}`;
+  };
 
   return (
     <div className="max-w-[100%] h-screen overflow-x-hidden text-wrap">
@@ -156,13 +190,31 @@ const DepartmentChatbox = () => {
                         key={index}
                       >
                         <div
-                          className={`flex items-center space-x-2 ${
+                          className={`flex flex-col space-x-2 ${
                             m.sender_id !== userInfo._id
                               ? "bg-white text-gray-800"
                               : "bg-blue-500 text-white"
-                          } max-w-xs md:max-w-md px-3 py-1 rounded-lg shadow`}
+                          } max-w-xs md:max-w-md px-3 rounded-lg shadow`}
                         >
+                          {m.user && (
+                            <p
+                              style={{ fontSize: "0.5rem" }}
+                              className={` text-green-400 ${
+                                m.sender_id == userInfo._id ? "hidden" : "block"
+                              }`}
+                            >
+                              {m.user.Id_number}
+                            </p>
+                          )}
                           <p className="break-words">{m.message}</p>
+                          <div className="flex justify-between gap-1">
+                            <p style={{ fontSize: "0.5rem" }}>
+                              {formatDate(m.createdAt)}
+                            </p>
+                            <p style={{ fontSize: "0.5rem" }}>
+                              {formatTime(m.createdAt)}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     ))}

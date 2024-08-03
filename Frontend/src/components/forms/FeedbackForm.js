@@ -1,78 +1,78 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import Header from '../Header'
-import DesktopCommities from '../DesktopCommities'
-import { useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import Header from "../Header";
+import DesktopCommities from "../DesktopCommities";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AcademicCommiteeForm = () => {
-  const [year, setYear] = useState('E1')
-  const [branch, setBranch] = useState('cse')
-  const [committee, setCommitte] = useState('Academic Committee')
-  const [message, setMessage] = useState()
-  const navigate = useNavigate()
+  const [year, setYear] = useState("E1");
+  const [branch, setBranch] = useState("cse");
+  const [committee, setCommitte] = useState("Academic Committee");
+  const [message, setMessage] = useState();
+  const navigate = useNavigate();
   const committees = [
-    'Academic Committee',
-    'Campus Amenities Committee',
-    'Mess Advisory Committee',
-    'External Activities Committee',
-    'Photography Committee',
-    'Environment/Sustainability Committee',
-    'Health Committee',
-    'Placement and Internship Committee',
-    'Grievance and Redressal Committee',
-    'Hostel Committee',
-    'Innovation and Incubation Committee',
-    'Cultural Committee',
-    'Sports Committee',
-    'Campus Greening Committee',
-    'Social Service Committee',
-    'Sustainability Committee',
-    'External Committee',
-    'Campus Safety Committee',
-  ]
+    "Academic Committee",
+    "Campus Amenities Committee",
+    "Mess Advisory Committee",
+    "External Activities Committee",
+    "Photography Committee",
+    "Environment/Sustainability Committee",
+    "Health Committee",
+    "Placement and Internship Committee",
+    "Grievance and Redressal Committee",
+    "Hostel Committee",
+    "Innovation and Incubation Committee",
+    "Cultural Committee",
+    "Sports Committee",
+    "Campus Greening Committee",
+    "Social Service Committee",
+    "Sustainability Committee",
+    "External Committee",
+    "Campus Safety Committee",
+  ];
   const submitFeedback = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!year || !branch || !committee || !message) {
-      toast.error('All the feilds are Required')
-      return
+      toast.error("All the feilds are Required");
+      return;
     }
     const data = {
       committee_name: committee,
       year: year,
       department: branch,
       description: message,
-    }
-    const feedbackDetails = JSON.stringify(data)
-    const url = 'http://localhost:1024/api/v1/feedbacks/create-feedback'
+    };
+    const feedbackDetails = JSON.stringify(data);
+    const url = "http://localhost:1024/api/v1/feedbacks/create-feedback";
     try {
       const response = await fetch(url, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        credentials: 'include',
+        credentials: "include",
         body: feedbackDetails,
-      })
+      });
       if (!response.ok) {
-        throw new Error('Error in the Response')
+        throw new Error("Error in the Response");
       }
-      toast.success('Feedback submitted successfully')
+      toast.success("Feedback submitted successfully");
       setTimeout(() => {
-        navigate('/')
-      }, 1000)
+        navigate("/");
+      }, 1000);
     } catch (error) {
-      throw new Error(error)
+      throw new Error(error);
     }
-  }
+  };
   return (
     <div className="flex flex-col h-screen overflow-x-hidden overflow-y-auto">
       <ToastContainer />
       <Header />
       <div className="flex flex-1 overflow-auto sm:max-w-full md:max-w-3/4 overflow-x-hidden">
         <DesktopCommities className="md:w-1/4 min-h-full overflow-auto sm:max-w-0 w-full inset-0" />
-        <div className=" h-fit py-[5%] lg:mt-16 sm:w-[90%] sm:ml-[5%]  sm:mt-12 sm:px-4 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-white pb-9 border border-gray-300">
+        <div className="lg:fixed h-fit  lg:mt-16 sm:w-[90%] sm:ml-[5%]  sm:mt-12 sm:px-4 lg:w-[70%] rounded-lg lg:ml-[24%]  md:w-[70%] md:ml-[23%] md:mt-20  flex items-center mb-10  bg-white pb-9 border border-gray-300">
           <div className="flex flex-col lg:flex-row items-center ">
             <div className="bg-transparent rounded-lg]">
               <img
@@ -176,7 +176,7 @@ const AcademicCommiteeForm = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AcademicCommiteeForm
+export default AcademicCommiteeForm;
