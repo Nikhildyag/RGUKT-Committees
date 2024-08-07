@@ -7,11 +7,7 @@ const ProfileCard = ({ Data }) => {
       <div className="max-w-xs md:max-w-lg">
         <div className="flex flex-row items-center lg:w-[23em] sm:w-[18em] sm:px-2 md:w-fit md:px-4 bg-white border border-gray-200 rounded-lg shadow-md">
           <img
-<<<<<<< HEAD
-            className="object-cover  rounded-t-lg h-fit w-32 md:rounded-none md:rounded-l-lg"
-=======
             className="object-cover  rounded-t-lg md:h-32 md:w-32 sm:w-32 sm:h-[8em] md:rounded-none md:rounded-l-lg"
->>>>>>> 544b5fdd12c3d2eeb4bb889029506c1a3e7c3681
             src={Data.image_url}
             alt="Profile"
           />
