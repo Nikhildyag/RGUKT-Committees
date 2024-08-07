@@ -10,15 +10,15 @@ const Homepage = () => {
       <Header />
       <div className="flex flex-1 overflow-auto sm:max-w-full md:max-w-3/4 overflow-x-hidden">
         <DesktopCommities className="md:w-1/4 min-h-full overflow-auto sm:max-w-0 w-full inset-0" />
-        <div className="flex-1 p-5 relative sm:left-0 lg:left-60 md:left-48">
+        <div className="flex-1 py-5 md:px-5 sm:px-1 relative sm:left-0 lg:left-60 md:left-48">
           <div className="mb-8 w-full md:w-3/4 lg:w-[82%] break-words px-3">
             <Link to="/noticeboard">
               <div className="flex items-center justify-end cursor-pointer mb-2">
                 <FaBullhorn className="text-blue-500 w-6 h-4 hover:text-blue-600 " />
-                <p className="text-blue-500 text-lg  ">Notice</p>
+                <p className="text-blue-500 text-lg">Notice</p>
               </div>
             </Link>
-            <h1 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-4 break-words md:marquee text-rose-900">
+            <h1 className="text-sm sm:text-base md:text-lg lg:text-2xl xl:text-2xl  font-extrabold  mb-4 break-words md:marquee text-rose-900">
               Welcome to RGUKT Basar's Central Committee Communication Portal
               Enhancing Connectivity and Collaboration
             </h1>
@@ -34,7 +34,7 @@ const Homepage = () => {
           </div>
 
           <section className="mb-8 w-full md:w-3/4 break-words px-3">
-            <h2 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-4 break-words bg-green-900 w-fit text-white px-1">
+            <h2 className=" sm:text-lg md:text-lg lg:text-xl xl:text-xl font-semibold mb-4 break-words bg-green-900 w-fit text-white px-1">
               Key Features of the Portal :
             </h2>
 
@@ -130,7 +130,7 @@ const Homepage = () => {
           </section>
 
           <section className="mb-8 w-full md:w-3/4 break-words px-3">
-            <h2 className="text-2xl font-bold mb-4 break-words bg-green-900 text-white px-1 w-fit">
+            <h2 className="sm:text-lg md:text-lg lg:text-xl xl:text-xl font-semibold mb-4 break-words bg-green-900 text-white px-1 w-fit">
               Purpose and Vision :
             </h2>
             <p className="mb-4 break-words">
