@@ -18,6 +18,7 @@ const DepartmentChatbox = () => {
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
+  const [id, setId] = useState();
 
   const fetchMessages = async () => {
     const response = await fetch(
@@ -84,11 +85,14 @@ const DepartmentChatbox = () => {
       }
 
       const responseData = await response.json();
-      //console.log(responseData);
-      const newMessage = responseData.newMessage;
+      console.log(responseData);
+      const newMessage = {
+        message: responseData.newMessage,
+        username: userInfo.Id_number,
+      };
 
       socket.emit("sendMessage", newMessage);
-      setMessages([...messages, newMessage]);
+      setMessages([...messages, newMessage.message]);
 
       // setMessages((prevMessages) => [...prevMessages, newMessage]);
       setCurrentMessage(""); // Clear input field
@@ -130,8 +134,9 @@ const DepartmentChatbox = () => {
 
   useEffect(() => {
     socket.on("message received", (newMessageRecieved) => {
-      // console.log(messages);
-      setMessages([...messages, newMessageRecieved]);
+      console.log(newMessageRecieved);
+      setId(newMessageRecieved.username);
+      setMessages([...messages, newMessageRecieved.message]);
     });
   });
 
@@ -176,9 +181,10 @@ const DepartmentChatbox = () => {
         <DepartmentSidebar />
         <div className=" md:ml-[18%] sm:ml-[0%] sm:h-full overflow-y-hidden relative top-20 flex w-full">
           <div className="flex flex-col p-4 mx-auto lg:w-[100%] sm:h-full md:max-w-full items-center ">
-            <div className="flex flex-col lg:w-[90%] lg:h-[100%] md:w-[77%] sm:w-full md:h-[30em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
+            <div className="flex flex-col lg:w-[90%] lg:h-[100%] md:w-[77%] sm:h-[100%] sm:w-full md:h-[30em] overflow-y-scroll border border-gray-300 rounded-lg p-4 mb-4 bg-gray-100">
               <ScrollableFeed>
                 <div className="flex flex-col space-y-4">
+                  {console.log(messages)}
                   {messages.length > 0 &&
                     messages.map((m, index) => (
                       <div
@@ -196,14 +202,14 @@ const DepartmentChatbox = () => {
                               : "bg-blue-500 text-white"
                           } max-w-xs md:max-w-md px-3 rounded-lg shadow`}
                         >
-                          {m.user && (
+                          {(id || m.user) && (
                             <p
                               style={{ fontSize: "0.5rem" }}
                               className={` text-green-400 ${
                                 m.sender_id == userInfo._id ? "hidden" : "block"
                               }`}
                             >
-                              {m.user.Id_number}
+                              {id || m.user.Id_number}
                             </p>
                           )}
                           <p className="break-words">{m.message}</p>
