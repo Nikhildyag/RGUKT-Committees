@@ -1,21 +1,21 @@
-import React, { useState, useRef, useEffect } from "react";
-import { FaBars, FaAngleDown, FaAngleRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import "../../index.css";
+import React, { useState, useRef, useEffect } from 'react'
+import { FaBars, FaAngleDown, FaAngleRight } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import '../../index.css'
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const menuRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const menuRef = useRef(null)
+  const dropdownRef = useRef(null)
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+    setIsDropdownOpen(!isDropdownOpen)
+  }
 
   const handleClickOutside = (event) => {
     if (
@@ -23,17 +23,17 @@ const Header = () => {
       !menuRef.current.contains(event.target) &&
       (!dropdownRef.current || !dropdownRef.current.contains(event.target))
     ) {
-      setIsOpen(false);
-      setIsDropdownOpen(false);
+      setIsOpen(false)
+      setIsDropdownOpen(false)
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <nav className="bg-[#426CAD] p-4 relative">
@@ -66,7 +66,7 @@ const Header = () => {
       </div>
       <div
         className={`fixed top-0 left-0 h-full bg-[#ece8e8] transition-transform transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? 'translate-x-0' : '-translate-x-full'
         } w-64 z-50`}
         ref={menuRef}
       >
@@ -97,7 +97,7 @@ const Header = () => {
               </button>
               <ul
                 className={`${
-                  isDropdownOpen ? "block" : "hidden"
+                  isDropdownOpen ? 'block' : 'hidden'
                 } ml-2 bg-[#ece8e8] rounded text-black`}
               >
                 <li>
@@ -206,7 +206,7 @@ const Header = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
