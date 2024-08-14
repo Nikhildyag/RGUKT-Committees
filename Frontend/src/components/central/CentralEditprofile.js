@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { FaEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,6 +12,7 @@ const CentralEditprofile = () => {
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState();
   const [Department, setDepartment] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const submitImage = async (e) => {
     console.log(image);
@@ -51,12 +52,6 @@ const CentralEditprofile = () => {
 
   const handleEdit = async (e) => {
     e.preventDefault();
-    console.log("submit");
-    if (!username || !password || !userId || !imageUrl || !Department) {
-      toast.error("fill all the details");
-      return;
-    }
-    console.log("submit");
     const data = {
       fullName: username,
       Id_number: userId,
@@ -162,14 +157,17 @@ const CentralEditprofile = () => {
                 >
                   New password
                 </label>
+               <div className="flex justify-between items-center  border border-gray-300 rounded-md">
                 <input
-                  type="password"
+                  type={showPassword?'text':'password'}
                   id="password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   placeholder="Enter New Password"
-                  className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+                  className="w-full px-3 py-2 text-sm outline-none border-none border-[0px]"
                 />
+                  <FaEye className="ml-2 text-gray-500 cursor-pointer h-[4vh] mr-2" onClick={() => setShowPassword(!showPassword)} />
+                  </div>
                 <span className="text-red-500 text-[10px]">
                   *please remember it carefully you will not have forgot
                   password option

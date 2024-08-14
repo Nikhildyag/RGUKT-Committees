@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Homepage from "../Home";
+import { FaEye } from "react-icons/fa";
 import Cookies from "js-cookie";
 import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
 import "react-toastify/dist/ReactToastify.css";
@@ -10,6 +11,7 @@ const Loginform = () => {
   const departmentInfo = Cookies.get("Department_jwt_token");
   const inchargeInfo = Cookies.get("Faculty_jwt_token");
   const centralInfo = Cookies.get("Central_jwt_token");
+  const [showPassword, setShowPassword] = useState(false);
   useEffect(() => {
     if (departmentInfo) {
       navigate("/departments");
@@ -145,13 +147,16 @@ const Loginform = () => {
                 >
                   Password
                 </label>
+                <div className="flex justify-between items-center  border border-gray-300 rounded-md">
                 <input
-                  ref={password}
-                  type="password"
-                  id="password"
-                  placeholder="Enter password"
-                  className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+                    ref={password}
+                    type={showPassword?'text':'password'}
+                    id="password"
+                    placeholder="Enter password"
+                    className="w-full px-3 py-2 text-sm outline-none border-none border-[0px]"
                 />
+                <FaEye className="ml-2 text-gray-500 cursor-pointer h-[4vh] mr-2" onClick={()=>setShowPassword(!showPassword)} />
+            </div>
               </div>
               {errorMessage && (
                 <p className="text-sm text-red-500 mb-2">

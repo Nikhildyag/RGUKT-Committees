@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { FaEye } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
 
 const DepartmentEditProfile = () => {
@@ -10,6 +11,7 @@ const DepartmentEditProfile = () => {
   const [password, setPassword] = useState("");
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState();
+  const [showPassword, setShowPassword] = useState(false);
 
   const submitImage = async () => {
     if (!image) {
@@ -48,12 +50,6 @@ const DepartmentEditProfile = () => {
 
   const handleEdit = async (e) => {
     e.preventDefault();
-
-    if (!username || !password || !userId || !imageUrl) {
-      toast.error("Please fill in all the details");
-      return;
-    }
-
     const data = {
       fullName: username,
       Id_number: userId,
@@ -145,14 +141,17 @@ const DepartmentEditProfile = () => {
                 >
                   New Password
                 </label>
+               <div className="flex justify-between items-center  border border-gray-300 rounded-md">
                 <input
-                  type="password"
+                  type={showPassword?'text':'password'}
                   id="password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   placeholder="Enter New Password"
-                  className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+                  className="w-full px-3 py-2 text-sm outline-none border-none border-[0px]"
                 />
+                  <FaEye className="ml-2 text-gray-500 cursor-pointer h-[4vh] mr-2" onClick={() => setShowPassword(!showPassword)} />
+                  </div>
                 <span className="text-red-500 text-[10px]">
                   * Please remember it carefully. You will not have a forgot
                   password option.
