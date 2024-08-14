@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ProfileCard = ({ Data }) => {
-  console.log('profile card', Data)
+  console.log("profile card", Data);
   return (
     <div className="flex justify-center mt-8 md:mt-10">
       <div className="max-w-xs md:max-w-lg">
@@ -25,7 +25,7 @@ const ProfileCard = ({ Data }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProfileCard
+export default ProfileCard;
