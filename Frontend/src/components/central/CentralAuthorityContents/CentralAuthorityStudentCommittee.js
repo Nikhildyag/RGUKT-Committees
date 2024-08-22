@@ -1,38 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../Home/Header'
-import CentralAuthoritySidebar from '../Home/CentralAuthoritySidebar'
-import CentralAuthorityProfileCard from '../ProfileCard/CentralAuthorityProfileCard'
+import React, { useEffect, useState } from "react";
+import Header from "../Home/Header";
+import CentralAuthoritySidebar from "../Home/CentralAuthoritySidebar";
+import CentralAuthorityProfileCard from "../ProfileCard/CentralAuthorityProfileCard";
+import { BASE_URL } from "../../../helper";
 
 const CentralAuthorityStudentCommittee = () => {
-  const [students, setStudents] = useState([])
-  const [isDataReady, setIsdataready] = useState()
+  const [students, setStudents] = useState([]);
+  const [isDataReady, setIsdataready] = useState();
 
   useEffect(() => {
     const fetchStudentCommittees = async () => {
       try {
         const response = await fetch(
-          'http://localhost:1024/api/v1/department/get/committee/departmentMembers1',
+          `${BASE_URL}/api/v1/department/get/committee/departmentMembers1`,
           {
-            method: 'GET',
-            credentials: 'include', // Include credentials (cookies)
+            method: "GET",
+            credentials: "include", // Include credentials (cookies)
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
           }
-        )
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok')
+          throw new Error("Network response was not ok");
         }
-        const json = await response.json()
-        setStudents(json.members)
-        setIsdataready(true)
+        const json = await response.json();
+        setStudents(json.members);
+        setIsdataready(true);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
 
-    fetchStudentCommittees()
-  }, [])
+    fetchStudentCommittees();
+  }, []);
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <Header />
@@ -177,7 +178,7 @@ const CentralAuthorityStudentCommittee = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CentralAuthorityStudentCommittee
+export default CentralAuthorityStudentCommittee;

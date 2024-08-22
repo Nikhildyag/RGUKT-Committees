@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import EducationHeader from "./EducationHeader";
 import EducationSidebar from "./EducationSidebar";
 import ProfileCard from "../../ProfileCard";
+import { BASE_URL } from "../../../helper";
 
 const EducationFacultyIncarge = () => {
   const [students, setStudents] = useState([]);
@@ -14,7 +15,7 @@ const EducationFacultyIncarge = () => {
       const committee_details = JSON.stringify(data);
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/incharge/get-inchargeforuser",
+          `${BASE_URL}/api/v1/incharge/get-inchargeforuser`,
           {
             method: "POST",
             credentials: "include", // Include credentials (cookies)

@@ -1,38 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import DepartmentSidebar from './DepartmentSidebar'
-import DepartmentHeader from './DepartmentHeader'
-import ProfileCard from '../ProfileCard'
+import React, { useEffect, useState } from "react";
+import DepartmentSidebar from "./DepartmentSidebar";
+import DepartmentHeader from "./DepartmentHeader";
+import ProfileCard from "../ProfileCard";
+import { BASE_URL } from "../../helper";
 
 const DepartmentCentralAuthority = () => {
-  const [students, setStudents] = useState([])
-  const [isDataReady, setIsdataready] = useState(false)
+  const [students, setStudents] = useState([]);
+  const [isDataReady, setIsdataready] = useState(false);
   useEffect(() => {
     const fetchCentralCommittees = async () => {
       try {
         const response = await fetch(
-          'http://localhost:1024/api/v1/central/get/centralmembersbylogin',
+          `${BASE_URL}/api/v1/central/get/centralmembersbylogin`,
           {
-            method: 'GET',
-            credentials: 'include', // Include credentials (cookies)
+            method: "GET",
+            credentials: "include", // Include credentials (cookies)
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
           }
-        )
+        );
         if (!response.ok) {
-          throw new Error(response, 'Network response was not ok')
+          throw new Error(response, "Network response was not ok");
         }
-        const json = await response.json()
-        setStudents(json.MembersArray)
-        console.log(json)
-        setIsdataready(true)
+        const json = await response.json();
+        setStudents(json.MembersArray);
+        console.log(json);
+        setIsdataready(true);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
 
-    fetchCentralCommittees()
-  }, [])
+    fetchCentralCommittees();
+  }, []);
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <DepartmentHeader />
@@ -68,7 +69,7 @@ const DepartmentCentralAuthority = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DepartmentCentralAuthority
+export default DepartmentCentralAuthority;

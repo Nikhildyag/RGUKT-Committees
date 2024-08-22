@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Header from "../Home/Header";
 import CentralAuthoritySidebar from "../Home/CentralAuthoritySidebar";
+import { BASE_URL } from "../../../helper";
 
 const CentralAuthorityFeedback = () => {
   const colors = [
@@ -17,8 +18,7 @@ const CentralAuthorityFeedback = () => {
   const [feedbacksPerPage] = useState(5); // Number of feedbacks per page
 
   const fetchfeedbacks = async () => {
-    const url =
-      "http://localhost:1024/api/v1/feedbacks/get/feedbacksForCentral";
+    const url = `${BASE_URL}/api/v1/feedbacks/get/feedbacksForCentral`;
     try {
       const response = await fetch(url, {
         method: "GET",

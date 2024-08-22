@@ -1,63 +1,64 @@
-import React, { useEffect, useState } from 'react'
-import DepartmentHeader from './DepartmentHeader'
-import DepartmentSidebar from './DepartmentSidebar'
+import React, { useEffect, useState } from "react";
+import DepartmentHeader from "./DepartmentHeader";
+import DepartmentSidebar from "./DepartmentSidebar";
+import { BASE_URL } from "../../helper";
 
 const Departmentfeedbacks = () => {
   const colors = [
-    'bg-red-300',
-    'bg-green-300',
-    'bg-purple-300',
-    'bg-blue-300',
-    'bg-yellow-300',
-  ]
-  const [feedbacks, setFeedbacks] = useState([])
-  const [feedbacksReady, setFeedbacksReady] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [feedbacksPerPage] = useState(5) // Number of feedbacks per page
+    "bg-red-300",
+    "bg-green-300",
+    "bg-purple-300",
+    "bg-blue-300",
+    "bg-yellow-300",
+  ];
+  const [feedbacks, setFeedbacks] = useState([]);
+  const [feedbacksReady, setFeedbacksReady] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [feedbacksPerPage] = useState(5); // Number of feedbacks per page
 
   const fetchFeedbacks = async () => {
-    const url =
-      'http://localhost:1024/api/v1/feedbacks/get/feedbacksForDepartment'
+    const url = `${BASE_URL}/api/v1/feedbacks/get/feedbacksForDepartment`;
     try {
       const response = await fetch(url, {
-        method: 'GET',
-        credentials: 'include', // Include credentials (cookies)
+        method: "GET",
+        credentials: "include", // Include credentials (cookies)
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      })
+      });
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        throw new Error("Network response was not ok");
       }
-      const json = await response.json()
-      console.log(json)
-      setFeedbacks(json.feedbacks)
-      setFeedbacksReady(true)
+      const json = await response.json();
+      console.log(json);
+      setFeedbacks(json.feedbacks);
+      setFeedbacksReady(true);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchFeedbacks()
-  }, [])
+    fetchFeedbacks();
+  }, []);
 
   // Get current feedbacks
-  const indexOfLastFeedback = currentPage * feedbacksPerPage
-  const indexOfFirstFeedback = indexOfLastFeedback - feedbacksPerPage
+  const indexOfLastFeedback = currentPage * feedbacksPerPage;
+  const indexOfFirstFeedback = indexOfLastFeedback - feedbacksPerPage;
   const currentFeedbacks =
-    feedbacksReady && feedbacks.slice(indexOfFirstFeedback, indexOfLastFeedback)
+    feedbacksReady &&
+    feedbacks.slice(indexOfFirstFeedback, indexOfLastFeedback);
 
   // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString)
-    const day = String(date.getDate()).padStart(2, '0')
-    const month = String(date.getMonth() + 1).padStart(2, '0')
-    const year = date.getFullYear()
-    return `${day}/${month}/${year}`
-  }
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
 
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
@@ -90,7 +91,7 @@ const Departmentfeedbacks = () => {
               <div className="relative flex justify-center mt-4 mb-6">
                 <button
                   className={`bg-blue-500 text-white px-4 py-2 mx-2 rounded-md ${
-                    currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                    currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                   onClick={() => paginate(currentPage - 1)}
                   disabled={currentPage === 1}
@@ -100,8 +101,8 @@ const Departmentfeedbacks = () => {
                 <button
                   className={`bg-blue-500 text-white px-4 py-2 mx-2 rounded-md ${
                     indexOfLastFeedback >= feedbacks.length
-                      ? 'opacity-50 cursor-not-allowed'
-                      : ''
+                      ? "opacity-50 cursor-not-allowed"
+                      : ""
                   }`}
                   onClick={() => paginate(currentPage + 1)}
                   disabled={indexOfLastFeedback >= feedbacks.length}
@@ -114,7 +115,7 @@ const Departmentfeedbacks = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Departmentfeedbacks
+export default Departmentfeedbacks;

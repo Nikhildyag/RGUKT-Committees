@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import Cookie from "js-cookie";
 import "react-toastify/dist/ReactToastify.css";
+import { BASE_URL } from "../../helper";
 
 const FicHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ const FicHeader = () => {
   }, []);
 
   const Logout = async () => {
-    const url = "http://localhost:1024/api/v1/incharge/logout";
+    const url = `${BASE_URL}/api/v1/incharge/logout`;
     try {
       const response = await fetch(url, {
         method: "GET",

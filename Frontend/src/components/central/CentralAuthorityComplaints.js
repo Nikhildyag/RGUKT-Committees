@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../helper";
 
 const CentralAuthorityComplaints = () => {
   const [complaints, setComplaints] = useState([]);
@@ -9,8 +10,7 @@ const CentralAuthorityComplaints = () => {
   const [complaintsPerPage] = useState(10); // Number of complaints per page
 
   const fetchComplaints = async () => {
-    const url =
-      "http://localhost:1024/api/v1/complaints/get/ComplaintsForCentral";
+    const url = `${BASE_URL}/api/v1/complaints/get/ComplaintsForCentral`;
     try {
       const response = await fetch(url, {
         method: "GET",

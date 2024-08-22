@@ -4,6 +4,7 @@ import Cookie from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
 import "react-toastify/dist/ReactToastify.css";
+import { BASE_URL } from "../../helper";
 
 const DepartmentHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +32,7 @@ const DepartmentHeader = () => {
     };
   }, []);
   const Logout = async () => {
-    const url = "http://localhost:1024/api/v1/department/logout";
+    const url = `${BASE_URL}/api/v1/department/logout`;
     try {
       const response = await fetch(url, {
         method: "GET",

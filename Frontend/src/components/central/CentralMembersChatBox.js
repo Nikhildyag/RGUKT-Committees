@@ -4,10 +4,11 @@ import Header from "./Home/Header.js";
 import CentralAuthoritySidebar from "./Home/CentralAuthoritySidebar.js";
 import ScrollableFeed from "react-scrollable-feed";
 import { FaPaperPlane } from "react-icons/fa";
+import { BASE_URL } from "../../helper.js";
 
 let socket, selectedChatCompare;
 
-const ENDPOINT = "http://localhost:1024";
+const ENDPOINT = `${BASE_URL}`;
 
 const CentralMembersChatBox = ({ userId }) => {
   const userInfo = JSON.parse(localStorage.getItem("central"));
@@ -21,7 +22,7 @@ const CentralMembersChatBox = ({ userId }) => {
 
   const fetchMessages = async () => {
     const response = await fetch(
-      "http://localhost:1024/api/v1/messages/get/centralMembersChat",
+      `${BASE_URL}/api/v1/messages/get/centralMembersChat`,
       {
         method: "GET",
         headers: {
@@ -67,7 +68,7 @@ const CentralMembersChatBox = ({ userId }) => {
 
     try {
       const response = await fetch(
-        "http://localhost:1024/api/v1/messages/send/messageForCentral",
+        `${BASE_URL}/api/v1/messages/send/messageForCentral`,
         {
           method: "POST",
           headers: {

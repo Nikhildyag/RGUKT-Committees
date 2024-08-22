@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaBars, FaAngleDown, FaAngleRight } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import Cookie from 'js-cookie'
+import Cookie from "js-cookie";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BASE_URL } from "../../../helper";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,7 @@ const Header = () => {
   }, []);
 
   const Logout = async () => {
-    const url = "http://localhost:1024/api/v1/central/logout";
+    const url = `${BASE_URL}/api/v1/central/logout`;
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -41,7 +42,7 @@ const Header = () => {
         throw new Error("Network response was not ok");
       }
       localStorage.removeItem("central");
-      Cookie.remove('Central_jwt_token');
+      Cookie.remove("Central_jwt_token");
       toast.success("User logged out successfully");
       setTimeout(() => {
         navigate("/");

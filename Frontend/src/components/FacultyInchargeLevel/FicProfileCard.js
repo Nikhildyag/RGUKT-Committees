@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const FicProfileCard = ({ Data }) => {
   console.log(Data);
@@ -25,7 +25,7 @@ const FicProfileCard = ({ Data }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FicProfileCard
+export default FicProfileCard;

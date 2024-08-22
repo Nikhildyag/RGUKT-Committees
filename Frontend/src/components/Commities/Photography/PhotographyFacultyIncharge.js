@@ -2,40 +2,41 @@ import React, { useEffect, useState } from "react";
 import PhotographyHeader from "./PhotographyHeader";
 import PhotographySidebar from "./PhotographySidebar";
 import ProfileCard from "../../ProfileCard";
+import { BASE_URL } from "../../../helper";
 
 const PhotographyFacultyIncarge = () => {
- const [students, setStudents] = useState([])
-  const [isDataReady, setIsdataready] = useState(false)
-   useEffect(() => {
+  const [students, setStudents] = useState([]);
+  const [isDataReady, setIsdataready] = useState(false);
+  useEffect(() => {
     const fetchStudentCommittees = async () => {
       const data = {
-        committee_name: 'photography',
-      }
-      const committee_details = JSON.stringify(data)
+        committee_name: "photography",
+      };
+      const committee_details = JSON.stringify(data);
       try {
         const response = await fetch(
-          'http://localhost:1024/api/v1/incharge/get-inchargeforuser',
+          `${BASE_URL}/api/v1/incharge/get-inchargeforuser`,
           {
-            method: 'POST',
-            credentials: 'include', // Include credentials (cookies)
+            method: "POST",
+            credentials: "include", // Include credentials (cookies)
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: committee_details,
           }
-        )
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok')
+          throw new Error("Network response was not ok");
         }
-        const json = await response.json()
-        setStudents(json.incharge)
-        setIsdataready(true)
+        const json = await response.json();
+        setStudents(json.incharge);
+        setIsdataready(true);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-    fetchStudentCommittees()
-   }, [])
+    };
+    fetchStudentCommittees();
+  }, []);
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <PhotographyHeader name={"Academic Committee"} />

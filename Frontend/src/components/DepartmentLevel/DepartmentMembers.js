@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import DepartmentHeader from './DepartmentHeader'
-import DepartmentSidebar from './DepartmentSidebar'
-import ProfileCard from '../ProfileCard'
+import React, { useEffect, useState } from "react";
+import DepartmentHeader from "./DepartmentHeader";
+import DepartmentSidebar from "./DepartmentSidebar";
+import ProfileCard from "../ProfileCard";
+import { BASE_URL } from "../../helper";
 
 const DepartmentMembers = () => {
-  const [DepartmentMembers, SetDepartmentMembers] = useState()
+  const [DepartmentMembers, SetDepartmentMembers] = useState();
 
   const fetchDepartmentMembers = async () => {
-    const url =
-      'http://localhost:1024/api/v1/department/get/committee/departmentMembers'
+    const url = `${BASE_URL}/api/v1/department/get/committee/departmentMembers`;
     const response = await fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      credentials: 'include',
-    })
-    const data = await response.json()
+      credentials: "include",
+    });
+    const data = await response.json();
     if (response.ok === true) {
-      console.log('fetched data is ', data)
-      SetDepartmentMembers(data.members)
+      console.log("fetched data is ", data);
+      SetDepartmentMembers(data.members);
     } else {
-      console.log(response.errorMessage)
+      console.log(response.errorMessage);
       //console.log(response.ok);
     }
-  }
+  };
   useEffect(() => {
-    fetchDepartmentMembers()
-  }, [])
+    fetchDepartmentMembers();
+  }, []);
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <DepartmentHeader />
@@ -56,7 +56,7 @@ const DepartmentMembers = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DepartmentMembers
+export default DepartmentMembers;

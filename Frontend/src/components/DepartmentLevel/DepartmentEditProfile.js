@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import "react-toastify/dist/ReactToastify.css";
+import { BASE_URL } from "../../helper";
 
 const DepartmentEditProfile = () => {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const DepartmentEditProfile = () => {
       image_url: imageUrl,
     };
     const userDetails = JSON.stringify(data);
-    const url = "http://localhost:1024/api/v1/department/update";
+    const url = `${BASE_URL}/api/v1/department/update`;
 
     try {
       const response = await fetch(url, {
@@ -141,17 +142,20 @@ const DepartmentEditProfile = () => {
                 >
                   New Password
                 </label>
-               <div className="flex justify-between items-center  border border-gray-300 rounded-md">
-                <input
-                  type={showPassword?'text':'password'}
-                  id="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  placeholder="Enter New Password"
-                  className="w-full px-3 py-2 text-sm outline-none border-none border-[0px]"
-                />
-                  <FaEye className="ml-2 text-gray-500 cursor-pointer h-[4vh] mr-2" onClick={() => setShowPassword(!showPassword)} />
-                  </div>
+                <div className="flex justify-between items-center  border border-gray-300 rounded-md">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    placeholder="Enter New Password"
+                    className="w-full px-3 py-2 text-sm outline-none border-none border-[0px]"
+                  />
+                  <FaEye
+                    className="ml-2 text-gray-500 cursor-pointer h-[4vh] mr-2"
+                    onClick={() => setShowPassword(!showPassword)}
+                  />
+                </div>
                 <span className="text-red-500 text-[10px]">
                   * Please remember it carefully. You will not have a forgot
                   password option.

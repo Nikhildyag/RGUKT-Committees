@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "../../helper";
 
 const FicViewComplaints = () => {
   const { complaintId } = useParams();
@@ -10,7 +11,7 @@ const FicViewComplaints = () => {
     const fetchComplaint = async () => {
       try {
         const response = await fetch(
-          `http://localhost:1024/api/v1/complaints/get/particularComplaintForIncharge/${complaintId}`,
+          `${BASE_URL}/api/v1/complaints/get/particularComplaintForIncharge/${complaintId}`,
           {
             method: "GET",
             credentials: "include", // Include credentials (cookies)

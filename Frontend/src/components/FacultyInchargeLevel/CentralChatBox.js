@@ -3,7 +3,8 @@ import io from "socket.io-client";
 import FicHeader from "./FicHeader.js";
 import FicSidebar from "./FicSidebar";
 import ScrollableFeed from "react-scrollable-feed";
-const socket = io("http://localhost:1024", {
+import { BASE_URL } from "../../helper.js";
+const socket = io(`${BASE_URL}`, {
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "abcd",
@@ -17,7 +18,7 @@ const CentralChatBox = ({ userId }) => {
     const fetchMessages = async () => {
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/messages/get/centralMessage1",
+          `${BASE_URL}/api/v1/messages/get/centralMessage1`,
           {
             method: "GET",
             credentials: "include",

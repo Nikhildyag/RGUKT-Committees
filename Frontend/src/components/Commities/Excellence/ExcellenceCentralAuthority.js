@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProfileCard from "../../ProfileCard";
 import ExcellenceHeader from "./ExcellenceHeader";
 import ExcellenceSidebar from "./ExcellenceSidebar";
+import { BASE_URL } from "../../../helper";
 const ExcellenceCentralAuthority = () => {
   const [students, setStudents] = useState([]);
   const [isDataReady, setIsdataready] = useState(false);
@@ -13,7 +14,7 @@ const ExcellenceCentralAuthority = () => {
       const committee_details = JSON.stringify(data);
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/central/get/centralcommitteemembers",
+          `${BASE_URL}/api/v1/central/get/centralcommitteemembers`,
           {
             method: "POST",
             credentials: "include", // Include credentials (cookies)

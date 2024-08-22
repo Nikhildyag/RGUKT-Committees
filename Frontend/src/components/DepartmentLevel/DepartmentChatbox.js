@@ -5,9 +5,10 @@ import DepartmentHeader from "./DepartmentHeader.js";
 import DepartmentSidebar from "./DepartmentSidebar.js";
 import ScrollableFeed from "react-scrollable-feed";
 import { FaPaperPlane } from "react-icons/fa";
+import { BASE_URL } from "../../helper.js";
 let socket;
 
-const ENDPOINT = "http://localhost:1024"; // Adjust this to your server endpoint
+const ENDPOINT = `${BASE_URL}`; // Adjust this to your server endpoint
 // socket = io(ENDPOINT);
 
 const DepartmentChatbox = () => {
@@ -22,7 +23,7 @@ const DepartmentChatbox = () => {
 
   const fetchMessages = async () => {
     const response = await fetch(
-      "http://localhost:1024/api/v1/messages/get/departmentMessage",
+      `${BASE_URL}/api/v1/messages/get/departmentMessage`,
       {
         method: "GET",
         headers: {
@@ -68,17 +69,14 @@ const DepartmentChatbox = () => {
     const data = JSON.stringify(messageDetails);
 
     try {
-      const response = await fetch(
-        "http://localhost:1024/api/v1/messages/send/message",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: data,
-        }
-      );
+      const response = await fetch(`${BASE_URL}/api/v1/messages/send/message`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: data,
+      });
 
       if (!response.ok) {
         throw new Error("Sending message failed");

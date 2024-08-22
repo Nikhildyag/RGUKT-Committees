@@ -1,33 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import FicHeader from './FicHeader'
-import FicSidebar from './FicSidebar'
-import FicProfileCard from './FicProfileCard'
+import React, { useEffect, useState } from "react";
+import FicHeader from "./FicHeader";
+import FicSidebar from "./FicSidebar";
+import FicProfileCard from "./FicProfileCard";
+import { BASE_URL } from "../../helper";
 
 const FicFacultyMembers = () => {
-  const [ficdetails, setficdetails] = useState()
+  const [ficdetails, setficdetails] = useState();
 
   const getFicDetails = async () => {
-    const url = 'http://localhost:1024/api/v1/incharge/get-incharge'
+    const url = `${BASE_URL}/api/v1/incharge/get-incharge`;
     const response = await fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      credentials: 'include',
-    })
-    const data = await response.json()
+      credentials: "include",
+    });
+    const data = await response.json();
     if (response.ok === true) {
-      console.log(data)
-      setficdetails(data.incharge)
-      console.log('your Data is', data)
+      console.log(data);
+      setficdetails(data.incharge);
+      console.log("your Data is", data);
     } else {
-      console.log(response.errorMessage)
+      console.log(response.errorMessage);
       //console.log(response.ok);
     }
-  }
+  };
   useEffect(() => {
-    getFicDetails()
-  }, [])
+    getFicDetails();
+  }, []);
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
       <FicHeader />
@@ -43,7 +44,7 @@ const FicFacultyMembers = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FicFacultyMembers
+export default FicFacultyMembers;

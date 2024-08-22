@@ -3,8 +3,9 @@ import io from "socket.io-client";
 import Header from "../Home/Header.js";
 import CentralAuthoritySidebar from "../Home/CentralAuthoritySidebar.js";
 import ScrollableFeed from "react-scrollable-feed";
+import { BASE_URL } from "../../../helper.js";
 
-const socket = io("http://localhost:1024", {
+const socket = io(`${BASE_URL}`, {
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "abcd",
@@ -22,7 +23,7 @@ const CentralMechChatBoxSection = ({ userId }) => {
       const branch = JSON.stringify(data);
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/messages/get/departmentMessagesForCentral",
+          `${BASE_URL}/api/v1/messages/get/departmentMessagesForCentral`,
           {
             method: "POST",
             credentials: "include",

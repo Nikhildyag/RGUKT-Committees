@@ -1,27 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const FormCard = ({ Data }) => {
-  const { committee_name, categories } = Data
+  const { committee_name, categories } = Data;
 
-  const [category, setCategory] = useState('')
-  const [otherCategory, setOtherCategory] = useState('')
-  const [year, setYear] = useState('')
-  const [branch, setBranch] = useState('')
+  const [category, setCategory] = useState("");
+  const [otherCategory, setOtherCategory] = useState("");
+  const [year, setYear] = useState("");
+  const [branch, setBranch] = useState("");
 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value)
-  }
+    setCategory(e.target.value);
+  };
 
   const handleYear = (e) => {
-    setYear(e.target.value)
-  }
+    setYear(e.target.value);
+  };
 
   const handleBranch = (e) => {
-    setBranch(e.target.value)
-  }
+    setBranch(e.target.value);
+  };
   const handlesubmit = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
 
   return (
     <div className="max-w-[100%] overflow-x-hidden text-wrap">
@@ -93,10 +93,10 @@ const FormCard = ({ Data }) => {
                   <option value="E4">E4</option>
                 </select>
               </div>
-              {(year === 'E1' ||
-                year === 'E2' ||
-                year === 'E3' ||
-                year === 'E4') && (
+              {(year === "E1" ||
+                year === "E2" ||
+                year === "E3" ||
+                year === "E4") && (
                 <div className="mb-4">
                   <label
                     className="block text-white  font-bold mb-2"
@@ -142,7 +142,7 @@ const FormCard = ({ Data }) => {
                   ))}
                 </select>
               </div>
-              {category === 'Other' && (
+              {category === "Other" && (
                 <div className="mb-4">
                   <label
                     className="block text-white  font-bold mb-2"
@@ -189,7 +189,7 @@ const FormCard = ({ Data }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FormCard
+export default FormCard;

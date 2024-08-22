@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProfileCard from "../../ProfileCard";
 import GrievanceHeader from "./GrievanceHeader";
 import GrievanceSidebar from "./GrievanceSidebar";
+import { BASE_URL } from "../../../helper";
 
 const CentralAuthority = () => {
   const [students, setStudents] = useState([]);
@@ -14,7 +15,7 @@ const CentralAuthority = () => {
       const committee_details = JSON.stringify(data);
       try {
         const response = await fetch(
-          "http://localhost:1024/api/v1/central/get/centralcommitteemembers",
+          `${BASE_URL}/api/v1/central/get/centralcommitteemembers`,
           {
             method: "POST",
             credentials: "include", // Include credentials (cookies)

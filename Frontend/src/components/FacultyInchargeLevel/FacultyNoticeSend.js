@@ -1,46 +1,47 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../helper";
 
 const FacultyNoticeSend = () => {
-  const [subject, setSubject] = useState('')
-  const [description, setDescription] = useState()
-  const navigate = useNavigate()
+  const [subject, setSubject] = useState("");
+  const [description, setDescription] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!subject || !description) {
-      alert('fill all the fields')
-      return
+      alert("fill all the fields");
+      return;
     }
     const noticeDetails = {
       subject: subject,
       description: description,
-    }
-    const data1 = JSON.stringify(noticeDetails)
-    const url = 'http://localhost:1024/api/v1/notices/create-notice'
+    };
+    const data1 = JSON.stringify(noticeDetails);
+    const url = `${BASE_URL}/api/v1/notices/create-notice`;
 
     try {
       const response = await fetch(url, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        credentials: 'include',
+        credentials: "include",
         body: data1,
-      })
+      });
 
       if (!response.ok) {
-        throw new Error('Login failed')
+        throw new Error("Login failed");
       }
 
-      const data = await response.json()
-      console.log(data)
-      alert('Notice submitted successfylly')
-      navigate('/facultyInchargeHome')
+      const data = await response.json();
+      console.log(data);
+      alert("Notice submitted successfylly");
+      navigate("/facultyInchargeHome");
     } catch (error) {
-      console.error('Login error:', error)
+      console.error("Login error:", error);
     }
-  }
+  };
 
   return (
     <div>
@@ -108,7 +109,7 @@ const FacultyNoticeSend = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FacultyNoticeSend
+export default FacultyNoticeSend;

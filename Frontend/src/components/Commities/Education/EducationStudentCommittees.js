@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import EducationHeader from "./EducationHeader";
 import EducationSidebar from "./EducationSidebar";
 import ProfileCard from "../../ProfileCard";
+import { BASE_URL } from "../../../helper";
 
 const EducationStudentCommittee = () => {
   const [students, setStudents] = useState([]);
@@ -15,7 +16,7 @@ const EducationStudentCommittee = () => {
       const committee_details = JSON.stringify(data);
       try {
         const response = await fetch(
-          `http://localhost:1024/api/v1/department/get/committeemembers`,
+          `${BASE_URL}/api/v1/department/get/committeemembers`,
           {
             method: "POST",
             credentials: "include", // Include credentials (cookies)
