@@ -17,7 +17,7 @@ const io = new Server(server, {
   autoConnect: false,
   pingTimeout: 60000,
   cors: {
-    origin: "https://rgukt-committees.vercel.app/", // Change this to your frontend URL in production
+    origin: "https://rgukt-committees.vercel.app", // Change this to your frontend URL in production
     methods: ["GET", "POST"],
     credentials: true,
   },
