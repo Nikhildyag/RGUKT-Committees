@@ -97,31 +97,32 @@ const CentralChemChatBoxSection = ({ userId }) => {
                 Welcome to CHEM Chat Box
               </h1>
               <ScrollableFeed>
-                <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4">
                   {messages.length > 0 &&
                     messages.map((m, index) => (
                       <div
                         className="justify-start flex items-center max-w-xs md:max-w-md space-x-2 bg-white text-gray-800 px-3 py-1 rounded-lg shadow"
                         key={index}
                       >
-                        <p className="break-words w-auto">{m.message}</p>
-                        {m.user && (
-                          <p
-                            style={{ fontSize: "0.5rem" }}
-                            className={` text-green-400
-                            `}
-                          >
-                            {m.user.Id_number}
-                          </p>
-                        )}
-                        <p className="break-words">{m.message}</p>
-                        <div className="flex justify-between gap-1">
-                          <p style={{ fontSize: "0.5rem" }}>
-                            {formatDate(m.createdAt)}
-                          </p>
-                          <p style={{ fontSize: "0.5rem" }}>
-                            {formatTime(m.createdAt)}
-                          </p>
+                        <div className="flex flex-col">
+                          {m.user && (
+                            <p
+                              style={{ fontSize: "0.5rem" }}
+                              className={` text-green-400
+                              `}
+                            >
+                              {m.user.Id_number}
+                            </p>
+                          )}
+                          <p className="break-words w-auto">{m.message}</p>
+                          <div className="flex justify-between gap-1">
+                            <p style={{ fontSize: "0.5rem" }}>
+                              {formatDate(m.createdAt)}
+                            </p>
+                            <p style={{ fontSize: "0.5rem" }}>
+                              {formatTime(m.createdAt)}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     ))}
