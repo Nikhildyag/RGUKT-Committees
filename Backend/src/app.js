@@ -10,7 +10,7 @@ import feedbackRouter from "./routes/feedbackForm.routes.js";
 import noticeRouter from "./routes/notice.routes.js";
 const app = express();
 const corsOptions = {
-  origin: ["rgukt-committees.vercel.app"], // Frontend domain
+  origin: ["https://rgukt-committees.vercel.app"], // Frontend domain
   credentials: true, // Allow credentials (cookies) to be sent
 };
 app.use(cors(corsOptions));
